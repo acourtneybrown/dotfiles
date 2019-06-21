@@ -68,6 +68,12 @@ dotfiles:
     link: link_children
 profiles:
   acourtnrownsmbp.notcharlie.com:
+    include:
+      - default
+  mini-me.notcharlie.com:
+    include:
+      - default
+  default:
     dotfiles:
     - f_bashrc
     - f_aliases
