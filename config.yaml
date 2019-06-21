@@ -66,13 +66,17 @@ dotfiles:
     src: Library/Application Support/Sublime Text 3/Packages/User
     dst: ~/Library/Application Support/Sublime Text 3/Packages/User
     link: link_children
+  f_hushlogin:
+    src: hushlogin
+    dst: ~/.hushlogin
+    link: nolink
 profiles:
   acourtnrownsmbp.notcharlie.com:
     include:
-      - default
+    - default
   mini-me.notcharlie.com:
     include:
-      - default
+    - default
   default:
     dotfiles:
     - f_bashrc
@@ -94,3 +98,4 @@ profiles:
     - d_bin
     - d_fonts
     - d_user
+    - f_hushlogin
