@@ -1,0 +1,75 @@
+[ui]
+# style = compact
+style = ~/.hgext/templates/map-cmdline.acb
+editor   = vim
+# if you prefer textmate, use this instead
+#editor   = mate -w
+
+# sets up global ignore file
+ignore   = ~/.hgignore
+# replace this with your name and email
+username = Adam Brown <acourtneybrown@gmail.com>
+
+[alias]
+# you can alias commands here.
+#sum=summary --remote
+qstatus = status --rev qparent:qtip
+
+[diff]
+git = True
+
+[hostfingerprints]
+
+[auth]
+
+[merge-tools]
+# p4merge.executable = /Applications/p4merge.app/Contents/MacOS/p4merge
+# p4merge.priority = 50
+# p4merge.premerge = True
+# p4merge.gui = True
+# p4merge.args = $base $local $other $output
+# p4merge.binary = False
+
+# kdiff3.executable = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+# kdiff3.priority = 20
+# kdiff3.premerge = True
+# kdiff3.gui = True
+# kdiff3.args = --auto --L1 base --L2 local --L3 other $base $local $other -o $output 
+# kdiff3.binary = false 
+
+[hooks]
+changegroup=hg log -r $HG_NODE:tip --stat --template '{empty}'
+# Prevent "hg pull" if MQ patches are applied.
+prechangegroup.mq-no-pull = ! hg qtop > /dev/null 2>&1
+# Prevent "hg push" if MQ patches are applied.
+preoutgoing.mq-no-push = ! hg qtop > /dev/null 2>&1
+
+[extensions]
+# builtin extensions 
+color = 
+fetch =
+progress =
+convert =
+rebase =
+graphlog = 
+mq =
+transplant = 
+eol = 
+pager = 
+record = 
+# prompt = ~/.hgext/hg-prompt/prompt.py
+# compass = ~/.hgext/hg-compass/compass.py
+# collapse = ~/.hgext/hgcollapse/hgext/collapse.py
+# remotebranches = ~/.hgext/hg-remotebranches/hg_remotebranches.py
+
+# third party 
+# mercurial_keyring = ~/.hgext/mercurial_keyring/mercurial_keyring.py
+
+# This allows you to shelve/stash your current changes to work on something else, then retrieve those changes at a later time
+# hgshelve = ~/.hgext/hgshelve/hgshelve.py 
+
+# reviewboard = ~/.hgext/hgreviewboard
+
+[pager]
+pager = less -Ri
+ignore = pull, update, rebase

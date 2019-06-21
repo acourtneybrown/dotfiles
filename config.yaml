@@ -3,4 +3,58 @@ config:
   create: true
   dotpath: dotfiles
 dotfiles:
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
+  f_aliases:
+    src: aliases
+    dst: ~/.aliases
+  f_bash_profile:
+    src: bash_profile
+    dst: ~/.bash_profile
+  f_bash_prompt:
+    src: bash_prompt
+    dst: ~/.bash_prompt
+  f_curlrc:
+    src: curlrc
+    dst: ~/.curlrc
+  f_exports:
+    src: exports
+    dst: ~/.exports
+  f_functions:
+    src: functions
+    dst: ~/.functions
+  f_gitconfig:
+    src: gitconfig
+    dst: ~/.gitconfig
+  f_hgrc:
+    src: hgrc
+    dst: ~/.hgrc
+  f_path:
+    src: path
+    dst: ~/.path
+  f_tmux.conf:
+    src: tmux.conf
+    dst: ~/.tmux.conf
+  f_vimrc:
+    src: vimrc
+    dst: ~/.vimrc
+  f_wgetrc:
+    src: wgetrc
+    dst: ~/.wgetrc
 profiles:
+  acourtnrownsmbp.notcharlie.com:
+    dotfiles:
+    - f_bashrc
+    - f_aliases
+    - f_bash_profile
+    - f_bash_prompt
+    - f_curlrc
+    - f_exports
+    - f_functions
+    - f_gitconfig
+    - f_hgrc
+    - f_path
+    - f_tmux.conf
+    - f_vimrc
+    - f_wgetrc

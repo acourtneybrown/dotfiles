@@ -1,0 +1,3 @@
+if [ -d ~/go/bin ]; then
+	PATH="~/go/bin:$PATH"
+fi
