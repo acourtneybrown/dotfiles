@@ -12,18 +12,12 @@ Host abrown-mbp
 Host mini-me
   User abrown
   Hostname mini-me.notcharlie.com
-Host nuc
-  User abrown
-  Hostname nuc.notcharlie.com
-Host osmc-*
-  User osmc
 Host pfsense
   User admin
 Host retropie* retropie*.notcharlie.com
   User pi
 Host picluster-*.notcharlie.com picluster-*
   User pi
-  IdentityFile ~/.ssh/picluster
 Host synology
   User abrown
   Hostname synology.notcharlie.com
