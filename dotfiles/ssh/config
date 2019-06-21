@@ -33,13 +33,6 @@ Host synology-root
   User root
   Port 2222
   IdentityFile ~/.ssh/synology
-Host ubiquiti-controller
-  User pi
-Host office-switch.notcharlie.com casita-switch.notcharlie.com great-switch.notcharlie.com
-  User admin
-  KexAlgorithms +diffie-hellman-group1-sha1
-  HostKeyAlgorithms +ssh-dss
-  Ciphers +aes128-cbc
 Host *.notcharlie.com
   User abrown
 
