@@ -1,0 +1,61 @@
+# https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent
+Host *
+ AddKeysToAgent yes
+ IgnoreUnknown UseKeychain
+ UseKeychain yes
+ IdentityFile ~/.ssh/id_rsa
+
+# Personal
+Host abrown-mbp
+  User abrown
+  Hostname abrown-mbp.notcharlie.com
+Host mini-me
+  User abrown
+  Hostname mini-me.notcharlie.com
+Host nuc
+  User abrown
+  Hostname nuc.notcharlie.com
+Host osmc-*
+  User osmc
+Host pfsense
+  User admin
+Host retropie* retropie*.notcharlie.com
+  User pi
+Host picluster-*.notcharlie.com picluster-*
+  User pi
+  IdentityFile ~/.ssh/picluster
+Host synology
+  User abrown
+  Hostname synology.notcharlie.com
+  Port 2222
+Host synology-root
+  Hostname synology.notcharlie.com
+  User root
+  Port 2222
+  IdentityFile ~/.ssh/synology
+Host ubiquiti-controller
+  User pi
+Host office-switch.notcharlie.com casita-switch.notcharlie.com great-switch.notcharlie.com
+  User admin
+  KexAlgorithms +diffie-hellman-group1-sha1
+  HostKeyAlgorithms +ssh-dss
+  Ciphers +aes128-cbc
+Host *.notcharlie.com
+  User abrown
+
+# GitHub
+Host bastion*.githubapp.com vault-bastion*.githubapp.com
+  ForwardAgent yes
+  User acourtneybrown
+  ControlMaster auto
+  ControlPath ~/.ssh/sockets/%C
+  ControlPersist 600
+Host github.com *.github.net *.githubapp.com
+  ForwardAgent no
+  User acourtneybrown
+Host shell
+  Hostname shell.service.cp1-iad.github.net
+  ForwardAgent yes
+  ProxyJump bastion.githubapp.com
+Host analytics-console
+  Hostname analytics-console.github.net

@@ -1,6 +1,7 @@
 config:
   backup: true
   create: true
+  link_dotfile_default: link
   dotpath: dotfiles
 dotfiles:
   f_bashrc:
@@ -42,6 +43,29 @@ dotfiles:
   f_wgetrc:
     src: wgetrc
     dst: ~/.wgetrc
+  d_gradle:
+    src: gradle
+    dst: ~/.gradle
+    link: link_children
+  d_ssh:
+    src: ssh
+    dst: ~/.ssh
+    link: link_children
+  d_desktop:
+    src: Desktop
+    dst: ~/Desktop
+    link: link_children
+  d_bin:
+    src: bin
+    dst: ~/bin
+  d_fonts:
+    src: Library/Fonts
+    dst: ~/Library/Fonts
+    link: link_children
+  d_user:
+    src: Library/Application Support/Sublime Text 3/Packages/User
+    dst: ~/Library/Application Support/Sublime Text 3/Packages/User
+    link: link_children
 profiles:
   acourtnrownsmbp.notcharlie.com:
     dotfiles:
@@ -58,3 +82,9 @@ profiles:
     - f_tmux.conf
     - f_vimrc
     - f_wgetrc
+    - d_gradle
+    - d_ssh
+    - d_desktop
+    - d_bin
+    - d_fonts
+    - d_user

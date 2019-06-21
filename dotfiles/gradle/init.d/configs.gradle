@@ -1,0 +1,7 @@
+allprojects { prj ->
+    task configs {
+        doLast {
+            configurations.each { println "${prj.name}:${it.name}" }
+        }
+    }
+}

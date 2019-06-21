@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<string>vnc://mini-me.notcharlie.com</string>
+	<key>restorationAttributes</key>
+	<dict>
+		<key>autoClipboard</key>
+		<true/>
+		<key>controlMode</key>
+		<integer>1</integer>
+		<key>isFullScreen</key>
+		<false/>
+		<key>quality</key>
+		<integer>3</integer>
+		<key>scalingMode</key>
+		<true/>
+		<key>screenConfiguration</key>
+		<dict>
+			<key>GlobalIsMixedMode</key>
+			<false/>
+			<key>GlobalScreen</key>
+			<dict>
+				<key>Flags</key>
+				<integer>0</integer>
+				<key>Frame</key>
+				<string>{{0, 0}, {1920, 1080}}</string>
+				<key>Identifier</key>
+				<integer>0</integer>
+				<key>Index</key>
+				<integer>0</integer>
+			</dict>
+			<key>IsDisplayInfo2</key>
+			<true/>
+			<key>IsVNC</key>
+			<false/>
+			<key>ScaledSelectedScreenRect</key>
+			<string>(0, 0, 1920, 1080)</string>
+			<key>Screens</key>
+			<array>
+				<dict>
+					<key>Flags</key>
+					<integer>1</integer>
+					<key>Frame</key>
+					<string>{{0, 0}, {1920, 1080}}</string>
+					<key>Identifier</key>
+					<integer>722480013</integer>
+					<key>Index</key>
+					<integer>0</integer>
+				</dict>
+			</array>
+		</dict>
+		<key>selectedScreen</key>
+		<dict>
+			<key>Flags</key>
+			<integer>0</integer>
+			<key>Frame</key>
+			<string>{{0, 0}, {1920, 1080}}</string>
+			<key>Identifier</key>
+			<integer>0</integer>
+			<key>Index</key>
+			<integer>0</integer>
+		</dict>
+		<key>targetAddress</key>
+		<string>vnc://mini-me.notcharlie.com</string>
+		<key>viewerScaleFactor</key>
+		<real>2</real>
+		<key>windowContentFrame</key>
+		<string>{{0, 0}, {1680, 945}}</string>
+		<key>windowFrame</key>
+		<string>{{0, 10}, {1680, 1013}}</string>
+	</dict>
+</dict>
+</plist>

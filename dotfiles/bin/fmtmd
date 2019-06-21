@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+E_INVALID_INPUT=2
+E_INVALID_OPTION=3
+E_FORMATTING=4
+
+usage() {
+	echo "usage: fmt [flags] path [path...]" >&2
+	echo
+	echo "  -l  list files whose formatting differs from fmt's"
+	echo "  -w  write result to (source) file instead of stdout"
+	exit 1
+}
+
+err() {
+	echo $@ >&2
+}
+
+# fmt <file>
+fmt() {
+	local file=$1
+
+	if [ ! -f ${file} ]; then
+		err "fmt: ${file} is not a file"
+		exit $E_INVALID_INPUT
+	fi
+
+	pandoc -f markdown_github-hard_line_breaks \
+		-t markdown_github-hard_line_breaks \
+		--reference-links \
+		--columns=70 ${file}
+}
+
+# process command flags
+list_unformatted_files=false
+write_file=false
+while getopts ":lw" opt; do
+	case $opt in
+		l)
+			list_unformatted_files=true
+			;;
+		w)
+			write_file=true
+			;;
+		\?)
+			err "Invalid option: -$OPTARG"
+			exit $E_INVALID_OPTION
+			;;
+	esac
+done
+shift $((OPTIND-1))
+
+# make sure we have at least one path
+if [ $# -eq 0 ]; then
+	usage
+fi
+
+for file in $@; do
+	if ${list_unformatted_files}; then
+		found_diffs=false
+		if ! fmt ${file} | diff - ${file} > /dev/null; then
+			found_diffs=true
+			echo ${file}
+		fi
+
+		if $found_diffs; then
+			exit 1
+		fi
+	elif ${write_file}; then
+		tmp_file=$(mktemp "/tmp/fmt-$(basename ${file})-XXXXXX")
+		fmt ${file} > ${tmp_file}
+		if [ $? -ne 0 ]; then
+			err "fmt: error formatting file ${file}"
+			exit $E_FORMATTING
+		fi
+
+		cp ${tmp_file} ${file}
+	else
+		fmt ${file}
+	fi
+done
