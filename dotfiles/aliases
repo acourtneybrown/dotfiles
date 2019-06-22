@@ -160,6 +160,9 @@ alias j9='test -f /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java
 alias j10='test -f /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home -v 10)'
 alias j11='test -f /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home -v 11)'
 
+# Dotfile management
+alias dotdrop="$HOME/Projects/tools/dotfiles/dotdrop.sh"
+
 # Locally installed gradle
 alias gl='/usr/local/share/gradle/bin/gradle'
 alias gd='ps ax | grep -i [g]radledaemon'

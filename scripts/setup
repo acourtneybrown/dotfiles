@@ -14,5 +14,6 @@ deactivate
 mkdir -p ~/.ssh/sockets
 chmod 0700 ~/.ssh/sockets
 
+# TODO: sign into Dropbox & sync 1Password vaults/folders
 # TODO: pull ssh private key from 1Password
 # TODO: pull GPG key from 1Password
