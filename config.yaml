@@ -4,6 +4,9 @@ config:
   link_dotfile_default: link
   link_on_import: link
   dotpath: dotfiles
+  upignore:
+  - .DS_Store
+  - .localized
 dotfiles:
   f_bashrc:
     src: bashrc
@@ -48,10 +51,21 @@ dotfiles:
     src: gradle
     dst: ~/.gradle
     link: link_children
+    upignore:
+    - caches
+    - daemon
+    - native
+    - notifications
+    - workers
+    - wrapper
   d_ssh:
     src: ssh
     dst: ~/.ssh
     link: link_children
+    upignore:
+    - id_rsa
+    - sockets
+    - synology
   d_desktop:
     src: Desktop
     dst: ~/Desktop
