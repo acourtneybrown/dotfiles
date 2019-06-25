@@ -1,4 +1,3 @@
-tap "adoptopenjdk/openjdk"
 tap "dteoh/sqa"
 tap "homebrew/bundle"
 tap "homebrew/cask"
