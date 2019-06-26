@@ -1,3 +1,1 @@
-if [ -d ~/go/bin ]; then
-	PATH="~/go/bin:$PATH"
-fi
+[ -d ~/go/bin ] && PATH="~/go/bin:$PATH"
