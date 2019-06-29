@@ -206,5 +206,8 @@
 	trustExitCode = true
 [user]
 	name = Adam Brown
-	email = acourtneybrown@github.com
-	signingkey = 01F1690B4F7E6AB9
+	email = acourtneybrown@gmail.com
+	signingkey = 92486DAB3FC7E2A0
+
+[includeIf "gitdir/i:~/github/"]
+	path = ~/.gitconfig-github

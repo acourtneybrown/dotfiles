@@ -84,6 +84,9 @@ dotfiles:
   f_hushlogin:
     src: hushlogin
     dst: ~/.hushlogin
+  f_gitconfig-github:
+    src: gitconfig-github
+    dst: ~/.gitconfig-github
 profiles:
   acourtnrownsmbp.notcharlie.com:
     include:
@@ -113,3 +116,4 @@ profiles:
     - d_fonts
     - d_user
     - f_hushlogin
+    - f_gitconfig-github
