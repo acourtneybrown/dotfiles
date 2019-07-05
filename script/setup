@@ -1,6 +1,7 @@
 #!/bin/sh
 
 cd "$(dirname $0)/.."
+. script/functions
 
 script/bootstrap
 
