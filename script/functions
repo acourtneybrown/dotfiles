@@ -24,6 +24,11 @@ escape() {
   printf '%s' "${1//\'/\'}"
 }
 
+abort() {
+  echo "!!! $*" >&2
+  exit 1
+}
+
 is_mac() {
   [ `uname -s` = "Darwin" ]
 }
