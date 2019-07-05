@@ -2,7 +2,8 @@
 
 # Adapted from https://github.com/MikeMcQuaid/strap
 
-. ./functions
+cd "$(dirname "$0")/.."
+. script/functions
 
 # Install the Xcode Command Line Tools.
 if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]

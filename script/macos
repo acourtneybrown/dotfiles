@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-. ./functions
+cd "$(dirname "$0")/.."
+. script/functions
 
 # macos — originally: https://mths.be/macos & https://github.com/MikeMcQuaid/strap
 
