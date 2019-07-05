@@ -22,7 +22,7 @@ $ script/update
 
 ## Operations performed
 
-### [`script/setup`](https://github.com/acourtneybrown/dotfiles/blob/master/scripts/setup)
+### [`script/setup`](https://github.com/acourtneybrown/dotfiles/blob/master/script/setup)
 
 1. install OS updates
 1. run `macos` script?
@@ -39,7 +39,7 @@ $ script/update
 1. setup go
 1. setup ruby
 
-### [`script/update`](https://github.com/acourtneybrown/dotfiles/blob/master/scripts/update)
+### [`script/update`](https://github.com/acourtneybrown/dotfiles/blob/master/script/update)
 
 1. install OS updates
 1. install brew bundle (Brewfile)
