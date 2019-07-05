@@ -34,7 +34,7 @@ $ script/update
 1. pull gpg key from 1password
 1. populate .env with GitHub octofactory vars from 1password
 1. run `dotdrop install --profile=default`
-1. check if the current hostname/profile exists in `config.yaml` & add if not
+1. *TODO: check if the current hostname/profile exists in `config.yaml` & add if not*
 1. create sockets directory
 1. setup go
 1. setup ruby
