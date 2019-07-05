@@ -1,7 +1,12 @@
 #!/bin/sh
-# Install all dotfiles into the home directory
 
 cd "$(dirname $0)/.."
+
+script/bootstrap
+
+populate_dotenv
+
+# Install all dotfiles into the home directory
 git submodule update --init --recursive
 git submodule update --remote dotdrop
 virtualenv -p python3 env
@@ -9,13 +14,3 @@ source env/bin/activate
 pip install -r dotdrop/requirements.txt
 deactivate
 ./dotdrop.sh install --profile=default
-
-# Setup to ensure fewer Duo pushes
-mkdir -p ~/.ssh/sockets
-chmod 0700 ~/.ssh/sockets
-
-# TODO: sign into Dropbox & sync 1Password vaults/folders
-# TODO: pull ssh private key from 1Password
-# TODO: pull GPG key from 1Password
-# ^^ proobably populate .env file & have template files in dotdrop??
-# TODO: populate .env with GitHub Octofactory vars

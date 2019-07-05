@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+. script/functions
+
+# Check and install any remaining software updates.
+if is_mac; then
+  install_updates
+
+  # install xcode command line tools
+  script/install-xcode.sh
+
+  # MacOS customization script
+  script/macos
+fi
+
+# install homebrew
+script/install-homebrew.sh
+brew_bundle
+
+# Setup to ensure fewer Duo pushes
+if [ ! -d ~/.ssh/sockets ]; then
+  mkdir -p ~/.ssh/sockets
+  chmod 0700 ~/.ssh/sockets
+fi
+
+# Setup development tools
+script/golang-setup.sh
+script/ruby-setup.sh
+
+# sign into Dropbox & sync 1Password vaults/folders
+echo "Sign into Dropbox & sync 1Password vaults/folders"
+echo "Press <Return> once the sync is done"
+read WAIT
+
+# pull ssh private keys from 1Password
+open -a "1Password 6.app"
+echo "Search for \"SSH Key\" in 1Password & copy contents into relevant ~/.ssh files"
+echo "Press <Return> once the keys are copied over"
+read WAIT
+
+#  pull GPG keys from 1Password
+open -a "GPG Keychain.app"
+echo "Search for \"GPG\" in 1Password & copy contents into keys for GPG Keychain"
+echo "Press <Return> once the keys are copied over"
+read WAIT

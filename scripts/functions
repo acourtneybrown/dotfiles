@@ -1,0 +1,45 @@
+# Check if the Xcode license is agreed to and agree if not.
+install_updates() {
+  if softwareupdate -l 2>&1 | grep -q "No new software available."; then
+    echo "No software updates to install"
+  else
+    echo "Installing software updates:"
+    sudo softwareupdate --install --all
+    xcode_license
+  fi
+}
+
+xcode_license() {
+  if /usr/bin/xcrun clang 2>&1 | grep -q license; then
+    if [ -n "FSTRAP_INTERACTIVE" ]; then
+      echo "Asking for Xcode license confirmation:"
+      sudo xcodebuild -license
+    else
+      abort "Run 'sudo xcodebuild -license' to agree to the Xcode license."
+    fi
+  fi
+}
+
+escape() {
+  printf '%s' "${1//\'/\'}"
+}
+
+is_mac() {
+  [ `uname -s` = "Darwin" ]
+}
+
+brew_bundle() {
+  if [ -f "Brewfile" ] && is_mac; then
+    brew bundle check >/dev/null 2>&1  || {
+      echo "==> Installing Homebrew dependencies…"
+      brew bundle
+    }
+  fi
+}
+
+populate_dotenv() {
+  # populate .env with GitHub Octofactory vars for gradle.properties template
+  echo "Search \"Octofactory\" in 1Password & populate .env with values"
+  echo "Press <Return> when done"
+  read WAIT
+}
