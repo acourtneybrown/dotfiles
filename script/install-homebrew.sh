@@ -3,7 +3,7 @@
 # Adapted from https://github.com/MikeMcQuaid/strap
 
 # Setup Homebrew directory and permissions.
-logn "Installing Homebrew:"
+echo "Installing Homebrew:"
 HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null || true)"
 [ -n "$HOMEBREW_PREFIX" ] || HOMEBREW_PREFIX="/usr/local"
 [ -d "$HOMEBREW_PREFIX" ] || sudo mkdir -p "$HOMEBREW_PREFIX"
