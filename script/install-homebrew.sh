@@ -38,5 +38,5 @@ unset GIT_DIR GIT_WORK_TREE
 
 # Update Homebrew.
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
-log "Updating Homebrew:"
+echo "Updating Homebrew:"
 brew update

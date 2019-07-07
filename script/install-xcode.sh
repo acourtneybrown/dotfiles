@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 # Install the Xcode Command Line Tools.
 if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]
 then
-  log "Installing the Xcode Command Line Tools:"
+  echo "Installing the Xcode Command Line Tools:"
   CLT_PLACEHOLDER="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
   sudo touch "$CLT_PLACEHOLDER"
 
