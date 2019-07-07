@@ -13,7 +13,7 @@ xcode_license() {
   if /usr/bin/xcrun clang 2>&1 | grep -q license; then
     if [ -n "FSTRAP_INTERACTIVE" ]; then
       echo "Asking for Xcode license confirmation:"
-      sudo xcodebuild -license
+      sudo xcodebuild -license accept
     else
       abort "Run 'sudo xcodebuild -license' to agree to the Xcode license."
     fi
