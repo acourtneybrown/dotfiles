@@ -6,7 +6,7 @@ cd "$(dirname "$0")/.."
 . script/functions
 
 install_updates
-brew_bundle
+script/brew_bundle
 populate_dotenv
 
 # TODO: update dotdrop?

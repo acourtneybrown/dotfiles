@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+. script/functions
+
+sudo_keepalive
+
+if [ -f "Brewfile" ] && is_mac; then
+  brew bundle check >/dev/null 2>&1  || {
+    echo "==> Installing Homebrew dependencies…"
+    # mas signin  # uncomment when https://github.com/mas-cli/mas/issues/164 resolved
+    brew bundle
+  }
+fi
