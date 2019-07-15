@@ -22,7 +22,7 @@ script/install-homebrew.sh
 open -a 'App Store.app'
 echo "Login to Apple ID.  Press <enter> when done."
 read IGNORE
-script/brew_bundle
+[ -z "$SKIP_BUNDLE" ] && script/brew_bundle
 
 # Setup to ensure fewer Duo pushes
 if [ ! -d ~/.ssh/sockets ]; then
