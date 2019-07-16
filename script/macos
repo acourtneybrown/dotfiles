@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
+# macos — originally: https://mths.be/macos & https://github.com/MikeMcQuaid/strap
 
 cd "$(dirname "$0")/.."
 . script/functions
-
-# macos — originally: https://mths.be/macos & https://github.com/MikeMcQuaid/strap
-
-# We want to always prompt for sudo password at least once rather than doing
-# root stuff unexpectedly.
-sudo --reset-timestamp
+sudo_keepalive
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -16,14 +12,12 @@ osascript -e 'tell application "System Preferences" to quit'
 [ "$USER" = "root" ] && abort "Run macos as yourself, not root."
 groups | grep -q admin || abort "Add $USER to the admin group."
 
-sudo_keepalive
-
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-echo "Enter computer name. Leave empty to not set."
+echo "Enter computer name. Leave empty to not change."
 read COMPUTER_NAME
 if [ -n "$COMPUTER_NAME" ]; then
 	sudo scutil --set ComputerName "$COMPUTER_NAME"
@@ -34,9 +28,9 @@ fi
 unset COMPUTER_NAME
 
 # Set the login window contact info
-echo "Enter your name (for login screen message). Leave empty to not set."
+echo "Enter your name (for login screen message). Leave empty to not change."
 read LOGIN_NAME
-echo "Enter your email address (for login screen message). Leave empty to not set."
+echo "Enter your email address (for login screen message). Leave empty to not change."
 read LOGIN_EMAIL
 if [ -n "$LOGIN_NAME" ] && [ -n "$LOGIN_EMAIL" ]; then
   LOGIN_TEXT=$(escape "Found this computer? Please contact $LOGIN_NAME at $LOGIN_EMAIL.")

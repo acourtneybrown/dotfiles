@@ -41,6 +41,14 @@ sudo_keepalive() {
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
 
+sudo_check_then_alive() {
+  # We want to always prompt for sudo password at least once rather than doing
+  # root stuff unexpectedly.
+  sudo --reset-timestamp
+
+  sudo_keepalive
+}
+
 populate_dotenv() {
   # populate .env with GitHub Octofactory vars for gradle.properties template
   echo "Search \"Octofactory\" in 1Password & populate .env with values"

@@ -4,7 +4,7 @@ set -e
 
 cd "$(dirname "$0")/.."
 . script/functions
-sudo_keepalive
+sudo_check_then_alive
 
 # Check and install any remaining software updates.
 if is_mac; then
