@@ -87,6 +87,9 @@ dotfiles:
   f_gitconfig-github:
     src: gitconfig-github
     dst: ~/.gitconfig-github
+  f_gitignore:
+    src: gitignore
+    dst: ~/.gitignore
 profiles:
   acourtnrownsmbp.notcharlie.com:
     include:
@@ -117,3 +120,4 @@ profiles:
     - d_user
     - f_hushlogin
     - f_gitconfig-github
+    - f_gitignore
