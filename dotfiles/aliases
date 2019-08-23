@@ -14,6 +14,7 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias g="git"
+alias cg='cd `git rev-parse --show-toplevel`'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -35,6 +36,9 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
+
+# Sort by file size
+alias lt='du -sh * | sort -h'
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -164,3 +168,10 @@ alias gdpids="ps ax | grep -i [g]radledaemon | awk '{print $1;}'"
 
 # Gradle build related
 alias proof="git diff-tree --no-commit-id --name-only -r HEAD | grep subprojects | cut -d\/ -f 2 | sort -u | groovy -e \"def p = [] ; System.in.eachLine { p.add it.split('-').toList().withIndex().collect { s, i -> i?s.capitalize():s }.join() } ; def tasks = ((['sanityCheck']+p.collect { it+':test '+it+':intTest' }).join(' ')); System.err.println('Running '+tasks); println tasks \" | xargs ./gradlew --continue --parallel"
+
+# Search history
+alias gh='history|grep '
+
+# Setup & activate python virtual env
+alias ve='python3 -m venv ./venv'
+alias va='source ./venv/bin/activate'
