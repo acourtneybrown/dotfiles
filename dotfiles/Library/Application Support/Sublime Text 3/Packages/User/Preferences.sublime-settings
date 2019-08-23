@@ -1,0 +1,7 @@
+{
+    "auto_complete_commit_on_tab": true,
+    "ignored_packages":
+    [
+        "Vintage"
+    ]
+}
