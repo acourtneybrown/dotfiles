@@ -1,4 +1,4 @@
 {
-    "shell_cmd": "open -a \"Marked 2\" \"$file\"",
-    "selector": "source.markdown"
+    "cmd": ["/usr/bin/open", "-a", "Marked 2", "$file"],
+    "selector": "text.html.markdown"
 }
