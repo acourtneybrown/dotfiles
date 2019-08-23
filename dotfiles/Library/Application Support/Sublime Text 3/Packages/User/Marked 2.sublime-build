@@ -1,3 +1,4 @@
 {
-	"shell_cmd": "open -a \"Marked 2\" \"$file\""
+    "shell_cmd": "open -a \"Marked 2\" \"$file\"",
+    "selector": "source.markdown"
 }
