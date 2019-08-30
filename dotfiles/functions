@@ -190,9 +190,7 @@ function gitall {
   do
     if [ -d $DIR/.git ]; then
       echo $BOLD"Entering "$DIR$RESET
-      pushd $DIR >/dev/null
-      git "$@"
-      popd >/dev/null
+      (cd $DIR; git "$@")
     fi
   done
 }
