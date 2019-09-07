@@ -1,1 +1,2 @@
 [ -n "$PS1" ] && source ~/.bash_profile;
+[ -z "$PS1" ] && PATH=$PATH:/usr/local/bin
