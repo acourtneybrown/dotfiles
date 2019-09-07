@@ -27,6 +27,8 @@ Host synology-root
   User root
   Port 2222
   IdentityFile ~/.ssh/synology
+Host acourtnrownsmbp.notcharlie.com
+  User acourtneybrown
 Host *.notcharlie.com
   User abrown
 
