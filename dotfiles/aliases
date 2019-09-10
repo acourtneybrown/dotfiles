@@ -175,3 +175,6 @@ alias gh='history|grep '
 # Setup & activate python virtual env
 alias ve='python3 -m venv ./venv'
 alias va='source ./venv/bin/activate'
+
+# Run mosh client with server in /usr/local/bin
+alias moshl='mosh --server=/usr/local/bin/mosh-server'
