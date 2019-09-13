@@ -211,3 +211,6 @@
 
 [includeIf "gitdir/i:~/github/"]
 	path = ~/.gitconfig-github
+
+[includeIf "gitdir/i:~/go/src/github.com/github"]
+	path = ~/.gitconfig-github
