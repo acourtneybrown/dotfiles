@@ -214,3 +214,7 @@
 
 [includeIf "gitdir/i:~/go/src/github.com/github"]
 	path = ~/.gitconfig-github
+[github]
+	user = acourtneybrown
+[credential]
+	helper = osxkeychain
