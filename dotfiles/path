@@ -1,2 +1,3 @@
 [ -d ~/go/bin ] && PATH="~/go/bin:$PATH"
 [ -d ~/github/awssume ] && PATH="~/github/awssume/bin:$PATH"
+[ -d /usr/local/sbin ] && PATH="/usr/local/sbin:$PATH"
