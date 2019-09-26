@@ -15,7 +15,6 @@ brew "azure-cli"
 brew "bash"
 brew "bash-completion@2"
 brew "bfg"
-brew "binutils", link: true
 brew "cmake"
 brew "coreutils"
 brew "dark-mode"
