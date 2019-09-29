@@ -68,3 +68,4 @@ analytics-console.github.net,172.19.63.144 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoY
 3.89.93.94 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBc6frr5SCRVJmBEriiW9y0yaOUbhtDMFGJ51o41Il7JPiFnDOqPpqFk5qQ8MF2VtVs5rebwN+1K/9O1rqIGldk=
 localhost ecdsa-sha2-nistp256 {{@@ host_key @@}}
 acourtnrownsmbp.notcharlie.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLNACtM/89D66S+JHnqM2XgIgufXjlRJ9xvDeGgPzyh2DYLKMJtPqIf2IzwTiMr81WKpT2o6VN4RAJ013Az6wGQ=
+[synology.notcharlie.com]:2234,[10.98.76.30]:2234 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJlvdeGnbHRLj0O3yFMzvtEzq1DnR0CrLm+MWqg0hN0XClvnhZXHvTwfS39sc61tZ5a/rwjzKu5THoQMT7+BjNk=

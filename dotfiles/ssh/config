@@ -27,6 +27,10 @@ Host synology-root
   User root
   Port 2222
   IdentityFile ~/.ssh/synology
+Host gitea gitea.notcharlie.com
+  Hostname synology.notcharlie.com
+  User git
+  Port 2234
 Host acourtnrownsmbp.notcharlie.com
   User acourtneybrown
 Host *.notcharlie.com
