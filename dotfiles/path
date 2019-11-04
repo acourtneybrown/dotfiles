@@ -1,3 +1,5 @@
-[ -d ~/go/bin ] && PATH="~/go/bin:$PATH"
-[ -d ~/github/awssume ] && PATH="~/github/awssume/bin:$PATH"
+[ -d $HOME/go/bin ] && PATH="$HOME/go/bin:$PATH"
+[ -d $HOME/github/awssume ] && PATH="$HOME/github/awssume/bin:$PATH"
 [ -d /usr/local/sbin ] && PATH="/usr/local/sbin:$PATH"
+
+export PATH
