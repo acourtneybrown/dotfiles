@@ -33,3 +33,4 @@ export GOPROXY="https://${GOPROXYUSER}:${GOPROXYPASS}@{{@@ env['octofactory_host
 export GONOPROXY="*github.com/github/*"
 export GONOSUMDB="*github.com/github/*"
 export GOPRIVATE='*github.com/github/*'
+export GOPATH=`go env GOPATH`
