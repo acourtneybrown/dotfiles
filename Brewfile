@@ -110,5 +110,4 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Reeder", id: 880001334
 mas "Server", id: 883878097
-mas "Wunderlist", id: 410628904
 # mas "Xcode", id: 497799835
