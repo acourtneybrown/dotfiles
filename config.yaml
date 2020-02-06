@@ -96,6 +96,10 @@ dotfiles:
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
+  d_oh-my-zsh-custom:
+    src: oh-my-zsh-custom
+    dst: ~/.oh-my-zsh-custom
+    link: link_children
 profiles:
   acourtnrownsmbp.notcharlie.com:
     include:
@@ -104,6 +108,7 @@ profiles:
       host_key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLNACtM/89D66S+JHnqM2XgIgufXjlRJ9xvDeGgPzyh2DYLKMJtPqIf2IzwTiMr81WKpT2o6VN4RAJ013Az6wGQ=
     dotfiles:
     - f_zshrc
+    - d_oh-my-zsh-custom
   mini-me.notcharlie.com:
     include:
     - default
