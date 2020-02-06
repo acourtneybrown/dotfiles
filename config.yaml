@@ -81,6 +81,9 @@ dotfiles:
     src: Library/Application Support/Sublime Text 3/Packages/User
     dst: ~/Library/Application Support/Sublime Text 3/Packages/User
     link: link_children
+    upignore:
+    - Package Control*
+    - oscrypto-ca-bundle.crt
   f_hushlogin:
     src: hushlogin
     dst: ~/.hushlogin
