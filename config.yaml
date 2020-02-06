@@ -90,6 +90,9 @@ dotfiles:
   f_gitignore:
     src: gitignore
     dst: ~/.gitignore
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
 profiles:
   acourtnrownsmbp.notcharlie.com:
     include:
