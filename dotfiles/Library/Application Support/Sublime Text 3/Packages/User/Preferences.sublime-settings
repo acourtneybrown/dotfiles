@@ -1,7 +1,10 @@
 {
-    "auto_complete_commit_on_tab": true,
-    "ignored_packages":
-    [
-        "Vintage"
-    ]
+	"auto_complete_commit_on_tab": true,
+	"ensure_newline_at_eof_on_save": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"show_full_path": true,
+	"trim_trailing_white_space_on_save": true
 }
