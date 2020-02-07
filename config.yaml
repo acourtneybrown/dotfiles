@@ -109,10 +109,6 @@ profiles:
     - default
     variables:
       host_key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLNACtM/89D66S+JHnqM2XgIgufXjlRJ9xvDeGgPzyh2DYLKMJtPqIf2IzwTiMr81WKpT2o6VN4RAJ013Az6wGQ=
-    dotfiles:
-    - f_zshrc
-    - d_oh-my-zsh-custom
-    - f_zshenv
   mini-me.notcharlie.com:
     include:
     - default
@@ -142,3 +138,6 @@ profiles:
     - f_hushlogin
     - f_gitconfig-github
     - f_gitignore
+    - f_zshrc
+    - d_oh-my-zsh-custom
+    - f_zshenv
