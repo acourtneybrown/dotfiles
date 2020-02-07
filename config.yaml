@@ -100,6 +100,9 @@ dotfiles:
     src: oh-my-zsh-custom
     dst: ~/.oh-my-zsh-custom
     link: link_children
+  f_zshenv:
+    src: zshenv
+    dst: ~/.zshenv
 profiles:
   acourtnrownsmbp.notcharlie.com:
     include:
@@ -109,6 +112,7 @@ profiles:
     dotfiles:
     - f_zshrc
     - d_oh-my-zsh-custom
+    - f_zshenv
   mini-me.notcharlie.com:
     include:
     - default
