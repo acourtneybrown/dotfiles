@@ -1,3 +1,6 @@
+# Ensure zmv function available
+autoload -U zmv
+
 # `gitall` performs a git operation across all of the git repositories under the
 # current directory.
 function gitall {
