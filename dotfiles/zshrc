@@ -78,6 +78,7 @@ plugins=(\
 	mosh \
 	path \
 	rbenv \
+	setopts \
 	sublime \
 	venv \
 	zsh-completions \

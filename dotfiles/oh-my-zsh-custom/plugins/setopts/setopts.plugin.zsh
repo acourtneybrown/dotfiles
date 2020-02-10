@@ -1,0 +1,6 @@
+setopt NO_CASE_GLOB
+setopt APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt CORRECT
+setopt CORRECT_ALL
