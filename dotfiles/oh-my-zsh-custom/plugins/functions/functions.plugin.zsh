@@ -61,3 +61,9 @@ function h() {
         history 1 | egrep --color=auto "$@"
     fi
 }
+
+disappointed() { echo -n " ಠ_ಠ " |tee /dev/tty| pbcopy }
+
+flip() { echo -n "（╯°□°）╯ ┻━┻" |tee /dev/tty| pbcopy }
+
+shrug() { echo -n "¯\_(ツ)_/¯" |tee /dev/tty| pbcopy }
