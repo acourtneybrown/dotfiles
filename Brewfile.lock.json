@@ -21,6 +21,9 @@
       },
       "homebrew/services": {
         "revision": "9ddb42a9add6845053d098ffc4c568b55b70776e"
+      },
+      "github/gh": {
+        "revision": "6a8dda3341b12484945c53c50022caf63f90d8ad"
       }
     },
     "brew": {
@@ -1001,7 +1004,8 @@
       "zsh-completions": {
         "version": "0.31.0",
         "bottle": false
-      }
+      },
+      "github/gh/gh": null
     },
     "cask": {
       "1password": {
