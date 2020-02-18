@@ -11,6 +11,17 @@ function ve() {
 	python3 -m venv ${env}
 }
 
+# Creates a virtualenv for Python2 for the given name, or .venv if not given
+function ve2() {
+	local env
+	if [ $# -eq 0 ]; then
+		env=.venv
+	else
+		env="$1"
+	fi
+	virtualenv ${env}
+}
+
 # Activates a virtualenv for the given name, or .venv/ if not given
 function va() {
 	local env
