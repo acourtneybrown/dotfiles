@@ -90,7 +90,6 @@ cask "intellij-idea"
 cask "iterm2"
 cask "kid3"
 cask "lg-onscreen-control"
-cask "logitech-myharmony"
 cask "marked"
 cask "microsoft-azure-storage-explorer"
 cask "microsoft-teams"
@@ -114,7 +113,6 @@ cask "dteoh/sqa/slowquitapps"
 mas "Airmail", id: 918858936
 mas "Amphetamine", id: 937984704
 mas "Apple Configurator 2", id: 1037126344
-mas "Bridge Constructor Portal", id: 1316061122
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "iPhoto", id: 408981381
@@ -125,5 +123,3 @@ mas "Notability", id: 736189492
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Reeder", id: 880001334
-# mas "Server", id: 883878097
-# mas "Xcode", id: 497799835
