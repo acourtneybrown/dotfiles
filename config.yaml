@@ -121,6 +121,9 @@ dotfiles:
     src: zshenv
     dst: ~/.zshenv
 profiles:
+  acourtneybrowns-MacBook-Pro.local:
+    include:
+    - acourtnrownsmbp.notcharlie.com
   acourtnrownsmbp.notcharlie.com:
     include:
     - default
