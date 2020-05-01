@@ -43,6 +43,12 @@ Host bastion*.githubapp.com vault-bastion*.githubapp.com
   ControlMaster auto
   ControlPath ~/.ssh/sockets/%C
   ControlPersist 600
+Host *.bpdev-us-east-1.github.net
+  User build
+  IdentityFile ~/.ssh/id_rsa
+  DynamicForward 9999
+  ForwardAgent yes
+  RemoteForward /run/user/1001/gnupg/S.gpg-agent ~/.gnupg/S.gpg-agent.extra
 Host github.com *.github.net *.githubapp.com
   ForwardAgent no
   User acourtneybrown

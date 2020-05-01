@@ -1,0 +1,5 @@
+alias src="cd ~/enterprise2;"
+alias sshc="src; ./chroot-ssh.sh"
+alias r="src; ./chroot-stop.sh; ./chroot-reset.sh; ./chroot-cluster-stop.sh; ./chroot-cluster-reset.sh test/cluster.conf; ./chroot-cluster-reset.sh test/cluster-ha.conf; ./chroot-cluster-reset.sh test/cluster-dr.conf;"
+alias b="src; r; ./chroot-build.sh && ./chroot-start.sh && ./chroot-configure.sh"
+alias bc="src; r; ./chroot-build.sh && ./chroot-cluster-start.sh test/cluster.conf"

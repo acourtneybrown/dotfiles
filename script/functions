@@ -30,7 +30,11 @@ abort() {
 }
 
 is_mac() {
-  [ `uname -s` = "Darwin" ]
+  [ $(uname -s) = "Darwin" ]
+}
+
+is_linux() {
+  [ $(uname -s) = "Linux" ]
 }
 
 sudo_keepalive() {

@@ -84,6 +84,11 @@ plugins=(\
 	zsh-completions \
 )
 
+# Add useful build aliases only on bp-dev ghe hosts
+if command -v ghe-dev-hostname; then
+	plugins += (ghe)
+fi
+
 if [ -d $ZSH ]; then
 	source $ZSH/oh-my-zsh.sh
 else

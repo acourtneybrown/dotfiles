@@ -6,11 +6,13 @@ cd "$(dirname "$0")/.."
 . script/functions
 sudo_check_then_alive
 
-install_updates
-script/brew_bundle
-populate_dotenv
+if is_mac; then
+  install_updates
+fi
 
-# TODO: update dotdrop?
+[ -z "$SKIP_BUNDLE" ] && script/brew_bundle
+
+./dotdrop.sh install
 
 script/golang-setup.sh
 script/ruby-setup.sh

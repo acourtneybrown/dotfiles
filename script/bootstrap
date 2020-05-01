@@ -4,25 +4,19 @@ set -e
 
 cd "$(dirname "$0")/.."
 . script/functions
-sudo_check_then_alive
+# sudo_check_then_alive
 
-# Check and install any remaining software updates.
-if is_mac; then
-  install_updates
-
-  # install xcode command line tools
-  script/install-xcode.sh
-
-  # MacOS customization script
-  script/macos
+# Set up dotdrop dependencies
+git submodule update --init --recursive
+git submodule update --remote dotdrop
+if [ command -v python3 ]; then
+  python3 -m venv env
+  source env/bin/activate
+  pip install -r dotdrop/requirements.txt
+  deactivate
+else
+  abort "Python3 must be installed"
 fi
-
-# install homebrew
-script/install-homebrew.sh
-open -a 'App Store.app'
-echo "Login to Apple ID.  Press <enter> when done."
-read IGNORE
-[ -z "$SKIP_BUNDLE" ] && script/brew_bundle
 
 # Setup to ensure fewer Duo pushes
 if [ ! -d ~/.ssh/sockets ]; then
@@ -30,23 +24,23 @@ if [ ! -d ~/.ssh/sockets ]; then
   chmod 0700 ~/.ssh/sockets
 fi
 
-# Setup development tools
-script/golang-setup.sh
-script/ruby-setup.sh
+# Install all dotfiles into the home directory
+if [ ! $(command -v yq) ]; then
+  GO111MODULE=on go get github.com/mikefarah/yq/v3
+fi
+# create a new profile (if necessary) and include default
+PROFILE=$(hostname)
+if [ -z "$(yq r config.yaml profiles.\"$PROFILE\")" ]; then
+  yq w -i config.yaml profiles.\"$PROFILE\"."include[+]" default
 
-# sign into Dropbox & sync 1Password vaults/folders
-echo "Sign into Dropbox & sync 1Password vaults/folders"
-echo "Press <Return> once the sync is done"
-read WAIT
+  # TODO: set `profiles.\"$PROFILE\".variables.host_key`
+fi
+./dotdrop.sh install --profile=$PROFILE
 
-# pull ssh private keys from 1Password
-open -a "1Password 6.app"
-echo "Search for \"SSH Key\" in 1Password & copy contents into relevant ~/.ssh files"
-echo "Press <Return> once the keys are copied over"
-read WAIT
-
-#  pull GPG keys from 1Password
-open -a "GPG Keychain.app"
-echo "Search for \"GPG\" in 1Password & copy contents into keys for GPG Keychain"
-echo "Press <Return> once the keys are copied over"
-read WAIT
+if [ command -v curl ]; then
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+elif [ command -v wget ]; then
+  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+else
+  abort "Either curl or wget must be installed"
+fi

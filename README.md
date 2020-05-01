@@ -24,28 +24,33 @@ $ script/update
 
 ## Operations performed
 
-### [`script/setup`](https://github.com/acourtneybrown/dotfiles/blob/master/script/setup)
+### [`script/os_setup`]()
 
 1. install OS updates
-1. run `macos` script?
-1. install xcode tools (need for git?)
-1. install homebrew (& casks)
+1. run `macos` script
+1. install xcode tools
+1. install homebrew/linuxbrew (& casks)
 1. install brew bundle (Brewfile)
-1. login to dropbox & sync 1password directories
-1. pull ssh private key from 1password
-1. pull gpg key from 1password
-1. populate .env with GitHub octofactory vars from 1password
-1. run `dotdrop install --profile=default`
-1. *TODO: check if the current hostname/profile exists in `config.yaml` & add if not*
-1. create sockets directory
+1. *login to dropbox & sync 1password directories*
+1. *pull ssh private key from 1password*
+1. *pull gpg key from 1password*
+1. *pull `.env` from 1password*
 1. setup go
 1. setup ruby
 
-### [`script/update`](https://github.com/acourtneybrown/dotfiles/blob/master/script/update)
+Items in *italics* require manual intervention currently.
+
+### [`script/bootstrap`]()
+
+1. setup `dotdrop` environment & dependencies
+1. setup `.ssh` directory
+1. create `dotdrop` profile if necessary & install
+1. install `oh-my-zsh`
+
+### [`script/update`]()
 
 1. install OS updates
 1. install brew bundle (Brewfile)
-1. populate .env with GitHub octofactory vars from 1password
-1. *TODO: "update dotdrop"??*
+1. install `dotdrop` profile
 1. setup go
 1. setup ruby
