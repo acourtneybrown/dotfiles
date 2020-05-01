@@ -10,6 +10,11 @@ cd "$(dirname "$0")/.."
 git submodule update --init --recursive
 git submodule update --remote dotdrop
 if command -v python3; then
+
+  # Workaround for Debian :facepalm
+  if is_linux; then
+    sudo apt-get install python3-venv
+  fi
   python3 -m venv env
   source env/bin/activate
   pip install -r dotdrop/requirements.txt

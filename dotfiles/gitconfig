@@ -200,7 +200,7 @@
 	insteadOf = "gist:"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -214,6 +214,10 @@
 
 [includeIf "gitdir/i:~/go/src/github.com/github/"]
 	path = ~/.gitconfig-github
+
+[includeIf "gitdir/i:~/enterprise2/"]
+	path = ~/.gitconfig-github
+
 [github]
 	user = acourtneybrown
 [credential]
