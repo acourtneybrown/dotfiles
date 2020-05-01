@@ -93,4 +93,3 @@ function fix_mosh_server() {
   # re-enable firewall
   sudo "$fw" --setglobalstate on
 }
-
