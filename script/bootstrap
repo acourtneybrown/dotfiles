@@ -41,7 +41,7 @@ if [ -z "$(yq r config.yaml profiles.\"$PROFILE\")" ]; then
 
   # TODO: set `profiles.\"$PROFILE\".variables.host_key`
 fi
-./dotdrop.sh install --profile=$PROFILE
+./dotdrop.sh install --force --profile=$PROFILE
 
 # Install oh-my-zsh
 if command -v curl; then
