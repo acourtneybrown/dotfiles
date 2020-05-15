@@ -65,3 +65,6 @@ alias moshl='mosh --server=/usr/local/bin/mosh-server'
 
 # Restart Mac OS X screen sharing
 alias fixscreen='sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.screensharing.plist &&  sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist'
+
+# Show the public key for the given private key
+alias pubkey='ssh-keygen -y -f'
