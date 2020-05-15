@@ -68,31 +68,31 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(\
-	aliases \
-	dotdrop \
-	functions \
-	git \
-	github-go \
-	marked2 \
-	mosh \
-	path \
-	rbenv \
-	setopts \
-	sublime \
-	venv \
-	zsh-completions \
+plugins=(
+  aliases
+  dotdrop
+  functions
+  git
+  github-go
+  marked2
+  mosh
+  path
+  rbenv
+  setopts
+  sublime
+  venv
+  zsh-completions
 )
 
 # Add useful build aliases only on bp-dev ghe hosts
 if command -v ghe-dev-hostname; then
-	plugins += (ghe)
+  plugins+=(ghe)
 fi
 
 if [ -d $ZSH ]; then
-	source $ZSH/oh-my-zsh.sh
+  source $ZSH/oh-my-zsh.sh
 else
-	echo "Follow directions on https://ohmyz.sh/ to install oh-my-zsh"
+  echo "Follow directions on https://ohmyz.sh/ to install oh-my-zsh"
 fi
 
 # User configuration
@@ -101,8 +101,8 @@ fi
 
 # You may need to manually set your language environment
 # Prefer US English and use UTF-8.
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -112,11 +112,11 @@ else
 fi
 
 # Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X';
+export MANPAGER='less -X'
 
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
-export GPG_TTY=$(tty);
+export GPG_TTY=$(tty)
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
