@@ -1,3 +1,6 @@
+# Switch to ZSH (if we can't chsh)
+command -v zsh && exec zsh
+
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
