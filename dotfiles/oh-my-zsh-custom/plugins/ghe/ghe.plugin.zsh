@@ -1,7 +1,7 @@
 ensure_docker() {
   mkdir -p ~/.docker
   touch ~/.docker/config.json
-  if [ "$(jq -r .auths.\"octofactory.githubapp.com\" ~/.docker/config.json)" = "null" ]; then
+  if [ -z "$(jq -r .auths.\"octofactory.githubapp.com\" ~/.docker/config.json)" ]; then
     docker login octofactory.githubapp.com
   fi
 }
