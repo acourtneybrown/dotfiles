@@ -1,5 +1,5 @@
 ensure_docker() {
-  if [ "$(jq -r .auths.\"octofactory.githubapp.com\" ~/.docker/config.json)" = "null" ]; then
+  if [ -f ~/.docker/config.json -a "$(jq -r .auths.\"octofactory.githubapp.com\" ~/.docker/config.json)" = "null" ]; then
     docker login octofactory.githubapp.com
   fi
 }
