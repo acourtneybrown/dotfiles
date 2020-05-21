@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 ensure_docker() {
   mkdir -p ~/.docker
   touch ~/.docker/config.json
