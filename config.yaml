@@ -75,14 +75,14 @@ dotfiles:
     dst: ~/.ssh
     link: link_children
     upignore:
-    - id_rsa
+    - id_rsa*
     - sockets
-    - synology
+    - synology*
     - authorized_keys
     cmpignore:
-    - id_rsa
+    - id_rsa*
     - sockets
-    - synology
+    - synology*
     - authorized_keys
     actions:
       - add_authorized_keys
