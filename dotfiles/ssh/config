@@ -58,6 +58,7 @@ Host github.com *.github.net *.githubapp.com
   ForwardAgent no
   User acourtneybrown
 Host shell
+  User acourtneybrown
   Hostname shell.service.cp1-iad.github.net
   ForwardAgent yes
   ProxyJump bastion.githubapp.com
