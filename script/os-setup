@@ -21,7 +21,7 @@ if is_mac; then
   open -a 'App Store.app'
   echo "Login to Apple ID.  Press <enter> when done."
   read IGNORE
-else if is_linux; then
+elif is_linux; then
   script/install-linuxbrew.sh
 fi
 
