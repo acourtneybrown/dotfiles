@@ -85,7 +85,7 @@ dotfiles:
     - synology*
     - authorized_keys
     actions:
-      - add_authorized_keys
+    - add_authorized_keys
   d_desktop:
     src: Desktop
     dst: ~/Desktop
@@ -127,6 +127,9 @@ dotfiles:
     src: zshenv
     dst: ~/.zshenv
 profiles:
+  acourtnrownsmbp:
+    include:
+    - acourtnrownsmbp.notcharlie.com
   acourtneybrowns-MacBook-Pro.local:
     include:
     - acourtnrownsmbp.notcharlie.com
@@ -134,7 +137,7 @@ profiles:
     include:
     - default
     variables:
-      host_key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLNACtM/89D66S+JHnqM2XgIgufXjlRJ9xvDeGgPzyh2DYLKMJtPqIf2IzwTiMr81WKpT2o6VN4RAJ013Az6wGQ=
+      host_key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCRzdM2E+ODIc9uvWbzZ6Pz0QcdzlsTDgStoS8o+I1J+DHIqwFKSIEwYOc8cK+uRH+xlrmdoVWPzEDBgKb8K4tI=
   mini-me.notcharlie.com:
     include:
     - default
