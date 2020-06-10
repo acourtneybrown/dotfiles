@@ -1,3 +1,5 @@
+alias opsignin='eval $(op signin my)'
+
 # pswd puts the password of the named service into the clipboard
 function pswd() {
     (( $# < 1 )) && { echo "Usage: pswd <service>" }
