@@ -74,7 +74,6 @@ plugins=(
   dotdrop
   functions
   git
-  github-go
   marked2
   mosh
   path
@@ -85,9 +84,14 @@ plugins=(
   zsh-completions
 )
 
-# Add useful build aliases only on bp-dev ghe hosts
 if command -v ghe-dev-hostname; then
-  plugins+=(ghe)
+  plugins+=(
+    ghe # Add useful build aliases only on bp-dev ghe hosts
+  )
+else
+  plugins+=(
+    github-go # Don't want to mess with go config on bp-dev boxes
+  )
 fi
 
 if [ -d $ZSH ]; then
