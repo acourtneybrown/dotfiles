@@ -90,6 +90,10 @@ dotfiles:
     src: Desktop
     dst: ~/Desktop
     link: link_children
+    upignore:
+    - Relocated Items
+    cmpignore:
+    - Relocated Items
   d_bin:
     src: bin
     dst: ~/bin
