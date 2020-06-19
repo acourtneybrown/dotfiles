@@ -130,6 +130,9 @@ dotfiles:
     src: finicky.js
     dst: ~/.finicky.js
 profiles:
+  default:
+    include:
+    - zsh
   acourtnrownsmbp:
     include:
     - acourtnrownsmbp.notcharlie.com
@@ -139,37 +142,46 @@ profiles:
   acourtnrownsmbp.notcharlie.com:
     include:
     - default
-    variables:
-      host_key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCRzdM2E+ODIc9uvWbzZ6Pz0QcdzlsTDgStoS8o+I1J+DHIqwFKSIEwYOc8cK+uRH+xlrmdoVWPzEDBgKb8K4tI=
+    - mac
   mini-me.notcharlie.com:
     include:
     - default
-    variables:
-      host_key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLclpoEyerY+OuQ5AIPIU/rIiCxhWv+fSDE+4jSFER0SiZqEJyzLccG1RMJdPKGdDwgDRxxn+x5lry+BnjsefhY=
-  default:
+    - mac
+  mac:
     dotfiles:
-    - f_bashrc
-    - f_aliases
-    - f_bash_profile
-    - f_bash_prompt
+    - f_finicky.js
+    - d_desktop
+    - d_fonts
+    - d_user
+  shared:
+    dotfiles:
     - f_curlrc
-    - f_exports
-    - f_functions
     - f_gitconfig
+    - f_gitconfig-github
+    - f_gitignore
     - f_hgrc
-    - f_path
+    - f_hushlogin
     - f_tmux.conf
     - f_vimrc
     - f_wgetrc
     - d_gradle
     - d_ssh
-    - d_desktop
     - d_bin
-    - d_fonts
-    - d_user
-    - f_hushlogin
-    - f_gitconfig-github
-    - f_gitignore
+  zsh:
+    include:
+    - shared
+    dotfiles:
     - f_zshrc
     - d_oh-my-zsh-custom
     - f_zshenv
+  bash:
+    include:
+    - shared
+    dotfiles:
+    - f_bashrc
+    - f_aliases
+    - f_bash_profile
+    - f_bash_prompt
+    - f_exports
+    - f_functions
+    - f_path
