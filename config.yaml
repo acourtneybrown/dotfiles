@@ -93,10 +93,6 @@ dotfiles:
   d_bin:
     src: bin
     dst: ~/bin
-  d_fonts:
-    src: Library/Fonts
-    dst: ~/Library/Fonts
-    link: link_children
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
     dst: ~/Library/Application Support/Sublime Text 3/Packages/User
@@ -151,7 +147,6 @@ profiles:
     dotfiles:
     - f_finicky.js
     - d_desktop
-    - d_fonts
     - d_user
   shared:
     dotfiles:
