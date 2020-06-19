@@ -7,8 +7,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-brew "openssl"
-brew "python"
+brew "openssl@1.1"
 brew "asciinema"
 brew "augeas"
 brew "awscli"
@@ -24,7 +23,6 @@ brew "ffmpeg"
 brew "findutils"
 brew "gdub"
 brew "git"
-brew "github/gh/gh"
 brew "git-lfs"
 brew "git-sizer"
 brew "gnu-sed"
@@ -45,6 +43,7 @@ brew "mosh"
 brew "nmap"
 brew "p7zip"
 brew "pandoc"
+brew "python"
 brew "shellcheck"
 brew "shfmt"
 brew "socat"
@@ -59,6 +58,7 @@ brew "wimlib"
 brew "yq"
 brew "zsh"
 brew "zsh-completions"
+brew "github/gh/gh"
 cask "1password"
 cask "1password-cli"
 cask "atom"
@@ -103,6 +103,7 @@ cask "openemu"
 cask "pycharm-ce"
 cask "selfcontrol"
 cask "slack"
+cask "slowquitapps"
 cask "sourcetree"
 cask "subler"
 cask "sublime-text"
@@ -112,13 +113,11 @@ cask "visualvm"
 cask "vlc"
 cask "xld"
 cask "zoomus"
-cask "dteoh/sqa/slowquitapps"
 mas "Airmail", id: 918858936
 mas "Amphetamine", id: 937984704
 mas "Apple Configurator 2", id: 1037126344
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
-mas "iPhoto", id: 408981381
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "NetSpot", id: 514951692
@@ -126,3 +125,4 @@ mas "Notability", id: 736189492
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Reeder", id: 880001334
+mas "SmileAllDay", id: 1180442868
