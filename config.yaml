@@ -126,6 +126,9 @@ dotfiles:
   f_zshenv:
     src: zshenv
     dst: ~/.zshenv
+  f_finicky.js:
+    src: finicky.js
+    dst: ~/.finicky.js
 profiles:
   acourtnrownsmbp:
     include:
