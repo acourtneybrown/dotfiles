@@ -30,6 +30,11 @@ if [ ! -d ~/.ssh/sockets ]; then
   chmod 0700 ~/.ssh/sockets
 fi
 
+# Create GPG directory if not present
+if [ ! -d ~/.gpg ]; then
+  mkdir -p ~/.gpg
+fi
+
 # Install all dotfiles into the home directory
 if [ ! $(command -v yq) ]; then
   GO111MODULE=on go get github.com/mikefarah/yq/v3
@@ -38,8 +43,6 @@ fi
 PROFILE=$(hostname)
 if [ -z "$(yq r config.yaml profiles.\"$PROFILE\")" ]; then
   yq w -i config.yaml profiles.\"$PROFILE\"."include[+]" default
-
-  # TODO: set `profiles.\"$PROFILE\".variables.host_key`
 fi
 ./dotdrop.sh install --force --profile=$PROFILE
 
