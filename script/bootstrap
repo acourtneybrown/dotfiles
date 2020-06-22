@@ -30,11 +30,6 @@ if [ ! -d ~/.ssh/sockets ]; then
   chmod 0700 ~/.ssh/sockets
 fi
 
-# Create GPG directory if not present
-if [ ! -d ~/.gpg ]; then
-  mkdir -p ~/.gpg
-fi
-
 # Install all dotfiles into the home directory
 if [ ! $(command -v yq) ]; then
   GO111MODULE=on go get github.com/mikefarah/yq/v3
