@@ -24,10 +24,10 @@ Ultimately, both of these files should be idempotent and thus can be used to re-
 1. install homebrew/linuxbrew (& casks)
 1. install brew bundle (Brewfile)
 1. pull data from 1password
-  1. *login to 1password directories*
-  1. pull ssh private key from 1password
-  1. pull gpg key from 1password
-  1. pull `.secrets` data from 1password
+    1. *login to 1password directories*
+    1. pull ssh private key from 1password
+    1. pull gpg key from 1password
+    1. pull `.secrets` data from 1password
 1. setup go
 1. setup ruby
 
