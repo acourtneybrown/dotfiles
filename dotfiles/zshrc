@@ -76,6 +76,7 @@ plugins=(
   git
   marked2
   mosh
+  mosh-custom
   path
   rbenv
   setopts

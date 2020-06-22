@@ -60,9 +60,6 @@ alias plistbuddy="/usr/libexec/PlistBuddy"
 # Google Cloud aliases
 alias gat='gcloud beta auth application-default print-access-token'
 
-# Run mosh client with server in /usr/local/bin
-alias moshl='mosh --server=/usr/local/bin/mosh-server'
-
 # Restart Mac OS X screen sharing
 alias fixscreen='sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.screensharing.plist &&  sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist'
 
