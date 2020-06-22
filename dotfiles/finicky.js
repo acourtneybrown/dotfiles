@@ -12,7 +12,7 @@ module.exports = {
       // Work-related sites
       match: [
         /^https:\/\/github\.com\/github.*$/,
-        finicky.matchHostnames([ "team.githubapp.com" ])
+        finicky.matchHostnames([ "team.githubapp.com", "nines.githubapp.com" ])
       ],
       browser: "Google Chrome"
     },
