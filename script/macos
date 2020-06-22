@@ -854,11 +854,12 @@ defaults write com.operasoftware.OperaDeveloper PMPrintingExpandedStateForPrint2
 # SlowQuitApps.app                                                            #
 ###############################################################################
 
-defaults write com.dteoh.SlowQuitApps whitelist -array-add com.jetbrains.intellij.ce
-defaults write com.dteoh.SlowQuitApps whitelist -array-add com.jetbrains.intellij
-defaults write com.dteoh.SlowQuitApps whitelist -array-add com.jetbrains.pycharm
-defaults write com.dteoh.SlowQuitApps whitelist -array-add com.googlecode.iterm2
-defaults write com.dteoh.SlowQuitApps whitelist -array-add com.apple.ScreenSharing
+defaults write com.dteoh.SlowQuitApps whitelist -array \
+   com.jetbrains.intellij.ce \
+   com.jetbrains.intellij \
+   com.jetbrains.pycharm \
+   com.googlecode.iterm2 \
+   com.apple.ScreenSharing
 
 ###############################################################################
 # Kill affected applications                                                  #
