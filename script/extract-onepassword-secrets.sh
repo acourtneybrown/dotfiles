@@ -57,10 +57,10 @@ then
   octofactory_password=$(op get item iaamiupwtfa6rpqcelvcagq2au | jq -r '.details.fields[] | select(.designation=="password").value')
   octofactory_url=$(op get item iaamiupwtfa6rpqcelvcagq2au | jq -r '.details.sections[0].fields[0].v')
 
-  cat > "$HOME/.secrets" <<EOF
-export octofactory_username=${octofactory_username}
-export octofactory_password=${octofactory_password}
-export octofactory_url=${octofactory_url}
+  cat >> "$HOME/.secrets" <<EOF
+octofactory_username=${octofactory_username}
+octofactory_password=${octofactory_password}
+octofactory_url=${octofactory_url}
 EOF
 fi
 
