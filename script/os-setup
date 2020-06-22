@@ -21,6 +21,9 @@ if is_mac; then
   open -a 'App Store.app'
   echo "Login to Apple ID.  Press <enter> when done."
   read IGNORE
+
+  # install LaunchDaemon to ensure mosh is added to fw allow list
+  script/install-fix-mosh.sh
 elif is_linux; then
   script/install-linuxbrew.sh
 fi
