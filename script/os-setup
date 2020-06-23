@@ -24,13 +24,13 @@ if is_mac; then
 
   # install LaunchDaemon to ensure mosh is added to fw allow list
   script/install-fix-mosh.sh
-
-  script/extract-onepassword-secrets.sh
 elif is_linux; then
   script/install-linuxbrew.sh
 fi
 
 [ -z "$SKIP_BUNDLE" ] && script/brew_bundle
+
+script/extract-onepassword-secrets.sh
 
 # Setup development tools
 script/golang-setup.sh
