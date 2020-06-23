@@ -12,6 +12,8 @@ onepassword_login() {
   then
     echo "Install op first!" >&2
     exit 1
+  else
+    brew cask install 1password-cli
   fi
 
   # shellcheck disable=SC2154
