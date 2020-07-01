@@ -15,7 +15,7 @@ Ultimately, both of these files should be idempotent and thus can be used to re-
 
 ## Operations performed
 
-### [`script/os-setup`]()
+### [`script/os-setup`](script/os-setup)
 
 #### On Mac
 1. install OS updates
@@ -44,7 +44,7 @@ Ultimately, both of these files should be idempotent and thus can be used to re-
 
 Items in *italics* require manual intervention currently.
 
-### [`script/bootstrap`]()
+### [`script/bootstrap`](script/bootstrap)
 
 1. setup `dotdrop` environment & dependencies
 1. setup `.ssh` directory
