@@ -12,21 +12,23 @@ module.exports = {
       // Work-related sites
       match: [
         /^https:\/\/github\.com\/github.*$/,
-        finicky.matchHostnames([ "team.githubapp.com" ])
+        /^https:\/\/dev\.azure\.com\/mseng.*$/,
+
+        finicky.matchHostnames([
+          "team.githubapp.com",
+          "nines.githubapp.com",
+          "janky.githubapp.com",
+          "githubber.tv",
+          "github.zoom.us",
+          "applications.zoom.us",
+          "aka.ms"
+        ])
       ],
       browser: "Google Chrome"
     },
     {
       match: [ /^https:\/\/github.com\/acourtneybrown\/.*$/ ],
       browser: "Safari"
-    },
-    {
-      match: finicky.matchHostnames([ "applications.zoom.us" ]),
-      browser: "Google Chrome"
-    },
-    {
-      match: finicky.matchHostnames([ "aka.ms" ]),
-      browser: "Google Chrome"
     }
   ]
 };

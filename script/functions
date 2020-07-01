@@ -52,10 +52,3 @@ sudo_check_then_alive() {
 
   sudo_keepalive
 }
-
-populate_dotenv() {
-  # populate .env with GitHub Octofactory vars for gradle.properties template
-  echo "Search \"Octofactory\" in 1Password & populate .env with values"
-  echo "Press <Return> when done"
-  read WAIT
-}

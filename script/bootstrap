@@ -14,14 +14,16 @@ fi
 # Set up dotdrop dependencies
 git submodule update --init --recursive
 git submodule update --remote dotdrop
-if command -v python3; then
 
-  python3 -m venv env
-  source env/bin/activate
-  pip install -r dotdrop/requirements.txt
-  deactivate
-else
-  abort "Python3 must be installed"
+if [ ! -d env ]; then
+  if command -v python3; then
+    python3 -m venv env
+    source env/bin/activate
+    pip install -r dotdrop/requirements.txt
+    deactivate
+  else
+    abort "Python3 must be installed"
+  fi
 fi
 
 # Setup to ensure fewer Duo pushes
@@ -30,24 +32,28 @@ if [ ! -d ~/.ssh/sockets ]; then
   chmod 0700 ~/.ssh/sockets
 fi
 
+# Install oh-my-zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+  if command -v curl; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
+  elif command -v wget; then
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -) --unattended"
+  else
+    abort "Either curl or wget must be installed"
+  fi
+fi
+
 # Install all dotfiles into the home directory
 if [ ! $(command -v yq) ]; then
-  GO111MODULE=on go get github.com/mikefarah/yq/v3
+  GO111MODULE=on go get -u github.com/mikefarah/yq/v3
 fi
+
 # create a new profile (if necessary) and include default
 PROFILE=$(hostname)
 if [ -z "$(yq r config.yaml profiles.\"$PROFILE\")" ]; then
   yq w -i config.yaml profiles.\"$PROFILE\"."include[+]" default
-
-  # TODO: set `profiles.\"$PROFILE\".variables.host_key`
+  if is_mac; then
+    yq w -i config.yaml profiles.\"$PROFILE\"."include[+]" mac
+  fi
 fi
 ./dotdrop.sh install --force --profile=$PROFILE
-
-# Install oh-my-zsh
-if command -v curl; then
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-elif command -v wget; then
-  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-else
-  abort "Either curl or wget must be installed"
-fi

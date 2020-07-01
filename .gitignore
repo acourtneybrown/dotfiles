@@ -1,5 +1,2 @@
 # Python virtualenv
 env
-
-# Private keys for Jinja templated files
-.env

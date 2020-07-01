@@ -22,6 +22,9 @@ dotfiles:
   f_bash_profile:
     src: bash_profile
     dst: ~/.bash_profile
+  f_bash_profile-for-zsh:
+    src: bash_profile-for-zsh
+    dst: ~/.bash_profile
   f_bash_prompt:
     src: bash_prompt
     dst: ~/.bash_prompt
@@ -171,6 +174,7 @@ profiles:
     - shared
     dotfiles:
     - f_zshrc
+    - f_bash_profile-for-zsh
     - d_oh-my-zsh-custom
     - f_zshenv
   bash:
