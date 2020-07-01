@@ -28,7 +28,10 @@ elif is_linux; then
   script/install-linuxbrew.sh
 fi
 
+# We can't control if some packages fail to install, so don't exit out
+set +e
 [ -z "$SKIP_BUNDLE" ] && script/brew_bundle
+set -e
 
 script/extract-onepassword-secrets.sh
 
