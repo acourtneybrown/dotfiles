@@ -15,12 +15,10 @@ module.exports = {
         /^https:\/\/dev\.azure\.com\/mseng.*$/,
 
         finicky.matchHostnames([
-          "team.githubapp.com",
-          "nines.githubapp.com",
-          "janky.githubapp.com",
+          /githubapp.com/,
+          /zoom.us/,
+
           "githubber.tv",
-          "github.zoom.us",
-          "applications.zoom.us",
           "aka.ms"
         ])
       ],
