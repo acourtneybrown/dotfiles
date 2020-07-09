@@ -1,9 +1,9 @@
 [alias]
 	# Show the default branch for the repo
-	db = !"git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
+	db = "!f() { git symbolic-ref \"refs/remotes/${1:-origin}/HEAD\" | sed \"s@^refs/remotes/${1:-origin}/@@\"; }; f"
 
 	# Update the default branch from origin
-	udb = remote set-head origin -a
+	udb = "!f() { git remote set-head \"${1:-origin}\" -a; }; f"
 
 	# Fetch from origin & prune
 	fp = fetch --prune

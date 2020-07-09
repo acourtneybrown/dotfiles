@@ -74,6 +74,7 @@ plugins=(
   dotdrop
   functions
   git
+  git-custom
   marked2
   mosh
   mosh-custom
