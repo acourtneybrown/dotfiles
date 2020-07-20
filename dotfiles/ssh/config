@@ -61,7 +61,7 @@ Host github.com *.github.net *.githubapp.com
   User acourtneybrown
 Host shell
   User acourtneybrown
-  Hostname shell.service.cp1-iad.github.net
+  Hostname shell.service.ac4-iad.github.net
   ForwardAgent yes
   ProxyJump bastion.githubapp.com
 Host analytics-console
