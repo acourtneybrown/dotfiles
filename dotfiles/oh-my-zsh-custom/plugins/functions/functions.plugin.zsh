@@ -1,30 +1,6 @@
 # Ensure zmv function available
 autoload -U zmv
 
-# `gitall` performs a git operation across all of the git repositories under the
-# current directory.
-function gitall {
-  if [ "$#" -lt 1  ]; then
-    echo "Usage: gitall pull|push|commit ..."
-    echo "Starts a git command for each directory found in current dir."
-    return
-  fi
-  if tput setaf 1 &> /dev/null; then
-    BOLD=$(tput bold)
-    RESET=$(tput sgr0)
-  else
-    BOLD=""
-    RESET="\033[m"
-  fi
-  for DIR in `ls`;
-  do
-    if [ -d $DIR/.git ]; then
-      echo $BOLD"Entering "$DIR$RESET
-      (cd $DIR; git "$@")
-    fi
-  done
-}
-
 # Opens a manpage in MacOS Preview
 function man-preview() {
 	man -t "$@" | open -f -a Preview
