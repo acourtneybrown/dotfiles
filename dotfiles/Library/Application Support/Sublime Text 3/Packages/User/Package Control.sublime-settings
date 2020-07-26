@@ -7,6 +7,8 @@
 	[
 		"DiffTabs",
 		"Grepmark",
-		"Package Control"
+		"Package Control",
+		"Pretty Shell",
+		"Terminal"
 	]
 }
