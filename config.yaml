@@ -1,5 +1,6 @@
 actions:
   add_authorized_keys: cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
+  install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/install-package-control.sh ~/\"{{@@ sublime_home @@}}\""
 config:
   backup: true
   create: true
@@ -102,13 +103,21 @@ dotfiles:
     dst: ~/bin
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
-    dst: ~/Library/Application Support/Sublime Text 3/Packages/User
+    dst: "~/{{@@ sublime_home @@}}/Packages/User"
     link: link_children
+    actions:
+      - install_package_control
     upignore:
-    - Package Control*
+    - Package Control.cache
+    - Package Control.last-run
+    - Package Control.merged-ca-bundle
+    - Package Control.user-ca-bundle
     - oscrypto-ca-bundle.crt
     cmpignore:
-    - Package Control*
+    - Package Control.cache
+    - Package Control.last-run
+    - Package Control.merged-ca-bundle
+    - Package Control.user-ca-bundle
     - oscrypto-ca-bundle.crt
   f_hushlogin:
     src: hushlogin
@@ -151,9 +160,16 @@ profiles:
     - default
     - mac
   mac:
+    variables:
+      sublime_home: Library/Application Support/Sublime Text 3
     dotfiles:
     - f_finicky.js
     - d_desktop
+    - d_user
+  linux:
+    variables:
+      sublime_home: .config/sublime-text-3
+    dotfiles:
     - d_user
   shared:
     dotfiles:
