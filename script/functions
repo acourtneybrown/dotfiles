@@ -52,3 +52,22 @@ sudo_check_then_alive() {
 
   sudo_keepalive
 }
+
+download_and_verify() {
+  url="$1"
+  sha256="$2"
+  output="$3"
+  tempfile=$(mktemp /tmp/sha256.XXXXXX)
+  tempout=$(mktemp /tmp/curl.XXXXXX)
+  echo "$sha256 -" > $tempfile
+
+  curl -fLs "$url" | tee $tempout | sha256sum -c $tempfile
+
+  if [ $? -eq 0 ]; then
+    mv $tempout "$3"
+  else
+    echo "Hash did not match"
+  fi
+
+  rm -f $tempfile $tempout
+}
