@@ -28,6 +28,9 @@ alias gludb='git pull upstream $(gdb)'
 alias gmodb='git merge origin/$(gdb)'
 alias gmudb='git merge upstream/$(gdb upstream)'
 alias grbbd='git rebase $(gdb)'
+alias gl="git pull --prune"
+alias gla="gl --all"
+alias gcdbl="gcdb && gl"
 
 # `gitall` performs a git operation across all of the git repositories under the
 # current directory.
