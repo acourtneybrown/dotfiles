@@ -28,7 +28,6 @@ alias gludb='git pull upstream $(gdb)'
 alias gmodb='git merge origin/$(gdb)'
 alias gmudb='git merge upstream/$(gdb upstream)'
 alias grbbd='git rebase $(gdb)'
-alias gcodb='git checkout $(gdb)'
 
 # `gitall` performs a git operation across all of the git repositories under the
 # current directory.
