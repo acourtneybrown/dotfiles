@@ -31,8 +31,8 @@ alias grbbd='git rebase $(gdb)'
 
 # `gitall` performs a git operation across all of the git repositories under the
 # current directory.
-function gitall {
-  if [ "$#" -lt 1  ]; then
+function gitall() {
+  if [ "$#" -lt 1 ]; then
     echo "Usage: gitall pull|push|commit ..."
     echo "Starts a git command for each directory found in current dir."
     return
@@ -44,11 +44,13 @@ function gitall {
     BOLD=""
     RESET="\033[m"
   fi
-  for DIR in `ls`;
-  do
+  for DIR in $(ls); do
     if [ -d $DIR/.git ]; then
       echo $BOLD"Entering "$DIR$RESET
-      (cd $DIR; git "$@")
+      (
+        cd $DIR
+        git "$@"
+      )
     fi
   done
 }
