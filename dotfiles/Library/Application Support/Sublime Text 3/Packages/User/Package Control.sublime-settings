@@ -10,6 +10,8 @@
 		"Package Control",
 		"Pretty Shell",
 		"SSH Config",
+		"SublimeLinter",
+		"SublimeLinter-shellcheck",
 		"Terminal"
 	]
 }

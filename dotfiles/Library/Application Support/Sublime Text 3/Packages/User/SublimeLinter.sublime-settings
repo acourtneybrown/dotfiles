@@ -1,0 +1,8 @@
+// SublimeLinter Settings - User
+{
+	"linters": {
+		"shellcheck": {
+			"executable": "/usr/local/bin/shellcheck"
+		}
+	}
+}
