@@ -137,6 +137,13 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 #sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
 #sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
 
+# Sound: show volume in menu bar
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
+(defaults read com.apple.systemuiserver menuExtras | grep -q Volume.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
+
+# Time & Clock: Show date in menu bar
+defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
+
 #####################
 # Security settings #
 #####################
@@ -177,14 +184,47 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Trackpad: map bottom right corner to right-click
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# Swipe between full screen apps with 4 fingers
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -bool false
+
+# Mission control & App expose with 4 fingers
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -bool false
+defaults write com.apple.dock showMissionControlGestureEnabled -bool true
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+
+# Accessibility - Enable dragging w/ three fingers
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+
+# Accessibility - Use scroll gesture with Control (^) modifier key to zoom
+defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 262144
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
+defaults write com.apple.universalaccess closeViewHotkeysPreviouslyEnabled -bool false
+defaults write com.apple.universalaccess closeViewScrollWheelPreviousToggle -bool true
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 
 # Disable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Keyboard: default touchbar to function keys
+defaults write com.apple.touchbar.agent PresentationModeGlobal -string functionKeys
+
+# Keyboard: touchbar Fn keys to "Show Control Strip"
+defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullControlStrip functionKeys functionKeys fullControlStrip
+
+# Clear keyboard shortcut for Shift-Cmd-A (Search man page in index in Terminal.app)
+/usr/libexec/PlistBuddy -c "Add :NSServicesStatus dict" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages' dict" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':enabled_services_menu bool false" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':enabled_context_menu bool false" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':key_equivalent string" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes dict" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes:ContextMenu bool false" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes:ServicesMenu bool false" ~/Library/Preferences/pbs.plist
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -193,18 +233,8 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Use scroll gesture with the Ctrl (^) modifier key to zoom
-# defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-# defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-# Follow the keyboard focus while zoomed in
-# defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
-
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-# Set a blazingly fast keyboard repeat rate
-# defaults write NSGlobalDomain KeyRepeat -int 1
-# defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
@@ -422,6 +452,9 @@ defaults write com.apple.dock autohide -bool true
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
+# Make Dock position on right
+defaults write com.apple.dock orientation -string right
+
 # Disable the Launchpad gesture (pinch with thumb and three fingers)
 #defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
@@ -562,12 +595,12 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 # sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 # Change indexing order and disable some search results
 # Yosemite-specific search results (remove them if you are using macOS 10.9 or older):
-# 	MENU_DEFINITION
-# 	MENU_CONVERSION
-# 	MENU_EXPRESSION
-# 	MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
-# 	MENU_WEBSEARCH             (send search queries to Apple)
-# 	MENU_OTHER
+#   MENU_DEFINITION
+#   MENU_CONVERSION
+#   MENU_EXPRESSION
+#   MENU_SPOTLIGHT_SUGGESTIONS (send search queries to Apple)
+#   MENU_WEBSEARCH             (send search queries to Apple)
+#   MENU_OTHER
 defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 1;"name" = "APPLICATIONS";}' \
   '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
