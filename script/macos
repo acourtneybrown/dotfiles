@@ -221,6 +221,7 @@ defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullContro
 /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages' dict" ~/Library/Preferences/pbs.plist
 /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':enabled_services_menu bool false" ~/Library/Preferences/pbs.plist
 /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':enabled_context_menu bool false" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':key_equivalent string" ~/Library/Preferences/pbs.plist
 /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes dict" ~/Library/Preferences/pbs.plist
 /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes:ContextMenu bool false" ~/Library/Preferences/pbs.plist
 /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes:ServicesMenu bool false" ~/Library/Preferences/pbs.plist
