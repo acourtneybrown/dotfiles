@@ -216,6 +216,12 @@ defaults write com.apple.touchbar.agent PresentationModeGlobal -string functionK
 # Keyboard: touchbar Fn keys to "Show Control Strip"
 defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullControlStrip functionKeys functionKeys fullControlStrip
 
+# Clear keyboard shortcut for Shift-Cmd-A (Search man page in index in Terminal.app)
+/usr/libexec/PlistBuddy -c "Set :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':enabled_services_menu false" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Set :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':enabled_context_menu false" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Set :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes:ContextMenu false" ~/Library/Preferences/pbs.plist
+/usr/libexec/PlistBuddy -c "Set :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes:ServicesMenu false" ~/Library/Preferences/pbs.plist
+
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
