@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 # git-custom plugin should be added after oh-my-zsh's default git plugin to
 # override some aliases to use origin's default branch instead of `master`
 
@@ -31,6 +33,8 @@ alias grbbd='git rebase $(gdb)'
 alias gl="git pull --prune"
 alias gla="gl --all"
 alias gcdbl="gcdb && gl"
+alias gdodb='git diff origin/$(gdb)...'
+alias gdudb='git diff upstream/$(gdb upstream)...'
 
 # `gitall` performs a git operation across all of the git repositories under the
 # current directory.
@@ -47,13 +51,10 @@ function gitall() {
     BOLD=""
     RESET="\033[m"
   fi
-  for DIR in $(ls); do
-    if [ -d $DIR/.git ]; then
-      echo $BOLD"Entering "$DIR$RESET
-      (
-        cd $DIR
-        git "$@"
-      )
+  for DIR in *; do
+    if [ -d "${DIR}/.git" ]; then
+      echo "${BOLD}Entering ${DIR}${RESET}"
+      git -C "${DIR}" "$@"
     fi
   done
 }
