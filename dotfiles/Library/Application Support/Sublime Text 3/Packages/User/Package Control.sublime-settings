@@ -6,6 +6,7 @@
 	"installed_packages":
 	[
 		"DiffTabs",
+		"GitSavvy",
 		"Grepmark",
 		"Package Control",
 		"Pretty Shell",
