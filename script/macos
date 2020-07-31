@@ -636,7 +636,13 @@ sudo mdutil -E / > /dev/null
 ###############################################################################
 
 # Don’t display the annoying prompt when quitting iTerm
-# defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+# Automatically check for updates
+defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -bool true
+
+# Default to unlimited scrollback
+/usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Unlimited Scrollback' true" ~/Library/Preferences/com.googlecode.iterm2.plist
 
 ###############################################################################
 # Time Machine                                                                #
