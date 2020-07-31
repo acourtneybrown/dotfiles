@@ -137,6 +137,13 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 #sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
 #sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
 
+# Sound: show volume in menu bar
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -int 1
+(defaults read com.apple.systemuiserver menuExtras | grep -q Volume.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
+
+# Time & Clock: Show date in menu bar
+defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
+
 #####################
 # Security settings #
 #####################
