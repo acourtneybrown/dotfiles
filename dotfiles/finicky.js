@@ -19,7 +19,8 @@ module.exports = {
           /zoom.us/,
 
           "githubber.tv",
-          "aka.ms"
+          "aka.ms",
+          "thehub.github.com"
         ])
       ],
       browser: "Google Chrome"
