@@ -54,3 +54,12 @@ function shrug() {
   echo -n "¯\_(ツ)_/¯" | tee /dev/tty | pbcopy
 }
 
+# open-syn opens the AFP mount on synology.notcharlie.com
+function open-syn() {
+  if [[ $# -eq 0 ]]; then
+    echo "missing network mount"
+    return 1
+  fi
+
+  open afp://synology.notcharlie.com/"$1"
+}
