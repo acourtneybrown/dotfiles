@@ -5,7 +5,12 @@
 	],
 	"installed_packages":
 	[
+		"Alignment",
+		"ChangeQuotes",
 		"DiffTabs",
+		"Git",
+		"Git blame",
+		"GitGutter",
 		"GitSavvy",
 		"Grepmark",
 		"Package Control",
