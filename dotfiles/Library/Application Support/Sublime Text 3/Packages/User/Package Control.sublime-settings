@@ -19,6 +19,7 @@
 		"SublimeLinter",
 		"SublimeLinter-ruby",
 		"SublimeLinter-shellcheck",
-		"Terminal"
+		"Terminal",
+		"Terraform"
 	]
 }
