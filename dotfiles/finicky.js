@@ -20,7 +20,8 @@ module.exports = {
 
           "githubber.tv",
           "aka.ms",
-          "thehub.github.com"
+          "thehub.github.com",
+          "app.datadoghq.com"
         ])
       ],
       browser: "Google Chrome"
