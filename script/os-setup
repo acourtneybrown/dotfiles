@@ -37,4 +37,3 @@ script/extract-onepassword-secrets.sh
 
 # Setup development tools
 script/golang-setup.sh
-script/ruby-setup.sh
