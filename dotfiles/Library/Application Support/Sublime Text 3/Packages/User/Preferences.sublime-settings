@@ -5,6 +5,7 @@
 	[
 		"Vintage"
 	],
+	"rubocop_path": "/Users/acourtneybrown/github/github/bin/rubocop",
 	"show_full_path": true,
 	"trim_trailing_white_space_on_save": true
 }
