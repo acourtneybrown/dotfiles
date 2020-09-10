@@ -46,6 +46,9 @@ Host bastion*.githubapp.com vault-bastion*.githubapp.com
   ControlMaster auto
   ControlPath ~/.ssh/sockets/%C
   ControlPersist 600
+Host search-*.private-us-east-1.github.net
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
 Host *.bpdev-*.github.net
   User build
   ControlMaster no
