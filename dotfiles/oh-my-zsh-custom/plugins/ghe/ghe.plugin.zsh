@@ -3,7 +3,7 @@ function ensure_docker() {
   host="$1"
   mkdir -p ~/.docker
   touch ~/.docker/config.json
-  if [ -z "$(jq -r .auths.\"${host}\" ~/.docker/config.json)" ]; then
+  if ! jq -e ".auths.\"${host}\"" ~/.docker/config.json; then
     docker login "${host}"
   fi
 }
