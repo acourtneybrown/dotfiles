@@ -118,5 +118,5 @@ mas "Notability", id: 736189492
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Paprika Recipe Manager 3", id: 1303222628
-mas "Reeder", id: 880001334
+mas "Reeder", id: 1449412482
 mas "SmileAllDay", id: 1180442868
