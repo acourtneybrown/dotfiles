@@ -38,35 +38,3 @@ Host unifi-* unifi-*.notcharlie.com
 
 Host *.notcharlie.com
   User abrown
-
-# GitHub
-Host bastion*.githubapp.com vault-bastion*.githubapp.com
-  ForwardAgent yes
-  User acourtneybrown
-  ControlMaster auto
-  ControlPath ~/.ssh/sockets/%C
-  ControlPersist 600
-Host search-*.private-us-east-1.github.net
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
-Host *.bpdev-*.github.net
-  User build
-  ControlMaster no
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
-  IdentityFile ~/.ssh/id_rsa
-  DynamicForward 9999
-  ForwardAgent yes
-  RemoteForward /run/user/1001/gnupg/S.gpg-agent ~/.gnupg/S.gpg-agent.extra
-Host *.service.github.net alambic-fe-*.*.github.net
-  ProxyJump bastion.githubapp.com
-Host github.com *.github.net *.githubapp.com
-  ForwardAgent no
-  User acourtneybrown
-Host shell
-  User acourtneybrown
-  Hostname shell.service.ac4-iad.github.net
-  ForwardAgent yes
-  ProxyJump bastion.githubapp.com
-Host analytics-console
-  Hostname analytics-console.github.net

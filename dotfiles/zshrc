@@ -86,16 +86,6 @@ plugins=(
   zsh-completions
 )
 
-if command -v ghe-dev-hostname; then
-  plugins+=(
-    ghe # Add useful build aliases only on bp-dev ghe hosts
-  )
-else
-  plugins+=(
-    github-go # Don't want to mess with go config on bp-dev boxes
-  )
-fi
-
 if [ -d $ZSH ]; then
   source $ZSH/oh-my-zsh.sh
 else

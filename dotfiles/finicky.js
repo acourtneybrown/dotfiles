@@ -11,19 +11,6 @@ module.exports = {
     {
       // Work-related sites
       match: [
-        /^https:\/\/github\.com\/github.*$/,
-        /^https:\/\/dev\.azure\.com\/mseng.*$/,
-
-        finicky.matchHostnames([
-          /githubapp.com/,
-          /zoom.us/,
-
-          "githubber.tv",
-          "aka.ms",
-          "thehub.github.com",
-          "app.datadoghq.com",
-          "github.rewatch.tv"
-        ])
       ],
       browser: "Google Chrome"
     },
