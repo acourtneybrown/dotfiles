@@ -96,6 +96,12 @@ else
   )
 fi
 
+if $(uname -s) = "Linux"; then
+  plugins+=(
+    linuxbrew
+  )
+fi
+
 if [ -d $ZSH ]; then
   source $ZSH/oh-my-zsh.sh
 else
