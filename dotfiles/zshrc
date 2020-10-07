@@ -73,6 +73,7 @@ plugins=(
   aliases
   dotdrop
   functions
+  fzf
   git
   git-custom
   marked2
