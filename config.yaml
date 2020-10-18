@@ -8,11 +8,11 @@ config:
   link_on_import: link
   dotpath: dotfiles
   upignore:
-  - .DS_Store
-  - .localized
+    - .DS_Store
+    - .localized
   cmpignore:
-  - .DS_Store
-  - .localized
+    - .DS_Store
+    - .localized
 dotfiles:
   f_bashrc:
     src: bashrc
@@ -61,43 +61,43 @@ dotfiles:
     dst: ~/.gradle
     link: link_children
     upignore:
-    - caches
-    - daemon
-    - native
-    - notifications
-    - workers
-    - wrapper
+      - caches
+      - daemon
+      - native
+      - notifications
+      - workers
+      - wrapper
     cmpignore:
-    - caches
-    - daemon
-    - native
-    - notifications
-    - workers
-    - wrapper
+      - caches
+      - daemon
+      - native
+      - notifications
+      - workers
+      - wrapper
   d_ssh:
     src: ssh
     dst: ~/.ssh
     link: link_children
     upignore:
-    - id_rsa*
-    - sockets
-    - synology*
-    - authorized_keys
+      - id_rsa*
+      - sockets
+      - synology*
+      - authorized_keys
     cmpignore:
-    - id_rsa*
-    - sockets
-    - synology*
-    - authorized_keys
+      - id_rsa*
+      - sockets
+      - synology*
+      - authorized_keys
     actions:
-    - add_authorized_keys
+      - add_authorized_keys
   d_desktop:
     src: Desktop
     dst: ~/Desktop
     link: link_children
     upignore:
-    - Relocated Items
+      - Relocated Items
     cmpignore:
-    - Relocated Items
+      - Relocated Items
   d_bin:
     src: bin
     dst: ~/bin
@@ -108,17 +108,17 @@ dotfiles:
     actions:
       - install_package_control
     upignore:
-    - Package Control.cache
-    - Package Control.last-run
-    - Package Control.merged-ca-bundle
-    - Package Control.user-ca-bundle
-    - oscrypto-ca-bundle.crt
+      - Package Control.cache
+      - Package Control.last-run
+      - Package Control.merged-ca-bundle
+      - Package Control.user-ca-bundle
+      - oscrypto-ca-bundle.crt
     cmpignore:
-    - Package Control.cache
-    - Package Control.last-run
-    - Package Control.merged-ca-bundle
-    - Package Control.user-ca-bundle
-    - oscrypto-ca-bundle.crt
+      - Package Control.cache
+      - Package Control.last-run
+      - Package Control.merged-ca-bundle
+      - Package Control.user-ca-bundle
+      - oscrypto-ca-bundle.crt
   f_hushlogin:
     src: hushlogin
     dst: ~/.hushlogin
@@ -142,65 +142,71 @@ dotfiles:
     src: finicky.js
     dst: ~/.finicky.js
 profiles:
-  default:
+  exhubber:
     include:
-    - zsh
-  acourtnrownsmbp:
+      - exhubber.notcharlie.com
+  exhubber.local:
     include:
-    - acourtnrownsmbp.notcharlie.com
-  acourtneybrowns-MacBook-Pro.local:
+      - exhubber.notcharlie.com
+  exhubber.notcharlie.com:
     include:
-    - acourtnrownsmbp.notcharlie.com
-  acourtnrownsmbp.notcharlie.com:
+      - default
+      - mac
+  mini-me:
     include:
-    - default
-    - mac
+      - mini-me.notcharlie.com
+  mini-me.local:
+    include:
+      - mini-me.notcharlie.com
   mini-me.notcharlie.com:
     include:
-    - default
-    - mac
+      - default
+      - mac
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
     dotfiles:
-    - f_finicky.js
-    - d_desktop
-    - d_user
+      - f_finicky.js
+      - d_desktop
+      - d_user
   linux:
     variables:
       sublime_home: .config/sublime-text-3
     dotfiles:
-    - d_user
-  shared:
-    dotfiles:
-    - f_curlrc
-    - f_gitconfig
-    - f_gitconfig-github
-    - f_gitignore
-    - f_hgrc
-    - f_hushlogin
-    - f_tmux.conf
-    - f_vimrc
-    - f_wgetrc
-    - d_gradle
-    - d_ssh
-    - d_bin
+      - d_user
+  default:
+    include:
+      - zsh
   zsh:
     include:
-    - shared
+      - shared
     dotfiles:
-    - f_zshrc
-    - f_bash_profile-for-zsh
-    - d_oh-my-zsh-custom
-    - f_zshenv
+      - f_zshrc
+      - f_bash_profile-for-zsh
+      - d_oh-my-zsh-custom
+      - f_zshenv
   bash:
     include:
-    - shared
+      - shared
     dotfiles:
-    - f_bashrc
-    - f_aliases
-    - f_bash_profile
-    - f_bash_prompt
-    - f_exports
-    - f_functions
-    - f_path
+      - f_bashrc
+      - f_aliases
+      - f_bash_profile
+      - f_bash_prompt
+      - f_exports
+      - f_functions
+      - f_path
+  shared:
+    dotfiles:
+      - f_curlrc
+      - f_gitconfig
+      - f_gitconfig-github
+      - f_gitignore
+      - f_hgrc
+      - f_hushlogin
+      - f_tmux.conf
+      - f_vimrc
+      - f_wgetrc
+      - d_gradle
+      - d_ssh
+      - d_bin

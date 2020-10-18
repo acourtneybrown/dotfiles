@@ -73,6 +73,7 @@ plugins=(
   aliases
   dotdrop
   functions
+  fzf
   git
   git-custom
   marked2
@@ -85,6 +86,12 @@ plugins=(
   venv
   zsh-completions
 )
+
+if [[ $(uname -s) == "Linux" ]]; then
+  plugins+=(
+    linuxbrew
+  )
+fi
 
 if [ -d $ZSH ]; then
   source $ZSH/oh-my-zsh.sh
