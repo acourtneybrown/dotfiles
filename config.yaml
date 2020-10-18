@@ -122,9 +122,6 @@ dotfiles:
   f_hushlogin:
     src: hushlogin
     dst: ~/.hushlogin
-  f_gitconfig-github:
-    src: gitconfig-github
-    dst: ~/.gitconfig-github
   f_gitignore:
     src: gitignore
     dst: ~/.gitignore
@@ -200,7 +197,6 @@ profiles:
     dotfiles:
       - f_curlrc
       - f_gitconfig
-      - f_gitconfig-github
       - f_gitignore
       - f_hgrc
       - f_hushlogin
