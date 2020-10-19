@@ -141,6 +141,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
 (defaults read com.apple.systemuiserver menuExtras | grep -q Volume.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
 
+# TimeMachine: show icon in menu bar
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -bool true
+(defaults read com.apple.systemuiserver menuExtras | grep -q TimeMachine.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
+
 # Time & Clock: Show date in menu bar
 defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
 
