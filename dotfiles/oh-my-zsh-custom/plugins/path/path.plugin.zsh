@@ -1,9 +1,9 @@
-paths=($HOME/go/bin $HOME/github/awssume /usr/local/sbin)
+paths=($HOME/go/bin /usr/local/sbin)
 
 for dir in $paths; do
-	if [ -d "$dir" ]; then
-		path=($dir $path)
-	fi
+  if [ -d "$dir" ]; then
+    path=($dir $path)
+  fi
 done
 
 typeset -U path

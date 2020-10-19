@@ -119,15 +119,6 @@
 	email = acourtneybrown@gmail.com
 	signingkey = 92486DAB3FC7E2A0
 
-[includeIf "gitdir/i:~/github/"]
-	path = ~/.gitconfig-github
-
-[includeIf "gitdir/i:~/go/src/github.com/github/"]
-	path = ~/.gitconfig-github
-
-[includeIf "gitdir/i:~/enterprise2/"]
-	path = ~/.gitconfig-github
-
 [github]
 	user = acourtneybrown
 [credential]

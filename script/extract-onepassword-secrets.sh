@@ -38,7 +38,6 @@ onepassword_get() {
 onepassword_get emqicp7w4jd4taxig5sb3qdumm .ssh/id_rsa
 onepassword_get whmrixtghfedbmtajlrz4pwqdu .ssh/synology
 onepassword_get vnxlg6na7fhrvnyhzo2pulh2ri .gnupg/acourtneybrown@gmail.com.private.gpg-key
-onepassword_get rzsa6e4uhfflbgt6m24w37sdsa .gnupg/acourtneybrown@github.com.private.gpg-key
 
 if ! [ -f "$HOME/.secrets" ]
 then
@@ -76,5 +75,3 @@ fi
 
 chmod 700 ~/.gnupg
 gpg --import ~/.gnupg/acourtneybrown@gmail.com.private.gpg-key
-
-gpg --import ~/.gnupg/acourtneybrown@github.com.private.gpg-key
