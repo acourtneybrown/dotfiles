@@ -8,6 +8,8 @@ Host *
  IdentityFile ~/.ssh/id_rsa
 
 # Personal
+Host exhubber exhubber.notcharlie.com
+  User adambrown
 Host mini-me mini-me.notcharlie.com
   User abrown
   Hostname mini-me.notcharlie.com
@@ -31,8 +33,6 @@ Host gitea gitea.notcharlie.com
   Hostname synology.notcharlie.com
   User git
   Port 2234
-Host acourtnrownsmbp acourtnrownsmbp.notcharlie.com
-  User acourtneybrown
 Host unifi-* unifi-*.notcharlie.com
   User unifi-admin
 
