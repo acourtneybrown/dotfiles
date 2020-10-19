@@ -256,6 +256,9 @@ sudo systemsetup -settimezone "America/Phoenix" > /dev/null
 # Don't display keyboard/language selector
 defaults write "com.apple.TextInputMenu" visible -bool false
 
+# Display battery percentage
+defaults write "com.apple.menuextra.battery" ShowPercent YES
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
