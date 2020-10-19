@@ -3,6 +3,7 @@
 	"ensure_newline_at_eof_on_save": true,
 	"ignored_packages":
 	[
+		"Markdown",
 		"Vintage"
 	],
 	"rubocop_path": "/usr/local/bin/rubocop",
