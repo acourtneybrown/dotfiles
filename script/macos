@@ -145,6 +145,10 @@ defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextr
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -bool true
 (defaults read com.apple.systemuiserver menuExtras | grep -q TimeMachine.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
 
+# Bluetooth: show icon in menu bar
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
+(defaults read com.apple.systemuiserver menuExtras | grep -q Bluetooth.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+
 # Time & Clock: Show date in menu bar
 defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
 
