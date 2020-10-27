@@ -52,14 +52,7 @@ then
   touch "${HOME}/.secrets"
   chmod 600 "${HOME}/.secrets"
 
-  octofactory_username=$(op get item iaamiupwtfa6rpqcelvcagq2au | jq -r '.details.fields[] | select(.designation=="username").value')
-  octofactory_password=$(op get item iaamiupwtfa6rpqcelvcagq2au | jq -r '.details.fields[] | select(.designation=="password").value')
-  octofactory_url=$(op get item iaamiupwtfa6rpqcelvcagq2au | jq -r '.details.sections[0].fields[0].v')
-
-  cat >> "$HOME/.secrets" <<EOF
-octofactory_username=${octofactory_username}
-octofactory_password=${octofactory_password}
-octofactory_url=${octofactory_url}
+  cat >> "$HOME/.secrets" << EOF
 EOF
 fi
 
