@@ -41,6 +41,9 @@ dotfiles:
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
+  f_gitconfig-confluent:
+    src: gitconfig-confluent
+    dst: ~/.gitconfig-confluent
   f_hgrc:
     src: hgrc
     dst: ~/.hgrc
@@ -207,6 +210,7 @@ profiles:
     dotfiles:
       - f_curlrc
       - f_gitconfig
+      - f_gitconfig-confluent
       - f_gitignore
       - f_hgrc
       - f_hushlogin
