@@ -139,6 +139,16 @@ dotfiles:
     src: finicky.js
     dst: ~/.finicky.js
 profiles:
+  abrown-confluent:
+    include:
+      - abrown-confluent.notcharlie.com
+  abrown-confluent.local:
+    include:
+      - abrown-confluent.notcharlie.com
+  abrown-confluent.notcharlie.com:
+    include:
+      - default
+      - mac
   exhubber:
     include:
       - exhubber.notcharlie.com
