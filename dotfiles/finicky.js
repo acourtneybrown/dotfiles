@@ -11,6 +11,11 @@ module.exports = {
     {
       // Work-related sites
       match: [
+        /confluent.io/,
+        /confluent.zoom.us/,
+        /confluentinc.atlassian.net/,
+        /github.com\/confluentinc/,
+        /jfrog.io/
       ],
       browser: "Google Chrome"
     },

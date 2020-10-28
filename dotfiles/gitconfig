@@ -119,6 +119,9 @@
 	email = acourtneybrown@gmail.com
 	signingkey = 92486DAB3FC7E2A0
 
+[includeIf "gitdir/i:~/confluent/"]
+    path = ~/.gitconfig-confluent
+
 [github]
 	user = acourtneybrown
 [credential]
