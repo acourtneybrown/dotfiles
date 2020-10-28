@@ -14,51 +14,17 @@ config:
     - .DS_Store
     - .localized
 dotfiles:
-  f_bashrc:
-    src: bashrc
-    dst: ~/.bashrc
-  f_aliases:
-    src: aliases
-    dst: ~/.aliases
-  f_bash_profile:
-    src: bash_profile
-    dst: ~/.bash_profile
-  f_bash_profile-for-zsh:
-    src: bash_profile-for-zsh
-    dst: ~/.bash_profile
-  f_bash_prompt:
-    src: bash_prompt
-    dst: ~/.bash_prompt
-  f_curlrc:
-    src: curlrc
-    dst: ~/.curlrc
-  f_exports:
-    src: exports
-    dst: ~/.exports
-  f_functions:
-    src: functions
-    dst: ~/.functions
-  f_gitconfig:
-    src: gitconfig
-    dst: ~/.gitconfig
-  f_gitconfig-confluent:
-    src: gitconfig-confluent
-    dst: ~/.gitconfig-confluent
-  f_hgrc:
-    src: hgrc
-    dst: ~/.hgrc
-  f_path:
-    src: path
-    dst: ~/.path
-  f_tmux.conf:
-    src: tmux.conf
-    dst: ~/.tmux.conf
-  f_vimrc:
-    src: vimrc
-    dst: ~/.vimrc
-  f_wgetrc:
-    src: wgetrc
-    dst: ~/.wgetrc
+  d_bin:
+    src: bin
+    dst: ~/bin
+  d_desktop:
+    src: Desktop
+    dst: ~/Desktop
+    link: link_children
+    upignore:
+      - Relocated Items
+    cmpignore:
+      - Relocated Items
   d_gradle:
     src: gradle
     dst: ~/.gradle
@@ -77,33 +43,26 @@ dotfiles:
       - notifications
       - workers
       - wrapper
+  d_oh-my-zsh-custom:
+    src: oh-my-zsh-custom
+    dst: ~/.oh-my-zsh-custom
+    link: link_children
   d_ssh:
     src: ssh
     dst: ~/.ssh
     link: link_children
     upignore:
+      - authorized_keys
       - id_rsa*
       - sockets
       - synology*
-      - authorized_keys
     cmpignore:
+      - authorized_keys
       - id_rsa*
       - sockets
       - synology*
-      - authorized_keys
     actions:
       - add_authorized_keys
-  d_desktop:
-    src: Desktop
-    dst: ~/Desktop
-    link: link_children
-    upignore:
-      - Relocated Items
-    cmpignore:
-      - Relocated Items
-  d_bin:
-    src: bin
-    dst: ~/bin
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
     dst: "~/{{@@ sublime_home @@}}/Packages/User"
@@ -111,36 +70,77 @@ dotfiles:
     actions:
       - install_package_control
     upignore:
+      - oscrypto-ca-bundle.crt
       - Package Control.cache
       - Package Control.last-run
       - Package Control.merged-ca-bundle
       - Package Control.user-ca-bundle
-      - oscrypto-ca-bundle.crt
     cmpignore:
+      - oscrypto-ca-bundle.crt
       - Package Control.cache
       - Package Control.last-run
       - Package Control.merged-ca-bundle
       - Package Control.user-ca-bundle
-      - oscrypto-ca-bundle.crt
-  f_hushlogin:
-    src: hushlogin
-    dst: ~/.hushlogin
-  f_gitignore:
-    src: gitignore
-    dst: ~/.gitignore
-  f_zshrc:
-    src: zshrc
-    dst: ~/.zshrc
-  d_oh-my-zsh-custom:
-    src: oh-my-zsh-custom
-    dst: ~/.oh-my-zsh-custom
-    link: link_children
-  f_zshenv:
-    src: zshenv
-    dst: ~/.zshenv
+  f_aliases:
+    src: aliases
+    dst: ~/.aliases
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
+  f_bash_profile:
+    src: bash_profile
+    dst: ~/.bash_profile
+  f_bash_profile-for-zsh:
+    src: bash_profile-for-zsh
+    dst: ~/.bash_profile
+  f_bash_prompt:
+    src: bash_prompt
+    dst: ~/.bash_prompt
+  f_curlrc:
+    src: curlrc
+    dst: ~/.curlrc
+  f_exports:
+    src: exports
+    dst: ~/.exports
   f_finicky.js:
     src: finicky.js
     dst: ~/.finicky.js
+  f_functions:
+    src: functions
+    dst: ~/.functions
+  f_gitconfig:
+    src: gitconfig
+    dst: ~/.gitconfig
+  f_gitconfig-confluent:
+    src: gitconfig-confluent
+    dst: ~/.gitconfig-confluent
+  f_gitignore:
+    src: gitignore
+    dst: ~/.gitignore
+  f_hgrc:
+    src: hgrc
+    dst: ~/.hgrc
+  f_hushlogin:
+    src: hushlogin
+    dst: ~/.hushlogin
+  f_path:
+    src: path
+    dst: ~/.path
+  f_tmux.conf:
+    src: tmux.conf
+    dst: ~/.tmux.conf
+  f_vimrc:
+    src: vimrc
+    dst: ~/.vimrc
+  f_wgetrc:
+    src: wgetrc
+    dst: ~/.wgetrc
+  f_zshenv:
+    src: zshenv
+    dst: ~/.zshenv
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
 profiles:
   abrown-confluent:
     include:
@@ -176,9 +176,9 @@ profiles:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
     dotfiles:
-      - f_finicky.js
       - d_desktop
       - d_user
+      - f_finicky.js
   linux:
     variables:
       sublime_home: .config/sublime-text-3
@@ -191,23 +191,26 @@ profiles:
     include:
       - shared
     dotfiles:
-      - f_zshrc
-      - f_bash_profile-for-zsh
       - d_oh-my-zsh-custom
+      - f_bash_profile-for-zsh
       - f_zshenv
+      - f_zshrc
   bash:
     include:
       - shared
     dotfiles:
-      - f_bashrc
       - f_aliases
       - f_bash_profile
       - f_bash_prompt
+      - f_bashrc
       - f_exports
       - f_functions
       - f_path
   shared:
     dotfiles:
+      - d_bin
+      - d_gradle
+      - d_ssh
       - f_curlrc
       - f_gitconfig
       - f_gitconfig-confluent
@@ -217,6 +220,3 @@ profiles:
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc
-      - d_gradle
-      - d_ssh
-      - d_bin
