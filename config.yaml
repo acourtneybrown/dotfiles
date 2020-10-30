@@ -1,6 +1,7 @@
 actions:
   add_authorized_keys: cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
   install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/install-package-control.sh ~/\"{{@@ sublime_home @@}}\""
+  make_private: chmod 600 "{{@@ _dotfile_abs_dst @@}}"
 config:
   backup: true
   create: true
@@ -126,6 +127,8 @@ dotfiles:
   f_netrc:
     src: netrc
     dst: ~/.netrc
+    actions:
+      - make_private
   f_path:
     src: path
     dst: ~/.path
