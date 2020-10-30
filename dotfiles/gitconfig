@@ -91,23 +91,16 @@
 [url "git@github.com:"]
 
 	insteadOf = "gh:"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-	insteadOf = https://github.com/
-
-[url "git://github.com/"]
-
 	insteadOf = "github:"
+	insteadOf = "git://github.com/"
+	insteadOf = https://github.com/
 
 [url "git@gist.github.com:"]
 
 	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-
-[url "git://gist.github.com/"]
-
 	insteadOf = "gist:"
+	insteadOf = "git://gist.github.com/"
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
