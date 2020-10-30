@@ -1,3 +1,9 @@
+[core]
+	ignorecase = false
+
+[push]
+	default = nothing
+
 [user]
     email = abrown@confluent.io
     signingkey = DCCDC77C400AC72C
