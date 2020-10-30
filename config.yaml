@@ -123,6 +123,9 @@ dotfiles:
   f_hushlogin:
     src: hushlogin
     dst: ~/.hushlogin
+  f_netrc:
+    src: netrc
+    dst: ~/.netrc
   f_path:
     src: path
     dst: ~/.path
@@ -217,6 +220,7 @@ profiles:
       - f_gitignore
       - f_hgrc
       - f_hushlogin
+      - f_netrc
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc

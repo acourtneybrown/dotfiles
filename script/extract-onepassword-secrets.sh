@@ -48,7 +48,10 @@ if ! [ -f "$HOME/.secrets" ]; then
   touch "${HOME}/.secrets"
   chmod 600 "${HOME}/.secrets"
 
+  github_repo_token=$(op get item 5atqzjpi35bjjmesbyko52nerq - --fields "Repo (read) token")
+
   cat >> "$HOME/.secrets" << EOF
+github_repo_token=${github_repo_token}
 EOF
 fi
 
