@@ -138,6 +138,14 @@ dotfiles:
   f_path:
     src: path
     dst: ~/.path
+  f_pip_conf:
+    src: pip.conf
+    dst: ~/.pip/pip.conf
+  f_pypirc:
+    src: pypirc
+    dst: ~/.pypirc
+    actions:
+      - make_private
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
@@ -231,6 +239,8 @@ profiles:
       - f_hushlogin
       - f_m2_settings
       - f_netrc
+      - f_pip_conf
+      - f_pypirc
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc
