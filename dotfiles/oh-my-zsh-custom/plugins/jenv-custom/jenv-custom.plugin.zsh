@@ -1,5 +1,5 @@
-# jenv_sync_versions
 if [[ $commands[jenv] ]]; then
+  # jenv_sync_versions makes sure that all installed JDKs are added to jenv
   function jenv_sync_versions() {
     for dir in /Library/Java/JavaVirtualMachines/*; do
       jenv add "$dir/Contents/Home"
