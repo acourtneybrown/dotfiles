@@ -1,7 +1,16 @@
-# Setting versions of JDK
-alias j7='test -f /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
-alias j8='test -f /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
-alias j9='test -f /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home -v 9)'
-alias j10='test -f /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home -v 10)'
-alias j11='test -f /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home -v 11)'
-alias j12='test -f /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home -v 12)'
+if [[ -f /usr/libexec/java_home ]]; then
+
+  function jdk() {
+    version=$1
+    export JAVA_HOME=$(/usr/libexec/java_home -v"$version")
+    java -version
+  }
+
+  # Setting versions of JDK
+  alias j7='jdk 1.7'
+  alias j8='jdk 1.8'
+  alias j9='jdk 9'
+  alias j10='jdk 10'
+  alias j11='jdk 11'
+  alias j12='jdk 12'
+fi
