@@ -1,7 +1,8 @@
 actions:
   add_authorized_keys: cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
   install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/install-package-control.sh ~/\"{{@@ sublime_home @@}}\""
-  make_private: chmod 600 "{{@@ _dotfile_abs_dst @@}}"
+  pre:
+    make_private: chmod 600 "{{@@ _dotfile_abs_src @@}}"
 config:
   backup: true
   create: true
@@ -124,6 +125,11 @@ dotfiles:
   f_hushlogin:
     src: hushlogin
     dst: ~/.hushlogin
+  f_m2_settings:
+    src: m2_settings.xml
+    dst: ~/.m2/settings.xml
+    actions:
+      - make_private
   f_netrc:
     src: netrc
     dst: ~/.netrc
@@ -223,6 +229,7 @@ profiles:
       - f_gitignore
       - f_hgrc
       - f_hushlogin
+      - f_m2_settings
       - f_netrc
       - f_tmux.conf
       - f_vimrc

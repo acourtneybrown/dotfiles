@@ -49,9 +49,17 @@ if ! [ -f "$HOME/.secrets" ]; then
   chmod 600 "${HOME}/.secrets"
 
   github_repo_token=$(op get item 5atqzjpi35bjjmesbyko52nerq - --fields "Repo (read) token")
+  artifactory_host=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields url)
+  artifactory_path=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields "Root path")
+  artifactory_user=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields username)
+  artifactory_password=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields "API Key")
 
   cat >> "$HOME/.secrets" << EOF
 github_repo_token=${github_repo_token}
+artifactory_host=${artifactory_host}
+artifactory_path=${artifactory_path}
+artifactory_user=${artifactory_user}
+artifactory_password=${artifactory_password}
 EOF
 fi
 

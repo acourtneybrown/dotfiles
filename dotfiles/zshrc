@@ -76,6 +76,9 @@ plugins=(
   fzf
   git
   git-custom
+  goenv
+  jenv
+  jenv-custom
   marked2
   mosh
   mosh-custom
