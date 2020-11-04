@@ -1,10 +1,11 @@
 source ~/.secrets
 
 function ensure_docker() {
+  local host
   host="$1"
   mkdir -p ~/.docker
   touch ~/.docker/config.json
-  if ! jq -e ".auths.\"${host}\"" ~/.docker/config.json; then
+  if ! jq -e ".auths.\"${host}\"" ~/.docker/config.json > /dev/null; then
     docker login \
       "${host}" \
       --username ${artifactory_user} \

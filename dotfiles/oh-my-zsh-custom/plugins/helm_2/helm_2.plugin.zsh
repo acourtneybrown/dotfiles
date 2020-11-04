@@ -4,7 +4,7 @@ typeset -U path
 export PATH
 
 if [[ $commands[helm] ]]; then
-  helm init --upgrade
+  helm init --upgrade > /dev/null
 
   if [[ -z $(helm repo list | grep helm-cloud) ]]; then
     source ~/.secrets
