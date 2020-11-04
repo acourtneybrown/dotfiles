@@ -11,3 +11,9 @@ path+=("${GOPATH}/bin")
 
 typeset -U path
 export PATH
+
+function goenv_prompt_info() {
+  goenv version-name 2> /dev/null
+}
+
+RPROMPT+=' g$(goenv_prompt_info)'

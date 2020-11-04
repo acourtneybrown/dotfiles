@@ -14,5 +14,5 @@ if [[ $commands[jenv] ]]; then
     fi
   done
 
-  RPROMPT='$(jenv_prompt_info)'
+  RPROMPT+=' j$(jenv_prompt_info)'
 fi
