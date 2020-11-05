@@ -1,3 +1,5 @@
+// See https://github.com/johnste/finicky/wiki/Configuration
+
 module.exports = {
   defaultBrowser: "browserosaurus",
   rewrite: [
