@@ -87,6 +87,7 @@ plugins=(
   mosh
   mosh-custom
   path
+  pypath
   rbenv
   setopts
   sublime
