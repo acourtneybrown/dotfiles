@@ -55,11 +55,13 @@ dotfiles:
     link: link_children
     upignore:
       - authorized_keys
+      - id_ed25519*
       - id_rsa*
       - sockets
       - synology*
     cmpignore:
       - authorized_keys
+      - id_ed25519*
       - id_rsa*
       - sockets
       - synology*
