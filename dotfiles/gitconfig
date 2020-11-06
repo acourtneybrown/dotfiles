@@ -95,6 +95,9 @@
 	insteadOf = "git://github.com/"
 	insteadOf = https://github.com/
 
+[url "git@github.com:acourtneybrown/"]
+	insteadOf = "gha:"
+
 [url "git@gist.github.com:"]
 
 	insteadOf = "gst:"
