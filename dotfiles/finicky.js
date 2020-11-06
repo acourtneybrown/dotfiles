@@ -13,6 +13,7 @@ module.exports = {
     {
       // Work-related sites
       match: [
+        /confluent-tools.datadoghq.com/,
         /confluent.askspoke.com/,
         /confluent.io/,
         /confluent.zoom.us/,
