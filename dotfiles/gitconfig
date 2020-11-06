@@ -65,6 +65,9 @@
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
 
+[gpg]
+	program = /usr/local/bin/gpg
+
 [help]
 
 	# Automatically correct and execute mistyped commands
