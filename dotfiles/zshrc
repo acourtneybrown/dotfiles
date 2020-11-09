@@ -71,6 +71,7 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
 plugins=(
   1password
   aliases
+  cc-dotfiles
   docker
   docker-confluent
   dotdrop

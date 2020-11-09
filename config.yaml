@@ -55,12 +55,14 @@ dotfiles:
     link: link_children
     upignore:
       - authorized_keys
+      - caas-abrown*
       - id_ed25519*
       - id_rsa*
       - sockets
       - synology*
     cmpignore:
       - authorized_keys
+      - caas-abrown*
       - id_ed25519*
       - id_rsa*
       - sockets
@@ -94,6 +96,9 @@ dotfiles:
   f_bash_profile:
     src: bash_profile
     dst: ~/.bash_profile
+  f_bash_sessions_disable:
+    src: bash_sessions_disable
+    dst: ~/.bash_sessions_disable
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
@@ -233,6 +238,7 @@ profiles:
       - d_bin
       - d_gradle
       - d_ssh
+      - f_bash_sessions_disable
       - f_curlrc
       - f_gitconfig
       - f_gitconfig-confluent

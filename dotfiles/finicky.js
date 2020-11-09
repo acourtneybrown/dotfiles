@@ -16,6 +16,7 @@ module.exports = {
         /confluent-tools.datadoghq.com/,
         /confluent.askspoke.com/,
         /confluent.io/,
+        /confluent.okta.com/,
         /confluent.zoom.us/,
         /confluentinc.atlassian.net/,
         /github.com\/confluentinc/,
