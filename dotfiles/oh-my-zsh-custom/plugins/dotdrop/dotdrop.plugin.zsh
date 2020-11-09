@@ -4,6 +4,13 @@
 export DOTDROP_AUTOUPDATE=no
 alias dotdrop='eval $(grep -v "^#" ${HOME}/.secrets) {{@@ _dotdrop_dotpath @@}}/../dotdrop.sh'
 
+# dotdrop_versions lists the available tags/releases of the dotdrop submodule
+function dotdrop_versions() {
+  cd "{{@@ _dotdrop_dotpath @@}}"/../dotdrop
+  git fetch --tags
+  git tag --sort=-v:refname -l "${1}*"
+}
+
 # dotdrop_upgrade updates the dotdrop submodule to the specified tag if given,
 # otherwise the latest tagged release
 function dotdrop_upgrade() {
@@ -11,7 +18,7 @@ function dotdrop_upgrade() {
   cd "{{@@ _dotdrop_dotpath @@}}"/../dotdrop
   git fetch --tags
   if [[ $# -lt 1 ]]; then
-    tag=$(git tag --sort=-v:refname -l "${1}*" | head -1)
+    tag=$(dotdrop_versions | head -1)
   else
     tag="$1"
   fi
