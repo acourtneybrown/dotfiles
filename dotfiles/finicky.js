@@ -1,3 +1,5 @@
+// See https://github.com/johnste/finicky/wiki/Configuration
+
 module.exports = {
   defaultBrowser: "browserosaurus",
   rewrite: [
@@ -11,11 +13,13 @@ module.exports = {
     {
       // Work-related sites
       match: [
+        /confluent-tools.datadoghq.com/,
+        /confluent.askspoke.com/,
         /confluent.io/,
         /confluent.zoom.us/,
         /confluentinc.atlassian.net/,
         /github.com\/confluentinc/,
-        /jfrog.io/
+        /jfrog.io/,
       ],
       browser: "Google Chrome"
     },

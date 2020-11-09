@@ -1,0 +1,53 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                       https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <mirrors>
+        <mirror>
+        <id>confluent-artifactory-central</id>
+        <mirrorOf>default,central,confluent</mirrorOf>
+        <url>{{@@ env['artifactory_host'] @@}}{{@@ env['artifactory_path'] @@}}</url>
+        </mirror>
+    </mirrors>
+    <servers>
+        <server>
+            <id>confluent-artifactory-central</id>
+            <username>{{@@ env['artifactory_user'] @@}}</username>
+            <password>{{@@ env['artifactory_password'] @@}}</password>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>confluent-artifactory</id>
+            <repositories>
+                <repository>
+                    <id>confluent-artifactory-central</id>
+                    <url>{{@@ env['artifactory_host'] @@}}{{@@ env['artifactory_path'] @@}}</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>confluent-artifactory-central</id>
+                    <name>Confluent Plugin Repository</name>
+                    <url>{{@@ env['artifactory_host'] @@}}{{@@ env['artifactory_path'] @@}}</url>
+                    <layout>default</layout>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>confluent-artifactory</activeProfile>
+    </activeProfiles>
+</settings>

@@ -34,6 +34,7 @@ onepassword_get() {
 # onepassword_get ... .ssh/id_ed25519
 onepassword_get emqicp7w4jd4taxig5sb3qdumm .ssh/id_rsa
 onepassword_get whmrixtghfedbmtajlrz4pwqdu .ssh/synology
+onepassword_get 3apqyvlg4nbpfomve5x46e6apm .ssh/id_ed25519.confluent
 onepassword_get vnxlg6na7fhrvnyhzo2pulh2ri .gnupg/acourtneybrown@gmail.com.private.gpg-key
 onepassword_get pct2u52rzfg5jo5cbgfmbcjf5m .gnupg/abrown@confluent.io.private.gpg-key
 
@@ -48,7 +49,18 @@ if ! [ -f "$HOME/.secrets" ]; then
   touch "${HOME}/.secrets"
   chmod 600 "${HOME}/.secrets"
 
+  github_repo_token=$(op get item 5atqzjpi35bjjmesbyko52nerq - --fields "Repo (read) token")
+  artifactory_host=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields url)
+  artifactory_path=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields "Root path")
+  artifactory_user=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields username)
+  artifactory_password=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields "API Key")
+
   cat >> "$HOME/.secrets" << EOF
+github_repo_token=${github_repo_token}
+artifactory_host=${artifactory_host}
+artifactory_path=${artifactory_path}
+artifactory_user=${artifactory_user}
+artifactory_password=${artifactory_password}
 EOF
 fi
 

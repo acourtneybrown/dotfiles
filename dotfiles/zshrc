@@ -71,15 +71,23 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
 plugins=(
   1password
   aliases
+  docker
+  docker-confluent
   dotdrop
   functions
   fzf
   git
   git-custom
+  goenv
+  helm_2 # before helm because helm@2 is keg-only
+  helm
+  jenv
+  jenv-custom
   marked2
   mosh
   mosh-custom
   path
+  pypath
   rbenv
   setopts
   sublime
