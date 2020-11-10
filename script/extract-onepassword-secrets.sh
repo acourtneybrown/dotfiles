@@ -34,6 +34,8 @@ onepassword_get() {
 onepassword_get emqicp7w4jd4taxig5sb3qdumm .ssh/id_rsa
 onepassword_get whmrixtghfedbmtajlrz4pwqdu .ssh/synology
 onepassword_get 3apqyvlg4nbpfomve5x46e6apm .ssh/id_ed25519.confluent
+
+echo "Retreiving public key for id_ed25519.confluent"
 ssh-keygen -y -f ~/.ssh/id_ed25519.confluent > ~/.ssh/id_ed25519.confluent.pub
 ln -sf id_ed25519.confluent ~/.ssh/caas-abrown
 ln -sf id_ed25519.confluent.pub ~/.ssh/caas-abrown.pub
