@@ -13,15 +13,19 @@ module.exports = {
     {
       // Work-related sites
       match: [
-        /confluent-tools.datadoghq.com/,
-        /confluent.askspoke.com/,
-        /confluent.io/,
-        /confluent.okta.com/,
-        /confluent.zoom.us/,
-        /confluentinc.atlassian.net/,
+        finicky.matchHostnames([
+          "confluent-tools.datadoghq.com",
+          "confluent.askspoke.com",
+          "confluent.io",
+          "confluent.okta.com",
+          "confluent.zoom.us",
+          "confluentinc.atlassian.net",
+          "go",
+          "jenkins.confluent.io",
+          "jfrog.io",
+        ]),
         /github.com\/confluentinc/,
-        /jfrog.io/,
-      ],
+       ],
       browser: "Google Chrome"
     },
     {
