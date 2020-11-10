@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-pip3 install -U autopip
+cd "$(dirname "$0")/.."
+. script/functions
+
+ensure_brewfile_installed Brewfile.confluent
+
+/usr/local/opt/python3/bin/pip3 install -U autopip
 
 # Keep autopip updated automatically by installing itself
 app install autopip==1.* --update monthly

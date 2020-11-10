@@ -30,7 +30,7 @@ fi
 
 # We can't control if some packages fail to install, so don't exit out
 set +e
-[ -z "$SKIP_BUNDLE" ] && script/brew_bundle
+[ -z "${SKIP_BUNDLE}" ] && ensure_brewfile_installed
 set -e
 
 script/extract-onepassword-secrets.sh
