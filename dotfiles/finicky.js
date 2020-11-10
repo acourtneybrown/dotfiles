@@ -20,11 +20,12 @@ module.exports = {
           "confluent.okta.com",
           "confluent.zoom.us",
           "confluentinc.atlassian.net",
-          "go",
           "jenkins.confluent.io",
           "jfrog.io",
         ]),
+
         /github.com\/confluentinc/,
+        /https:\/\/go\//,
        ],
       browser: "Google Chrome"
     },
