@@ -1,5 +1,5 @@
 # Check if the Xcode license is agreed to and agree if not.
-install_updates() {
+function install_updates() {
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
     echo "No software updates to install"
   else
@@ -9,7 +9,7 @@ install_updates() {
   fi
 }
 
-xcode_license() {
+function xcode_license() {
   if /usr/bin/xcrun clang 2>&1 | grep -q license; then
     if [ -n "FSTRAP_INTERACTIVE" ]; then
       echo "Asking for Xcode license confirmation:"
@@ -20,24 +20,24 @@ xcode_license() {
   fi
 }
 
-escape() {
+function escape() {
   printf '%s' "${1//\'/\'}"
 }
 
-abort() {
+function abort() {
   echo "!!! $*" >&2
   exit 1
 }
 
-is_mac() {
+function is_mac() {
   [ $(uname -s) = "Darwin" ]
 }
 
-is_linux() {
+function is_linux() {
   [ $(uname -s) = "Linux" ]
 }
 
-sudo_keepalive() {
+function sudo_keepalive() {
   # Ask for the administrator password upfront
   sudo -v
 
@@ -49,7 +49,7 @@ sudo_keepalive() {
   done 2> /dev/null &
 }
 
-sudo_check_then_alive() {
+function sudo_check_then_alive() {
   # We want to always prompt for sudo password at least once rather than doing
   # root stuff unexpectedly.
   sudo --reset-timestamp
@@ -57,7 +57,7 @@ sudo_check_then_alive() {
   sudo_keepalive
 }
 
-download_and_verify() {
+function download_and_verify() {
   url="$1"
   sha256="$2"
   output="$3"
