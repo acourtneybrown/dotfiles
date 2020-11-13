@@ -59,3 +59,36 @@ function gitall() {
     fi
   done
 }
+
+# gall performs a given command line across all of the git repositories under
+# the current directory.  It also handles all aliases.
+function gall() {
+  if [ "$#" -lt 1 ]; then
+    echo "Usage: gall gcl|gcdb|..."
+    echo "Starts a command for each directory found in current dir."
+    return
+  fi
+  if tput setaf 1 &> /dev/null; then
+    BOLD=$(tput bold)
+    RESET=$(tput sgr0)
+  else
+    BOLD=""
+    RESET="\033[m"
+  fi
+
+  cmd=$1
+  if [[ $aliases[$1] ]]; then
+    cmd=${aliases[$1]}
+  fi
+  shift
+
+  for DIR in *; do
+    if [ -d "${DIR}/.git" ]; then
+      echo "${BOLD}Entering ${DIR}${RESET}"
+      (
+        cd ${DIR}
+        eval ${cmd} "$@"
+      )
+    fi
+  done
+}
