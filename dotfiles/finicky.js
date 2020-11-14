@@ -32,6 +32,11 @@ module.exports = {
     {
       match: [ /^https:\/\/github.com\/acourtneybrown\/.*$/ ],
       browser: "Safari"
+    },
+    {
+      match: ({ sourceBundleIdentifier }) =>
+        sourceBundleIdentifier.endsWith("com.agilebits.onepassword7-helper"),
+      browser: "Safari"
     }
   ]
 };
