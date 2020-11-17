@@ -1,12 +1,13 @@
 tap "acourtneybrown/versions"
 tap "AdoptOpenJDK/openjdk"
 brew "awscli"
-brew "azure-cli"
+# brew "azure-cli"
 brew "gdub"
 brew "gradle"
 brew "helm@2"
 brew "jenv"
 brew "maven"
+brew "pipenv"
 brew "protobuf"
 brew "acourtneybrown/versions/python@3.6", link: false
 brew "python@3.7", link: false
