@@ -100,6 +100,7 @@ cask "sublime-text"
 cask "synology-drive"
 cask "vlc"
 cask "xld"
+cask "zoomus"
 mas "Airmail", id: 918858936
 mas "Amphetamine", id: 937984704
 mas "Apple Configurator 2", id: 1037126344
