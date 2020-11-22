@@ -1,8 +1,6 @@
 actions:
   add_authorized_keys: cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
   install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/install-package-control.sh ~/\"{{@@ sublime_home @@}}\""
-  pre:
-    make_private: chmod 600 "{{@@ _dotfile_abs_src @@}}"
 config:
   backup: true
   create: true
@@ -22,6 +20,7 @@ dotfiles:
   d_desktop:
     src: Desktop
     dst: ~/Desktop
+    chmod: 700
     link: link_children
     upignore:
       - Relocated Items
@@ -135,13 +134,11 @@ dotfiles:
   f_m2_settings:
     src: m2_settings.xml
     dst: ~/.m2/settings.xml
-    actions:
-      - make_private
+    chmod: 600
   f_netrc:
     src: netrc
     dst: ~/.netrc
-    actions:
-      - make_private
+    chmod: 600
   f_path:
     src: path
     dst: ~/.path
@@ -151,8 +148,7 @@ dotfiles:
   f_pypirc:
     src: pypirc
     dst: ~/.pypirc
-    actions:
-      - make_private
+    chmod: 600
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
