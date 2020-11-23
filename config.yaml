@@ -26,24 +26,10 @@ dotfiles:
       - Relocated Items
     cmpignore:
       - Relocated Items
-  d_gradle:
-    src: gradle
-    dst: ~/.gradle
+  d_gradle_init_d:
+    src: gradle_init.d
+    dst: ~/.gradle/init.d
     link: link_children
-    upignore:
-      - caches
-      - daemon
-      - native
-      - notifications
-      - workers
-      - wrapper
-    cmpignore:
-      - caches
-      - daemon
-      - native
-      - notifications
-      - workers
-      - wrapper
   d_oh-my-zsh-custom:
     src: oh-my-zsh-custom
     dst: ~/.oh-my-zsh-custom
@@ -125,6 +111,10 @@ dotfiles:
   f_gitignore:
     src: gitignore
     dst: ~/.gitignore
+  f_gradle_properties:
+    src: gradle.properties
+    dst: ~/.gradle/gradle.properties
+    chmod: 600
   f_hgrc:
     src: hgrc
     dst: ~/.hgrc
@@ -232,13 +222,14 @@ profiles:
   shared:
     dotfiles:
       - d_bin
-      - d_gradle
+      - d_gradle_init_d
       - d_ssh
       - f_bash_sessions_disable
       - f_curlrc
       - f_gitconfig
       - f_gitconfig-confluent
       - f_gitignore
+      - f_gradle_properties
       - f_hgrc
       - f_hushlogin
       - f_m2_settings
