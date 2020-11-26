@@ -65,3 +65,7 @@ alias fixscreen='sudo launchctl unload -w /System/Library/LaunchDaemons/com.appl
 
 # Show the public key for the given private key
 alias pubkey='ssh-keygen -y -f'
+
+# Use zmv to copy or link files
+alias zcp='zmv -C'
+alias zln='zmv -L'
