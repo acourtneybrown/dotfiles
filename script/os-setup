@@ -28,10 +28,8 @@ elif is_linux; then
   script/install-linuxbrew.sh
 fi
 
-# We can't control if some packages fail to install, so don't exit out
-set +e
 [ -z "${SKIP_BUNDLE}" ] && ensure_brewfile_installed
-set -e
+[ -z "${SKIP_HOME}" ] && ensure_brewfile_installed Brewfile.home
 
 script/extract-onepassword-secrets.sh
 
@@ -39,4 +37,4 @@ script/extract-onepassword-secrets.sh
 script/golang-setup.sh
 script/goenv-setup.sh
 script/python-setup.sh
-script/confluent-setup.sh
+[ -z "${SKIP_CONFLUENT}" ] && script/confluent-setup.sh

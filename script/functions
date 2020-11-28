@@ -89,11 +89,14 @@ function ensure_brewfile_installed() {
   fi
 
   if [[ -f ${brewfile} ]] && is_mac; then
+    # We can't control if some packages fail to install, so don't exit out
+    set +e
     brew bundle check --file "${brewfile}" >/dev/null 2>&1 || {
       echo "==> Installing Homebrew dependencies…"
       # mas signin  # uncomment when https://github.com/mas-cli/mas/issues/164 resolved
       brew bundle --file "${brewfile}"
     }
+    set -e
   fi
 }
 

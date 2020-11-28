@@ -1,0 +1,30 @@
+{
+  "entries": {
+    "cask": {
+      "openemu": {
+        "version": "2.2.1",
+        "options": {
+          "full_name": "openemu"
+        }
+      },
+      "steam": {
+        "version": "latest",
+        "options": {
+          "full_name": "steam"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "catalina": {
+        "HOMEBREW_VERSION": "2.5.12",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "f49e87e11e4b4a26c6c29c22a50948c7ba46298f",
+        "CLT": "12.0.32.21",
+        "Xcode": "12.0",
+        "macOS": "10.15.7"
+      }
+    }
+  }
+}
