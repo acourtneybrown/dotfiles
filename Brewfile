@@ -14,7 +14,6 @@ brew "bfg"
 brew "cmake"
 brew "coreutils"
 brew "dark-mode"
-brew "ffmpeg"
 brew "findutils"
 brew "fzf"
 brew "git"
@@ -28,7 +27,6 @@ brew "grep"
 brew "httpie"
 brew "hub"
 brew "jq"
-brew "libdvdcss"
 brew "libmagic"
 brew "mas"
 brew "mercurial"
@@ -57,8 +55,6 @@ brew "gh"
 cask "1password"
 cask "1password-cli"
 cask "alfred"
-cask "atom"
-cask "avidemux"
 cask "browserosaurus"
 cask "cheatsheet"
 cask "dropbox"
@@ -87,32 +83,20 @@ cask "font-roboto-mono-for-powerline"
 cask "font-source-code-pro-for-powerline"
 cask "font-ubuntu-mono-derivative-powerline"
 cask "gpg-suite"
-cask "handbrake"
 cask "iterm2"
-cask "kid3"
 cask "logitech-camera-settings"
 cask "marked"
 cask "nightowl"
 cask "selfcontrol"
 cask "slack"
 cask "slowquitapps"
-cask "subler"
 cask "sublime-text"
 cask "synology-drive"
-cask "vlc"
-cask "xld"
 cask "zoomus"
-mas "Airmail", id: 918858936
 mas "Amphetamine", id: 937984704
-mas "Apple Configurator 2", id: 1037126344
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
-mas "NetSpot", id: 514951692
-mas "Notability", id: 736189492
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Reeder", id: 1449412482
 mas "SmileAllDay", id: 1180442868
