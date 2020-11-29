@@ -1,6 +1,8 @@
 brew "ffmpeg"
 brew "libdvdcss"
 cask "avidemux"
+cask "epic-games"
+cask "gog-galaxy"
 cask "handbrake"
 cask "kid3"
 cask "openemu"
