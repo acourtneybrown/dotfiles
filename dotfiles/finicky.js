@@ -30,7 +30,12 @@ module.exports = {
       browser: "Google Chrome"
     },
     {
-      match: [ /^https:\/\/github.com\/acourtneybrown\/.*$/ ],
+      match: [
+        finicky.matchHostnames([
+          "govzw.com",
+        ]),
+        /^https:\/\/github.com\/acourtneybrown\/.*$/,
+      ],
       browser: "Safari"
     },
     {
