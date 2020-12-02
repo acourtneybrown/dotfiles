@@ -22,6 +22,7 @@ module.exports = {
           "confluentinc.atlassian.net",
           "jenkins.confluent.io",
           "jfrog.io",
+          "metabase.confluent.io",
         ]),
 
         /github.com\/confluentinc/,
