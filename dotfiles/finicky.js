@@ -20,6 +20,7 @@ module.exports = {
           "confluent.okta.com",
           "confluent.zoom.us",
           "confluentinc.atlassian.net",
+          "confluentinc.semaphoreci.com",
           "jenkins.confluent.io",
           "jfrog.io",
           "metabase.confluent.io",
