@@ -24,6 +24,7 @@ module.exports = {
           "jenkins.confluent.io",
           "jfrog.io",
           "metabase.confluent.io",
+          "www.golinks.io",
         ]),
 
         /github.com\/confluentinc/,
