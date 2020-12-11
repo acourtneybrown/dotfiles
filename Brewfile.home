@@ -1,5 +1,6 @@
 brew "ffmpeg"
 brew "libdvdcss"
+
 cask "avidemux"
 cask "epic-games"
 cask "gog-galaxy"
@@ -11,6 +12,7 @@ cask "steam"
 cask "subler"
 cask "vlc"
 cask "xld"
+
 # mas "Airmail", id: 918858936
 mas "Apple Configurator 2", id: 1037126344
 mas "Bridge Constructor Portal", id: 1316061122

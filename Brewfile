@@ -7,6 +7,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+
 brew "openssl@1.1"
 brew "asciinema"
 brew "bash"
@@ -53,6 +54,7 @@ brew "yq"
 brew "zsh"
 brew "zsh-completions"
 brew "gh"
+
 cask "1password"
 cask "1password-cli"
 cask "alfred"
@@ -93,6 +95,7 @@ cask "slowquitapps"
 cask "sublime-text"
 cask "synology-drive"
 cask "zoomus"
+
 mas "Amphetamine", id: 937984704
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
