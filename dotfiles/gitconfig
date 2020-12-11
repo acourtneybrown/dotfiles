@@ -65,6 +65,9 @@
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
 
+[gpg]
+	program = /usr/local/bin/gpg
+
 [help]
 
 	# Automatically correct and execute mistyped commands
@@ -77,7 +80,7 @@
 
 [push]
 
-	# https://git-scm.com/docs/git-config#git-config-pushdefault
+	# https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault
 	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
@@ -91,23 +94,19 @@
 [url "git@github.com:"]
 
 	insteadOf = "gh:"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
+	insteadOf = "github:"
+	insteadOf = "git://github.com/"
 	insteadOf = https://github.com/
 
-[url "git://github.com/"]
-
-	insteadOf = "github:"
+[url "git@github.com:acourtneybrown/"]
+	insteadOf = "gha:"
 
 [url "git@gist.github.com:"]
 
 	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-
-[url "git://gist.github.com/"]
-
 	insteadOf = "gist:"
+	insteadOf = "git://gist.github.com/"
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -118,6 +117,9 @@
 	name = Adam Brown
 	email = acourtneybrown@gmail.com
 	signingkey = 92486DAB3FC7E2A0
+
+[includeIf "gitdir/i:~/confluent/"]
+    path = ~/.gitconfig-confluent
 
 [github]
 	user = acourtneybrown

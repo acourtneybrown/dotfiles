@@ -1,5 +1,5 @@
 # Check if the Xcode license is agreed to and agree if not.
-install_updates() {
+function install_updates() {
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
     echo "No software updates to install"
   else
@@ -9,9 +9,9 @@ install_updates() {
   fi
 }
 
-xcode_license() {
+function xcode_license() {
   if /usr/bin/xcrun clang 2>&1 | grep -q license; then
-    if [ -n "FSTRAP_INTERACTIVE" ]; then
+    if [ -n "${STRAP_INTERACTIVE}" ]; then
       echo "Asking for Xcode license confirmation:"
       sudo xcodebuild -license accept
     else
@@ -20,32 +20,36 @@ xcode_license() {
   fi
 }
 
-escape() {
+function escape() {
   printf '%s' "${1//\'/\'}"
 }
 
-abort() {
+function abort() {
   echo "!!! $*" >&2
   exit 1
 }
 
-is_mac() {
-  [ $(uname -s) = "Darwin" ]
+function is_mac() {
+  [ "$(uname -s)" = "Darwin" ]
 }
 
-is_linux() {
-  [ $(uname -s) = "Linux" ]
+function is_linux() {
+  [ "$(uname -s)" = "Linux" ]
 }
 
-sudo_keepalive() {
+function sudo_keepalive() {
   # Ask for the administrator password upfront
   sudo -v
 
   # Keep-alive: update existing `sudo` time stamp until current script has finished
-  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+  while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+  done 2>/dev/null &
 }
 
-sudo_check_then_alive() {
+function sudo_check_then_alive() {
   # We want to always prompt for sudo password at least once rather than doing
   # root stuff unexpectedly.
   sudo --reset-timestamp
@@ -53,21 +57,52 @@ sudo_check_then_alive() {
   sudo_keepalive
 }
 
-download_and_verify() {
+function download_and_verify() {
+  local url
+  local sha256
+  local output
+  local tempfile
+  local tempout
+
   url="$1"
   sha256="$2"
   output="$3"
   tempfile=$(mktemp /tmp/sha256.XXXXXX)
   tempout=$(mktemp /tmp/curl.XXXXXX)
-  echo "$sha256 -" > $tempfile
+  echo "${sha256} -" >"${tempfile}"
 
-  curl -fLs "$url" | tee $tempout | sha256sum -c $tempfile
-
-  if [ $? -eq 0 ]; then
-    mv $tempout "$3"
+  if curl -fLs "${url}" | tee "${tempout}" | sha256sum -c "${tempfile}"; then
+    mv "${tempout}" "${output}"
   else
     echo "Hash did not match"
   fi
 
-  rm -f $tempfile $tempout
+  rm -f "${tempfile}" "{$tempout}"
+}
+
+function ensure_brewfile_installed() {
+  local brewfile
+  if [[ $# -lt 1 ]]; then
+    brewfile=Brewfile
+  else
+    brewfile="$1"
+  fi
+
+  if [[ -f ${brewfile} ]] && is_mac; then
+    # We can't control if some packages fail to install, so don't exit out
+    set +e
+    brew bundle check --file "${brewfile}" >/dev/null 2>&1 || {
+      echo "==> Installing Homebrew dependencies…"
+      # mas signin  # uncomment when https://github.com/mas-cli/mas/issues/164 resolved
+      brew bundle --file "${brewfile}"
+    }
+    set -e
+  fi
+}
+
+function ensure_autopip_installed() {
+  /usr/local/opt/python3/bin/pip3 install -U autopip
+
+  # Keep autopip updated automatically by installing itself
+  app install autopip==1.* --update monthly
 }
