@@ -14,6 +14,7 @@ module.exports = {
       // Work-related sites
       match: [
         finicky.matchHostnames([
+          "a.goodtime.io",
           "app.firehydrant.io",
           "confluent-tools.datadoghq.com",
           "confluent.askspoke.com",
