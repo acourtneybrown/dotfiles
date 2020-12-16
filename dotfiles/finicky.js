@@ -30,11 +30,13 @@ module.exports = {
           "metabase.confluent.io",
           "www.golinks.io",
           "zoom.us",
+
+          /confluent-internal\.io/,
+          /confluent\.cloud/,
+          /^go$/,
         ]),
 
-        /confluent-internal.io/,
         /github.com\/confluentinc/,
-        /https:\/\/go\//,
        ],
       browser: "Google Chrome"
     },
