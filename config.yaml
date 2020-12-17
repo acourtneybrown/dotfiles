@@ -185,6 +185,16 @@ profiles:
     include:
       - default
       - mac
+  pacman:
+    include:
+      - pacman.notcharlie.com
+  pacman.local:
+    include:
+      - pacman.notcharlie.com
+  pacman.notcharlie.com:
+    include:
+      - default
+      - mac
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
