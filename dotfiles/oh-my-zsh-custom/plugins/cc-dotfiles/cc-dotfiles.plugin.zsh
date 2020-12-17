@@ -1,4 +1,6 @@
 if [[ -d ~/.cc-dotfiles ]]; then
+  # Ensure that the auto-update behavior is only run by one shell at a time
+  flock ~/.cc-dotfiles bash -c "source ~/.cc-dotfiles/caas.sh"
   source ~/.cc-dotfiles/caas.sh
 
   function cc-dotfiles_update() {

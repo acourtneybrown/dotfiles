@@ -94,7 +94,7 @@ cask "slack"
 cask "slowquitapps"
 cask "sublime-text"
 cask "synology-drive"
-cask "zoomus"
+cask "zoom"
 
 mas "Amphetamine", id: 937984704
 mas "Keynote", id: 409183694

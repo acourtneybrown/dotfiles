@@ -1,6 +1,9 @@
 tap "acourtneybrown/versions"
 tap "AdoptOpenJDK/openjdk"
+tap "discoteq/discoteq"
+
 brew "awscli"
+brew "discoteq/discoteq/flock"
 # brew "azure-cli"
 brew "gdub"
 brew "gradle"
@@ -13,6 +16,7 @@ brew "acourtneybrown/versions/python@3.6", link: false
 brew "python@3.7", link: false
 brew "python@3.8", link: false
 brew "vault"
+
 cask "docker"
 cask "goland"
 # cask "google-chrome"
@@ -24,4 +28,4 @@ cask "google-cloud-sdk"
 cask "pycharm"
 # cask "vagrant"
 cask "visualvm"
-cask "zoomus"
+cask "zoom"
