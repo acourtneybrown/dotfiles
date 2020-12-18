@@ -101,5 +101,4 @@ mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Reeder", id: 1449412482
 mas "SmileAllDay", id: 1180442868
