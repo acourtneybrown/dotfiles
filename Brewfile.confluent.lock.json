@@ -285,15 +285,27 @@
         "options": {
           "full_name": "google-cloud-sdk"
         }
+      },
+      "spotify": {
+        "version": "1.1.48.625.g1c87c7f7",
+        "options": {
+          "full_name": "spotify"
+        }
+      },
+      "zoom": {
+        "version": "5.4.59301.1211",
+        "options": {
+          "full_name": "zoom"
+        }
       }
     }
   },
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.6.2-72-gfbe0910",
+        "HOMEBREW_VERSION": "2.6.2-91-g9db324a",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "c93214fd175f35353de254f21cfda0ee49858a37",
+        "Homebrew/homebrew-core": "aea4d8a5d4b89ce80a9898105c059905cb1e42e5",
         "CLT": "12.0.32.27",
         "Xcode": "12.0",
         "macOS": "10.15.7"
