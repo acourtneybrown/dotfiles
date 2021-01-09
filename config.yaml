@@ -165,6 +165,7 @@ profiles:
     include:
       - default
       - mac
+      - work
   exhubber:
     include:
       - exhubber.notcharlie.com
@@ -207,7 +208,18 @@ profiles:
       sublime_home: .config/sublime-text-3
     dotfiles:
       - d_user
+  work:
+    variables:
+      work: true
+    dotfiles:
+      - f_gitconfig-confluent
+      - f_m2_settings
+      - f_netrc
+      - f_pip_conf
+      - f_pypirc
   default:
+    variables:
+      work: false
     include:
       - zsh
   zsh:
@@ -237,15 +249,10 @@ profiles:
       - f_bash_sessions_disable
       - f_curlrc
       - f_gitconfig
-      - f_gitconfig-confluent
       - f_gitignore
       - f_gradle_properties
       - f_hgrc
       - f_hushlogin
-      - f_m2_settings
-      - f_netrc
-      - f_pip_conf
-      - f_pypirc
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc

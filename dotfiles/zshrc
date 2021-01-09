@@ -71,30 +71,34 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
 plugins=(
   1password
   aliases
-  cc-dotfiles
   docker
-  docker-confluent
   dotdrop
   functions
   fzf
   git
   git-custom
   goenv
-  helm_2 # before helm because helm@2 is keg-only
-  helm
-  jenv
-  jenv-custom
   marked2
   mosh
   mosh-custom
   path
   pypath
-  rbenv
   setopts
   sublime
   venv
   zsh-completions
 )
+
+{%@@ if work @@%}
+plugins+=(
+  cc-dotfiles
+  docker-confluent
+  helm_2 # before helm because helm@2 is keg-only
+  helm
+  jenv
+  jenv-custom
+)
+{%@@ endif @@%}
 
 if [[ $(uname -s) == "Linux" ]]; then
   plugins+=(
@@ -102,8 +106,8 @@ if [[ $(uname -s) == "Linux" ]]; then
   )
 fi
 
-if [ -d $ZSH ]; then
-  source $ZSH/oh-my-zsh.sh
+if [ -d "$ZSH" ]; then
+  source "$ZSH/oh-my-zsh.sh"
 else
   echo "Follow directions on https://ohmyz.sh/ to install oh-my-zsh"
 fi
