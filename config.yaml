@@ -72,36 +72,18 @@ dotfiles:
       - Package Control.last-run
       - Package Control.merged-ca-bundle
       - Package Control.user-ca-bundle
-  f_aliases:
-    src: aliases
-    dst: ~/.aliases
-  f_bashrc:
-    src: bashrc
-    dst: ~/.bashrc
-  f_bash_profile:
-    src: bash_profile
-    dst: ~/.bash_profile
   f_bash_sessions_disable:
     src: bash_sessions_disable
     dst: ~/.bash_sessions_disable
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
-  f_bash_prompt:
-    src: bash_prompt
-    dst: ~/.bash_prompt
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
-  f_exports:
-    src: exports
-    dst: ~/.exports
   f_finicky.js:
     src: finicky.js
     dst: ~/.finicky.js
-  f_functions:
-    src: functions
-    dst: ~/.functions
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
@@ -129,9 +111,6 @@ dotfiles:
     src: netrc
     dst: ~/.netrc
     chmod: 600
-  f_path:
-    src: path
-    dst: ~/.path
   f_pip_conf:
     src: pip.conf
     dst: ~/.pip/pip.conf
@@ -230,17 +209,6 @@ profiles:
       - f_bash_profile-for-zsh
       - f_zshenv
       - f_zshrc
-  bash:
-    include:
-      - shared
-    dotfiles:
-      - f_aliases
-      - f_bash_profile
-      - f_bash_prompt
-      - f_bashrc
-      - f_exports
-      - f_functions
-      - f_path
   shared:
     dotfiles:
       - d_bin
