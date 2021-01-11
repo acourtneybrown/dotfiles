@@ -18,7 +18,6 @@ module.exports = {
           "app.firehydrant.io",
           "confluent-tools.datadoghq.com",
           "confluent.askspoke.com",
-          "confluent.io",
           "confluent.okta.com",
           "confluent.slack.com",
           "confluent.zoom.us",
@@ -31,9 +30,10 @@ module.exports = {
           "www.golinks.io",
           "zoom.us",
 
-          /confluent-internal\.io/,
-          /confluent\.cloud/,
           /^go$/,
+          /confluent-internal\.io/,
+          /confluent.io/,
+          /confluent\.cloud/,
         ]),
 
         /github.com\/confluentinc/,
