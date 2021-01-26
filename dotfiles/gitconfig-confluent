@@ -10,3 +10,6 @@
 
 [url "git@github.com:confluentinc/"]
 	insteadOf = "ghc:"
+
+[rerere]
+	enabled = true
