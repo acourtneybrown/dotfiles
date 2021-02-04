@@ -97,6 +97,7 @@ plugins+=(
   helm
   jenv
   jenv-custom
+  release-tools
 )
 {%@@ endif @@%}
 
