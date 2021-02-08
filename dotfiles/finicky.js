@@ -34,6 +34,7 @@ module.exports = {
           /confluent-internal\.io/,
           /confluent.io/,
           /confluent\.cloud/,
+          /cultureamp.com/,
         ]),
 
         /github.com\/confluentinc/,
