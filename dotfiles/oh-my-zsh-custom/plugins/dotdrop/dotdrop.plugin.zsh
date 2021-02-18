@@ -1,8 +1,5 @@
-# Include dotdrop zsh completion configuration
-
 # Dotfile management
 export DOTDROP_AUTOUPDATE=no
-alias dotdrop='eval $(grep -v "^#" ${HOME}/.secrets) {{@@ _dotdrop_dotpath @@}}/../dotdrop.sh'
 
 # dotdrop_versions lists the available tags/releases of the dotdrop submodule
 function dotdrop_versions() {
@@ -25,4 +22,11 @@ function dotdrop_upgrade() {
     tag="$1"
   fi
   git -C ${dotdrop_location} checkout "${tag}"
+}
+
+# Include dotdrop zsh completion configuration
+fpath+=$(pwd)
+
+function dotdrop() {
+  eval $(grep -v "^#" ${HOME}/.secrets) {{@@ _dotdrop_dotpath @@}}/../dotdrop.sh "$@"
 }
