@@ -111,6 +111,9 @@ dotfiles:
     src: netrc
     dst: ~/.netrc
     chmod: 600
+  f_okta_aws_login_config:
+    src: okta_aws_login_config
+    dst: ~/.okta_aws_login_config
   f_pip_conf:
     src: pip.conf
     dst: ~/.pip/pip.conf
@@ -194,6 +197,7 @@ profiles:
       - f_gitconfig-confluent
       - f_m2_settings
       - f_netrc
+      - f_okta_aws_login_config
       - f_pip_conf
       - f_pypirc
   default:

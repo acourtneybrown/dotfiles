@@ -1,0 +1,18 @@
+[DEFAULT]
+okta_org_url = https://confluent.okta.com
+okta_auth_server =
+client_id =
+gimme_creds_server = appurl
+aws_appname =
+aws_rolename = all
+write_aws_creds = True
+cred_profile = acc-role
+okta_username = abrown@confluent.io
+app_url = https://confluent.okta.com/home/amazon_aws/0oa1l6l54gWFvmDEO357/272
+resolve_aws_alias = False
+include_path = False
+preferred_mfa_type = token:hardware
+remember_device = True
+aws_default_duration = 3600
+device_token =
+output_format = json
