@@ -25,7 +25,7 @@ fi
 
 # Install all dotfiles into the home directory
 if [ ! $(command -v yq) ]; then
-  GO111MODULE=on go get -u github.com/mikefarah/yq/v3
+  go install github.com/mikefarah/yq/v3@latest
 fi
 
 # create a new profile (if necessary) and include default
