@@ -99,6 +99,7 @@ plugins+=(
   jenv
   jenv-custom
   release-tools
+  vault
 )
 {%@@ endif @@%}
 
