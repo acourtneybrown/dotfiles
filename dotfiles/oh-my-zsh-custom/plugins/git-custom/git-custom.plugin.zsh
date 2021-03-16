@@ -30,7 +30,7 @@ alias gludb='git pull upstream $(gdb)'
 alias gmodb='git merge origin/$(gdb)'
 alias gmudb='git merge upstream/$(gdb upstream)'
 alias grbbd='git rebase $(gdb)'
-alias gl="git pull --prune"
+alias gl="git pull --prune --tags"
 alias gla="gl --all"
 alias gcdbl="gcdb && gl"
 alias gdodb='git diff origin/$(gdb)...'
@@ -45,7 +45,7 @@ function gitall() {
     echo "Starts a git command for each directory found in current dir."
     return
   fi
-  if tput setaf 1 &> /dev/null; then
+  if tput setaf 1 &>/dev/null; then
     BOLD=$(tput bold)
     RESET=$(tput sgr0)
   else
@@ -68,7 +68,7 @@ function gall() {
     echo "Starts a command for each directory found in current dir."
     return
   fi
-  if tput setaf 1 &> /dev/null; then
+  if tput setaf 1 &>/dev/null; then
     BOLD=$(tput bold)
     RESET=$(tput sgr0)
   else
