@@ -51,8 +51,8 @@ module.exports = {
       browser: "Safari"
     },
     {
-      match: ({ sourceBundleIdentifier }) =>
-        sourceBundleIdentifier.endsWith("com.agilebits.onepassword7-helper"),
+      match: ({ opener }) =>
+        opener.bundleId.endsWith("com.agilebits.onepassword7-helper"),
       browser: "Safari"
     }
   ]
