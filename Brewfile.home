@@ -3,6 +3,7 @@ brew "libdvdcss"
 
 cask "avidemux"
 cask "epic-games"
+cask "ftdi-vcp-driver"
 cask "gog-galaxy"
 cask "handbrake"
 cask "kid3"
