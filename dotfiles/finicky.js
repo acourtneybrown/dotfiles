@@ -45,6 +45,8 @@ module.exports = {
       match: [
         finicky.matchHostnames([
           "govzw.com",
+
+          /wsj.com/,
         ]),
         /^https:\/\/github.com\/acourtneybrown\/.*$/,
       ],
