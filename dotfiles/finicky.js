@@ -35,6 +35,7 @@ module.exports = {
           /confluent.io/,
           /confluent\.cloud/,
           /cultureamp.com/,
+          /sumologic.com/,
         ]),
 
         /github.com\/confluentinc/,
