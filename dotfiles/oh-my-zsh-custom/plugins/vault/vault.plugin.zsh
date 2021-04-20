@@ -18,5 +18,13 @@ if [[ $commands[vault] ]]; then
     export VAULT_ADDR="https://${1}.cireops.gcp.internal.confluent.cloud"
   }
 
+  # vault_jenkins_secret matches the tooling used in jenkins-common
+  function vault_jenkins_secret() {
+    local SECRET="${1}"
+    local KEY="${2}"
+
+    vault kv get -field "${KEY}" v1/ci/kv/"${SECRET}"
+  }
+
   vault_switch vault
 fi
