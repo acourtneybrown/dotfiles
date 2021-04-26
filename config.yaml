@@ -145,6 +145,16 @@ profiles:
       - default
       - mac
       - work
+  carters-air:
+    include:
+      - carters-air.notcharlie.com
+  carters-air.local:
+    include:
+      - carters-air.notcharlie.com
+  carters-air.notcharlie.com:
+    include:
+      - default
+      - mac
   exhubber:
     include:
       - exhubber.notcharlie.com
