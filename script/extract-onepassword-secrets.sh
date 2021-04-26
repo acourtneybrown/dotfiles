@@ -7,8 +7,8 @@ cd "$(dirname "$0")/.."
 mkdir -p ~/.ssh
 mkdir -p ~/.gnupg
 
-onepassword_login() {
-  if ! command -v op > /dev/null; then
+function onepassword_login() {
+  if ! command -v op >/dev/null; then
     echo "Install op first!" >&2
     exit 1
   fi
@@ -20,32 +20,32 @@ onepassword_login() {
   fi
 }
 
-onepassword_get() {
+function onepassword_get() {
   if [ -f "$HOME/$2" ]; then
     echo "$2 already exists."
     return
   fi
   echo "Extracting $2..."
   onepassword_login
-  op get document "$1" > "$HOME/$2"
+  op get document "$1" --output "$HOME/$2"
   chmod 600 "$HOME/$2"
 }
 
-onepassword_get emqicp7w4jd4taxig5sb3qdumm .ssh/id_rsa
-onepassword_get whmrixtghfedbmtajlrz4pwqdu .ssh/synology
-onepassword_get 3apqyvlg4nbpfomve5x46e6apm .ssh/id_ed25519.confluent
+onepassword_get "Adam's id_rsa SSH key" .ssh/id_rsa
+onepassword_get "Synology root SSH key" .ssh/synology
+onepassword_get "id_ed25519.confluent" .ssh/id_ed25519.confluent
 
 echo "Retreiving public key for id_ed25519.confluent"
-ssh-keygen -y -f ~/.ssh/id_ed25519.confluent > ~/.ssh/id_ed25519.confluent.pub
+ssh-keygen -y -f ~/.ssh/id_ed25519.confluent >~/.ssh/id_ed25519.confluent.pub
 ln -sf id_ed25519.confluent ~/.ssh/caas-abrown
 ln -sf id_ed25519.confluent.pub ~/.ssh/caas-abrown.pub
 
-onepassword_get vnxlg6na7fhrvnyhzo2pulh2ri .gnupg/acourtneybrown@gmail.com.private.gpg-key
-onepassword_get pct2u52rzfg5jo5cbgfmbcjf5m .gnupg/abrown@confluent.io.private.gpg-key
+onepassword_get "Adam's Personal GPG key" .gnupg/acourtneybrown@gmail.com.private.gpg-key
+onepassword_get "Confluent GPG key" .gnupg/abrown@confluent.io.private.gpg-key
 
 if ! [ -f "$HOME/.secrets" ]; then
   echo "Extracting secrets..."
-  if ! command -v jq > /dev/null; then
+  if ! command -v jq >/dev/null; then
     echo "Install jq first!" >&2
     exit 1
   fi
@@ -60,7 +60,7 @@ if ! [ -f "$HOME/.secrets" ]; then
   artifactory_user=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields username)
   artifactory_password=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields "API Key")
 
-  cat >> "$HOME/.secrets" << EOF
+  cat >>"$HOME/.secrets" <<EOF
 github_repo_token=${github_repo_token}
 artifactory_host=${artifactory_host}
 artifactory_path=${artifactory_path}
@@ -73,7 +73,7 @@ echo "Storing SSH keys in keychain..."
 ssh-add -K
 
 echo "Setting up GPG..."
-if ! command -v gpg > /dev/null; then
+if ! command -v gpg >/dev/null; then
   echo "Install GPG first!" >&2
   exit 1
 fi
