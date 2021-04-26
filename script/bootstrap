@@ -25,15 +25,15 @@ fi
 
 # Install all dotfiles into the home directory
 if [ ! $(command -v yq) ]; then
-  GO111MODULE=on go get -u github.com/mikefarah/yq/v3
+  GO111MODULE=on go get -u github.com/mikefarah/yq/v4
 fi
 
 # create a new profile (if necessary) and include default
 PROFILE=$(hostname)
-if [ -z "$(yq r config.yaml profiles.\"$PROFILE\")" ]; then
-  yq w -i config.yaml profiles.\"$PROFILE\"."include[+]" default
+if [ -z "$(yq e ".profiles.\"$PROFILE\" // \"\"" config.yaml)" ]; then
+  yq eval ".profiles.\"$PROFILE\".\"include\" += [\"default\"]" -i config.yaml
   if is_mac; then
-    yq w -i config.yaml profiles.\"$PROFILE\"."include[+]" mac
+    yq eval ".profiles.\"$PROFILE\".\"include\" += [\"mac\"]" -i config.yaml
   fi
 fi
 ./dotdrop.sh install --force --profile=$PROFILE
