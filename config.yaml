@@ -145,6 +145,16 @@ profiles:
       - default
       - mac
       - work
+  cara-mbp:
+    include:
+      - cara-mbp.notcharlie.com
+  cara-mbp.local:
+    include:
+      - cara-mbp.notcharlie.com
+  cara-mbp.notcharlie.com:
+    include:
+      - default
+      - mac
   carters-air:
     include:
       - carters-air.notcharlie.com
