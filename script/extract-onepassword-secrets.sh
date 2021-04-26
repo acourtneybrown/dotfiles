@@ -80,4 +80,4 @@ fi
 
 chmod 700 ~/.gnupg
 gpg --import ~/.gnupg/acourtneybrown@gmail.com.private.gpg-key
-gpg --import ~/.gnupg/acourtneybrown@gmail.com.private.gpg-key
+gpg --import ~/.gnupg/abrown@confluent.io.private.gpg-key
