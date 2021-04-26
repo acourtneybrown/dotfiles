@@ -11,9 +11,6 @@ Host *
 Host exhubber exhubber.notcharlie.com
   User adambrown
   Hostname exhubber.notcharlie.com
-Host mini-me mini-me.notcharlie.com
-  User abrown
-  Hostname mini-me.notcharlie.com
 Host pfsense pfsense.notcharlie.com
   User admin
   Hostname pfsense.notcharlie.com
