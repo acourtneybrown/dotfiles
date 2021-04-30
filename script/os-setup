@@ -2,7 +2,7 @@
 
 set -e
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "${0}")/.."
 . script/functions
 sudo_check_then_alive
 
@@ -20,10 +20,12 @@ if is_mac; then
   script/install-homebrew.sh
   open -a 'App Store.app'
   echo "Login to Apple ID.  Press <enter> when done."
-  read IGNORE
+  read -r _
 
   # install LaunchDaemon to ensure mosh is added to fw allow list
   script/install-fix-mosh.sh
+  ensure_ssh_enabled
+  ensure_screen_share_enabled
 elif is_linux; then
   script/install-linuxbrew.sh
 fi
