@@ -116,6 +116,20 @@ sudo systemsetup -setrestartfreeze on
 # Disable Notification Center and remove the menu bar icon
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
+# Turn on remote login via SSH & remove password-based logins
+sudo cp /etc/ssh/sshd_config{,.sav}
+
+cat <<EOF | sudo tee -a /etc/ssh/sshd_config
+
+# Disable password-based logins
+PermitRootLogin no
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+EOF
+
+sudo systemsetup -setremotelogin on
+
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
