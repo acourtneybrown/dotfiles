@@ -130,6 +130,10 @@ EOF
 
 sudo systemsetup -setremotelogin on
 
+# Turn on Remote Management (for screen sharing)
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart \
+  -activate -configure -access -on -users admin -privs -all -restart -agent -menu
+
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
