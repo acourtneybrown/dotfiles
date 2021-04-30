@@ -108,11 +108,3 @@ function ensure_autopip_installed() {
   # Keep autopip updated automatically by installing itself
   app install autopip==1.* --update monthly
 }
-
-function ensure_ssh_enabled() {
-  return
-}
-
-function ensure_screen_share_enabled() {
-  return
-}
