@@ -39,6 +39,7 @@ module.exports = {
         ]),
 
         /github.com\/confluentinc/,
+        /travis-ci.org\/github\/confluentinc/,
        ],
       browser: "Google Chrome"
     },
