@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "${0}")/.."
 . script/functions
 
 ensure_brewfile_installed Brewfile.confluent

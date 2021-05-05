@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # macos — originally: https://mths.be/macos & https://github.com/MikeMcQuaid/strap
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "${0}")/.."
 . script/functions
 sudo_keepalive
 
@@ -9,8 +9,8 @@ sudo_keepalive
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
-[ "$USER" = "root" ] && abort "Run macos as yourself, not root."
-groups | grep -q admin || abort "Add $USER to the admin group."
+[ "${USER}" = "root" ] && abort "Run macos as yourself, not root."
+groups | grep -q admin || abort "Add ${USER} to the admin group."
 
 ###############################################################################
 # General UI/UX                                                               #
@@ -18,26 +18,26 @@ groups | grep -q admin || abort "Add $USER to the admin group."
 
 # Set computer name (as done via System Preferences → Sharing)
 echo "Enter computer name. Leave empty to not change."
-read COMPUTER_NAME
-if [ -n "$COMPUTER_NAME" ]; then
-  sudo scutil --set ComputerName "$COMPUTER_NAME"
-  sudo scutil --set HostName "$COMPUTER_NAME"
-  sudo scutil --set LocalHostName "$COMPUTER_NAME"
-  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
+read -r COMPUTER_NAME
+if [ -n "${COMPUTER_NAME}" ]; then
+  sudo scutil --set ComputerName "${COMPUTER_NAME}"
+  sudo scutil --set HostName "${COMPUTER_NAME}"
+  sudo scutil --set LocalHostName "${COMPUTER_NAME}"
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "${COMPUTER_NAME}"
 fi
 unset COMPUTER_NAME
 
 # Set the login window contact info
 echo "Enter your name (for login screen message). Leave empty to not change."
-read LOGIN_NAME
+read -r LOGIN_NAME
 echo "Enter your email address (for login screen message). Leave empty to not change."
-read LOGIN_EMAIL
-if [ -n "$LOGIN_NAME" ] && [ -n "$LOGIN_EMAIL" ]; then
-  LOGIN_TEXT=$(escape "Found this computer? Please contact $LOGIN_NAME at $LOGIN_EMAIL.")
-  echo "$LOGIN_TEXT" | grep -q '[()]' && LOGIN_TEXT="'$LOGIN_TEXT'"
+read -r LOGIN_EMAIL
+if [ -n "${LOGIN_NAME}" ] && [ -n "${LOGIN_EMAIL}" ]; then
+  LOGIN_TEXT=$(escape "Found this computer? Please contact ${LOGIN_NAME} at ${LOGIN_EMAIL}.")
+  echo "${LOGIN_TEXT}" | grep -q '[()]' && LOGIN_TEXT="'${LOGIN_TEXT}'"
   sudo defaults write /Library/Preferences/com.apple.loginwindow \
     LoginwindowText \
-    "$LOGIN_TEXT"
+    "${LOGIN_TEXT}"
 fi
 unset LOGIN_NAME
 unset LOGIN_EMAIL
@@ -116,6 +116,24 @@ sudo systemsetup -setrestartfreeze on
 # Disable Notification Center and remove the menu bar icon
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
+# Turn on remote login via SSH & remove password-based logins
+sudo cp /etc/ssh/sshd_config{,.sav}
+
+cat <<EOF | sudo tee -a /etc/ssh/sshd_config
+
+# Disable password-based logins
+PermitRootLogin no
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+EOF
+
+sudo systemsetup -setremotelogin on
+
+# Turn on Remote Management (for screen sharing)
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart \
+  -activate -configure -access -on -users admin -privs -all -restart -agent -menu
+
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
@@ -158,13 +176,13 @@ defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
 
 # Enable the firewall
 sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
-sudo launchctl load /System/Library/LaunchDaemons/com.apple.alf.agent.plist 2> /dev/null
+sudo launchctl load /System/Library/LaunchDaemons/com.apple.alf.agent.plist 2>/dev/null
 
 if fdesetup status | grep -q -E "FileVault is (On|Off, but will be enabled after the next restart)."; then
   echo "FileVault enabled"
 else
   echo "Enabling full-disk encryption on next reboot:"
-  sudo fdesetup enable -user "$USER" |
+  sudo fdesetup enable -user "${USER}" |
     tee ~/Desktop/"FileVault Recovery Key.txt"
   echo "Recovery key on Desktop"
 fi
@@ -256,7 +274,7 @@ defaults write NSGlobalDomain AppleMetricUnits -bool false
 # sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "America/Phoenix" > /dev/null
+sudo systemsetup -settimezone "America/Phoenix" >/dev/null
 
 # Stop iTunes from responding to the keyboard media keys
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
@@ -639,11 +657,11 @@ defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
   '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
 # Load new settings before rebuilding the index
-killall mds > /dev/null 2>&1
+killall mds >/dev/null 2>&1
 # Make sure indexing is enabled for the main volume
-sudo mdutil -i on / > /dev/null
+sudo mdutil -i on / >/dev/null
 # Rebuild the index from scratch
-sudo mdutil -E / > /dev/null
+sudo mdutil -E / >/dev/null
 
 ###############################################################################
 # iTerm 2                                                          #
@@ -820,6 +838,6 @@ for app in "Activity Monitor" \
   "Tweetbot" \
   "Twitter" \
   "iCal"; do
-  killall "${app}" &> /dev/null
+  killall "${app}" &>/dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."

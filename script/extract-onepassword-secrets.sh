@@ -2,7 +2,7 @@
 
 set -e
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "${0}")/.."
 
 mkdir -p ~/.ssh
 mkdir -p ~/.gnupg
@@ -14,21 +14,21 @@ function onepassword_login() {
   fi
 
   # shellcheck disable=SC2154
-  if [ -z "$OP_SESSION_my" ]; then
+  if [ -z "${OP_SESSION_my}" ]; then
     echo "Logging into 1Password..."
     eval "$(op signin my.1password.com acourtneybrown@gmail.com)"
   fi
 }
 
 function onepassword_get() {
-  if [ -f "$HOME/$2" ]; then
-    echo "$2 already exists."
+  if [ -f "${HOME}/${2}" ]; then
+    echo "${2} already exists."
     return
   fi
-  echo "Extracting $2..."
+  echo "Extracting ${2}..."
   onepassword_login
-  op get document "$1" --output "$HOME/$2"
-  chmod 600 "$HOME/$2"
+  op get document "${1}" --output "${HOME}/${2}"
+  chmod 600 "${HOME}/${2}"
 }
 
 onepassword_get "Adam's id_rsa SSH key" .ssh/id_rsa
@@ -43,7 +43,7 @@ ln -sf id_ed25519.confluent.pub ~/.ssh/caas-abrown.pub
 onepassword_get "Adam's Personal GPG key" .gnupg/acourtneybrown@gmail.com.private.gpg-key
 onepassword_get "Confluent GPG key" .gnupg/abrown@confluent.io.private.gpg-key
 
-if ! [ -f "$HOME/.secrets" ]; then
+if ! [ -f "${HOME}/.secrets" ]; then
   echo "Extracting secrets..."
   if ! command -v jq >/dev/null; then
     echo "Install jq first!" >&2
@@ -60,7 +60,7 @@ if ! [ -f "$HOME/.secrets" ]; then
   artifactory_user=$(op get item "JFrog Artifactory" - --fields username)
   artifactory_password=$(op get item "JFrog Artifactory" - --fields "API Key")
 
-  cat >>"$HOME/.secrets" <<EOF
+  cat >>"${HOME}/.secrets" <<EOF
 github_repo_token=${github_repo_token}
 artifactory_host=${artifactory_host}
 artifactory_path=${artifactory_path}
