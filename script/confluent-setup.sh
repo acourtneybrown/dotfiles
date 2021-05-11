@@ -12,6 +12,8 @@ app install release-tools --update daily
 app install tox --update daily
 app install confluent-ci-tools --update daily
 
+pipx install gimme-aws-creds
+
 if [[ -d ~/.cc-dotfiles ]]; then
   git -C ~/.cc-dotfiles pull origin
 else

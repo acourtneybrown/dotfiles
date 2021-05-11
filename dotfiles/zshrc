@@ -98,6 +98,7 @@ plugins+=(
   helm
   jenv
   jenv-custom
+  pipx
   release-tools
   vault
 )
