@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "${0}")/.."
 . script/functions
 
 if ! command -v go; then

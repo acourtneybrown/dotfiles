@@ -2,31 +2,31 @@
   "entries": {
     "cask": {
       "openemu": {
-        "version": "2.2.1",
+        "version": "2.3.3",
         "options": {
           "full_name": "openemu"
         }
       },
       "steam": {
-        "version": "2.0",
+        "version": "2021-02-13",
         "options": {
           "full_name": "steam"
         }
       },
       "avidemux": {
-        "version": "2.7.6",
+        "version": "2.7.8",
         "options": {
           "full_name": "avidemux"
         }
       },
       "epic-games": {
-        "version": "10.19.2",
+        "version": "12.1.1",
         "options": {
           "full_name": "epic-games"
         }
       },
       "gog-galaxy": {
-        "version": "2.0.25.1",
+        "version": "2.0.37.330",
         "options": {
           "full_name": "gog-galaxy"
         }
@@ -38,101 +38,103 @@
         }
       },
       "kid3": {
-        "version": "3.8.4",
+        "version": "3.8.6",
         "options": {
           "full_name": "kid3"
         }
       },
       "sonos": {
-        "version": "12.2",
+        "version": "13.0,62.1.86220",
         "options": {
           "full_name": "sonos"
         }
       },
       "subler": {
-        "version": "1.6.7",
+        "version": "1.6.10",
         "options": {
           "full_name": "subler"
         }
       },
       "vlc": {
-        "version": "3.0.11.1",
+        "version": "3.0.12",
         "options": {
           "full_name": "vlc"
         }
       },
       "xld": {
-        "version": "2019.10.04",
+        "version": "20210101,153.1",
         "options": {
           "full_name": "xld"
         }
       },
       "netdownloadhelpercoapp": {
-        "version": "1.6.0",
+        "version": "1.6.1",
         "options": {
           "full_name": "netdownloadhelpercoapp"
+        }
+      },
+      "ftdi-vcp-driver": {
+        "version": "2.4.4",
+        "options": {
+          "full_name": "ftdi-vcp-driver"
         }
       }
     },
     "brew": {
       "ffmpeg": {
-        "version": "4.3.1_4",
+        "version": "4.4",
         "bottle": {
-          "cellar": "/usr/local/Cellar",
-          "prefix": "/usr/local",
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
           "files": {
+            "arm64_big_sur": {
+              "cellar": "/opt/homebrew/Cellar",
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:e335852b99ebccad912bbfa8837f288b3c896b33676c4f076aef7f5eb2923860",
+              "sha256": "e335852b99ebccad912bbfa8837f288b3c896b33676c4f076aef7f5eb2923860"
+            },
             "big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/ffmpeg-4.3.1_4.big_sur.bottle.tar.gz",
-              "sha256": "32d496fe08e4bd5e8b5589d92cc7c6b9e6abb29a3d05f092760eabba81e98a45"
+              "cellar": "/usr/local/Cellar",
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:83e43e94ed5475d49fb8c65fba89e073586218811ffe5c0b54b141e03af06f2a",
+              "sha256": "83e43e94ed5475d49fb8c65fba89e073586218811ffe5c0b54b141e03af06f2a"
             },
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/ffmpeg-4.3.1_4.catalina.bottle.tar.gz",
-              "sha256": "fa20f49d1650469cc4ea6fe6ef6c8d949106235cec8de9a386dec5839c2bb047"
+              "cellar": "/usr/local/Cellar",
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:82ce4be0cbb00c8ba99b79855e97d6c6bf90089cb7aa016cdac54abae26bf083",
+              "sha256": "82ce4be0cbb00c8ba99b79855e97d6c6bf90089cb7aa016cdac54abae26bf083"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/ffmpeg-4.3.1_4.mojave.bottle.tar.gz",
-              "sha256": "7bf14f3a7ffee5a74dd75f2693bd42c35e2cd479dfa59cdc5db976618494814f"
-            },
-            "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/ffmpeg-4.3.1_4.high_sierra.bottle.tar.gz",
-              "sha256": "5faa06d8ac2008a03d9ed826e1db8b39f14f5c585b9af20250e798db16247dae"
+              "cellar": "/usr/local/Cellar",
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:e3fd3f329bedbea63529e74eba7a14b12dfd74fdb242471d8946f91d591b26ac",
+              "sha256": "e3fd3f329bedbea63529e74eba7a14b12dfd74fdb242471d8946f91d591b26ac"
             }
           }
         }
       },
       "libdvdcss": {
-        "version": "1.4.2",
+        "version": "1.4.3",
         "bottle": {
-          "cellar": ":any",
-          "prefix": "/usr/local",
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
           "files": {
-            "big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/libdvdcss-1.4.2.big_sur.bottle.tar.gz",
-              "sha256": "9a8db2ea63440ad177206f94fef24af0649b6449a10f61e50987f357ed708bdf"
-            },
             "arm64_big_sur": {
-              "url": "https://homebrew.bintray.com/bottles/libdvdcss-1.4.2.arm64_big_sur.bottle.tar.gz",
-              "sha256": "70921a36dabb28674da535508ab2434bec4843c08c1fb2597cfe532b2bd652f4"
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/libdvdcss/blobs/sha256:ef10943948da31c0015eb558758fea572963e381c13c203e79ee2169a826731a",
+              "sha256": "ef10943948da31c0015eb558758fea572963e381c13c203e79ee2169a826731a"
+            },
+            "big_sur": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/libdvdcss/blobs/sha256:6410e6fd033c0145e2d6d4676776cc4f4c20cf540836963d74a16788c842a7fd",
+              "sha256": "6410e6fd033c0145e2d6d4676776cc4f4c20cf540836963d74a16788c842a7fd"
             },
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/libdvdcss-1.4.2.catalina.bottle.tar.gz",
-              "sha256": "352a2c343c04e65ee38fe154c797a29cc9cca509212e2296e9cd54e3e824ce29"
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/libdvdcss/blobs/sha256:b5915184be3174c64f03a0895a9ee71dc8baac9dcd5bf5e904977890ccbba2ed",
+              "sha256": "b5915184be3174c64f03a0895a9ee71dc8baac9dcd5bf5e904977890ccbba2ed"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/libdvdcss-1.4.2.mojave.bottle.tar.gz",
-              "sha256": "645422cdd6facba8137146fd12df0538b27432a72bc79c5ca8c2667ab9fc70bc"
-            },
-            "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/libdvdcss-1.4.2.high_sierra.bottle.tar.gz",
-              "sha256": "4029db91ed7536435bd29db6b67f55509be13e70b6170337edec72daad8992c4"
-            },
-            "sierra": {
-              "url": "https://homebrew.bintray.com/bottles/libdvdcss-1.4.2.sierra.bottle.tar.gz",
-              "sha256": "907d51957c4674ddeb27b458dcf5f1f4b382219bda893fc8908147acc1c2b1ea"
-            },
-            "el_capitan": {
-              "url": "https://homebrew.bintray.com/bottles/libdvdcss-1.4.2.el_capitan.bottle.tar.gz",
-              "sha256": "0aaed21ecd3c8d3b4a9997300a599de5a541689ab200a6ffce52167b2ce5b664"
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/libdvdcss/blobs/sha256:786743340aeae4fde2966f29bb0457123b529c42c5cbe52609ebdaad447b7280",
+              "sha256": "786743340aeae4fde2966f29bb0457123b529c42c5cbe52609ebdaad447b7280"
             }
           }
         }
@@ -147,32 +149,29 @@
         "id": "1316061122",
         "version": "6.0"
       },
-      "GarageBand": {
-        "id": "682658836",
-        "version": "10.3.5"
-      },
+      "GarageBand": null,
       "iMovie": {
         "id": "408981434",
-        "version": "10.2.2"
+        "version": "10.2.3"
       },
       "Paprika Recipe Manager 3": {
         "id": "1303222628",
-        "version": "3.6.2"
+        "version": "3.6.4"
       },
       "Reeder": {
-        "id": "1449412482",
-        "version": "4.2.8"
+        "id": "880001334",
+        "version": "3.2.3"
       }
     }
   },
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.7.0",
+        "HOMEBREW_VERSION": "3.1.3",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "218db7da99318621e8d783c81d0af5f8b8da9685",
-        "CLT": "12.0.32.21",
-        "Xcode": "12.0",
+        "Homebrew/homebrew-core": "0941e37d09c214936189f40cb42e150932a3715d",
+        "CLT": "12.4.0.0.1.1610135815",
+        "Xcode": "11.7",
         "macOS": "10.15.7"
       }
     }

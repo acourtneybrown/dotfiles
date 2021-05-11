@@ -35,9 +35,11 @@ module.exports = {
           /confluent.io/,
           /confluent\.cloud/,
           /cultureamp.com/,
+          /sumologic.com/,
         ]),
 
         /github.com\/confluentinc/,
+        /travis-ci.org\/github\/confluentinc/,
        ],
       browser: "Google Chrome"
     },
@@ -45,14 +47,16 @@ module.exports = {
       match: [
         finicky.matchHostnames([
           "govzw.com",
+
+          /wsj.com/,
         ]),
         /^https:\/\/github.com\/acourtneybrown\/.*$/,
       ],
       browser: "Safari"
     },
     {
-      match: ({ sourceBundleIdentifier }) =>
-        sourceBundleIdentifier.endsWith("com.agilebits.onepassword7-helper"),
+      match: ({ opener }) =>
+        opener.bundleId.endsWith("com.agilebits.onepassword7-helper"),
       browser: "Safari"
     }
   ]
