@@ -2,6 +2,7 @@ tap "acourtneybrown/versions"
 tap "AdoptOpenJDK/openjdk"
 tap "discoteq/discoteq"
 
+brew "ansible@2.9"
 brew "awscli"
 brew "discoteq/discoteq/flock"
 # brew "azure-cli"
@@ -20,6 +21,8 @@ brew "protobuf"
 brew "acourtneybrown/versions/python@3.6", link: false
 brew "python@3.7", link: false
 brew "python@3.8", link: false
+brew "terraform@0.11"
+brew "terraform@0.12"
 brew "vault"
 
 cask "docker"
