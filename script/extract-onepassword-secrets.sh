@@ -54,14 +54,14 @@ if ! [ -f "${HOME}/.secrets" ]; then
   touch "${HOME}/.secrets"
   chmod 600 "${HOME}/.secrets"
 
-  github_repo_token=$(op get item "GitHub" - --fields "Repo (read) token")
+  github_netrc_token=$(op get item "GitHub" - --fields "Confluent netrc")
   artifactory_host=$(op get item "JFrog Artifactory" - --fields url)
   artifactory_path=$(op get item "JFrog Artifactory" - --fields "Root path")
   artifactory_user=$(op get item "JFrog Artifactory" - --fields username)
   artifactory_password=$(op get item "JFrog Artifactory" - --fields "API Key")
 
   cat >>"${HOME}/.secrets" <<EOF
-github_repo_token=${github_repo_token}
+github_netrc_token=${github_netrc_token}
 artifactory_host=${artifactory_host}
 artifactory_path=${artifactory_path}
 artifactory_user=${artifactory_user}
