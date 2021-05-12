@@ -31,5 +31,5 @@ resolve_aws_alias = False
 include_path = False
 preferred_mfa_type = token:software:totp
 remember_device = True
-aws_default_duration = 7200
+aws_default_duration = 3600
 output_format = json
