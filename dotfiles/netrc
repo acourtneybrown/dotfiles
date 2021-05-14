@@ -1,6 +1,6 @@
 machine github.com
     login acourtneybrown
-    password {{@@ env['github_repo_token'] @@}}
+    password {{@@ env['github_netrc_token'] @@}}
 
 machine confluent.jfrog.io
     login {{@@ env['artifactory_user'] @@}}
