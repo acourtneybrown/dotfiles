@@ -5,7 +5,7 @@ function pypath() {
   version="$1"
   bindir="/usr/local/opt/python@${version}/bin"
   if [[ -d ${bindir} ]]; then
-    path+=(${bindir})
+    path+=("${bindir}")
   else
     echo "error: ${bindir} does not exist"
   fi
