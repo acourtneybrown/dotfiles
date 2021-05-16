@@ -36,6 +36,7 @@ alias gcdbl="gcdb && gl"
 alias gdodb='git diff origin/$(gdb)...'
 alias gdudb='git diff upstream/$(gdb upstream)...'
 alias gfodb='git fetch origin $(gdb):$(gdb)'
+alias gfudb='git fetch upstream $(gdb):$(gdb)'
 alias glr='git ls-remote'
 
 # `gitall` performs a git operation across all of the git repositories under the
