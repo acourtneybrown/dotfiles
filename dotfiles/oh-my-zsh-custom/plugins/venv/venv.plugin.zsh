@@ -32,3 +32,5 @@ function va() {
   fi
   source ${env}/bin/activate
 }
+
+alias pie.="pip install --editable ."
