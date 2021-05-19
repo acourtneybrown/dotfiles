@@ -114,6 +114,7 @@ dotfiles:
   f_okta_aws_login_config:
     src: okta_aws_login_config
     dst: ~/.okta_aws_login_config
+    chmod: 600
   f_pip_conf:
     src: pip.conf
     dst: ~/.pip/pip.conf
