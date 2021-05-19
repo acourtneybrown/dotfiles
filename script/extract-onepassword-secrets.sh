@@ -35,8 +35,10 @@ onepassword_get "Adam's id_rsa SSH key" .ssh/id_rsa
 onepassword_get "Synology root SSH key" .ssh/synology
 onepassword_get "id_ed25519.confluent" .ssh/id_ed25519.confluent
 
-echo "Retreiving public key for id_ed25519.confluent"
-ssh-keygen -y -f ~/.ssh/id_ed25519.confluent >~/.ssh/id_ed25519.confluent.pub
+if ! [ -f ~/.ssh/id_ed25519.confluent.pub ]; then
+  echo "Retreiving public key for id_ed25519.confluent"
+  ssh-keygen -y -f ~/.ssh/id_ed25519.confluent >~/.ssh/id_ed25519.confluent.pub
+fi
 ln -sf id_ed25519.confluent ~/.ssh/caas-abrown
 ln -sf id_ed25519.confluent.pub ~/.ssh/caas-abrown.pub
 
@@ -59,6 +61,8 @@ if ! [ -f "${HOME}/.secrets" ]; then
   artifactory_path=$(op get item "JFrog Artifactory" - --fields "Root path")
   artifactory_user=$(op get item "JFrog Artifactory" - --fields username)
   artifactory_password=$(op get item "JFrog Artifactory" - --fields "API Key")
+  okta_default_device_token=$(op get item "Okta" - --fields "gimme-aws-creds default device_token")
+  okta_toolsterraform_device_token=$(op get item "Okta" - --fields "gimme-aws-creds ToolsTerraform device_token")
 
   cat >>"${HOME}/.secrets" <<EOF
 github_netrc_token=${github_netrc_token}
@@ -66,6 +70,8 @@ artifactory_host=${artifactory_host}
 artifactory_path=${artifactory_path}
 artifactory_user=${artifactory_user}
 artifactory_password=${artifactory_password}
+okta_default_device_token=${okta_default_device_token}
+okta_toolsterraform_device_token=${okta_toolsterraform_device_token}
 EOF
 fi
 

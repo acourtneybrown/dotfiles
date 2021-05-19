@@ -15,6 +15,7 @@ preferred_mfa_type = token:software:totp
 remember_device = True
 aws_default_duration = 3600
 output_format = json
+device_token = {{@@ env['okta_default_device_token'] @@}}
 
 [ToolsTerraform]
 okta_org_url = https://confluent.okta.com
@@ -33,3 +34,4 @@ preferred_mfa_type = token:software:totp
 remember_device = True
 aws_default_duration = 3600
 output_format = json
+device_token = {{@@ env['okta_toolsterraform_device_token'] @@}}
