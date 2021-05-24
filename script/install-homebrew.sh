@@ -38,3 +38,6 @@ unset GIT_DIR GIT_WORK_TREE
 export PATH="${HOMEBREW_PREFIX}/bin:${PATH}"
 echo "Updating Homebrew:"
 brew update
+
+# Add Homebrew directories to default path & manpath
+sudo sh -c "echo /usr/local/bin >/etc/paths.d/homebrew; echo /usr/local/share/man >/etc/manpaths.d/homebrew"
