@@ -17,6 +17,7 @@ module.exports = {
           "a.goodtime.io",
           "app.firehydrant.io",
           "confluent-tools.datadoghq.com",
+          "confluent.jfrog.io",
           "confluent.askspoke.com",
           "confluent.okta.com",
           "confluent.slack.com",
