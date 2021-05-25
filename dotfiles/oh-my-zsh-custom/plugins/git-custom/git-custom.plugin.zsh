@@ -33,13 +33,23 @@ alias grbbd='git rebase $(gdb)'
 alias gl="git pull --prune --tags"
 alias gla="gl --all"
 alias gcdbl="gcdb && gl"
-alias gdodb='git diff origin/$(gdb)...'
-alias gdudb='git diff upstream/$(gdb upstream)...'
 alias gfodb='git fetch origin $(gdb):$(gdb)'
 alias gfudb='git fetch upstream $(gdb):$(gdb)'
 alias glr='git ls-remote'
 
-# `gitall` performs a git operation across all of the git repositories under the
+# gdodb compares the origin's default branch to the specified branch (if given) or the current HEAD
+function gdodb() {
+  local branch="${1}"
+  git diff "origin/$(gdb)...${branch}"
+}
+
+# gdodb compares the upstream's default branch to the specified branch (if given) or the current HEAD
+function gdudb() {
+  local branch="${1}"
+  git diff "upstream/$(gdb upstream)...${branch}"
+}
+
+# gitall performs a git operation across all of the git repositories under the
 # current directory.
 function gitall() {
   if [ "$#" -lt 1 ]; then
