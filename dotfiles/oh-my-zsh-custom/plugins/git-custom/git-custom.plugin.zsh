@@ -34,7 +34,8 @@ alias gl="git pull --prune --tags"
 alias gla="gl --all"
 alias gcdbl="gcdb && gl"
 alias gfodb='git fetch origin $(gdb):$(gdb)'
-alias gfudb='git fetch upstream $(gdb):$(gdb)'
+alias gfudb='git fetch upstream $(gdb upstream)'
+alias gfu='git fetch upstream'
 alias glr='git ls-remote'
 
 # gdodb compares the origin's default branch to the specified branch (if given) or the current HEAD
