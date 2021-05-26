@@ -17,6 +17,11 @@ dotfiles:
   d_bin:
     src: bin
     dst: ~/bin
+  d_config_gh:
+    src: config/gh
+    dst: ~/.config/gh
+    chmod: 700
+    link: link_children
   d_desktop:
     src: Desktop
     dst: ~/Desktop
@@ -237,6 +242,7 @@ profiles:
   shared:
     dotfiles:
       - d_bin
+      - d_config_gh
       - d_gradle_init_d
       - d_ssh
       - f_bash_sessions_disable

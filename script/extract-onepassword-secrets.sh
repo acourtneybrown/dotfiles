@@ -56,20 +56,22 @@ if ! [ -f "${HOME}/.secrets" ]; then
   touch "${HOME}/.secrets"
   chmod 600 "${HOME}/.secrets"
 
-  github_netrc_token=$(op get item "GitHub" - --fields "Confluent netrc")
   artifactory_host=$(op get item "JFrog Artifactory" - --fields url)
+  artifactory_password=$(op get item "JFrog Artifactory" - --fields "API Key")
   artifactory_path=$(op get item "JFrog Artifactory" - --fields "Root path")
   artifactory_user=$(op get item "JFrog Artifactory" - --fields username)
-  artifactory_password=$(op get item "JFrog Artifactory" - --fields "API Key")
+  gh_cli_token=$(op get item "GitHub" - --fields "gh cli token")
+  github_netrc_token=$(op get item "GitHub" - --fields "Confluent netrc")
   okta_default_device_token=$(op get item "Okta" - --fields "gimme-aws-creds default device_token")
   okta_toolsterraform_device_token=$(op get item "Okta" - --fields "gimme-aws-creds ToolsTerraform device_token")
 
   cat >>"${HOME}/.secrets" <<EOF
-github_netrc_token=${github_netrc_token}
 artifactory_host=${artifactory_host}
+artifactory_password=${artifactory_password}
 artifactory_path=${artifactory_path}
 artifactory_user=${artifactory_user}
-artifactory_password=${artifactory_password}
+gh_cli_token=${gh_cli_token}
+github_netrc_token=${github_netrc_token}
 okta_default_device_token=${okta_default_device_token}
 okta_toolsterraform_device_token=${okta_toolsterraform_device_token}
 EOF
