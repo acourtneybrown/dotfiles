@@ -62,6 +62,7 @@ if ! [ -f "${HOME}/.secrets" ]; then
   artifactory_user=$(op get item "JFrog Artifactory" - --fields username)
   gh_cli_token=$(op get item "GitHub" - --fields "gh cli token")
   github_netrc_token=$(op get item "GitHub" - --fields "Confluent netrc")
+  hub_cli_token=$(op get item "GitHub" - --fields "hub cli token")
   okta_default_device_token=$(op get item "Okta" - --fields "gimme-aws-creds default device_token")
   okta_toolsterraform_device_token=$(op get item "Okta" - --fields "gimme-aws-creds ToolsTerraform device_token")
 
@@ -72,6 +73,7 @@ artifactory_path=${artifactory_path}
 artifactory_user=${artifactory_user}
 gh_cli_token=${gh_cli_token}
 github_netrc_token=${github_netrc_token}
+hub_cli_token=${hub_cli_token}
 okta_default_device_token=${okta_default_device_token}
 okta_toolsterraform_device_token=${okta_toolsterraform_device_token}
 EOF

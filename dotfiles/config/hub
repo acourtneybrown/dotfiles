@@ -1,0 +1,4 @@
+github.com:
+- user: acourtneybrown
+  oauth_token: {{@@ env['hub_cli_token'] @@}}
+  protocol: https

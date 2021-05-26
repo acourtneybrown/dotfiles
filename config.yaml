@@ -83,6 +83,10 @@ dotfiles:
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
+  f_config_hub:
+    src: config/hub
+    dst: ~/.config/hub
+    chmod: 600
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
@@ -246,6 +250,7 @@ profiles:
       - d_gradle_init_d
       - d_ssh
       - f_bash_sessions_disable
+      - f_config_hub
       - f_curlrc
       - f_gitconfig
       - f_gitignore
