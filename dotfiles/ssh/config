@@ -1,3 +1,4 @@
+
 # https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent
 NoHostAuthenticationForLocalhost yes
 
@@ -39,3 +40,4 @@ Host abrown-confluent abrown-confluent.notcharlie.com
 
 Host *.notcharlie.com
   User abrown
+  ForwardAgent yes
