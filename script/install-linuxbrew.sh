@@ -6,11 +6,11 @@
 # sudo update-locale en_US.UTF-8
 
 # TODO: make this work for non-Debian distro?
-# case $(lsb_release --id --short) in
-# Raspbian | Debian)
-#   sudo apt -q -y install ruby
-#   ;;
-# esac
+case $(lsb_release --id --short) in
+Raspbian | Debian)
+  sudo apt -q -y install libssl-dev libreadline-dev
+  ;;
+esac
 
 # Install and update rbenv and Ruby 2.6.3
 if [ ! -d "${HOME}/.rbenv" ]; then
