@@ -31,7 +31,7 @@ fi
 [ -z "${SKIP_BUNDLE}" ] && ensure_brewfile_installed
 [ -z "${SKIP_HOME}" ] && ensure_brewfile_installed Brewfile.home
 
-script/extract-onepassword-secrets.sh
+[ -z "${SKIP_SECRETS}" ] && script/extract-onepassword-secrets.sh
 
 # Setup development tools
 script/golang-setup.sh
