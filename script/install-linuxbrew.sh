@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # TODO: make this work for non-Debian distro?
-apt install ruby
+sudo apt install ruby
 
 # From https://docs.brew.sh/Homebrew-on-Linux#alternative-installation
 if [ ! -d ~/.linuxbrew ]; then
