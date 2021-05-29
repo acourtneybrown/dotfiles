@@ -15,8 +15,8 @@ esac
 # Install and update rbenv and Ruby 2.6.3
 if [ ! -d "${HOME}/.rbenv" ]; then
   git clone https://github.com/rbenv/rbenv.git "${HOME}/.rbenv"
-  export PATH="${HOME}/.rbenv/bin:${PATH}"
 fi
+export PATH="${HOME}/.rbenv/bin:${PATH}"
 
 if [ ! -d "${HOME}/.rbenv/plugins/ruby-build" ]; then
   mkdir -p "${HOME}/.rbenv/plugins"
