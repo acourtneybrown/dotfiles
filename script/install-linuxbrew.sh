@@ -6,18 +6,36 @@
 # sudo update-locale en_US.UTF-8
 
 # TODO: make this work for non-Debian distro?
-case $(lsb_release --id --short) in
-Raspbian | Debian)
-  sudo apt -q -y install ruby
-  ;;
-esac
+# case $(lsb_release --id --short) in
+# Raspbian | Debian)
+#   sudo apt -q -y install ruby
+#   ;;
+# esac
+
+# Install and update rbenv and Ruby 2.6.3
+if [ ! -d "${HOME}/.rbenv" ]; then
+  git clone https://github.com/rbenv/rbenv.git "${HOME}/.rbenv"
+  export PATH="${HOME}/.rbenv/bin:${PATH}"
+fi
+
+if [ ! -d "${HOME}/.rbenv/plugins/ruby-build" ]; then
+  mkdir -p "${HOME}/.rbenv/plugins"
+  git clone https://github.com/rbenv/ruby-build.git "${HOME}/.rbenv/plugins/ruby-build"
+fi
+
+pushd "${HOME}/.rbenv" || exit
+git pull
+cd "${HOME}/.rbenv/plugins/ruby-build" || exit
+git pull
+popd || exit
+rbenv install 2.6.3
 
 # From https://docs.brew.sh/Homebrew-on-Linux#alternative-installation
-if [ ! -d ~/.linuxbrew ]; then
-  git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
-  mkdir ~/.linuxbrew/bin
-  ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin
+if [ ! -d "${HOME}/.linuxbrew" ]; then
+  git clone https://github.com/Homebrew/brew "${HOME}/.linuxbrew/Homebrew"
+  mkdir "${HOME}/.linuxbrew/bin"
+  ln -s "${HOME}/.linuxbrew/Homebrew/bin/brew" "${HOME}/.linuxbrew/bin"
 else
-  git -C ~/.linuxbrew/Homebrew pull
+  git -C "${HOME}/.linuxbrew/Homebrew pull"
 fi
-eval "$(~/.linuxbrew/bin/brew shellenv)"
+eval "$("${HOME}"/.linuxbrew/bin/brew shellenv)"
