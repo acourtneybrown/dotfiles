@@ -36,6 +36,6 @@ if [ ! -d "${HOME}/.linuxbrew" ]; then
   mkdir "${HOME}/.linuxbrew/bin"
   ln -s "${HOME}/.linuxbrew/Homebrew/bin/brew" "${HOME}/.linuxbrew/bin"
 else
-  git -C "${HOME}/.linuxbrew/Homebrew pull"
+  git -C "${HOME}/.linuxbrew/Homebrew" pull
 fi
 eval "$("${HOME}"/.linuxbrew/bin/brew shellenv)"
