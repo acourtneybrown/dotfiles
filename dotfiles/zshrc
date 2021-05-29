@@ -105,11 +105,18 @@ plugins+=(
 )
 {%@@ endif @@%}
 
-if [[ $(uname -s) == "Linux" ]]; then
+case $(uname -s) in
+Linux)
   plugins+=(
     linuxbrew
   )
-fi
+  ;;
+Darwin)
+  plugins+=(
+    homebrew
+  )
+  ;;
+esac
 
 if [ -d "$ZSH" ]; then
   source "$ZSH/oh-my-zsh.sh"
