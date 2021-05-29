@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-# On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
-if [ -f /etc/locale.gen ]; then
-  sudo sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
-  sudo locale-gen en_US.UTF-8
-  sudo update-locale en_US.UTF-8
-fi
-
 # TODO: make this work for non-Debian distro?
 case $(lsb_release --id --short) in
 Raspbian | Debian)
