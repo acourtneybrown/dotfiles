@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
+# On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
+# sudo perl -pi -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+# sudo locale-gen en_US.UTF-8
+# sudo update-locale en_US.UTF-8
+
 # TODO: make this work for non-Debian distro?
-sudo apt -q -y install ruby
+case $(lsb_release --id --short) in
+Raspbian | Debian)
+  sudo apt -q -y install ruby
+  ;;
+esac
 
 # From https://docs.brew.sh/Homebrew-on-Linux#alternative-installation
 if [ ! -d ~/.linuxbrew ]; then
