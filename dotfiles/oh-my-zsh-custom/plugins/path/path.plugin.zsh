@@ -1,8 +1,12 @@
-paths=($HOME/go/bin /usr/local/sbin)
+paths=("${HOME}/go/bin" /usr/local/sbin)
 
-for dir in $paths; do
-  if [ -d "$dir" ]; then
-    path=($dir $path)
+# ZSH "properly" handles the array (vs. bash)
+# shellcheck disable=SC2128
+for dir in ${paths}; do
+  if [ -d "${dir}" ]; then
+    # Actually *want* path to be split
+    # shellcheck disable=2206
+    path=("${dir}" ${path})
   fi
 done
 
