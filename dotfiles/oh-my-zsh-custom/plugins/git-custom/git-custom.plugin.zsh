@@ -90,8 +90,8 @@ function gall() {
   fi
 
   cmd=$1
-  if [[ $aliases[$1] ]]; then
-    cmd=${aliases[$1]}
+  if [[ ${aliases[${1}]} ]]; then
+    cmd=${aliases[${1}]}
   fi
   shift
 
@@ -99,8 +99,8 @@ function gall() {
     if [ -d "${DIR}/.git" ]; then
       echo "${BOLD}Entering ${DIR}${RESET}"
       (
-        cd ${DIR}
-        eval ${cmd} "$@"
+        cd "${DIR}" || exit
+        eval "${cmd}" "$@"
       )
     fi
   done

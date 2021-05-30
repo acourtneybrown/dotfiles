@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 # Alias to fix mosh-server Mac firewall problems
 function fix_mosh_server() {
 

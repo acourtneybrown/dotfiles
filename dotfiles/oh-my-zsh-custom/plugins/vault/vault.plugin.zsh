@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 # Install useful functions for vault at Confluent
 
 if [[ $commands[vault] ]]; then

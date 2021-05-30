@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 if [[ -f /usr/libexec/java_home ]]; then
 
   function jdk() {

@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 # Setup & activate python virtual env
 
 # ve creates a virtualenv for the given name, or .venv/ if not given
@@ -8,7 +10,7 @@ function ve() {
   else
     env="$1"
   fi
-  python3 -m venv ${env}
+  python3 -m venv "${env}"
 }
 
 # ve2 creates a virtualenv for Python2 for the given name, or .venv if not given
@@ -19,7 +21,7 @@ function ve2() {
   else
     env="$1"
   fi
-  virtualenv ${env}
+  virtualenv "${env}"
 }
 
 # va activates a virtualenv for the given name, or .venv/ if present, or ~/.virtualenvs/<dir name>
@@ -34,7 +36,7 @@ function va() {
   else
     env="$1"
   fi
-  source ${env}/bin/activate
+  source "${env}/bin/activate"
 }
 
 alias pie.="pip install --editable ."
