@@ -30,5 +30,5 @@ function dotdrop_upgrade() {
 fpath+=$(pwd)
 
 function dotdrop() {
-  eval $(grep -v "^#" "${HOME}/.secrets)" {{@@ _dotdrop_dotpath @@}}/../dotdrop.sh "$@"
+  eval "$(grep -v "^#" "${HOME}/.secrets)" "{{@@ _dotdrop_dotpath @@}}/../dotdrop.sh" "$@")"
 }
