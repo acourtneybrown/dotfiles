@@ -2,7 +2,11 @@
 
 # Adapted from https://github.com/MikeMcQuaid/strap
 
+set -e
+
 cd "$(dirname "${0}")/.."
+
+# shellcheck disable=SC1091
 . script/functions
 
 # Install the Xcode Command Line Tools.

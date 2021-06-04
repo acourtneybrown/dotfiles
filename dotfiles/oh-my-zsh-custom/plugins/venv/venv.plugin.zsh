@@ -36,6 +36,7 @@ function va() {
   else
     env="$1"
   fi
+  # shellcheck disable=SC1091
   source "${env}/bin/activate"
 }
 

@@ -13,7 +13,8 @@ if [[ $commands[vault] ]]; then
   function vault_switch() {
     local hosts=(vault vaultnonprod vaultunstable)
 
-    if [[ ${#} < 1 || ! $hosts[(i)${1}] -le ${#hosts} ]]; then
+    # shellcheck disable=SC1009,SC1036,SC1072,SC1073
+    if [[ ${#} < 1 || ! ${hosts}[(Ie)${1}] <= ${#hosts} ]]; then
       echo "usage: vault_switch <vault | vaultnonprod | vaultunstable>"
       return
     fi

@@ -3,6 +3,8 @@
 set -e
 
 cd "$(dirname "${0}")/.."
+
+# shellcheck disable=SC1091
 . script/functions
 
 if [ ! -d env ]; then

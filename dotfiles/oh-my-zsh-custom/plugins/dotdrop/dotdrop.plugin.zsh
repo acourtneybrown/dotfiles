@@ -18,10 +18,11 @@ function dotdrop_upgrade() {
   local dotdrop_location
   dotdrop_location="{{@@ _dotdrop_dotpath @@}}"/../dotdrop
   git -C "${dotdrop_location}" fetch --tags
-  if [[ $# -lt 1 ]]; then
-    tag=$(dotdrop_versions | head -1)
+  if [[ ${#} -lt 1 ]]; then
+    # only pick up the "v"-beginning version tags
+    tag=$(dotdrop_versions "v" | head -1)
   else
-    tag="$1"
+    tag="${1}"
   fi
   git -C "${dotdrop_location}" checkout "${tag}"
 }

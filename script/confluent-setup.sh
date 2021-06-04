@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
+set -e
+
 cd "$(dirname "${0}")/.."
+
+# shellcheck disable=SC1091
 . script/functions
 
 ensure_brewfile_installed Brewfile.confluent

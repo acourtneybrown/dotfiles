@@ -10,7 +10,7 @@ if [[ ${commands[dot]} ]]; then
       type="${1}"
     fi
 
-    ls -1 *.gv | while read file; do
+    find . -maxdepth 1 -name '*.gv' | while read -r file; do
       dot -T"${type}" "${file}" >"${file}.${type}"
     done
   }

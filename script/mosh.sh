@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # wrap in function to allow for local variables
 fix_mosh_server() {
 
   # local variables for convenience
   local fw='/usr/libexec/ApplicationFirewall/socketfilterfw'
-  local mosh_sym="$(which mosh-server)"
-  local mosh_abs="$(greadlink -f ${mosh_sym})"
+  local mosh_sym
+  mosh_sym="$(which mosh-server)"
+  local mosh_abs
+  mosh_abs="$(greadlink -f "${mosh_sym}")"
 
   # temporarily shut firewall off
   sudo "${fw}" --setglobalstate off

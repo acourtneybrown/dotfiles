@@ -9,9 +9,10 @@ fi
 
 if [[ ${commands[helm]} ]]; then
   if helm init --upgrade >/dev/null 2>&1; then
-    if [[ -z $(helm repo list | grep helm-cloud) ]]; then
+    if helm repo list | ! grep -q helm-cloud; then
       # Run in subshell to ensure that info from ${HOME}/.secrets cleared
       (
+        # shellcheck disable=SC1091
         source "${HOME}/.secrets"
 
         # shellcheck disable=SC2154

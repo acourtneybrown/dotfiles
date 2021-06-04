@@ -3,6 +3,8 @@
 if [[ -d "${HOME}/.cc-dotfiles" ]]; then
   # Ensure that the auto-update behavior is only run by one shell at a time
   flock "${HOME}/.cc-dotfiles" bash -c "source \${HOME}/.cc-dotfiles/caas.sh"
+
+  # shellcheck disable=SC1091
   source "${HOME}/.cc-dotfiles/caas.sh"
 
   function cc-dotfiles_update() {
