@@ -12,7 +12,7 @@ fi
 function terraform_path() {
   local version
   local bindir
-  version="$1"
+  version="${1}"
   bindir="/usr/local/opt/terraform@${version}/bin"
   if [[ -d ${bindir} ]]; then
     path+=("${bindir}")

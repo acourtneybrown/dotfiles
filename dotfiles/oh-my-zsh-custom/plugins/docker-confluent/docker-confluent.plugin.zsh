@@ -7,7 +7,7 @@
 
   function ensure_docker() {
     local host
-    host="$1"
+    host="${1}"
     mkdir -p "${HOME}/.docker"
     touch "${HOME}/.docker/config.json"
     if ! jq -e ".auths.\"${host}\"" "${HOME}/.docker/config.json" >/dev/null; then

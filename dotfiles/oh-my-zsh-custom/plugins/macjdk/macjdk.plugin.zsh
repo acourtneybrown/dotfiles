@@ -3,7 +3,7 @@
 if [[ -f /usr/libexec/java_home ]]; then
 
   function jdk() {
-    version=$1
+    version=${1}
     JAVA_HOME=$(/usr/libexec/java_home -v"$version")
     export JAVA_HOME
     java -version

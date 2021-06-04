@@ -8,8 +8,8 @@ function oploggedin() {
 
 # pswd puts the password of the named service into the clipboard
 function pswd() {
-  (($# < 1)) && echo "Usage: pswd <service>"
-  local service=$1
+  ((${#} < 1)) && echo "Usage: pswd <service>"
+  local service="${1}"
 
   ! oploggedin && opsignin
 
