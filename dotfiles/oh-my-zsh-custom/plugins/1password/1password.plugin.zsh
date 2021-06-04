@@ -13,10 +13,26 @@ function pswd() {
 
   ! oploggedin && opsignin
 
-  op get item "${service}" | jq -r '.details.fields[] | select(.designation=="password").value' | pbcopy
+  local password
 
-  (
-    sleep 5 && op get totp "${service}" | pbcopy
-    sleep 10 && pbcopy </dev/null 2>&1 &
-  ) &!
+  if password=$(op get item "${service}" --fields password 2>/dev/null); then
+    echo "${password}" | pbcopy
+
+    local totp
+    if totp=$(op get totp "${service}" 2>/dev/null); then
+      (
+        sleep 5
+        echo "${totp}" | pbcopy
+        echo "TOTP ready"
+      ) &!
+    fi
+
+    (
+      sleep 15
+      pbcopy </dev/null
+      echo "password cleared"
+    ) &!
+  else
+    echo "No entry in 1Password for ${service}"
+  fi
 }
