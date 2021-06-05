@@ -84,7 +84,7 @@ jobs:
 
         for file in ${{ steps.filepaths.outputs.filepaths }}; do
           echo "::debug::Checking ${file}"
-          shellcheck "${file}" || statuscode=$?;
+          shellcheck --exclude=SC2148 "${file}" || statuscode=$?;
         done
 
         echo "::set-output name=statuscode::$statuscode"

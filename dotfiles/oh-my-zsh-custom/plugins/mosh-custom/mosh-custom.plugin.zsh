@@ -6,7 +6,7 @@ function fix_mosh_server() {
   # local variables for convenience
   local fw='/usr/libexec/ApplicationFirewall/socketfilterfw'
   local mosh_sym
-  mosh_sym="$(which mosh-server)"
+  mosh_sym="$(command -v mosh-server)"
   local mosh_abs
   mosh_abs="$(greadlink -f "${mosh_sym}")"
 
