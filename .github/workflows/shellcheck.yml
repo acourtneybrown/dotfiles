@@ -18,12 +18,12 @@ jobs:
         excludes+=("! -path \"*.go\"")
         excludes+=("! -path \"*/mvnw\"")
         for dir in dotdrop 1password; do
-          echo "::debug:: Adding directory "${dir}" to excludes"
+          echo "::debug:: Adding directory \"${dir}\" to excludes"
           excludes+=("! -path \"*./${dir}/*\"")
           excludes+=("! -path \"*/${dir}/*\"")
         done
         for file in zshrc dotdrop.sh; do
-          echo "::debug:: Adding file "${file} to excludes"
+          echo "::debug:: Adding file \"${file}\" to excludes"
           excludes+=("! -name \"${file}\"")
         echo "::set-output name=excludes::${excludes[@]}"
     - name: Find files
