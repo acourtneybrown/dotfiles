@@ -12,7 +12,7 @@ if [[ ${commands[helm]} ]]; then
     if helm repo list | ! grep -q helm-cloud; then
       # Run in subshell to ensure that info from ${HOME}/.secrets cleared
       (
-        # shellcheck disable=SC1091
+        # shellcheck disable=SC1090,SC1091
         source "${HOME}/.secrets"
 
         # shellcheck disable=SC2154
