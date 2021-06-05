@@ -7,6 +7,7 @@ if [ -d /usr/local/opt/helm@2/bin ]; then
   export PATH
 fi
 
+# shellcheck disable=SC2154
 if [[ ${commands[helm]} ]]; then
   if helm init --upgrade >/dev/null 2>&1; then
     if helm repo list | ! grep -q helm-cloud; then

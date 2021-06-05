@@ -2,6 +2,7 @@
 
 # Install command line completions for release-tools at Confluent
 
+# shellcheck disable=SC2154
 if [[ ${commands[pint]} ]]; then
   eval "$(_PINT_COMPLETE=source pint)"
   eval "$(_PINTO_COMPLETE=source pinto)"

@@ -90,6 +90,7 @@ function gall() {
   fi
 
   cmd=${1}
+  # shellcheck disable=SC2154
   if [[ ${aliases[${1}]} ]]; then
     cmd=${aliases[${1}]}
   fi

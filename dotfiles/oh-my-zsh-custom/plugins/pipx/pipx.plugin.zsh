@@ -2,6 +2,7 @@
 
 # Install command line completions for pipx & ensure it's bin/ is added to the path
 
+# shellcheck disable=SC2154
 if [[ ${commands[pipx]} ]]; then
   if [[ -d "${HOME}/.local/bin" ]]; then
     path+=("${HOME}/.local/bin")

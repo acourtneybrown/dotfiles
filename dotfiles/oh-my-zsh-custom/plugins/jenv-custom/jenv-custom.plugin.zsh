@@ -1,5 +1,6 @@
 # shellcheck disable=SC2148
 
+# shellcheck disable=SC2154
 if [[ ${commands[jenv]} ]]; then
   # jenv_sync_versions makes sure that all installed JDKs are added to jenv
   function jenv_sync_versions() {

@@ -2,7 +2,8 @@
 
 # Install useful functions for vault at Confluent
 
-if [[ $commands[vault] ]]; then
+# shellcheck disable=SC2154
+if [[ ${commands[vault]} ]]; then
 
   # vault_login handles the perfered login approach for Confluent
   function vault_login() {
