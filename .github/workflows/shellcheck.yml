@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Display shellcheck version
+      shell: bash
+      run: |
+        shellcheck --version
     - name: Gather excluded paths
       shell: bash
       id: exclude
