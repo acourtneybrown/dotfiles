@@ -53,7 +53,7 @@ function gdudb() {
 # gitall performs a git operation across all of the git repositories under the
 # current directory.
 function gitall() {
-  if [ "$#" -lt 1 ]; then
+  if [ "${#}" -lt 1 ]; then
     echo "Usage: gitall pull|push|commit ..."
     echo "Starts a git command for each directory found in current dir."
     return
@@ -68,7 +68,7 @@ function gitall() {
   for DIR in *; do
     if [ -d "${DIR}/.git" ]; then
       echo "${BOLD}Entering ${DIR}${RESET}"
-      git -C "${DIR}" "$@"
+      git -C "${DIR}" "${@}"
     fi
   done
 }
@@ -76,7 +76,7 @@ function gitall() {
 # gall performs a given command line across all of the git repositories under
 # the current directory.  It also handles all aliases.
 function gall() {
-  if [ "$#" -lt 1 ]; then
+  if [ "${#}" -lt 1 ]; then
     echo "Usage: gall gcl|gcdb|..."
     echo "Starts a command for each directory found in current dir."
     return
@@ -89,9 +89,10 @@ function gall() {
     RESET="\033[m"
   fi
 
-  cmd=$1
-  if [[ $aliases[$1] ]]; then
-    cmd=${aliases[$1]}
+  cmd=${1}
+  # shellcheck disable=SC2154
+  if [[ ${aliases[${1}]} ]]; then
+    cmd=${aliases[${1}]}
   fi
   shift
 
@@ -99,8 +100,8 @@ function gall() {
     if [ -d "${DIR}/.git" ]; then
       echo "${BOLD}Entering ${DIR}${RESET}"
       (
-        cd ${DIR}
-        eval ${cmd} "$@"
+        cd "${DIR}" || exit
+        eval "${cmd}" "${@}"
       )
     fi
   done

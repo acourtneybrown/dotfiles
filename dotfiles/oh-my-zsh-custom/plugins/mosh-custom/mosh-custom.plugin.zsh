@@ -1,10 +1,14 @@
+# shellcheck disable=SC2148
+
 # Alias to fix mosh-server Mac firewall problems
 function fix_mosh_server() {
 
   # local variables for convenience
   local fw='/usr/libexec/ApplicationFirewall/socketfilterfw'
-  local mosh_sym="$(which mosh-server)"
-  local mosh_abs="$(greadlink -f $mosh_sym)"
+  local mosh_sym
+  mosh_sym="$(command -v mosh-server)"
+  local mosh_abs
+  mosh_abs="$(greadlink -f "${mosh_sym}")"
 
   # temporarily shut firewall off
   sudo "$fw" --setglobalstate off

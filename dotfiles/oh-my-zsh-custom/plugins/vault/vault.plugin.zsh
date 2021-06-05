@@ -1,6 +1,9 @@
+# shellcheck disable=SC2148
+
 # Install useful functions for vault at Confluent
 
-if [[ $commands[vault] ]]; then
+# shellcheck disable=SC2154
+if [[ ${commands[vault]} ]]; then
 
   # vault_login handles the perfered login approach for Confluent
   function vault_login() {
@@ -11,7 +14,8 @@ if [[ $commands[vault] ]]; then
   function vault_switch() {
     local hosts=(vault vaultnonprod vaultunstable)
 
-    if [[ ${#} < 1 || ! $hosts[(i)${1}] -le ${#hosts} ]]; then
+    # shellcheck disable=SC1009,SC1036,SC1072,SC1073
+    if [[ ${#} < 1 || ! ${hosts}[(Ie)${1}] <= ${#hosts} ]]; then
       echo "usage: vault_switch <vault | vaultnonprod | vaultunstable>"
       return
     fi

@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 setopt APPEND_HISTORY         # append to history file
 setopt CORRECT                # Try  to  correct the spelling of commands.
 setopt CORRECT_ALL            # Try to correct the spelling of all arguments in a line.

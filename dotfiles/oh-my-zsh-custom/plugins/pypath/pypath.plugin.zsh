@@ -1,8 +1,10 @@
+# shellcheck disable=SC2148
+
 # pypath_last adds the given Homebrew Python version to the end of PATH
 function pypath_last() {
   local version
   local bindir
-  version="$1"
+  version="${1}"
   bindir="/usr/local/opt/python@${version}/bin"
   if [[ -d ${bindir} ]]; then
     path+=("${bindir}")
@@ -18,9 +20,10 @@ function pypath_last() {
 function pypath_first() {
   local version
   local bindir
-  version="$1"
+  version="${1}"
   bindir="/usr/local/opt/python@${version}/bin"
   if [[ -d ${bindir} ]]; then
+    # shellcheck disable=SC2206
     path=("${bindir}" ${path})
   else
     echo "error: ${bindir} does not exist"

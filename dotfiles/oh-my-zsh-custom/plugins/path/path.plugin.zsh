@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 paths=("${HOME}/go/bin" /usr/local/sbin)
 
 # ZSH "properly" handles the array (vs. bash)

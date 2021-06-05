@@ -1,19 +1,26 @@
-path+=(/usr/local/opt/helm@2/bin)
+# shellcheck disable=SC2148
 
-typeset -U path
-export PATH
+if [ -d /usr/local/opt/helm@2/bin ]; then
+  path+=(/usr/local/opt/helm@2/bin)
 
-if [[ $commands[helm] ]]; then
-  if helm init --upgrade > /dev/null 2>&1; then
-    if [[ -z $(helm repo list | grep helm-cloud) ]]; then
-      # Run in subshell to ensure that info from ~/.secrets cleared
+  typeset -U path
+  export PATH
+fi
+
+# shellcheck disable=SC2154
+if [[ ${commands[helm]} ]]; then
+  if helm init --upgrade >/dev/null 2>&1; then
+    if helm repo list | ! grep -q helm-cloud; then
+      # Run in subshell to ensure that info from ${HOME}/.secrets cleared
       (
-        source ~/.secrets
+        # shellcheck disable=SC1090,SC1091
+        source "${HOME}/.secrets"
 
+        # shellcheck disable=SC2154
         helm repo add helm-cloud \
           https://confluent.jfrog.io/confluent/helm-cloud \
-          --username ${artifactory_user} \
-          --password ${artifactory_password}
+          --username "${artifactory_user}" \
+          --password "${artifactory_password}"
       )
     fi
   else

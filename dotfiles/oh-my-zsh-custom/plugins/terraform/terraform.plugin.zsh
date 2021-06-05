@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 # Add the (old) versions of Ansible & Terraform used at Confleunt to the path
 
 if [[ -d "/usr/local/opt/ansible@2.9" ]]; then
@@ -10,7 +12,7 @@ fi
 function terraform_path() {
   local version
   local bindir
-  version="$1"
+  version="${1}"
   bindir="/usr/local/opt/terraform@${version}/bin"
   if [[ -d ${bindir} ]]; then
     path+=("${bindir}")

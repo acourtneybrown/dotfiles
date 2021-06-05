@@ -1,8 +1,11 @@
+# shellcheck disable=SC2148
+
 if [[ -f /usr/libexec/java_home ]]; then
 
   function jdk() {
-    version=$1
-    export JAVA_HOME=$(/usr/libexec/java_home -v"$version")
+    version=${1}
+    JAVA_HOME=$(/usr/libexec/java_home -v"$version")
+    export JAVA_HOME
     java -version
   }
 

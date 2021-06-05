@@ -11,7 +11,7 @@ if [ "${HOMEBREW_PREFIX}" = "/usr/local" ]; then
   sudo chown "root:wheel" "${HOMEBREW_PREFIX}" 2>/dev/null || true
 fi
 (
-  cd "${HOMEBREW_PREFIX}"
+  cd "${HOMEBREW_PREFIX}" || exit
   sudo mkdir -p Cellar Frameworks bin etc include lib opt sbin share var
   sudo chown -R "${USER}:admin" Cellar Frameworks bin etc include lib opt sbin share var
 )
