@@ -15,7 +15,7 @@ if [[ ${commands[vault]} ]]; then
     local hosts=(vault vaultnonprod vaultunstable)
 
     # shellcheck disable=SC1009,SC1036,SC1072,SC1073
-    if [[ ${#} < 1 || ! ${hosts}[(Ie)${1}] <= ${#hosts} ]]; then
+    if [[ ${#} -lt 1 || ! ${hosts[(Ie)${1}]} -le ${#hosts} ]]; then
       echo "usage: vault_switch <vault | vaultnonprod | vaultunstable>"
       return
     fi

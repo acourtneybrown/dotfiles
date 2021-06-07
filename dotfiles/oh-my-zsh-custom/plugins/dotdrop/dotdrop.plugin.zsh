@@ -31,5 +31,7 @@ function dotdrop_upgrade() {
 fpath+=$(pwd)
 
 function dotdrop() {
-  eval "$(grep -v "^#" "${HOME}/.secrets)" "{{@@ _dotdrop_dotpath @@}}/../dotdrop.sh" "${@}")"
+  # Need the contents of ~/.secrets to be split for all variables
+  # shellcheck disable=2046
+  eval $(grep -v "^#" "${HOME}/.secrets") "{{@@ _dotdrop_dotpath @@}}/../dotdrop.sh" "${@}"
 }

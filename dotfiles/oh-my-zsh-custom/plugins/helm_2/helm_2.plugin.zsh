@@ -10,7 +10,7 @@ fi
 # shellcheck disable=SC2154
 if [[ ${commands[helm]} ]]; then
   if helm init --upgrade >/dev/null 2>&1; then
-    if helm repo list | ! grep -q helm-cloud; then
+    if ! helm repo list | grep -q helm-cloud; then
       # Run in subshell to ensure that info from ${HOME}/.secrets cleared
       (
         # shellcheck disable=SC1090,SC1091
