@@ -56,8 +56,10 @@ module.exports = {
       browser: "Safari"
     },
     {
-      match: ({ opener }) =>
-        opener.bundleId.endsWith("com.agilebits.onepassword7-helper"),
+      match: ({ opener }) => {
+        // finicky.log(opener.bundleId);
+        return opener.bundleId && opener.bundleId === "com.agilebits.onepassword7"
+      },
       browser: "Safari"
     }
   ]
