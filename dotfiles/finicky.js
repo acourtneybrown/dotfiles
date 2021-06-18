@@ -16,6 +16,7 @@ module.exports = {
         finicky.matchHostnames([
           "a.goodtime.io",
           "app.firehydrant.io",
+          "app.geekbot.com",
           "confluent-tools.datadoghq.com",
           "confluent.jfrog.io",
           "confluent.askspoke.com",
