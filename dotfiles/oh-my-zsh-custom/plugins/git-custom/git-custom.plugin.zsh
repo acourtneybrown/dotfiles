@@ -37,6 +37,19 @@ alias gfodb='git fetch origin $(gdb):$(gdb)'
 alias gfudb='git fetch upstream $(gdb upstream)'
 alias gfu='git fetch upstream'
 alias glr='git ls-remote'
+alias gcob="gco -b"
+
+# gcobu checks out a new branch prefixed with the github username
+function gcobu() {
+  if [ "${#}" -ne 1 ]; then
+    echo "Usage: gcobu <branch>"
+    return
+  fi
+  local branch="${1}"
+  local user
+  user=$(git config github.user)
+  git checkout -b "${user}/${branch}"
+}
 
 # gdodb compares the origin's default branch to the specified branch (if given) or the current HEAD
 function gdodb() {
