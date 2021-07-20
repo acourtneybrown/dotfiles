@@ -73,6 +73,7 @@ plugins=(
   aliases
   docker
   dotdrop
+  direnv
   functions
   fzf
   git
