@@ -22,6 +22,10 @@ dotfiles:
     dst: ~/.config/gh
     chmod: 700
     link: link_children
+  d_config_yapf:
+    src: config/yapf
+    dst: ~/.config/yapf
+    link: link_children
   d_desktop:
     src: Desktop
     dst: ~/Desktop
@@ -224,6 +228,7 @@ profiles:
     variables:
       work: true
     dotfiles:
+      - d_config_yapf
       - f_gitconfig-confluent
       - f_m2_settings
       - f_netrc
