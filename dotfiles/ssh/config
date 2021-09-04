@@ -23,6 +23,7 @@ Host picluster-*
   User pi
 Host synology
   Port 2222
+  User abrown
 Host synology-root
   Hostname synology.notcharlie.com
   IdentityFile ~/.ssh/synology
