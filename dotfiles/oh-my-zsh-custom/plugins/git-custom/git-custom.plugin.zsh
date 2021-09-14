@@ -23,6 +23,7 @@ unalias glum
 unalias gmom
 unalias gmum
 unalias grbm
+unalias gpsup
 
 alias gcdb='git checkout $(gdb)'
 alias git-svn-dcommit-push='git svn dcommit && git push github $(gdb):svntrunk'
@@ -119,4 +120,16 @@ function gall() {
       )
     fi
   done
+}
+
+# gpsup pushes a branch to the specified remote (origin by default) & sets the upstream branch
+function gpsup() {
+  local remote
+  if [ "${#}" -lt 1 ]; then
+    remote=origin
+  else
+    remote="${1}"
+  fi
+
+  git push --set-upstream "${remote}" "$(git_current_branch)"
 }
