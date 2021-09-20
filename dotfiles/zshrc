@@ -23,6 +23,12 @@ ZSH_THEME="robbyrussell"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
+# Avoid prompting for update if launching from within IntelliJ
+# See https://youtrack.jetbrains.com/articles/IDEA-A-19/Shell-Environment-Loading
+if [[ -n "${INTELLIJ_ENVIRONMENT_READER}" ]]; then
+  DISABLE_AUTO_UPDATE="true"
+fi
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
