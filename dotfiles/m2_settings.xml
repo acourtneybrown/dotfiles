@@ -48,6 +48,16 @@
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
+                    <id>confluent-artifactory-stabilization</id>
+                    <url>${env.ORG_GRADLE_PROJECT_mavenUrl}</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
                     <id>confluent-artifactory-central</id>
                     <name>Confluent Plugin Repository</name>
                     <url>{{@@ env['artifactory_host'] @@}}{{@@ env['artifactory_path'] @@}}</url>
