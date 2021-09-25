@@ -3,6 +3,7 @@ tap "discoteq/discoteq"
 
 brew "ansible@2.9"
 brew "awscli"
+brew "bfg"
 brew "discoteq/discoteq/flock"
 brew "gdub"
 brew "gradle"
