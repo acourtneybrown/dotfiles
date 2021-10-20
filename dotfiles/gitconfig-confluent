@@ -13,3 +13,6 @@
 
 [rerere]
 	enabled = true
+
+[init]
+	defaultBranch = master
