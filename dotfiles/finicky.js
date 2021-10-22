@@ -40,6 +40,7 @@ module.exports = {
           /sumologic.com/,
         ]),
 
+        /applications.zoom.us\/slack\/api\/call\/callback/,
         /github.com\/.*confluentinc/,
         /travis-ci.org\/github\/confluentinc/,
        ],
