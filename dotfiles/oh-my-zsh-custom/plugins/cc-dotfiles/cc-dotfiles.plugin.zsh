@@ -1,5 +1,10 @@
 # shellcheck disable=SC2148
 
+# Avoid prompting for update if launching from within IntelliJ
+if [[ -n "${INTELLIJ_ENVIRONMENT_READER}" ]]; then
+  return
+fi
+
 if [[ -d "${HOME}/.cc-dotfiles" ]]; then
   # Ensure that the auto-update behavior is only run by one shell at a time
   flock "${HOME}/.cc-dotfiles" bash -c "source \${HOME}/.cc-dotfiles/caas.sh"
