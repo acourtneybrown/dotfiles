@@ -10,6 +10,7 @@ module.exports = {
     }
   ],
   handlers: [
+    {%@@ if work @@%}
     {
       // Work-related sites
       match: [
@@ -46,6 +47,7 @@ module.exports = {
        ],
       browser: "Google Chrome"
     },
+    {%@@ endif @@%}
     {
       match: [
         finicky.matchHostnames([
