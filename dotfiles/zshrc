@@ -106,6 +106,7 @@ plugins+=(
   jenv
   jenv-custom
   pipx
+  release-stable
   release-tools
   terraform
   vault
