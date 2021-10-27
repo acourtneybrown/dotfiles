@@ -18,11 +18,11 @@ brew "maven"
 brew "pipenv"
 brew "pipx"
 brew "protobuf"
+brew "pulumi"
 brew "acourtneybrown/versions/python@3.6", link: false
 brew "python@3.7", link: false
 brew "python@3.8", link: false
-brew "terraform@0.11"
-brew "terraform@0.12"
+brew "tfenv"
 brew "vault"
 brew "yapf"
 
