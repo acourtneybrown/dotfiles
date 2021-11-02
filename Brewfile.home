@@ -16,7 +16,6 @@ cask "sonos"
 cask "steam"
 cask "subler"
 cask "vlc"
-cask "xld"
 
 # mas "Airmail", id: 918858936
 mas "Apple Configurator 2", id: 1037126344
