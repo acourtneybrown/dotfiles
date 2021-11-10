@@ -18,7 +18,6 @@ brew "maven"
 brew "pipenv"
 brew "pipx"
 brew "protobuf"
-brew "pulumi"
 brew "acourtneybrown/versions/python@3.6", link: false
 brew "python@3.7", link: false
 brew "python@3.8", link: false
