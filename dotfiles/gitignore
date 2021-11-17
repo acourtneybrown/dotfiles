@@ -42,3 +42,4 @@ fabric.properties
 .DS_Store
 
 .envrc
+.go-version
