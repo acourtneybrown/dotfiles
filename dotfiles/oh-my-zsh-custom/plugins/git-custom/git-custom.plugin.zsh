@@ -42,6 +42,7 @@ alias glr='git ls-remote'
 alias gcob="gco -b"
 
 # gcobu checks out a new branch prefixed with the github username
+# git checkout branch (for) username
 function gcobu() {
   if [ "${#}" -lt 1 ]; then
     echo "Usage: gcobu <branch> [<starting_point>]"
@@ -55,9 +56,18 @@ function gcobu() {
 }
 
 # gdodb compares the origin's default branch to the specified branch (if given) or the current HEAD
+# git diff origin default branch
 function gdodb() {
   local branch="${1}"
   git diff "origin/$(gdb)...${branch}"
+}
+
+# gdob compares the origin's branch to the local tracking branch
+# git diff origin branch
+function gdob() {
+  local branch
+  branch=$(git symbolic-ref --short HEAD)
+  git diff "origin/${branch}...${branch}"
 }
 
 # gdodb compares the upstream's default branch to the specified branch (if given) or the current HEAD
