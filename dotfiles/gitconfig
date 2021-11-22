@@ -134,5 +134,5 @@
 
 {%@@ if work @@%}
 [includeIf "gitdir/i:~/confluent/"]
-    path = ~/.gitconfig-confluent
+	path = ~/.gitconfig-confluent
 {%@@ endif @@%}
