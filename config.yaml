@@ -192,26 +192,6 @@ profiles:
     include:
       - default
       - mac
-  mini-me:
-    include:
-      - mini-me.notcharlie.com
-  mini-me.local:
-    include:
-      - mini-me.notcharlie.com
-  mini-me.notcharlie.com:
-    include:
-      - default
-      - mac
-  pacman:
-    include:
-      - pacman.notcharlie.com
-  pacman.local:
-    include:
-      - pacman.notcharlie.com
-  pacman.notcharlie.com:
-    include:
-      - default
-      - mac
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
