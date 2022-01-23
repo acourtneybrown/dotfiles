@@ -26,6 +26,9 @@ if is_mac; then
 
   # install LaunchDaemon to ensure mosh is added to fw allow list
   script/install-fix-mosh.sh
+
+  # ensure that NFS options are set
+  script/update-nfs.sh
 elif is_linux; then
   # On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
   if [ -f /etc/locale.gen ]; then
