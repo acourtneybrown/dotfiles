@@ -95,6 +95,7 @@ cask "steam"
 cask "sublime-text"
 cask "synology-drive"
 cask "zoom"
+cask "zsa-wally"
 
 mas "Amphetamine", id: 937984704
 mas "Keynote", id: 409183694
