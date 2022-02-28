@@ -1,5 +1,6 @@
 tap "acourtneybrown/versions"
 tap "discoteq/discoteq"
+tap "semaphoreci/tap"
 
 brew "ansible@2.9"
 brew "awscli"
@@ -21,6 +22,7 @@ brew "protobuf"
 brew "acourtneybrown/versions/python@3.6", link: false
 brew "python@3.7", link: false
 brew "python@3.8", link: false
+brew "semaphoreci/tap/sem"
 brew "tfenv"
 brew "vault"
 brew "yapf"
