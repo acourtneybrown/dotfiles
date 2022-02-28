@@ -24,7 +24,6 @@ module.exports = {
           "confluent.askspoke.com",
           "confluent.okta.com",
           "confluent.slack.com",
-          "confluent.zoom.us",
           "confluentinc.atlassian.net",
           "confluentinc.semaphoreci.com",
           "hire.lever.co",
@@ -32,7 +31,6 @@ module.exports = {
           "jfrog.io",
           "metabase.confluent.io",
           "www.golinks.io",
-          "zoom.us",
 
           /^go$/,
           /confluent-internal\.io/,
@@ -43,6 +41,7 @@ module.exports = {
         ]),
 
         /applications.zoom.us\/slack\/api\/call\/callback/,
+        /confluent.zoom.us\/saml/,
         /github.com\/.*confluentinc/,
         /travis-ci.org\/github\/confluentinc/,
        ],
@@ -67,6 +66,12 @@ module.exports = {
         return opener.bundleId && opener.bundleId === "com.agilebits.onepassword7"
       },
       browser: "Safari"
+    },
+    {
+      match: [
+        /zoom\.us/
+      ],
+      browser: "us.zoom.xos"
     }
   ]
 };
