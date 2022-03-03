@@ -156,3 +156,27 @@ function ggpush() {
 
   git push "${remote}" "$(git_current_branch)"
 }
+
+# ghclorg clones all of the repos under a GitHub org
+function ghclorg() {
+  local org
+  if [ "${#}" -ne 1 ]; then
+    echo "Usage: ghclorg <org>"
+    return
+  fi
+  org="${1}"
+
+  gh api "orgs/${org}/repos" --paginate --jq '.[].full_name' | xargs -n 1 -I % -P 6 -t git clone gh:%
+}
+
+# ghcluser clones all of the repos under a GitHub org
+function ghcluser() {
+  local user
+  if [ "${#}" -ne 1 ]; then
+    echo "Usage: ghcluser <org>"
+    return
+  fi
+  user="${1}"
+
+  gh api "users/${user}/repos" --paginate --jq '.[].full_name' | xargs -n 1 -I % -P 6 -t git clone gh:%
+}
