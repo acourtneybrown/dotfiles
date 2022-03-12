@@ -26,15 +26,6 @@ dotfiles:
     src: config/yapf
     dst: ~/.config/yapf
     link: link_children
-  d_desktop:
-    src: Desktop
-    dst: ~/Desktop
-    chmod: 700
-    link: link_children
-    upignore:
-      - Relocated Items
-    cmpignore:
-      - Relocated Items
   d_gradle_init_d:
     src: gradle_init.d
     dst: ~/.gradle/init.d
@@ -196,7 +187,6 @@ profiles:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
     dotfiles:
-      - d_desktop
       - d_user
       - f_finicky.js
   linux:
