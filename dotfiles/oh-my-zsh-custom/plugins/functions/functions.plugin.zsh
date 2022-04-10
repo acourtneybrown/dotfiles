@@ -63,3 +63,9 @@ function open-syn() {
 
   open afp://synology.notcharlie.com/"${1}"
 }
+
+# timezsh reloads the shell (zsh if not specified) a number of times for timing purposes
+timezsh() {
+  shell=${1-$SHELL}
+  for _ in $(seq 1 10); do /usr/bin/time "$shell" -i -c exit; done
+}
