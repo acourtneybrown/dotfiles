@@ -4,7 +4,7 @@
 
 # shellcheck disable=SC2154
 if [[ ${commands[pint]} ]]; then
-  _evalcache _PINT_COMPLETE=source pint
-  _evalcache _PINTO_COMPLETE=source pinto
-  _evalcache _TBR_COMPLETE=source tbr
+  _PINT_COMPLETE=zsh_source _evalcache pint
+  _PINTO_COMPLETE=zsh_source _evalcache pinto
+  _TBR_COMPLETE=zsh_source _evalcache tbr
 fi
