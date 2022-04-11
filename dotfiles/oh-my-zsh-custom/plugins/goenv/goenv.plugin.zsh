@@ -11,7 +11,7 @@ if [[ -d ${GOENV_ROOT} ]]; then
 
   # shellcheck disable=SC2206
   path=("${GOENV_ROOT}/bin/" $path)
-  eval "$(goenv init -)"
+  _evalcache goenv init -
 
   # shellcheck disable=SC2206
   # shellcheck disable=SC2128

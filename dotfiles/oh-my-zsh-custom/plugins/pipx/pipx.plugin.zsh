@@ -10,5 +10,5 @@ if [[ ${commands[pipx]} ]]; then
   typeset -U path
   export PATH
 
-  eval "$(register-python-argcomplete pipx)"
+  _evalcache register-python-argcomplete pipx
 fi

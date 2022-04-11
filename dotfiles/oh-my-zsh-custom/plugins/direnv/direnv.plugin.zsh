@@ -2,5 +2,5 @@
 
 # shellcheck disable=SC2154
 if [[ ${commands[direnv]} ]]; then
-  eval "$(direnv hook zsh)"
+  _evalcache direnv hook zsh
 fi
