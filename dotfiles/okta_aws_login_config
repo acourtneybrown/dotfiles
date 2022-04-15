@@ -35,3 +35,60 @@ remember_device = True
 aws_default_duration = 3600
 output_format = json
 device_token = {{@@ env['okta_toolsterraform_device_token'] @@}}
+
+[DevProdNonProd]
+okta_org_url = https://confluent.okta.com
+okta_auth_server =
+client_id =
+gimme_creds_server = appurl
+aws_appname =
+aws_rolename = arn:aws:iam::755363985185:role/administrator
+cred_profile = default
+write_aws_creds = True
+okta_username = abrown@confluent.io
+app_url = https://confluent.okta.com/home/amazon_aws/0oa1l6l54gWFvmDEO357/272?fromHome=true
+resolve_aws_alias = False
+include_path = False
+preferred_mfa_type = token:software:totp
+remember_device = True
+aws_default_duration = 3600
+output_format = json
+device_token = {{@@ env['okta_devprodnonprod_device_token'] @@}}
+
+[DevProdProd]
+okta_org_url = https://confluent.okta.com
+okta_auth_server =
+client_id =
+gimme_creds_server = appurl
+aws_appname =
+aws_rolename = arn:aws:iam::519856050701:role/administrator
+cred_profile = default
+write_aws_creds = True
+okta_username = abrown@confluent.io
+app_url = https://confluent.okta.com/home/amazon_aws/0oa1l6l54gWFvmDEO357/272?fromHome=true
+resolve_aws_alias = False
+include_path = False
+preferred_mfa_type = token:software:totp
+remember_device = True
+aws_default_duration = 3600
+output_format = json
+device_token = {{@@ env['okta_devprodprod_device_token'] @@}}
+
+[DevProdPublic]
+okta_org_url = https://confluent.okta.com
+okta_auth_server =
+client_id =
+gimme_creds_server = appurl
+aws_appname =
+aws_rolename = arn:aws:iam::585817483739:role/ConfluentToolsAdminRole
+cred_profile = default
+write_aws_creds = True
+okta_username = abrown@confluent.io
+app_url = https://confluent.okta.com/home/amazon_aws/0oa1l6l54gWFvmDEO357/272?fromHome=true
+resolve_aws_alias = False
+include_path = False
+preferred_mfa_type = token:software:totp
+remember_device = True
+aws_default_duration = 3600
+output_format = json
+device_token = {{@@ env['okta_devprodpublic_device_token'] @@}}
