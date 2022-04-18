@@ -40,6 +40,7 @@ alias gfudb='git fetch upstream $(gdb upstream)'
 alias gfu='git fetch upstream'
 alias glr='git ls-remote'
 alias gcob="gco -b"
+alias grep_all="git branch -a | tr -d \* | sed '/->/d' | xargs git grep"
 
 # gcobu checks out a new branch prefixed with the github username
 # git checkout branch (for) username
