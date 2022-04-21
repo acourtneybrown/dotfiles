@@ -51,9 +51,8 @@ artifactory_user=$(op item get "JFrog Artifactory" --fields username)
 gh_cli_token=$(op item get "GitHub" --fields "gh cli token")
 github_netrc_token=$(op item get "GitHub" --fields "Confluent netrc")
 hub_cli_token=$(op item get "GitHub" --fields "hub cli token")
-okta_default_device_token=$(op item get "Okta" --fields "gimme-aws-creds default device_token")
-okta_toolsterraform_device_token=$(op item get "Okta" --fields "gimme-aws-creds ToolsTerraform device_token")
 semaphore_api_token=$(op item get "Semaphore API Token" --fields password)
+okta_default_device_token=$(op item get "Okta" --fields "gimme-aws-creds device_token")
 EOF
 fi
 

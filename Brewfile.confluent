@@ -2,7 +2,9 @@ tap "acourtneybrown/versions"
 tap "discoteq/discoteq"
 tap "semaphoreci/tap"
 
+brew "acourtneybrown/versions/python@3.6", link: false
 brew "ansible@2.9"
+brew "aws-cdk"
 brew "awscli"
 brew "bfg"
 brew "discoteq/discoteq/flock"
@@ -16,12 +18,15 @@ brew "libgit2"
 brew "librdkafka"
 brew "libssh2"
 brew "maven"
+brew "npm"
+brew "packer"
 brew "pipenv"
 brew "pipx"
 brew "protobuf"
-brew "acourtneybrown/versions/python@3.6", link: false
+brew "python@3.10", link: false
 brew "python@3.7", link: false
 brew "python@3.8", link: false
+brew "python@3.9"
 brew "semaphoreci/tap/sem"
 brew "tfenv"
 brew "vault"
