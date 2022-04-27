@@ -13,10 +13,6 @@ if [[ -d ${GOENV_ROOT} ]]; then
   path=("${GOENV_ROOT}/bin/" $path)
   _evalcache goenv init -
 
-  # shellcheck disable=SC2206
-  # shellcheck disable=SC2128
-  path=("${GOROOT}/bin" $path)
-
   typeset -U path
   export PATH
 
