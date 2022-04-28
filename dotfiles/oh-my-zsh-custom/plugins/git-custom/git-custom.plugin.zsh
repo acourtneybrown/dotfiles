@@ -35,6 +35,7 @@ alias grbdb='git rebase $(gdb)'
 alias gl="git pull --prune --tags"
 alias gla="gl --all"
 alias gcdbl="gcdb && gl"
+alias gcdblff='gcdbl --ff-only'
 alias gfodb='git fetch origin $(gdb):$(gdb)'
 alias gfudb='git fetch upstream $(gdb upstream)'
 alias gfu='git fetch upstream'
