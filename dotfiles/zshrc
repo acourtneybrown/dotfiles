@@ -102,8 +102,8 @@ plugins+=(
   cc-dotfiles
   docker-confluent
   graphviz
-  helm_2 # before helm because helm@2 is keg-only
   helm
+  helm-custom
   jenv
   jenv-custom
   pipx
