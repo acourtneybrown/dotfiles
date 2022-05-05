@@ -682,9 +682,9 @@ defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -bool true
 # /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Scrollback Lines' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
 # /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Unlimited Scrollback' true" ~/Library/Preferences/com.googlecode.iterm2.plist
 
-if ! defaults find "GitHub repo" com.googlecode.iterm2 2>/dev/null | grep -q -e '^Found \d\+ keys'; then
-  /usr/libexec/PlistBuddy -c "Merge iterm-selection-rules.plist" ~/Library/Preferences/com.googlecode.iterm2.plist
-fi
+# if ! defaults find "GitHub repo" com.googlecode.iterm2 2>/dev/null | grep -q -e '^Found \d\+ keys'; then
+#   /usr/libexec/PlistBuddy -c "Merge iterm-selection-rules.plist" ~/Library/Preferences/com.googlecode.iterm2.plist
+# fi
 
 ###############################################################################
 # Time Machine                                                                #
