@@ -3,10 +3,7 @@ CanonicalizeHostname yes
 CanonicalDomains notcharlie.com
 
 Host *
- AddKeysToAgent yes
- IdentityFile ~/.ssh/id_rsa
- IgnoreUnknown UseKeychain
- UseKeychain yes
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 # Personal
 Host *.notcharlie.com
@@ -26,7 +23,6 @@ Host synology
   User abrown
 Host synology-root
   Hostname synology.notcharlie.com
-  IdentityFile ~/.ssh/synology
   Port 2222
   User root
 Host gitea

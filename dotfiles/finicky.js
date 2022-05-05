@@ -63,7 +63,8 @@ module.exports = {
     {
       match: ({ opener }) => {
         // finicky.log(opener.bundleId);
-        return opener.bundleId && opener.bundleId === "com.agilebits.onepassword7"
+        return opener.bundleId
+          && (opener.bundleId === "com.agilebits.onepassword7" || opener.bundleId === "com.1password.1password")
       },
       browser: "Safari"
     },

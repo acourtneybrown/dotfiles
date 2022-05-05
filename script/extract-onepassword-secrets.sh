@@ -19,17 +19,6 @@ function onepassword_get() {
   chmod 600 "${HOME}/${2}"
 }
 
-onepassword_get "Adam's id_rsa SSH key" .ssh/id_rsa
-onepassword_get "Synology root SSH key" .ssh/synology
-onepassword_get "id_ed25519.confluent" .ssh/id_ed25519.confluent
-
-if ! [ -f ~/.ssh/id_ed25519.confluent.pub ]; then
-  echo "Retreiving public key for id_ed25519.confluent"
-  ssh-keygen -y -f ~/.ssh/id_ed25519.confluent >~/.ssh/id_ed25519.confluent.pub
-fi
-ln -sf id_ed25519.confluent ~/.ssh/caas-abrown
-ln -sf id_ed25519.confluent.pub ~/.ssh/caas-abrown.pub
-
 onepassword_get "Adam's Personal GPG key" .gnupg/acourtneybrown@gmail.com.private.gpg-key
 onepassword_get "Confluent GPG key" .gnupg/abrown@confluent.io.private.gpg-key
 
@@ -56,9 +45,6 @@ okta_default_device_token=$(op item get "Okta" --fields "gimme-aws-creds device_
 EOF
 fi
 
-echo "Storing SSH keys in keychain..."
-ssh-add -K
-
 echo "Setting up GPG..."
 if ! command -v gpg >/dev/null; then
   echo "Install GPG first!" >&2
@@ -66,5 +52,10 @@ if ! command -v gpg >/dev/null; then
 fi
 
 chmod 700 ~/.gnupg
-gpg --import ~/.gnupg/acourtneybrown@gmail.com.private.gpg-key
-gpg --import ~/.gnupg/abrown@confluent.io.private.gpg-key
+for key in acourtneybrown@gmail.com abrown@confluent.io; do
+  if ! gpg --list-keys | grep -q "${key}"; then
+    gpg --import "${HOME}/.gnupg/${key}.private.gpg-key"
+  else
+    echo "key for ${key} already imported"
+  fi
+done
