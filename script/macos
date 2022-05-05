@@ -132,6 +132,9 @@ ChallengeResponseAuthentication no
 EOF
 
 # TODO: need for Terminal to have full disk access enabled first
+echo "Enable Full Disk access for Terminal.  System Preferences > Security & Privacy > Privacy"
+read -r _
+
 sudo systemsetup -setremotelogin on
 
 # Turn on Remote Management (for screen sharing)
