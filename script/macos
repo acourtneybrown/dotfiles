@@ -827,6 +827,7 @@ defaults write com.dteoh.SlowQuitApps whitelist -array \
 # Kill affected applications                                                  #
 ###############################################################################
 
+set +e
 for app in "Activity Monitor" \
   "Address Book" \
   "Calendar" \
