@@ -20,9 +20,9 @@ if is_mac; then
 
   # install homebrew
   script/install-homebrew.sh
-  open -a 'App Store.app'
-  echo "Login to Apple ID.  Press <enter> when done."
-  read -r _
+  # open -a 'App Store.app'
+  # echo "Login to Apple ID.  Press <enter> when done."
+  # read -r _
 
   # install LaunchDaemon to ensure mosh is added to fw allow list
   script/install-fix-mosh.sh
