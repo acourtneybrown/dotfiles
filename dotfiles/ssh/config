@@ -32,3 +32,8 @@ Host gitea
 Host unifi-*
   ForwardAgent no
   User unifi-admin
+
+# Confluent
+Host *.compute.amazonaws.com
+  User ubuntu
+  UserKnownHostsFile /dev/null
