@@ -37,4 +37,8 @@ if [ -z "$(yq e ".profiles.\"${PROFILE}\" // \"\"" config.yaml)" ]; then
     yq eval ".profiles.\"${PROFILE}\".\"include\" += [\"mac\"]" -i config.yaml
   fi
 fi
-./dotdrop.sh install --force --profile="${PROFILE}"
+
+(
+  eval ${HOME}/.secrets
+  ./dotdrop.sh install --force --profile="${PROFILE}"
+)
