@@ -10,7 +10,7 @@ sudo_check_then_alive
 
 # Check and install any remaining software updates.
 if is_mac; then
-  # TODO: need for Terminal to have full disk access enabled first
+  # ensure Terminal has full disk access enabled first
   echo "Enable Full Disk access for Terminal.  System Preferences > Security & Privacy > Privacy"
   echo "Do this first, before running the script again."
   read -r _
