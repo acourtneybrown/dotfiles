@@ -3,7 +3,12 @@ CanonicalizeHostname yes
 CanonicalDomains notcharlie.com
 
 Host *
+  {%@@ if mac @@%}
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  {%@@ endif @@%}
+  {%@@ if linux @@%}
+  IdentityAgent ~/.1password/agent.sock
+  {%@@ endif @@%}
 
 # Personal
 Host *.notcharlie.com
@@ -33,7 +38,9 @@ Host unifi-*
   ForwardAgent no
   User unifi-admin
 
+{%@@ if work @@%}
 # Confluent
 Host *.compute.amazonaws.com
   User ubuntu
   UserKnownHostsFile /dev/null
+{%@@ endif @@%}
