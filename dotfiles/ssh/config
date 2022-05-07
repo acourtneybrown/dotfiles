@@ -3,10 +3,12 @@ CanonicalizeHostname yes
 CanonicalDomains notcharlie.com
 
 Host *
- AddKeysToAgent yes
- IdentityFile ~/.ssh/id_rsa
- IgnoreUnknown UseKeychain
- UseKeychain yes
+  {%@@ if mac @@%}
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  {%@@ endif @@%}
+  {%@@ if linux @@%}
+  IdentityAgent ~/.1password/agent.sock
+  {%@@ endif @@%}
 
 # Personal
 Host *.notcharlie.com
@@ -26,7 +28,6 @@ Host synology
   User abrown
 Host synology-root
   Hostname synology.notcharlie.com
-  IdentityFile ~/.ssh/synology
   Port 2222
   User root
 Host gitea
@@ -36,3 +37,10 @@ Host gitea
 Host unifi-*
   ForwardAgent no
   User unifi-admin
+
+{%@@ if work @@%}
+# Confluent
+Host *.compute.amazonaws.com
+  User ubuntu
+  UserKnownHostsFile /dev/null
+{%@@ endif @@%}

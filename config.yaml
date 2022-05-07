@@ -186,12 +186,14 @@ profiles:
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
+      mac: true
     dotfiles:
       - d_user
       - f_finicky.js
   linux:
     variables:
       sublime_home: .config/sublime-text-3
+      linux: true
     dotfiles:
       - d_user
   work:
@@ -208,6 +210,8 @@ profiles:
   default:
     variables:
       work: false
+      linux: false
+      mac: false
     include:
       - zsh
   zsh:

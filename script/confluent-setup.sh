@@ -9,7 +9,7 @@ cd "$(dirname "${0}")/.."
 
 ensure_brewfile_installed Brewfile.confluent
 
-ensure_autopip_install
+ensure_autopip_installed
 
 # Install app that contains pint command and optionally keep it updated daily so you don't have to
 app install release-tools --update daily
