@@ -40,6 +40,7 @@ fi
 
 (
   # shellcheck disable=SC1091
+  # shellcheck disable=SC1090
   source "${HOME}/.secrets"
   ./dotdrop.sh install --force --profile="${PROFILE}"
 )
