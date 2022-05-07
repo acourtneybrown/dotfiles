@@ -39,6 +39,7 @@ if [ -z "$(yq e ".profiles.\"${PROFILE}\" // \"\"" config.yaml)" ]; then
 fi
 
 (
+  # shellcheck disable=SC1091
   source "${HOME}/.secrets"
   ./dotdrop.sh install --force --profile="${PROFILE}"
 )
