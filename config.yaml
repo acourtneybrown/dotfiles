@@ -210,6 +210,8 @@ profiles:
   default:
     variables:
       work: false
+      linux: false
+      mac: false
     include:
       - zsh
   zsh:
