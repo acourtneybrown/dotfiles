@@ -75,7 +75,6 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  evalcache
   1password
   aliases
   docker
@@ -90,7 +89,7 @@ plugins=(
   mosh
   mosh-custom
   path
-  pypath
+  # pypath
   setopts
   sublime
   venv
@@ -107,6 +106,7 @@ plugins+=(
   jenv
   jenv-custom
   pipx
+  pyenv
   release-stable
   release-tools
   terraform
@@ -116,13 +116,17 @@ plugins+=(
 
 case $(uname -s) in
 Linux)
-  plugins+=(
+  plugins=(
+    evalcache
     linuxbrew
+    $plugins
   )
   ;;
 Darwin)
-  plugins+=(
+  plugins=(
+    evalcache
     homebrew
+    $plugins
   )
   ;;
 esac
