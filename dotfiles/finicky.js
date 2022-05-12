@@ -51,6 +51,14 @@ module.exports = {
     {
       match: [
         finicky.matchHostnames([
+          "my.asu.edu",
+        ])
+      ],
+      browser: "Google Chrome"
+    },
+    {
+      match: [
+        finicky.matchHostnames([
           "govzw.com",
 
           /nytimes.com/,
