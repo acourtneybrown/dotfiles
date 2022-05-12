@@ -19,9 +19,6 @@ function onepassword_get() {
   chmod 600 "${HOME}/${2}"
 }
 
-onepassword_get "Adam's Personal GPG key" .gnupg/acourtneybrown@gmail.com.private.gpg-key
-onepassword_get "Confluent GPG key" .gnupg/abrown@confluent.io.private.gpg-key
-
 if ! [ -f "${HOME}/.secrets" ]; then
   echo "Extracting secrets..."
   if ! command -v jq >/dev/null; then
@@ -51,10 +48,13 @@ if ! command -v gpg >/dev/null; then
   exit 1
 fi
 
-chmod 700 ~/.gnupg
+# shellcheck disable=SC2174
+mkdir -p -m 700 ~/.gnupg
 for key in acourtneybrown@gmail.com abrown@confluent.io; do
+  onepassword_get "${key}.private.gpg-key" .gnupg/"${key}.private.gpg-key"
+
   if ! gpg --list-keys | grep -q "${key}"; then
-    gpg --import "${HOME}/.gnupg/${key}.private.gpg-key"
+    op item get "${key}.private.gpg-key passphrase" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${key}.private.gpg-key"
   else
     echo "key for ${key} already imported"
   fi
