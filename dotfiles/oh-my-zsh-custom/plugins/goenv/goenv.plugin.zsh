@@ -1,6 +1,6 @@
 # shellcheck disable=SC2148
 
-GOENV_ROOT="${HOME}/.goenv"
+export GOENV_ROOT="${HOME}/.goenv"
 
 if [[ -d ${GOENV_ROOT} ]]; then
   export GOENV_ROOT
