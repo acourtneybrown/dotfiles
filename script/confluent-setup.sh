@@ -15,6 +15,7 @@ ensure_autopip_installed
 app install release-tools --update daily
 app install tox --update daily
 app install confluent-ci-tools --update daily
+app install gql --update daily
 
 pipx install gimme-aws-creds
 
