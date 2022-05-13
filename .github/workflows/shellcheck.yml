@@ -1,0 +1,99 @@
+on:
+  pull_request
+
+name: 'Trigger: Push action'
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Display shellcheck version
+      shell: bash
+      run: |
+        shellcheck --version
+    - name: Gather excluded paths
+      shell: bash
+      id: exclude
+      run: |
+        declare -a excludes
+        excludes+=("! -path \"*./.git/*\"")
+        excludes+=("! -path \"*.go\"")
+        excludes+=("! -path \"*/mvnw\"")
+        for dir in 1password dotdrop vault; do
+          echo "::debug:: Adding directory '${dir}' to excludes"
+          excludes+=("! -path \"*./${dir}/*\"")
+          excludes+=("! -path \"*/${dir}/*\"")
+        done
+        for file in dotdrop.sh zshrc; do
+          echo "::debug:: Adding file '${file}' to excludes"
+          excludes+=("! -name \"${file}\"")
+        done
+        echo "::set-output name=excludes::${excludes[@]}"
+    - name: Find files
+      shell: bash
+      id: filepaths
+      run: |
+        declare -a filepaths
+        shebangregex="^#! */[^ ]*/(env *)?[abkz]*sh"
+
+        for path in $(find "${GITHUB_WORKSPACE}" \
+            -type f ${{ steps.exclude.outputs.excludes }} \
+            '(' \
+            -name '*.bash' \
+            -o -name '.bashrc' \
+            -o -name 'bashrc' \
+            -o -name '.bash_aliases' \
+            -o -name '.bash_completion' \
+            -o -name '.bash_login' \
+            -o -name '.bash_logout' \
+            -o -name '.bash_profile' \
+            -o -name 'bash_profile' \
+            -o -name '*.ksh' \
+            -o -name 'suid_profile' \
+            -o -name '*.zsh' \
+            -o -name '.zlogin' \
+            -o -name 'zlogin' \
+            -o -name '.zlogout' \
+            -o -name 'zlogout' \
+            -o -name '.zprofile' \
+            -o -name 'zprofile' \
+            -o -name '.zsenv' \
+            -o -name 'zsenv' \
+            -o -name '.zshrc' \
+            -o -name 'zshrc' \
+            -o -name '*.sh' \
+            -o -path '*/.profile' \
+            -o -path '*/profile' \
+            -o -name '*.shlib' \
+              ')'\
+            -print); do
+          filepaths+=("$path");
+        done
+        for file in $(find "${GITHUB_WORKSPACE}" ${{ steps.exclude.outputs.excludes }} -type f ! -name '*.*' -perm /111  -print); do
+          head -n1 "$file" | grep -Eqs "$shebangregex" || continue
+          filepaths+=("$file");
+        done
+        echo "::set-output name=filepaths::${filepaths[@]}"
+    - name: Run ShellCheck
+      id: check
+      shell: bash
+      run: |
+        statuscode=0
+
+        for file in ${{ steps.filepaths.outputs.filepaths }}; do
+          echo "::debug::Checking ${file}"
+          shellcheck --exclude=SC2148 "${file}" || statuscode=$?;
+        done
+
+        echo "::set-output name=statuscode::$statuscode"
+
+    - name: Print information
+      shell: bash
+      run: |
+        echo "Files: ${{steps.filepaths.outputs.filepaths}}"
+        echo "Excluded: ${{ steps.exclude.outputs.excludes }}"
+        echo "Status code: ${{steps.check.outputs.statuscode}}"
+
+        exit ${{steps.check.outputs.statuscode}}

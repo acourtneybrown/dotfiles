@@ -2,12 +2,15 @@
 
 set -e
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "${0}")/.."
+
+# shellcheck disable=SC1091
 . script/functions
 
 if [ ! -d env ]; then
   if command -v python3; then
     python3 -m venv env
+    # shellcheck disable=1091
     source env/bin/activate
     pip install -r dotdrop/requirements.txt
     deactivate

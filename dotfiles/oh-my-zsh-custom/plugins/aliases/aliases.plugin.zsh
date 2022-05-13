@@ -1,3 +1,5 @@
+# shellcheck disable=SC2148
+
 # Sort by file size
 alias lt='du -sh * | sort -h'
 
@@ -32,7 +34,7 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
 # Finally, clear download history from quarantine. https://mths.be/bum
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv \${HOME}/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 \${HOME}/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -69,3 +71,6 @@ alias pubkey='ssh-keygen -y -f'
 # Use zmv to copy or link files
 alias zcp='zmv -C'
 alias zln='zmv -L'
+
+# Remove once 1Password 8 released
+alias opsignin='eval $(op signin)'

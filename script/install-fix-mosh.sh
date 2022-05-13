@@ -2,7 +2,11 @@
 # Adapted from https://github.com/mobile-shell/mosh/issues/898
 # and https://gist.github.com/sriramkswamy/9cd9887eafb6d4d27a754dcc8d9bd4b1
 
-SOURCE="$(cd `dirname $0` && pwd)"
+set -e
+
+SOURCE="$(cd "$(dirname "${0}")" && pwd)"
+
+# shellcheck disable=SC1091
 . script/functions
 
 echo "Installing LaunchDaemon & script for mosh..."

@@ -118,11 +118,6 @@
 	email = acourtneybrown@gmail.com
 	signingkey = 92486DAB3FC7E2A0
 
-{%@@ if work @@%}
-[includeIf "gitdir/i:~/confluent/"]
-    path = ~/.gitconfig-confluent
-{%@@ endif @@%}
-
 [github]
 	user = acourtneybrown
 [credential]
@@ -136,3 +131,8 @@
 	version = 2
 [init]
 	defaultBranch = main
+
+{%@@ if work @@%}
+[includeIf "gitdir/i:~/confluent/"]
+	path = ~/.gitconfig-confluent
+{%@@ endif @@%}

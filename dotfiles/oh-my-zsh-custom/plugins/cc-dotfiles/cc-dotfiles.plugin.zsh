@@ -1,10 +1,19 @@
-if [[ -d ~/.cc-dotfiles ]]; then
+# shellcheck disable=SC2148
+
+# Avoid prompting for update if launching from within IntelliJ
+if [[ -n "${INTELLIJ_ENVIRONMENT_READER}" ]]; then
+  return
+fi
+
+if [[ -d "${HOME}/.cc-dotfiles" ]]; then
   # Ensure that the auto-update behavior is only run by one shell at a time
-  flock ~/.cc-dotfiles bash -c "source ~/.cc-dotfiles/caas.sh"
-  source ~/.cc-dotfiles/caas.sh
+  flock "${HOME}/.cc-dotfiles" bash -c "source \${HOME}/.cc-dotfiles/caas.sh"
+
+  # shellcheck disable=SC1090,SC1091
+  source "${HOME}/.cc-dotfiles/caas.sh"
 
   function cc-dotfiles_update() {
-    git -C ~/.cc-dotfiles pull origin
+    git -C "${HOME}/.cc-dotfiles" pull origin
   }
 
   function cc-dotfiles_alpha() {

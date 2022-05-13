@@ -4,14 +4,14 @@ autoload -U zmv
 
 # Opens a manpage in MacOS Preview
 function man-preview() {
-  man -t "$@" | open -f -a Preview
+  man -t "${@}" | open -f -a Preview
 }
 
 # cd to a directory & ls it
 function cl() {
   DIR="$*"
   # if no DIR given, go home
-  if [ $# -lt 1 ]; then
+  if [ ${#} -lt 1 ]; then
     DIR=$HOME
   fi
   builtin cd "${DIR}" &&
@@ -21,10 +21,10 @@ function cl() {
 
 # Show what process is listening on a port
 listening() {
-  if [ $# -eq 0 ]; then
+  if [ ${#} -eq 0 ]; then
     sudo lsof -iTCP -sTCP:LISTEN -n -P
-  elif [ $# -eq 1 ]; then
-    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color "$1"
+  elif [ ${#} -eq 1 ]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color "${1}"
   else
     echo "Usage: listening [pattern]"
   fi
@@ -38,7 +38,7 @@ function h() {
     history 1
   else
     # if words were passed use it as a search
-    history 1 | grep -E --color=auto "$@"
+    history 1 | grep -E --color=auto "${@}"
   fi
 }
 
@@ -56,10 +56,16 @@ function shrug() {
 
 # open-syn opens the AFP mount on synology.notcharlie.com
 function open-syn() {
-  if [[ $# -eq 0 ]]; then
+  if [[ ${#} -eq 0 ]]; then
     echo "missing network mount"
     return 1
   fi
 
-  open afp://synology.notcharlie.com/"$1"
+  open afp://synology.notcharlie.com/"${1}"
+}
+
+# timezsh reloads the shell (zsh if not specified) a number of times for timing purposes
+timezsh() {
+  shell=${1-$SHELL}
+  for _ in $(seq 1 10); do /usr/bin/time "$shell" -i -c exit; done
 }

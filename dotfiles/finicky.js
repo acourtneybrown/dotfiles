@@ -10,17 +10,20 @@ module.exports = {
     }
   ],
   handlers: [
+    {%@@ if work @@%}
     {
       // Work-related sites
       match: [
         finicky.matchHostnames([
           "a.goodtime.io",
           "app.firehydrant.io",
+          "app.geekbot.com",
+          "circleci.com",
           "confluent-tools.datadoghq.com",
+          "confluent.jfrog.io",
           "confluent.askspoke.com",
           "confluent.okta.com",
           "confluent.slack.com",
-          "confluent.zoom.us",
           "confluentinc.atlassian.net",
           "confluentinc.semaphoreci.com",
           "hire.lever.co",
@@ -28,32 +31,56 @@ module.exports = {
           "jfrog.io",
           "metabase.confluent.io",
           "www.golinks.io",
-          "zoom.us",
 
           /^go$/,
           /confluent-internal\.io/,
           /confluent.io/,
           /confluent\.cloud/,
           /cultureamp.com/,
+          /sumologic.com/,
         ]),
 
-        /github.com\/confluentinc/,
+        /applications.zoom.us\/slack\/api\/call\/callback/,
+        /confluent.zoom.us\/saml/,
+        /github.com\/.*confluentinc/,
+        /travis-ci.org\/github\/confluentinc/,
        ],
+      browser: "Google Chrome"
+    },
+    {%@@ endif @@%}
+    {
+      match: [
+        finicky.matchHostnames([
+          "my.asu.edu",
+        ])
+      ],
       browser: "Google Chrome"
     },
     {
       match: [
         finicky.matchHostnames([
           "govzw.com",
+
+          /nytimes.com/,
+          /wsj.com/,
         ]),
         /^https:\/\/github.com\/acourtneybrown\/.*$/,
       ],
       browser: "Safari"
     },
     {
-      match: ({ sourceBundleIdentifier }) =>
-        sourceBundleIdentifier.endsWith("com.agilebits.onepassword7-helper"),
+      match: ({ opener }) => {
+        // finicky.log(opener.bundleId);
+        return opener.bundleId
+          && (opener.bundleId === "com.agilebits.onepassword7" || opener.bundleId === "com.1password.1password")
+      },
       browser: "Safari"
+    },
+    {
+      match: [
+        /zoom\.us/
+      ],
+      browser: "us.zoom.xos"
     }
   ]
 };

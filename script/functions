@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # Check if the Xcode license is agreed to and agree if not.
 function install_updates() {
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
@@ -25,7 +27,7 @@ function escape() {
 }
 
 function abort() {
-  echo "!!! $*" >&2
+  echo "!!! ${*}" >&2
   exit 1
 }
 
@@ -45,7 +47,7 @@ function sudo_keepalive() {
   while true; do
     sudo -n true
     sleep 60
-    kill -0 "$$" || exit
+    kill -0 "${$}" || exit
   done 2>/dev/null &
 }
 
@@ -64,9 +66,9 @@ function download_and_verify() {
   local tempfile
   local tempout
 
-  url="$1"
-  sha256="$2"
-  output="$3"
+  url="${1}"
+  sha256="${2}"
+  output="${3}"
   tempfile=$(mktemp /tmp/sha256.XXXXXX)
   tempout=$(mktemp /tmp/curl.XXXXXX)
   echo "${sha256} -" >"${tempfile}"
@@ -77,15 +79,15 @@ function download_and_verify() {
     echo "Hash did not match"
   fi
 
-  rm -f "${tempfile}" "{$tempout}"
+  rm -f "${tempfile}" "${tempout}"
 }
 
 function ensure_brewfile_installed() {
   local brewfile
-  if [[ $# -lt 1 ]]; then
+  if [[ "${#}" -lt 1 ]]; then
     brewfile=Brewfile
   else
-    brewfile="$1"
+    brewfile="${1}"
   fi
 
   if [[ -f ${brewfile} ]] && is_mac; then

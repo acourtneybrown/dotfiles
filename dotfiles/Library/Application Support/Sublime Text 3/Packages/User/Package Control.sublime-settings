@@ -6,6 +6,7 @@
 	"installed_packages":
 	[
 		"Alignment",
+		"AppleScript Extensions",
 		"ChangeQuotes",
 		"CloseOtherWindows",
 		"DiffTabs",
@@ -14,17 +15,20 @@
 		"Git blame",
 		"GitGutter",
 		"GitSavvy",
+		"GraphQL",
 		"Grepmark",
 		"HOCON Syntax Highlighting",
 		"MarkdownEditing",
 		"Package Control",
+		"PowerShell",
 		"Pretty Ruby",
 		"Pretty Shell",
+		"PyYapf Python Formatter",
 		"SSH Config",
 		"SublimeLinter",
 		"SublimeLinter-ruby",
 		"SublimeLinter-shellcheck",
 		"Terminal",
-		"Terraform"
-	]
+		"Terraform",
+	],
 }

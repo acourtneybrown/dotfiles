@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")/.."
+set -e
+
+cd "$(dirname "${0}")/.."
+
+# shellcheck disable=SC1091
 . script/functions
 
-if ! command -v go; then
+if ! command -v go >/dev/null; then
   abort "Go must be installed"
 fi
 

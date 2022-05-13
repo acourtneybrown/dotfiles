@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")/.."
+set -e
+
+cd "$(dirname "${0}")/.."
+
+# shellcheck disable=SC1091
 . script/functions
 
-if [[ $# != 1 ]]; then
+if [[ ${#} != 1 ]]; then
   abort "Must specify root directory for SublimeText configuration"
 fi
 
-config_root="$1"
+config_root="${1}"
 
 if [ ! -f "${config_root}/Installed Packages/Package Control.sublime-package" ]; then
   mkdir -p "${config_root}/Installed Packages/"

@@ -1,4 +1,6 @@
-GOENV_ROOT="${HOME}/.goenv"
+# shellcheck disable=SC2148
+
+export GOENV_ROOT="${HOME}/.goenv"
 
 if [[ -d ${GOENV_ROOT} ]]; then
   export GOENV_ROOT
@@ -7,18 +9,19 @@ if [[ -d ${GOENV_ROOT} ]]; then
     git -C "${GOENV_ROOT}" pull origin
   }
 
+  # shellcheck disable=SC2206
   path=("${GOENV_ROOT}/bin/" $path)
-  eval "$(goenv init -)"
-  path=("${GOROOT}/bin" $path)
-  path+=("${GOPATH}/bin")
+  _evalcache goenv init -
 
   typeset -U path
   export PATH
 
   function goenv_prompt_info() {
-    goenv version-name 2> /dev/null
+    goenv version-name 2>/dev/null
   }
 
+  # Want goenv_prompt_info evaluated later
+  # shellcheck disable=SC2016
   RPROMPT+=' g$(goenv_prompt_info)'
 else
   unset GOENV_ROOT

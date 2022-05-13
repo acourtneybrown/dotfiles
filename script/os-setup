@@ -2,12 +2,23 @@
 
 set -e
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "${0}")/.."
+
+# shellcheck disable=SC1091
 . script/functions
 sudo_check_then_alive
 
 # Check and install any remaining software updates.
 if is_mac; then
+  # ensure Terminal has full disk access enabled first
+  echo "Enable Full Disk access for Terminal.  System Preferences > Security & Privacy > Privacy"
+  echo "Do this first, before running the script again."
+  read -r _
+
+  open -a 'App Store.app'
+  echo "Login to Apple ID.  Press <enter> when done."
+  read -r _
+
   install_updates
 
   # install xcode command line tools
@@ -18,23 +29,30 @@ if is_mac; then
 
   # install homebrew
   script/install-homebrew.sh
-  open -a 'App Store.app'
-  echo "Login to Apple ID.  Press <enter> when done."
-  read IGNORE
-
   # install LaunchDaemon to ensure mosh is added to fw allow list
   script/install-fix-mosh.sh
+
+  # ensure that NFS options are set
+  script/update-nfs.sh
 elif is_linux; then
+  # On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
+  if [ -f /etc/locale.gen ]; then
+    sudo sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+    sudo locale-gen en_US.UTF-8
+    sudo update-locale en_US.UTF-8
+  fi
+
   script/install-linuxbrew.sh
 fi
 
 [ -z "${SKIP_BUNDLE}" ] && ensure_brewfile_installed
 [ -z "${SKIP_HOME}" ] && ensure_brewfile_installed Brewfile.home
 
-script/extract-onepassword-secrets.sh
+[ -z "${SKIP_SECRETS}" ] && script/extract-onepassword-secrets.sh
 
 # Setup development tools
 script/golang-setup.sh
 script/goenv-setup.sh
+script/pyenv-setup.sh
 script/python-setup.sh
 [ -z "${SKIP_CONFLUENT}" ] && script/confluent-setup.sh

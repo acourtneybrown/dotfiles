@@ -40,3 +40,7 @@ fabric.properties
 
 # Apple metadata
 .DS_Store
+
+.envrc
+.go-version
+.terraform-version

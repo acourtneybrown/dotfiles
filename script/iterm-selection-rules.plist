@@ -1,0 +1,18 @@
+{
+    "New Bookmarks" = (
+        "Smart Selection Rules" = (
+            {
+                actions = (
+                    {
+                        action = 1;
+                        parameter = "https://github.com/\\\\1";
+                        title = "Open on GitHub";
+                    }
+                );
+                notes = "GitHub repo";
+                precision = "normal";
+                regex = "git@github.com:(\\\\S*)";
+            }
+        );
+    );
+}

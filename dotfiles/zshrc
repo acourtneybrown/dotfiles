@@ -23,6 +23,12 @@ ZSH_THEME="robbyrussell"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
+# Avoid prompting for update if launching from within IntelliJ
+# See https://youtrack.jetbrains.com/articles/IDEA-A-19/Shell-Environment-Loading
+if [[ -n "${INTELLIJ_ENVIRONMENT_READER}" ]]; then
+  DISABLE_AUTO_UPDATE="true"
+fi
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -73,6 +79,7 @@ plugins=(
   aliases
   docker
   dotdrop
+  direnv
   functions
   fzf
   git
@@ -82,7 +89,7 @@ plugins=(
   mosh
   mosh-custom
   path
-  pypath
+  # pypath
   setopts
   sublime
   venv
@@ -94,19 +101,35 @@ plugins+=(
   cc-dotfiles
   docker-confluent
   graphviz
-  helm_2 # before helm because helm@2 is keg-only
   helm
+  helm-custom
   jenv
   jenv-custom
+  pipx
+  pyenv
+  release-stable
   release-tools
+  terraform
+  vault
 )
 {%@@ endif @@%}
 
-if [[ $(uname -s) == "Linux" ]]; then
-  plugins+=(
+case $(uname -s) in
+Linux)
+  plugins=(
+    evalcache
     linuxbrew
+    $plugins
   )
-fi
+  ;;
+Darwin)
+  plugins=(
+    evalcache
+    homebrew
+    $plugins
+  )
+  ;;
+esac
 
 if [ -d "$ZSH" ]; then
   source "$ZSH/oh-my-zsh.sh"
@@ -127,7 +150,7 @@ export LC_ALL='en_US.UTF-8'
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='subl -nw'
+  export EDITOR='subl -w'
 fi
 
 # Don’t clear the screen after quitting a manual page.

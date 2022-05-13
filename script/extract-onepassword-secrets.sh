@@ -2,82 +2,60 @@
 
 set -e
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "${0}")/.."
 
 mkdir -p ~/.ssh
 mkdir -p ~/.gnupg
 
-onepassword_login() {
-  if ! command -v op > /dev/null; then
-    echo "Install op first!" >&2
-    exit 1
-  fi
+eval "$(op signin)"
 
-  # shellcheck disable=SC2154
-  if [ -z "$OP_SESSION_my" ]; then
-    echo "Logging into 1Password..."
-    eval "$(op signin my.1password.com acourtneybrown@gmail.com)"
-  fi
-}
-
-onepassword_get() {
-  if [ -f "$HOME/$2" ]; then
-    echo "$2 already exists."
+function onepassword_get() {
+  if [ -f "${HOME}/${2}" ]; then
+    echo "${2} already exists."
     return
   fi
-  echo "Extracting $2..."
-  onepassword_login
-  op get document "$1" > "$HOME/$2"
-  chmod 600 "$HOME/$2"
+  echo "Extracting ${2}..."
+  op document get "${1}" --output "${HOME}/${2}"
+  chmod 600 "${HOME}/${2}"
 }
 
-onepassword_get emqicp7w4jd4taxig5sb3qdumm .ssh/id_rsa
-onepassword_get whmrixtghfedbmtajlrz4pwqdu .ssh/synology
-onepassword_get 3apqyvlg4nbpfomve5x46e6apm .ssh/id_ed25519.confluent
-
-echo "Retreiving public key for id_ed25519.confluent"
-ssh-keygen -y -f ~/.ssh/id_ed25519.confluent > ~/.ssh/id_ed25519.confluent.pub
-ln -sf id_ed25519.confluent ~/.ssh/caas-abrown
-ln -sf id_ed25519.confluent.pub ~/.ssh/caas-abrown.pub
-
-onepassword_get vnxlg6na7fhrvnyhzo2pulh2ri .gnupg/acourtneybrown@gmail.com.private.gpg-key
-onepassword_get pct2u52rzfg5jo5cbgfmbcjf5m .gnupg/abrown@confluent.io.private.gpg-key
-
-if ! [ -f "$HOME/.secrets" ]; then
+if ! [ -f "${HOME}/.secrets" ]; then
   echo "Extracting secrets..."
-  if ! command -v jq > /dev/null; then
+  if ! command -v jq >/dev/null; then
     echo "Install jq first!" >&2
     exit 1
   fi
-  onepassword_login
 
   touch "${HOME}/.secrets"
   chmod 600 "${HOME}/.secrets"
 
-  github_repo_token=$(op get item 5atqzjpi35bjjmesbyko52nerq - --fields "Repo (read) token")
-  artifactory_host=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields url)
-  artifactory_path=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields "Root path")
-  artifactory_user=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields username)
-  artifactory_password=$(op get item iyrzrhrvdzb3ri5eymhp3i5ob4 - --fields "API Key")
-
-  cat >> "$HOME/.secrets" << EOF
-github_repo_token=${github_repo_token}
-artifactory_host=${artifactory_host}
-artifactory_path=${artifactory_path}
-artifactory_user=${artifactory_user}
-artifactory_password=${artifactory_password}
+  cat >>"${HOME}/.secrets" <<EOF
+artifactory_host=$(op item get "JFrog Artifactory" --format json | jq '.urls[0].href')
+artifactory_password=$(op item get "JFrog Artifactory" --fields "API Key")
+artifactory_path=$(op item get "JFrog Artifactory" --fields "Root path")
+artifactory_user=$(op item get "JFrog Artifactory" --fields username)
+gh_cli_token=$(op item get "GitHub" --fields "gh cli token")
+github_netrc_token=$(op item get "GitHub" --fields "Confluent netrc")
+hub_cli_token=$(op item get "GitHub" --fields "hub cli token")
+semaphore_api_token=$(op item get "Semaphore API Token" --fields password)
+okta_default_device_token=$(op item get "Okta" --fields "gimme-aws-creds device_token")
 EOF
 fi
 
-echo "Storing SSH keys in keychain..."
-ssh-add -K
-
 echo "Setting up GPG..."
-if ! command -v gpg > /dev/null; then
+if ! command -v gpg >/dev/null; then
   echo "Install GPG first!" >&2
   exit 1
 fi
 
-chmod 700 ~/.gnupg
-gpg --import ~/.gnupg/acourtneybrown@gmail.com.private.gpg-key
-gpg --import ~/.gnupg/acourtneybrown@gmail.com.private.gpg-key
+# shellcheck disable=SC2174
+mkdir -p -m 700 ~/.gnupg
+for key in acourtneybrown@gmail.com abrown@confluent.io; do
+  onepassword_get "${key}.private.gpg-key" .gnupg/"${key}.private.gpg-key"
+
+  if ! gpg --list-keys | grep -q "${key}"; then
+    op item get "${key}.private.gpg-key passphrase" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${key}.private.gpg-key"
+  else
+    echo "key for ${key} already imported"
+  fi
+done

@@ -1,44 +1,46 @@
-# https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent
 NoHostAuthenticationForLocalhost yes
+CanonicalizeHostname yes
+CanonicalDomains notcharlie.com
 
 Host *
- AddKeysToAgent yes
- IgnoreUnknown UseKeychain
- UseKeychain yes
- IdentityFile ~/.ssh/id_rsa
+  {%@@ if mac @@%}
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  {%@@ endif @@%}
+  {%@@ if linux @@%}
+  IdentityAgent ~/.1password/agent.sock
+  {%@@ endif @@%}
 
 # Personal
-Host exhubber exhubber.notcharlie.com
-  User adambrown
-  Hostname exhubber.notcharlie.com
-Host mini-me mini-me.notcharlie.com
+Host *.notcharlie.com
+  ForwardAgent yes
   User abrown
-  Hostname mini-me.notcharlie.com
-Host pfsense pfsense.notcharlie.com
+Host exhubber
+  User adambrown
+Host pfsense
+  ForwardAgent no
   User admin
-  Hostname pfsense.notcharlie.com
-Host retropie* retropie*.notcharlie.com
+Host retropie*
   User pi
-Host picluster-* picluster-*.notcharlie.com
+Host picluster-*
   User pi
 Host synology
-  User abrown
-  Hostname synology.notcharlie.com
   Port 2222
+  User abrown
 Host synology-root
   Hostname synology.notcharlie.com
-  User root
   Port 2222
-  IdentityFile ~/.ssh/synology
-Host gitea gitea.notcharlie.com
+  User root
+Host gitea
   Hostname synology.notcharlie.com
-  User git
   Port 2234
-Host unifi-* unifi-*.notcharlie.com
+  User git
+Host unifi-*
+  ForwardAgent no
   User unifi-admin
-Host abrown-confluent abrown-confluent.notcharlie.com
-  User abrown
-  Hostname abrown-confluent.notcharlie.com
 
-Host *.notcharlie.com
-  User abrown
+{%@@ if work @@%}
+# Confluent
+Host *.compute.amazonaws.com
+  User ubuntu
+  UserKnownHostsFile /dev/null
+{%@@ endif @@%}

@@ -17,15 +17,15 @@ dotfiles:
   d_bin:
     src: bin
     dst: ~/bin
-  d_desktop:
-    src: Desktop
-    dst: ~/Desktop
+  d_config_gh:
+    src: config/gh
+    dst: ~/.config/gh
     chmod: 700
     link: link_children
-    upignore:
-      - Relocated Items
-    cmpignore:
-      - Relocated Items
+  d_config_yapf:
+    src: config/yapf
+    dst: ~/.config/yapf
+    link: link_children
   d_gradle_init_d:
     src: gradle_init.d
     dst: ~/.gradle/init.d
@@ -78,6 +78,10 @@ dotfiles:
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
+  f_config_hub:
+    src: config/hub
+    dst: ~/.config/hub
+    chmod: 600
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
@@ -110,6 +114,10 @@ dotfiles:
   f_netrc:
     src: netrc
     dst: ~/.netrc
+    chmod: 600
+  f_okta_aws_login_config:
+    src: okta_aws_login_config
+    dst: ~/.okta_aws_login_config
     chmod: 600
   f_pip_conf:
     src: pip.conf
@@ -145,6 +153,26 @@ profiles:
       - default
       - mac
       - work
+  cara-mbp:
+    include:
+      - cara-mbp.notcharlie.com
+  cara-mbp.local:
+    include:
+      - cara-mbp.notcharlie.com
+  cara-mbp.notcharlie.com:
+    include:
+      - default
+      - mac
+  carters-air:
+    include:
+      - carters-air.notcharlie.com
+  carters-air.local:
+    include:
+      - carters-air.notcharlie.com
+  carters-air.notcharlie.com:
+    include:
+      - default
+      - mac
   exhubber:
     include:
       - exhubber.notcharlie.com
@@ -155,50 +183,35 @@ profiles:
     include:
       - default
       - mac
-  mini-me:
-    include:
-      - mini-me.notcharlie.com
-  mini-me.local:
-    include:
-      - mini-me.notcharlie.com
-  mini-me.notcharlie.com:
-    include:
-      - default
-      - mac
-  pacman:
-    include:
-      - pacman.notcharlie.com
-  pacman.local:
-    include:
-      - pacman.notcharlie.com
-  pacman.notcharlie.com:
-    include:
-      - default
-      - mac
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
+      mac: true
     dotfiles:
-      - d_desktop
       - d_user
       - f_finicky.js
   linux:
     variables:
       sublime_home: .config/sublime-text-3
+      linux: true
     dotfiles:
       - d_user
   work:
     variables:
       work: true
     dotfiles:
+      - d_config_yapf
       - f_gitconfig-confluent
       - f_m2_settings
       - f_netrc
+      - f_okta_aws_login_config
       - f_pip_conf
       - f_pypirc
   default:
     variables:
       work: false
+      linux: false
+      mac: false
     include:
       - zsh
   zsh:
@@ -212,9 +225,11 @@ profiles:
   shared:
     dotfiles:
       - d_bin
+      - d_config_gh
       - d_gradle_init_d
       - d_ssh
       - f_bash_sessions_disable
+      - f_config_hub
       - f_curlrc
       - f_gitconfig
       - f_gitignore
