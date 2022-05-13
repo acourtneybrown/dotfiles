@@ -15,9 +15,9 @@ script/setup-dotdrop-venv.sh
 
 # Install oh-my-zsh
 if [ ! -d ~/.oh-my-zsh ]; then
-  if command -v curl; then
+  if command -v curl >/dev/null; then
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-  elif command -v wget; then
+  elif command -v wget >/dev/null; then
     sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -) --unattended"
   else
     abort "Either curl or wget must be installed"
@@ -25,8 +25,8 @@ if [ ! -d ~/.oh-my-zsh ]; then
 fi
 
 # Install all dotfiles into the home directory
-if [ ! "$(command -v yq)" ]; then
-  GO111MODULE=on go get -u github.com/mikefarah/yq/v4
+if ! command -v yq >/dev/null; then
+  go install github.com/mikefarah/yq/v4@latest
 fi
 
 # create a new profile (if necessary) and include default
