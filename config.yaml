@@ -1,6 +1,24 @@
 actions:
   add_authorized_keys: cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
   install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/install-package-control.sh ~/\"{{@@ sublime_home @@}}\""
+  _pyenv_install: |
+    if [[ -d ~/.pyenv ]]; then
+      git -C ~/.pyenv pull origin;
+    else
+      git clone https://github.com/pyenv/pyenv.git ~/.pyenv;
+    fi
+  _goenv_install: |
+    if [[ -d ~/.goenv ]]; then
+      git -C ~/.goenv pull origin;
+    else
+      git clone https://github.com/syndbg/goenv.git ~/.goenv;
+    fi
+  _nvm_install: |
+    if [[ -d ~/.nvm ]]; then
+      git -C ~/.nvm pull origin;
+    else
+      git clone https://github.com/nvm-sh/nvm.git ~/.nvm;
+    fi
 config:
   backup: true
   create: true
@@ -141,6 +159,21 @@ dotfiles:
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
+  fake_pyenv:
+    src:
+    dst:
+    actions:
+    - _pyenv_install
+  fake_goenv:
+    src:
+    dst:
+    actions:
+    - _goenv_install
+  fake_nvm:
+    src:
+    dst:
+    actions:
+    - _nvm_install
 profiles:
   abrown-confluent:
     include:
@@ -207,6 +240,8 @@ profiles:
       - f_okta_aws_login_config
       - f_pip_conf
       - f_pypirc
+      - fake_pyenv
+      - fake_nvm
   default:
     variables:
       work: false
@@ -239,3 +274,4 @@ profiles:
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc
+      - fake_goenv

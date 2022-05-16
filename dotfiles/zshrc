@@ -107,6 +107,8 @@ plugins+=(
   jenv-custom
   pipx
   pyenv
+  nvm
+  nvm-custom
   release-stable
   release-tools
   terraform
