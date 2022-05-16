@@ -52,8 +52,5 @@ fi
 
 # Setup development tools
 script/golang-setup.sh
-script/goenv-setup.sh
-script/pyenv-setup.sh
-script/nvm-setup.sh
 script/python-setup.sh
 [ -z "${SKIP_CONFLUENT}" ] && script/confluent-setup.sh
