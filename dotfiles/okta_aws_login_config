@@ -26,13 +26,16 @@ cred_profile = default
 inherits = DEFAULT
 aws_rolename = arn:aws:iam::755363985185:role/administrator
 cred_profile = default
+aws_default_duration = 7200
 
 [DevProdProd]
 inherits = DEFAULT
 aws_rolename = arn:aws:iam::519856050701:role/administrator
 cred_profile = default
+aws_default_duration = 7200
 
 [DevProdPublic]
 inherits = DEFAULT
 aws_rolename = arn:aws:iam::585817483739:role/ConfluentToolsAdminRole
 cred_profile = default
+aws_default_duration = 7200
