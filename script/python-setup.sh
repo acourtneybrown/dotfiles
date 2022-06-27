@@ -8,3 +8,4 @@ cd "$(dirname "${0}")/.."
 ensure_autopip_installed
 
 autopip install --update weekly python-kasa
+autopip install --update weekly python-vipaccess
