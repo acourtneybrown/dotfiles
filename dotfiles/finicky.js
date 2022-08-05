@@ -31,6 +31,7 @@ module.exports = {
           "jfrog.io",
           "metabase.confluent.io",
           "www.golinks.io",
+          "status.zoom.us",
 
           /^go$/,
           /confluent-internal\.io/,
