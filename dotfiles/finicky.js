@@ -42,6 +42,7 @@ module.exports = {
         ]),
 
         /applications.zoom.us\/slack\/api\/call\/callback/,
+        /confluent.zoom.us\/rec\/play/,
         /confluent.zoom.us\/saml/,
         /github.com\/.*confluentinc/,
         /travis-ci.org\/github\/confluentinc/,
