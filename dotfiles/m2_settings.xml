@@ -17,8 +17,8 @@
         </server>
         <server>
             <id>confluent-artifactory-stabilization</id>
-            <username>${env.ORG_GRADLE_PROJECT_mavenUsername}</username>
-            <password>${env.ORG_GRADLE_PROJECT_mavenPassword}</password>
+            <username>{{@@ env['artifactory_user'] @@}}</username>
+            <password>{{@@ env['artifactory_password'] @@}}</password>
         </server>
     </servers>
     <profiles>
@@ -27,7 +27,7 @@
             <repositories>
                 <repository>
                     <id>confluent-artifactory-stabilization</id>
-                    <url>${env.ORG_GRADLE_PROJECT_mavenUrl}</url>
+                    <url>{{@@ env['artifactory_host'] @@}}confluent/maven-releases-stabilization/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -49,7 +49,7 @@
             <pluginRepositories>
                 <pluginRepository>
                     <id>confluent-artifactory-stabilization</id>
-                    <url>${env.ORG_GRADLE_PROJECT_mavenUrl}</url>
+                    <url>{{@@ env['artifactory_host'] @@}}confluent/maven-releases-stabilization/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
