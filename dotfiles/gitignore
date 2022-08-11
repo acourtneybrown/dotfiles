@@ -44,3 +44,5 @@ fabric.properties
 .envrc
 .go-version
 .terraform-version
+.python-version
+.java-version
