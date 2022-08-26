@@ -32,6 +32,7 @@ module.exports = {
           "metabase.confluent.io",
           "www.golinks.io",
           "status.zoom.us",
+          "signin.aws.amazon.com",
 
           /^go$/,
           /confluent-internal\.io/,

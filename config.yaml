@@ -90,6 +90,9 @@ dotfiles:
       - Package Control.last-run
       - Package Control.merged-ca-bundle
       - Package Control.user-ca-bundle
+  f_aws_config:
+    src: aws/config
+    dst: ~/.aws/config
   f_bash_sessions_disable:
     src: bash_sessions_disable
     dst: ~/.bash_sessions_disable
@@ -234,6 +237,7 @@ profiles:
       work: true
     dotfiles:
       - d_config_yapf
+      - f_aws_config
       - f_gitconfig-confluent
       - f_m2_settings
       - f_netrc
