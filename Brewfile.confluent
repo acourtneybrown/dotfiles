@@ -4,6 +4,7 @@ tap "semaphoreci/tap"
 
 brew "ansible@2.9"
 brew "aws-cdk"
+brew "aws-console"
 brew "awscli"
 brew "bfg"
 brew "discoteq/discoteq/flock"
