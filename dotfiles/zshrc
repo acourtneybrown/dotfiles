@@ -90,6 +90,8 @@ plugins=(
   mosh-custom
   path
   # pypath
+  ripgrep
+  ripgrep-all
   setopts
   sublime
   venv
