@@ -18,6 +18,7 @@ module.exports = {
           "a.goodtime.io",
           "app.firehydrant.io",
           "app.geekbot.com",
+          "app.glean.com",
           "circleci.com",
           "confluent-tools.datadoghq.com",
           "confluent.jfrog.io",
@@ -46,6 +47,7 @@ module.exports = {
         /confluent.zoom.us\/rec\/play/,
         /confluent.zoom.us\/saml/,
         /github.com\/.*confluentinc/,
+        /github.com\/semaphoreci/,
         /travis-ci.org\/github\/confluentinc/,
        ],
       browser: "Google Chrome"
