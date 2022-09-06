@@ -27,6 +27,7 @@ module.exports = {
           "confluent.slack.com",
           "confluentinc.atlassian.net",
           "confluentinc.semaphoreci.com",
+          "docs.google.com",
           "hire.lever.co",
           "jenkins.confluent.io",
           "jfrog.io",
