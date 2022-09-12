@@ -1,5 +1,6 @@
 # shellcheck disable=SC2148
 
+# shellcheck disable=SC2154
 if [[ ${commands[rga]} && ${commands[fzf]} ]]; then
 
   # rga-fzf provides interactive integration between rga &
