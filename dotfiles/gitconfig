@@ -26,6 +26,8 @@
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
 
+	pager = delta
+
 [color]
 
 	# Use colors in Git commands that are capable of colored output when
@@ -52,20 +54,45 @@
 	untracked = cyan
 
 [commit]
+
 	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = true
+
+{%@@ if mac @@%}
+[credential]
+
+	helper = osxkeychain
+{%@@ endif @@%}
+
+[delta]
+
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 
 [diff]
 
 	# Detect copies as well as renames
 	renames = copies
+	colorMoved = default
 
 [diff "bin"]
 
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
 
+[filter "lfs"]
+
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[github]
+
+	user = acourtneybrown
+
 [gpg]
+
 	program = /usr/local/bin/gpg
 
 [help]
@@ -73,10 +100,27 @@
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
+[init]
+
+	defaultBranch = main
+
+[interactive]
+
+    diffFilter = delta --color-only
+
+[add.interactive]
+
+    useBuiltin = false # required for git 2.37.0
+
 [merge]
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	conflictstyle = diff3
+
+[protocol]
+
+	version = 2
 
 [push]
 
@@ -99,6 +143,7 @@
 	insteadOf = https://github.com/
 
 [url "git@github.com:acourtneybrown/"]
+
 	insteadOf = "gha:"
 
 [url "git@gist.github.com:"]
@@ -107,30 +152,11 @@
 	insteadOf = "gist:"
 	insteadOf = "git://gist.github.com/"
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [user]
+
 	name = Adam Brown
 	email = acourtneybrown@gmail.com
 	signingkey = 92486DAB3FC7E2A0
-
-[github]
-	user = acourtneybrown
-[credential]
-	helper = osxkeychain
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-[protocol]
-	version = 2
-[init]
-	defaultBranch = main
 
 {%@@ if work @@%}
 [includeIf "gitdir/i:~/confluent/"]
