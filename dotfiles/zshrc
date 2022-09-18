@@ -80,6 +80,7 @@ plugins=(
   docker
   dotdrop
   direnv
+  fd
   functions
   fzf
   git
