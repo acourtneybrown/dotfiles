@@ -101,17 +101,20 @@ plugins=(
 
 {%@@ if work @@%}
 plugins+=(
+  bazel
   cc-dotfiles
   docker-confluent
+  gradle
   graphviz
   helm
   helm-custom
   jenv
   jenv-custom
-  pipx
-  pyenv
+  mvn
   nvm
   nvm-custom
+  pipx
+  pyenv
   release-stable
   release-tools
   terraform
