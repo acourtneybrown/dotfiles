@@ -23,7 +23,7 @@
   ensure_docker "confluent-docker-internal-dev.jfrog.io"
 )
 
-alias ecr_login="gimme-aws-creds --profile DevProdProd && aws ecr get-login-password --region us-west-2 --profile devprod-prod | docker login --username AWS --password-stdin 519856050701.dkr.ecr.us-west-2.amazonaws.com"
+alias ecr_login="gimme-aws-creds --profile devprod-prod && aws ecr get-login-password --region us-west-2 --profile devprod-prod | docker login --username AWS --password-stdin 519856050701.dkr.ecr.us-west-2.amazonaws.com"
 
 if ! gcloud components list --only-local-state 2>/dev/null | grep -q gke-gcloud-auth-plugin; then
   gcloud components install gke-gcloud-auth-plugin

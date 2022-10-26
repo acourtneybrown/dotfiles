@@ -102,6 +102,7 @@ plugins=(
 {%@@ if work @@%}
 plugins+=(
   bazel
+  bazel-custom
   cc-dotfiles
   docker-confluent
   gradle

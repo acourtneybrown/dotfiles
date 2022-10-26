@@ -49,6 +49,7 @@ module.exports = {
         /confluent.zoom.us\/saml/,
         /github.com\/.*confluentinc/,
         /github.com\/semaphoreci/,
+        /jetbrains.com/,
         /travis-ci.org\/github\/confluentinc/,
        ],
       browser: "Google Chrome"

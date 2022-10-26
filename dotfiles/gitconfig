@@ -135,18 +135,18 @@
 
 # URL shorthands
 
-[url "git@github.com:"]
+[url "ssh://git@github.com/"]
 
 	insteadOf = "gh:"
 	insteadOf = "github:"
 	insteadOf = "git://github.com/"
 	insteadOf = https://github.com/
 
-[url "git@github.com:acourtneybrown/"]
+[url "ssh://git@github.com:acourtneybrown/"]
 
 	insteadOf = "gha:"
 
-[url "git@gist.github.com:"]
+[url "ssh://git@gist.github.com/"]
 
 	insteadOf = "gst:"
 	insteadOf = "gist:"
