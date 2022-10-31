@@ -152,6 +152,9 @@
 	insteadOf = "gist:"
 	insteadOf = "git://gist.github.com/"
 
+[url "https://github.com/acourtneybrown/"]
+	insteadOf = "jb-settings:"
+
 [user]
 
 	name = Adam Brown
