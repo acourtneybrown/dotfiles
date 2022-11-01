@@ -35,6 +35,11 @@ dotfiles:
   d_bin:
     src: bin
     dst: ~/bin
+  d_config_coursier:
+    src: config/coursier
+    dst: ~/.config/coursier
+    chmod: 700
+    link: link_children
   d_config_gh:
     src: config/gh
     dst: ~/.config/gh
@@ -236,6 +241,7 @@ profiles:
     variables:
       work: true
     dotfiles:
+      - d_config_coursier
       - d_config_yapf
       - f_aws_config
       - f_gitconfig-confluent
