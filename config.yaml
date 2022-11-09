@@ -250,7 +250,6 @@ profiles:
       - f_okta_aws_login_config
       - f_pip_conf
       - f_pypirc
-      # - fake_pyenv
       - fake_nvm
   default:
     variables:
