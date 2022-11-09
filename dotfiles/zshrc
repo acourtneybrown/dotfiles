@@ -104,7 +104,7 @@ plugins+=(
   bazel
   bazel-custom
   cc-dotfiles
-  docker-confluent
+  confluent-artifacts
   gradle
   graphviz
   helm
