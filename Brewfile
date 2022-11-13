@@ -27,7 +27,6 @@ brew "git-lfs"
 brew "git-sizer"
 brew "gnu-sed"
 brew "gnupg", link: false
-brew "go"
 brew "graphviz"
 brew "grep"
 brew "httpie"
