@@ -33,7 +33,6 @@ brew "tfenv"
 brew "vault"
 brew "yapf"
 
-cask "docker"
 cask "goland"
 cask "google-cloud-sdk"
 cask "intellij-idea"
