@@ -9,18 +9,18 @@ if [[ -d "${HOME}/.cc-dotfiles" ]]; then
   export CC_AUTO_UPDATE=false
   export OKTA_DEVICE_ID="{{@@ env['okta_default_device_token'] @@}}"
 
-  # shellcheck disable=SC1091
+  # shellcheck disable=SC1091,SC1090
   source "${HOME}/.cc-dotfiles/caas.sh"
 
   function cc-dotfiles-alpha() {
     export CC_DOTFILES_ALPHA=true
-    # shellcheck disable=SC1091
+    # shellcheck disable=SC1091,SC1090
     source "${HOME}/.cc-dotfiles/caas.sh"
   }
 
   function cc-dotfiles-beta() {
     export CC_DOTFILES_BETA=true
-    # shellcheck disable=SC1091
+    # shellcheck disable=SC1091,SC1090
     source "${HOME}/.cc-dotfiles/caas.sh"
   }
 fi
