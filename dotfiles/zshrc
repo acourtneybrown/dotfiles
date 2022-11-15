@@ -90,6 +90,7 @@ plugins=(
   mosh
   mosh-custom
   path
+  pipx
   pyenv
   ripgrep
   ripgrep-all
@@ -114,7 +115,6 @@ plugins+=(
   mvn
   nvm
   nvm-custom
-  pipx
   release-stable
   release-tools
   terraform
