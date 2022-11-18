@@ -32,7 +32,6 @@ module.exports = {
           "jenkins.confluent.io",
           "jfrog.io",
           "metabase.confluent.io",
-          "www.golinks.io",
           "status.zoom.us",
           "signin.aws.amazon.com",
 
@@ -41,6 +40,7 @@ module.exports = {
           /confluent.io/,
           /confluent\.cloud/,
           /cultureamp.com/,
+          /golinks.io/,
           /sumologic.com/,
         ]),
 
