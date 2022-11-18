@@ -53,5 +53,5 @@ fi
 [ -z "${SKIP_SECRETS}" ] && script/extract-onepassword-secrets.sh
 
 # Setup development tools
-script/python-setup.sh
-[ -z "${SKIP_CONFLUENT}" ] && script/confluent-setup.sh
+# script/python-setup.sh
+# [ -z "${SKIP_CONFLUENT}" ] && script/confluent-setup.sh
