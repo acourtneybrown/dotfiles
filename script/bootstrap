@@ -5,7 +5,6 @@ set -e
 cd "$(dirname "${0}")/.."
 # shellcheck disable=SC1091
 . script/functions
-# sudo_check_then_alive
 
 # Set up dotdrop dependencies
 git submodule update --init --recursive
@@ -25,9 +24,7 @@ if [ ! -d ~/.oh-my-zsh ]; then
 fi
 
 # Install all dotfiles into the home directory
-if ! command -v yq >/dev/null; then
-  go install github.com/mikefarah/yq/v4@latest
-fi
+ensure_command "yq"
 
 # create a new profile (if necessary) and include default
 PROFILE=$(hostname)
@@ -39,8 +36,6 @@ if [ -z "$(yq e ".profiles.\"${PROFILE}\" // \"\"" config.yaml)" ]; then
 fi
 
 (
-  # shellcheck disable=SC1091
-  # shellcheck disable=SC1090
-  source "${HOME}/.secrets"
-  ./dotdrop.sh install --force --profile="${PROFILE}"
+  # shellcheck disable=2046
+  eval $(grep -v "^#" "${HOME}/.secrets") ./dotdrop.sh install --force --profile="${PROFILE}"
 )
