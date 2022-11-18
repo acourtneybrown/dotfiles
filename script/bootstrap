@@ -32,7 +32,12 @@ if [ -z "$(yq e ".profiles.\"${PROFILE}\" // \"\"" config.yaml)" ]; then
   yq eval ".profiles.\"${PROFILE}\".\"include\" += [\"default\"]" -i config.yaml
   if is_mac; then
     yq eval ".profiles.\"${PROFILE}\".\"include\" += [\"mac\"]" -i config.yaml
+  elif is_linux; then
+    yq eval ".profiles.\"${PROFILE}\".\"include\" += [\"linux\"]" -i config.yaml
   fi
+  for extra in "${@}"; do
+    yq eval ".profiles.\"${PROFILE}\".\"include\" += [\"${extra}\"]" -i config.yaml
+  done
 fi
 
 (
