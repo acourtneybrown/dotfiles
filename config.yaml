@@ -19,6 +19,12 @@ actions:
     else
       git clone https://github.com/nvm-sh/nvm.git ~/.nvm;
     fi
+  _cc_dotfiles_install: |
+    if [[ -d ~/.cc-dotfiles ]]; then
+      git -C ~/.cc-dotfiles pull origin;
+    else
+      git clone https://github.com/confluentinc/cc-dotfiles.git ~/.cc-dotfiles;
+    fi
 config:
   backup: true
   create: true
@@ -171,6 +177,11 @@ dotfiles:
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
+  fake_cc_dotfiles:
+    src:
+    dst:
+    actions:
+    - _cc_dotfiles_install
   fake_pyenv:
     src:
     dst:
@@ -254,6 +265,7 @@ profiles:
       - f_okta_aws_login_config
       - f_pip_conf
       - f_pypirc
+      - fake_cc_dotfiles
       - fake_nvm
   default:
     variables:
