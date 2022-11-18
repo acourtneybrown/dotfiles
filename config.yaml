@@ -55,6 +55,10 @@ dotfiles:
     src: config/yapf
     dst: ~/.config/yapf
     link: link_children
+  d_git_template:
+    src: git-template
+    dst: ~/.git-template
+    link: link_children
   d_gradle_init_d:
     src: gradle_init.d
     dst: ~/.gradle/init.d
@@ -282,6 +286,7 @@ profiles:
     dotfiles:
       - d_bin
       - d_config_gh
+      - d_git_template
       - d_gradle_init_d
       - d_ssh
       - f_bash_sessions_disable

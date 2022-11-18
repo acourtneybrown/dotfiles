@@ -4,6 +4,9 @@ set -e
 
 cd "$(dirname "${0}")/.."
 
+# shellcheck disable=SC1091
+. script/functions
+
 mkdir -p ~/.ssh
 mkdir -p ~/.gnupg
 
@@ -21,10 +24,7 @@ function onepassword_get() {
 
 if ! [ -f "${HOME}/.secrets" ]; then
   echo "Extracting secrets..."
-  if ! command -v jq >/dev/null; then
-    echo "Install jq first!" >&2
-    exit 1
-  fi
+  ensure_command "jq"
 
   touch "${HOME}/.secrets"
   chmod 600 "${HOME}/.secrets"
@@ -43,10 +43,7 @@ EOF
 fi
 
 echo "Setting up GPG..."
-if ! command -v gpg >/dev/null; then
-  echo "Install GPG first!" >&2
-  exit 1
-fi
+ensure_command "gpg"
 
 # shellcheck disable=SC2174
 mkdir -p -m 700 ~/.gnupg

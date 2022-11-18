@@ -103,6 +103,7 @@
 [init]
 
 	defaultBranch = main
+	templateDir = ~/.git-template
 
 [interactive]
 
@@ -142,7 +143,7 @@
 	insteadOf = "git://github.com/"
 	insteadOf = https://github.com/
 
-[url "ssh://git@github.com:acourtneybrown/"]
+[url "ssh://git@github.com/acourtneybrown/"]
 
 	insteadOf = "gha:"
 

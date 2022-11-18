@@ -21,7 +21,7 @@ jobs:
         excludes+=("! -path \"*./.git/*\"")
         excludes+=("! -path \"*.go\"")
         excludes+=("! -path \"*/mvnw\"")
-        for dir in 1password dotdrop vault; do
+        for dir in 1password dotdrop vault dotfiles/git-template; do
           echo "::debug:: Adding directory '${dir}' to excludes"
           excludes+=("! -path \"*./${dir}/*\"")
           excludes+=("! -path \"*/${dir}/*\"")

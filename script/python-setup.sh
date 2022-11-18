@@ -2,10 +2,5 @@
 set -e
 cd "$(dirname "${0}")/.."
 
-# shellcheck disable=SC1091
-. script/functions
-
-ensure_autopip_installed
-
-autopip install --update weekly python-kasa
-autopip install --update weekly python-vipaccess
+pipx install python-kasa
+pipx install python-vipaccess
