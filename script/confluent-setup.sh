@@ -11,11 +11,11 @@ ensure_brewfile_installed Brewfile.confluent
 
 pyenv install --skip-existing "$(pyenv latest --known 3.8)"
 pyenv shell "$(pyenv latest 3.8)"
-pipx install --python "$(which python)" confluent-release-tools
+pipx install --python "$(command -v python)" confluent-release-tools
 
 pyenv install --skip-existing "$(pyenv latest --known 3.9)"
 pyenv shell "$(pyenv latest 3.9)"
-pipx install --python "$(which python)" confluent-ci-tools
+pipx install --python "$(command -v python)" confluent-ci-tools
 
 pyenv install --skip-existing "$(pyenv latest --known 3.11)"
 pyenv shell "$(pyenv latest 3.11)"
