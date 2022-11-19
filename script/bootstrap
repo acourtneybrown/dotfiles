@@ -44,3 +44,10 @@ fi
   # shellcheck disable=2046
   eval $(grep -v "^#" "${HOME}/.secrets") ./dotdrop.sh install --force --profile="${PROFILE}"
 )
+
+[ -z "${SKIP_SECRETS}" ] && script/extract-onepassword-secrets.sh
+
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+script/python-setup.sh

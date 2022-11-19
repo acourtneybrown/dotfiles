@@ -37,11 +37,6 @@ if is_mac; then
 
   [ -z "${SKIP_BUNDLE}" ] && ensure_brewfile_installed
   [ -z "${SKIP_HOME}" ] && ensure_brewfile_installed Brewfile.home
-
-  script/python-setup.sh
-
-  # Setup development tools
-  # [ -z "${SKIP_CONFLUENT}" ] && script/confluent-setup.sh
 elif is_linux; then
   # On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
   if [ -f /etc/locale.gen ]; then
@@ -54,5 +49,3 @@ elif is_linux; then
 
   [ -z "${SKIP_BUNDLE}" ] && ensure_brewfile_installed Brewfile.linux
 fi
-
-[ -z "${SKIP_SECRETS}" ] && script/extract-onepassword-secrets.sh
