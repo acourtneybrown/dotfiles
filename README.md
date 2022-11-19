@@ -15,12 +15,33 @@ Ultimately, both of these files should be idempotent and thus can be used to re-
 
 Lastly, `confluent-setup.sh` installs additional tools & setup for work at Confluent.  It should be run (manually) after `bootstrap` has finished.
 
+### General flow
+
+```bash
+git clone <this repo> .dotfiles
+cd .dotfiles
+
+# export SKIP_UPDATES=y if avoiding system updates
+
+./script/os-setup
+
+# some manual interaction initially
+
+# log into 1Password app
+# enable SSH agent in 1Password
+# enable cli integration in 1Password
+
+./script/bootstrap # work  # if setting up work machine
+
+./script/confluent-setup.sh # if setting up work machine
+```
+
 ## Operations performed
 
 ### [`script/os-setup`](script/os-setup)
 
 #### On Mac
-1. install OS updates
+1. [optional] install OS updates
 1. run `macos` script
 1. install xcode tools
 1. install homebrew/linuxbrew (& casks)
@@ -42,7 +63,6 @@ Optionally takes any additional dotdrop profiles to add to the newly created mac
 1. install `oh-my-zsh`
 1. pull data from 1password
     1. *login to my.1password account*
-    1. pull ssh private key from 1password
     1. pull gpg key from 1password
     1. pull `.secrets` data from 1password
 1. install Python-based tools
@@ -51,4 +71,3 @@ Optionally takes any additional dotdrop profiles to add to the newly created mac
 
 1. install brew bundle (Brewfile.confluent)
 2. install Python-based tools (& multiple versions of Python)
-

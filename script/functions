@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-# Check if the Xcode license is agreed to and agree if not.
+# install_updates checks for macOS software updates & installs them
 function install_updates() {
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
     echo "No software updates to install"
@@ -11,6 +11,7 @@ function install_updates() {
   fi
 }
 
+# xcode_license checks if the Xcode license is agreed to and agree if not.
 function xcode_license() {
   if /usr/bin/xcrun clang 2>&1 | grep -q license; then
     if [ -n "${STRAP_INTERACTIVE}" ]; then
