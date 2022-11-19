@@ -109,3 +109,13 @@ function ensure_command() {
     abort "Install ${1} first!"
   fi
 }
+
+# pipx_install takes a version of Python installed via pyenv & installs a list of pipx packages with that version
+function pipx_install() {
+  local version
+  version=${1}
+  shift
+  for package in "$@"; do
+    PYENV_VERSION=$version pyenv exec pipx install "${package}"
+  done
+}
