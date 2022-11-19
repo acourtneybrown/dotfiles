@@ -112,10 +112,17 @@ function ensure_command() {
 
 # pipx_install takes a version of Python installed via pyenv & installs a list of pipx packages with that version
 function pipx_install() {
-  local version
-  version=${1}
+  local to_install
+  to_install=${1}
   shift
+
+  pyenv install --skip-existing "$(pyenv latest --known "${to_install}")"
+
+  local version
+  version=$(pyenv latest "${to_install}")
+  local py_bin
+  py_bin=$(PYENV_VERSION=${version} pyenv prefix)/bin/python
   for package in "$@"; do
-    PYENV_VERSION=$version pyenv exec pipx install "${package}"
+    pipx install "${package}" --python "${py_bin}"
   done
 }
