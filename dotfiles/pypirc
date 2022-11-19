@@ -4,5 +4,5 @@ index-servers =
 
 [jfrog]
 repository = https://confluent.jfrog.io/confluent/api/pypi/pypi-internal
-username = {{@@ env['artifactory_user'] @@}}
-password = {{@@ env['artifactory_password'] @@}}
+username = {{@@ artifactory_user @@}}
+password = {{@@ artifactory_password @@}}
