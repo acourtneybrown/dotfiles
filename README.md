@@ -41,11 +41,11 @@ cd .dotfiles
 1. run `macos` script
 1. install xcode tools
 1. install homebrew/linuxbrew (& casks)
-1. install brew bundle (Brewfile & Brewfile.home)
+1. install brew bundle (Brewfile)
 
 #### On Linux
 1. install Homebrew on Linux
-1. install brew bundle (Brewfile)
+1. install brew bundle (Brewfile.linux)
 
 Items in *italics* require manual intervention currently.
 
@@ -61,9 +61,11 @@ Optionally takes any additional dotdrop profiles to add to the newly created mac
     1. *login to my.1password account*
     1. pull gpg key from 1password
     1. pull `.secrets` data from 1password
-1. install Python-based tools
+1. run `bootstrap-<profile>` for any additional profiles specified as arguments
 
-### [`script/confluent-setup.sh`](script/confluent-setup.sh)
+### `script/bootstrap-<profile>`
 
-1. install brew bundle (Brewfile.confluent)
+General approach for these files:
+
+1. install brew bundle (Brewfile.<profile>)
 2. install Python-based tools (& multiple versions of Python)
