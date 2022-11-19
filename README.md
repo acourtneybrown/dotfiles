@@ -13,8 +13,6 @@ Run the `bootstrap` script to install the dotfiles into the relevant location(s)
 
 Ultimately, both of these files should be idempotent and thus can be used to re-run to update as needed.
 
-Lastly, `confluent-setup.sh` installs additional tools & setup for work at Confluent.  It should be run (manually) after `bootstrap` has finished.
-
 ### General flow
 
 ```bash
@@ -31,9 +29,7 @@ cd .dotfiles
 # enable SSH agent in 1Password
 # enable cli integration in 1Password
 
-./script/bootstrap # work  # if setting up work machine
-
-./script/confluent-setup.sh # if setting up work machine
+./script/bootstrap # optional dotdrop profiles to add for machine, like "confluent" or "home"
 ```
 
 ## Operations performed
@@ -55,7 +51,7 @@ Items in *italics* require manual intervention currently.
 
 ### [`script/bootstrap`](script/bootstrap)
 
-Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `work`).
+Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `confluent`).
 
 1. setup `dotdrop` environment & dependencies
 1. setup `.ssh` directory

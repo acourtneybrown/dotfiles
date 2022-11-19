@@ -47,5 +47,8 @@ script/extract-onepassword-secrets.sh
   eval $(grep -v "^#" "${HOME}/.secrets") ./dotdrop.sh install --force --profile="${PROFILE}"
 )
 
-enable_pyenv
-script/python-setup.sh
+for extra in "${@}"; do
+  if [ -f "./script/bootstrap-${extra}" ]; then
+    "./script/bootstrap-${extra}"
+  fi
+done

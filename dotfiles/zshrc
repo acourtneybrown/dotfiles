@@ -100,7 +100,7 @@ plugins=(
   zsh-completions
 )
 
-{%@@ if work @@%}
+{%@@ if confluent @@%}
 plugins+=(
   bazel
   bazel-custom
