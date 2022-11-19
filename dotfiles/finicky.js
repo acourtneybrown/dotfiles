@@ -10,9 +10,9 @@ module.exports = {
     }
   ],
   handlers: [
-    {%@@ if work @@%}
+    {%@@ if confluent @@%}
     {
-      // Work-related sites
+      // Confluent-related sites
       match: [
         finicky.matchHostnames([
           "a.goodtime.io",

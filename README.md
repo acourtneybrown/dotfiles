@@ -13,8 +13,6 @@ Run the `bootstrap` script to install the dotfiles into the relevant location(s)
 
 Ultimately, both of these files should be idempotent and thus can be used to re-run to update as needed.
 
-Lastly, `confluent-setup.sh` installs additional tools & setup for work at Confluent.  It should be run (manually) after `bootstrap` has finished.
-
 ### General flow
 
 ```bash
@@ -31,9 +29,7 @@ cd .dotfiles
 # enable SSH agent in 1Password
 # enable cli integration in 1Password
 
-./script/bootstrap # work  # if setting up work machine
-
-./script/confluent-setup.sh # if setting up work machine
+./script/bootstrap # optional dotdrop profiles to add for machine, like "confluent" or "home"
 ```
 
 ## Operations performed
@@ -45,17 +41,17 @@ cd .dotfiles
 1. run `macos` script
 1. install xcode tools
 1. install homebrew/linuxbrew (& casks)
-1. install brew bundle (Brewfile & Brewfile.home)
+1. install brew bundle (Brewfile)
 
 #### On Linux
 1. install Homebrew on Linux
-1. install brew bundle (Brewfile)
+1. install brew bundle (Brewfile.linux)
 
 Items in *italics* require manual intervention currently.
 
 ### [`script/bootstrap`](script/bootstrap)
 
-Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `work`).
+Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `confluent`).
 
 1. setup `dotdrop` environment & dependencies
 1. setup `.ssh` directory
@@ -64,9 +60,11 @@ Optionally takes any additional dotdrop profiles to add to the newly created mac
 1. pull data from 1password
     1. *login to my.1password account*
     1. pull gpg key from 1password
-1. install Python-based tools
+1. run `bootstrap-<profile>` for any additional profiles specified as arguments
 
-### [`script/confluent-setup.sh`](script/confluent-setup.sh)
+### `script/bootstrap-<profile>`
 
-1. install brew bundle (Brewfile.confluent)
+General approach for these files:
+
+1. install brew bundle (Brewfile.<profile>)
 2. install Python-based tools (& multiple versions of Python)

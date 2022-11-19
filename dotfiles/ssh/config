@@ -38,7 +38,7 @@ Host unifi-*
   ForwardAgent no
   User unifi-admin
 
-{%@@ if work @@%}
+{%@@ if confluent @@%}
 # Confluent
 Host *.compute.amazonaws.com
   User ubuntu
