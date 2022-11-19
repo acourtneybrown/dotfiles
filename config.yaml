@@ -208,7 +208,7 @@ profiles:
     include:
       - default
       - mac
-      - work
+      - confluent
   cara-mbp:
     include:
       - cara-mbp.notcharlie.com
@@ -239,6 +239,7 @@ profiles:
     include:
       - default
       - mac
+      - home
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
@@ -252,9 +253,12 @@ profiles:
       linux: true
     dotfiles:
       - d_user
-  work:
+  home:
     variables:
-      work: true
+      home: true
+  confluent:
+    variables:
+      confluent: true
     dotfiles:
       - d_config_coursier
       - d_config_yapf
@@ -269,9 +273,10 @@ profiles:
       - fake_nvm
   default:
     variables:
-      work: false
+      confluent: false
       linux: false
       mac: false
+      home: false
     include:
       - zsh
   zsh:

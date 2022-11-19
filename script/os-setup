@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-
 cd "$(dirname "${0}")/.."
 
 # shellcheck disable=SC1091
@@ -36,7 +35,6 @@ if is_mac; then
   script/update-nfs.sh
 
   [ -z "${SKIP_BUNDLE}" ] && ensure_brewfile_installed
-  [ -z "${SKIP_HOME}" ] && ensure_brewfile_installed Brewfile.home
 elif is_linux; then
   # On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
   if [ -f /etc/locale.gen ]; then
