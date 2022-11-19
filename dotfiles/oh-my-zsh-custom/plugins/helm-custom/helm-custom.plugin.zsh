@@ -3,10 +3,10 @@
 # shellcheck disable=SC2154
 if [[ ${commands[helm]} ]]; then
   if ! helm repo list | grep -q helm-cloud; then
-    # Run in subshell to ensure that info from ${HOME}/.secrets cleared
+    # Run in subshell to ensure that secrets aren't retained
     (
-      # shellcheck disable=SC1090,SC1091
-      source "${HOME}/.secrets"
+      artifactory_user=$(op item get "JFrog Artifactory" --format json | jq '.urls[0].href')
+      artifactory_password=$(op item get "JFrog Artifactory" --fields "API Key")
 
       # shellcheck disable=SC2154
       helm repo add helm-cloud \
