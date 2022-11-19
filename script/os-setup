@@ -19,7 +19,7 @@ if is_mac; then
   echo "Login to Apple ID.  Press <enter> when done."
   read -r _
 
-  install_updates
+  [ -z "${SKIP_UPDATES}" ] && install_updates
 
   # install xcode command line tools
   script/install-xcode.sh
