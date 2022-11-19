@@ -40,7 +40,12 @@ if [ -z "$(yq e ".profiles.\"${PROFILE}\" // \"\"" config.yaml)" ]; then
   done
 fi
 
+script/extract-onepassword-secrets.sh
+
 (
   # shellcheck disable=2046
   eval $(grep -v "^#" "${HOME}/.secrets") ./dotdrop.sh install --force --profile="${PROFILE}"
 )
+
+enable_pyenv
+script/python-setup.sh

@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-# Check if the Xcode license is agreed to and agree if not.
+# install_updates checks for macOS software updates & installs them
 function install_updates() {
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
     echo "No software updates to install"
@@ -11,6 +11,7 @@ function install_updates() {
   fi
 }
 
+# xcode_license checks if the Xcode license is agreed to and agree if not.
 function xcode_license() {
   if /usr/bin/xcrun clang 2>&1 | grep -q license; then
     if [ -n "${STRAP_INTERACTIVE}" ]; then
@@ -108,4 +109,31 @@ function ensure_command() {
   elif ! command -v "${1}" >/dev/null; then
     abort "Install ${1} first!"
   fi
+}
+
+function enable_pyenv() {
+  if ! command -v pyenv >/dev/null; then
+    export PYENV_ROOT="${HOME}/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+  fi
+}
+
+# pipx_install takes a version of Python installed via pyenv & installs a list of pipx packages with that version
+function pipx_install() {
+  ensure_command "pyenv"
+
+  local to_install
+  to_install=${1}
+  shift
+
+  pyenv install --skip-existing "$(pyenv latest --known "${to_install}")"
+
+  local version
+  version=$(pyenv latest "${to_install}")
+  local py_bin
+  py_bin=$(PYENV_VERSION=${version} pyenv prefix)/bin/python
+  for package in "$@"; do
+    pipx install "${package}" --python "${py_bin}"
+  done
 }
