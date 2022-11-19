@@ -111,8 +111,18 @@ function ensure_command() {
   fi
 }
 
+function enable_pyenv() {
+  if ! command -v pyenv >/dev/null; then
+    export PYENV_ROOT="${HOME}/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+  fi
+}
+
 # pipx_install takes a version of Python installed via pyenv & installs a list of pipx packages with that version
 function pipx_install() {
+  ensure_command "pyenv"
+
   local to_install
   to_install=${1}
   shift

@@ -47,7 +47,5 @@ script/extract-onepassword-secrets.sh
   eval $(grep -v "^#" "${HOME}/.secrets") ./dotdrop.sh install --force --profile="${PROFILE}"
 )
 
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+enable_pyenv
 script/python-setup.sh
