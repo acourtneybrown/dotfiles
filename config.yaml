@@ -181,22 +181,22 @@ dotfiles:
     src:
     dst:
     actions:
-    - _cc_dotfiles_install
+      - _cc_dotfiles_install
   fake_pyenv:
     src:
     dst:
     actions:
-    - _pyenv_install
+      - _pyenv_install
   fake_goenv:
     src:
     dst:
     actions:
-    - _goenv_install
+      - _goenv_install
   fake_nvm:
     src:
     dst:
     actions:
-    - _nvm_install
+      - _nvm_install
 profiles:
   abrown-confluent:
     include:
