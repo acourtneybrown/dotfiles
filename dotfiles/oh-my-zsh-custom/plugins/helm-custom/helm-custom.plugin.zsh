@@ -5,7 +5,7 @@ if [[ ${commands[helm]} ]]; then
   if ! helm repo list | grep -q helm-cloud; then
     # Run in subshell to ensure that secrets aren't retained
     (
-      artifactory_user=$(op item get "JFrog Artifactory" --format json | jq '.urls[0].href')
+      artifactory_user=$(op item get "JFrog Artifactory" --format json | jq -r '.urls[0].href')
       artifactory_password=$(op item get "JFrog Artifactory" --fields "API Key")
 
       # shellcheck disable=SC2154

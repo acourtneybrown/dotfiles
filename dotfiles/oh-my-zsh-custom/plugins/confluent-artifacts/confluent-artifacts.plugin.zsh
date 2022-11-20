@@ -9,7 +9,7 @@ function ensure_docker() {
   mkdir -p "${HOME}/.docker"
   touch "${HOME}/.docker/config.json"
   if ! jq -e ".auths.\"${host}\"" "${HOME}/.docker/config.json" >/dev/null; then
-    artifactory_user=$(op item get "JFrog Artifactory" --format json | jq '.urls[0].href')
+    artifactory_user=$(op item get "JFrog Artifactory" --format json | jq -r '.urls[0].href')
     artifactory_password=$(op item get "JFrog Artifactory" --fields "API Key")
 
     # shellcheck disable=SC2154
