@@ -3,10 +3,6 @@
 NVM_DIR="${HOME}/.nvm"
 
 if [[ -d ${NVM_DIR} ]]; then
-  function nvm_update() {
-    git -C "${NVM_DIR}" pull origin
-  }
-
   function nvm_prompt_info() {
     # shellcheck disable=SC2155
     local version="$(nvm current)"
