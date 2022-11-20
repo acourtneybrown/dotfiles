@@ -1,27 +1,45 @@
 # shellcheck disable=SC2148
 
-function ensure_docker() {
-  local host
-  local artifactory_user
-  local artifactory_password
+# function artifactory_user() {
+#   op item get "JFrog Artifactory" --format json | jq -r '.urls[0].href'
+# }
 
-  host="${1}"
-  mkdir -p "${HOME}/.docker"
-  touch "${HOME}/.docker/config.json"
-  if ! jq -e ".auths.\"${host}\"" "${HOME}/.docker/config.json" >/dev/null; then
-    artifactory_user=$(op item get "JFrog Artifactory" --format json | jq -r '.urls[0].href')
-    artifactory_password=$(op item get "JFrog Artifactory" --fields "API Key")
+# function artifactory_password() {
+#   op item get "JFrog Artifactory" --fields "API Key"
+# }
 
-    # shellcheck disable=SC2154
-    docker login \
-      "${host}" \
-      --username "${artifactory_user}" \
-      --password "${artifactory_password}"
-  fi
-}
+# function ensure_docker() {
+#   local host
 
-ensure_docker "confluent-docker.jfrog.io"
-ensure_docker "confluent-docker-internal-dev.jfrog.io"
+#   host="${1}"
+#   mkdir -p "${HOME}/.docker"
+#   touch "${HOME}/.docker/config.json"
+#   if ! jq -e ".auths.\"${host}\"" "${HOME}/.docker/config.json" >/dev/null; then
+
+#     # shellcheck disable=SC2154
+#     docker login \
+#       "${host}" \
+#       --username "$(artifactory_user)" \
+#       --password "$(artifactory_password)"
+#   fi
+# }
+
+# ensure_docker "confluent-docker.jfrog.io"
+# ensure_docker "confluent-docker-internal-dev.jfrog.io"
+
+# # shellcheck disable=SC2154
+# if [[ ${commands[helm]} ]]; then
+#   if ! helm repo list | grep -q helm-cloud; then
+#     # Run in subshell to ensure that secrets aren't retained
+#     (
+#       # shellcheck disable=SC2154
+#       helm repo add helm-cloud \
+#         https://confluent.jfrog.io/confluent/helm-cloud \
+#         --username "$(artifactory_user)" \
+#         --password "$(artifactory_password)"
+#     )
+#   fi
+# fi
 
 alias ecr_login="gimme-aws-creds --profile devprod-prod && aws ecr get-login-password --region us-west-2 --profile devprod-prod | docker login --username AWS --password-stdin 519856050701.dkr.ecr.us-west-2.amazonaws.com"
 alias pip_login='gimme-aws-creds --profile devprod-prod && aws codeartifact login --profile devprod-prod --tool pip --domain confluent --domain-owner 519856050701 --region us-west-2 --repository pypi'
