@@ -22,6 +22,8 @@ mkdir -p "${HOME}/confluent"
   pyenv local "$(ensure_pyenv_version 3.9)"
   goenv local "$(ensure_goenv_version 1.18)"
 
-  jenv add /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
-  jenv local 11
+  jenv_sync_versions
+  jenv_enable_plugins
+
+  jenv local 11.0
 )

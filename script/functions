@@ -166,3 +166,22 @@ function ensure_goenv_version() {
   goenv install --skip-existing "$(goenv install -l | grep "${to_install}" | tail -1 | tr -d '[:space:]')" >/dev/null
   goenv install -l | grep "${to_install}" | tail -1 | tr -d '[:space:]'
 }
+
+# jenv_sync_versions makes sure that all installed JDKs are added to jenv
+function jenv_sync_versions() {
+  ensure_command "jenv"
+
+  for dir in /Library/Java/JavaVirtualMachines/*; do
+    jenv add "$dir/Contents/Home"
+  done
+}
+
+function jenv_enable_plugins() {
+  jenvplugins=(maven gradle export)
+
+  for jenvplugin in "${jenvplugins[@]}"; do
+    if [[ ! -L "${HOME}/.jenv/plugins/${jenvplugin}" ]]; then
+      jenv enable-plugin "${jenvplugin}"
+    fi
+  done
+}
