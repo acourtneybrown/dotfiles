@@ -5,10 +5,6 @@ export GOENV_ROOT="${HOME}/.goenv"
 if [[ -d ${GOENV_ROOT} ]]; then
   export GOENV_ROOT
 
-  function goenv_update() {
-    git -C "${GOENV_ROOT}" pull origin
-  }
-
   # shellcheck disable=SC2206
   path=("${GOENV_ROOT}/bin/" $path)
   _evalcache goenv init -

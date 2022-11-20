@@ -8,8 +8,6 @@ cd "$(dirname "${0}")/.."
 
 mkdir -p ~/.gnupg
 
-eval "$(op signin)"
-
 function onepassword_get() {
   if [ -f "${HOME}/${2}" ]; then
     echo "${2} already exists."
