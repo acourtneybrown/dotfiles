@@ -1,4 +1,5 @@
 tap "acourtneybrown/fonts"
+tap "buo/cask-upgrade"
 tap "dteoh/sqa"
 tap "homebrew/bundle"
 tap "homebrew/cask"
