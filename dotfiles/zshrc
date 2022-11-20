@@ -109,7 +109,6 @@ plugins+=(
   gradle
   graphviz
   helm
-  helm-custom
   jenv
   jenv-custom
   mvn
