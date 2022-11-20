@@ -27,7 +27,7 @@
             <repositories>
                 <repository>
                     <id>confluent-artifactory-stabilization</id>
-                    <url>{{@@ artifactory_host @@}}confluent/maven-releases-stabilization/</url>
+                    <url>{{@@ artifactory_host @@}}/confluent/maven-releases-stabilization/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -49,7 +49,7 @@
             <pluginRepositories>
                 <pluginRepository>
                     <id>confluent-artifactory-stabilization</id>
-                    <url>{{@@ artifactory_host @@}}confluent/maven-releases-stabilization/</url>
+                    <url>{{@@ artifactory_host @@}}/confluent/maven-releases-stabilization/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
