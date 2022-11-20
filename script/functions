@@ -151,7 +151,7 @@ function ensure_pyenv_version() {
   local to_install
   to_install=${1}
 
-  pyenv install --skip-existing "$(pyenv latest --known "${to_install}")"
+  pyenv install --skip-existing "$(pyenv latest --known "${to_install}")" >/dev/null
   pyenv latest "${to_install}"
 }
 
@@ -161,6 +161,6 @@ function ensure_goenv_version() {
   local to_install
   to_install=${1}
 
-  goenv install --skip-existing "$(goenv install -l | grep "${to_install}" | tail -1 | tr -d '[:space:]')"
+  goenv install --skip-existing "$(goenv install -l | grep "${to_install}" | tail -1 | tr -d '[:space:]')" >/dev/null
   goenv install -l | grep "${to_install}" | tail -1 | tr -d '[:space:]'
 }
