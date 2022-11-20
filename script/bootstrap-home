@@ -10,3 +10,9 @@ ensure_brewfile_installed Brewfile.home
 
 enable_pyenv
 pipx_install 3.11 python-kasa python-vipaccess
+
+pyenv install --skip-existing "$(pyenv latest --known 3.11)"
+pyenv global "$(pyenv latest --known 3.11)"
+
+goenv install --skip-existing "$(goenv install -l | grep 1.19 | tail -1)"
+goenv global "$(goenv install -l | grep 1.19 | tail -1)"
