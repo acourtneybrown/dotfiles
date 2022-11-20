@@ -1,11 +1,11 @@
 machine api.github.com
     login acourtneybrown
-    password {{@@ env['github_netrc_token'] @@}}
+    password {{@@ github_netrc_token @@}}
 
 machine github.com
     login acourtneybrown
-    password {{@@ env['github_netrc_token'] @@}}
+    password {{@@ github_netrc_token @@}}
 
 machine confluent.jfrog.io
-    login {{@@ env['artifactory_user'] @@}}
-    password {{@@ env['artifactory_password'] @@}}
+    login {{@@ artifactory_user @@}}
+    password {{@@ artifactory_password @@}}

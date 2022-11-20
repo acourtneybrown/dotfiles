@@ -15,7 +15,7 @@ preferred_mfa_type = webauthn
 remember_device = True
 aws_default_duration = 3600
 output_format = json
-device_token = {{@@ env['okta_default_device_token'] @@}}
+device_token = {{@@ okta_default_device_token @@}}
 
 [cc-root]
 inherits = DEFAULT

@@ -6,19 +6,19 @@
         <mirror>
         <id>confluent-artifactory-central</id>
         <mirrorOf>default,central,confluent</mirrorOf>
-        <url>{{@@ env['artifactory_host'] @@}}{{@@ env['artifactory_path'] @@}}</url>
+        <url>{{@@ artifactory_host @@}}{{@@ artifactory_path @@}}</url>
         </mirror>
     </mirrors>
     <servers>
         <server>
             <id>confluent-artifactory-central</id>
-            <username>{{@@ env['artifactory_user'] @@}}</username>
-            <password>{{@@ env['artifactory_password'] @@}}</password>
+            <username>{{@@ artifactory_user @@}}</username>
+            <password>{{@@ artifactory_password @@}}</password>
         </server>
         <server>
             <id>confluent-artifactory-stabilization</id>
-            <username>{{@@ env['artifactory_user'] @@}}</username>
-            <password>{{@@ env['artifactory_password'] @@}}</password>
+            <username>{{@@ artifactory_user @@}}</username>
+            <password>{{@@ artifactory_password @@}}</password>
         </server>
     </servers>
     <profiles>
@@ -27,7 +27,7 @@
             <repositories>
                 <repository>
                     <id>confluent-artifactory-stabilization</id>
-                    <url>{{@@ env['artifactory_host'] @@}}confluent/maven-releases-stabilization/</url>
+                    <url>{{@@ artifactory_host @@}}/confluent/maven-releases-stabilization/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -37,7 +37,7 @@
                 </repository>
                 <repository>
                     <id>confluent-artifactory-central</id>
-                    <url>{{@@ env['artifactory_host'] @@}}{{@@ env['artifactory_path'] @@}}</url>
+                    <url>{{@@ artifactory_host @@}}{{@@ artifactory_path @@}}</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -49,7 +49,7 @@
             <pluginRepositories>
                 <pluginRepository>
                     <id>confluent-artifactory-stabilization</id>
-                    <url>{{@@ env['artifactory_host'] @@}}confluent/maven-releases-stabilization/</url>
+                    <url>{{@@ artifactory_host @@}}/confluent/maven-releases-stabilization/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -60,7 +60,7 @@
                 <pluginRepository>
                     <id>confluent-artifactory-central</id>
                     <name>Confluent Plugin Repository</name>
-                    <url>{{@@ env['artifactory_host'] @@}}{{@@ env['artifactory_path'] @@}}</url>
+                    <url>{{@@ artifactory_host @@}}{{@@ artifactory_path @@}}</url>
                     <layout>default</layout>
                     <snapshots>
                         <enabled>true</enabled>
