@@ -26,19 +26,40 @@ fi
 # Install all dotfiles into the home directory
 ensure_command "yq"
 
+function ensure_profile_exists() {
+  local profile
+
+  profile=${1}
+  if [ -z "$(yq e ".profiles.\"${profile}\" // \"\"" config.yaml)" ]; then
+    ensure_profile_includes "${PROFILE}" default
+  fi
+}
+
+function ensure_profile_includes() {
+  local profile
+  local include
+
+  profile=${1}
+  include=${2}
+
+  present=$(yq e "[\"${include}\"] - .profiles.\"${profile}\".include | length == 0" config.yaml)
+  if [[ ${present} == "false" ]]; then
+    yq eval ".profiles.\"${profile}\".\"include\" += [\"${include}\"]" -i config.yaml
+  fi
+}
+
 # create a new profile (if necessary) and include default
 PROFILE=$(hostname)
-if [ -z "$(yq e ".profiles.\"${PROFILE}\" // \"\"" config.yaml)" ]; then
-  yq eval ".profiles.\"${PROFILE}\".\"include\" += [\"default\"]" -i config.yaml
-  if is_mac; then
-    yq eval ".profiles.\"${PROFILE}\".\"include\" += [\"mac\"]" -i config.yaml
-  elif is_linux; then
-    yq eval ".profiles.\"${PROFILE}\".\"include\" += [\"linux\"]" -i config.yaml
-  fi
-  for extra in "${@}"; do
-    yq eval ".profiles.\"${PROFILE}\".\"include\" += [\"${extra}\"]" -i config.yaml
-  done
+ensure_profile_exists "${PROFILE}"
+if is_mac; then
+  ensure_profile_includes "${PROFILE}" mac
+elif is_linux; then
+  ensure_profile_includes "${PROFILE}" linux
 fi
+
+for extra in "${@}"; do
+  ensure_profile_includes "${PROFILE}" "${extra}"
+done
 
 script/extract-onepassword-secrets.sh
 

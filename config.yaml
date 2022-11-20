@@ -200,46 +200,46 @@ dotfiles:
 profiles:
   abrown-confluent:
     include:
-      - abrown-confluent.notcharlie.com
-  abrown-confluent.local:
-    include:
-      - abrown-confluent.notcharlie.com
-  abrown-confluent.notcharlie.com:
-    include:
       - default
       - mac
       - confluent
+  abrown-confluent.local:
+    include:
+      - abrown-confluent
+  abrown-confluent.notcharlie.com:
+    include:
+      - abrown-confluent
   cara-mbp:
     include:
-      - cara-mbp.notcharlie.com
+      - default
+      - mac
   cara-mbp.local:
     include:
-      - cara-mbp.notcharlie.com
+      - cara-mbp
   cara-mbp.notcharlie.com:
     include:
-      - default
-      - mac
+      - cara-mbp
   carters-air:
     include:
-      - carters-air.notcharlie.com
-  carters-air.local:
-    include:
-      - carters-air.notcharlie.com
-  carters-air.notcharlie.com:
-    include:
       - default
       - mac
+  carters-air.local:
+    include:
+      - carters-air
+  carters-air.notcharlie.com:
+    include:
+      - carters-air
   exhubber:
-    include:
-      - exhubber.notcharlie.com
-  exhubber.local:
-    include:
-      - exhubber.notcharlie.com
-  exhubber.notcharlie.com:
     include:
       - default
       - mac
       - home
+  exhubber.local:
+    include:
+      - exhubber
+  exhubber.notcharlie.com:
+    include:
+      - exhubber
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
