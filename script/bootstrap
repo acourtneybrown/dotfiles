@@ -60,3 +60,8 @@ for extra in "${@}"; do
     "./script/bootstrap-${extra}"
   fi
 done
+
+enable_pyenv
+enable_goenv
+pyenv global "$(ensure_pyenv_version 3.11)"
+goenv global "$(ensure_goenv_version 1.19)"

@@ -13,5 +13,10 @@ enable_goenv
 
 pipx_install 3.11 python-kasa python-vipaccess
 
-pyenv global "$(ensure_pyenv_version 3.11)"
-goenv global "$(ensure_goenv_version 1.19)"
+mkdir "${HOME}/home"
+(
+  cd "${HOME}/home"
+
+  pyenv local "$(ensure_pyenv_version 3.11)"
+  goenv local "$(ensure_goenv_version 1.19)"
+)

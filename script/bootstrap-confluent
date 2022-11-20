@@ -15,8 +15,13 @@ pipx_install 3.8 confluent-release-tools
 pipx_install 3.9 confluent-ci-tools
 pipx_install 3.11 ansible-hostmanager bump2version gimme-aws-creds gql tox
 
-pyenv global "$(ensure_pyenv_version 3.11)"
-goenv global "$(ensure_goenv_version 1.19)"
+mkdir -p "${HOME}/confluent"
 
-jenv add /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
-jenv global 11
+(
+  cd "${HOME}/confluent"
+  pyenv local "$(ensure_pyenv_version 3.9)"
+  goenv local "$(ensure_goenv_version 1.18)"
+
+  jenv add /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
+  jenv local 11
+)
