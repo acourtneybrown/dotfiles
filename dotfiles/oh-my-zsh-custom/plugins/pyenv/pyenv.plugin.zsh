@@ -3,10 +3,6 @@
 export PYENV_ROOT="${HOME}/.pyenv"
 
 if [[ -d ${PYENV_ROOT} ]]; then
-  function pyenv_update() {
-    git -C "${PYENV_ROOT}" pull origin
-  }
-
   # shellcheck disable=SC2206
   path=("${PYENV_ROOT}/bin/" $path)
   typeset -U path

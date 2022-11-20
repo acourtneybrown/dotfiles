@@ -71,6 +71,3 @@ alias pubkey='ssh-keygen -y -f'
 # Use zmv to copy or link files
 alias zcp='zmv -C'
 alias zln='zmv -L'
-
-# Remove once 1Password 8 released
-alias opsignin='eval $(op signin)'
