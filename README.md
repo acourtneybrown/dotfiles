@@ -29,7 +29,7 @@ cd .dotfiles
 # enable SSH agent in 1Password
 # enable cli integration in 1Password
 
-./script/bootstrap # optional dotdrop profiles to add for machine, like "confluent" or "home"
+./script/bootstrap # optional dotdrop profiles to add for machine, like "confluent" or "personal"
 ```
 
 ## Operations performed

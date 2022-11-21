@@ -233,7 +233,7 @@ profiles:
     include:
       - default
       - mac
-      - home
+      - personal
   exhubber.local:
     include:
       - exhubber
@@ -253,9 +253,9 @@ profiles:
       linux: true
     dotfiles:
       - d_user
-  home:
+  personal:
     variables:
-      home: true
+      personal: true
   confluent:
     variables:
       confluent: true
@@ -276,7 +276,7 @@ profiles:
       confluent: false
       linux: false
       mac: false
-      home: false
+      personal: false
     dynvariables:
       artifactory_host: op item get "JFrog Artifactory" --format json | jq -r '.urls[0].href'
       artifactory_password: op item get "JFrog Artifactory" --fields "API Key"
