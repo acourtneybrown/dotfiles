@@ -245,6 +245,7 @@ profiles:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
+      ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     dotfiles:
       - d_user
       - f_finicky.js
@@ -252,6 +253,7 @@ profiles:
     variables:
       sublime_home: .config/sublime-text-3
       linux: true
+      ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
     dotfiles:
       - d_user
   personal:
