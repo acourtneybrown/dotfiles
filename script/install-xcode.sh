@@ -3,7 +3,6 @@
 # Adapted from https://github.com/MikeMcQuaid/strap
 
 set -e
-
 cd "$(dirname "${0}")/.."
 
 # shellcheck disable=SC1091
