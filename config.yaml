@@ -67,6 +67,7 @@ dotfiles:
     src: oh-my-zsh-custom
     dst: ~/.oh-my-zsh-custom
     link: link_children
+    chmod: 700
   d_ssh:
     src: ssh
     dst: ~/.ssh

@@ -41,6 +41,9 @@
 #   fi
 # fi
 
+export ARTIFACTORY_USERNAME={{@@ artifactory_user @@}}
+export ARTIFACTORY_PASSWORD={{@@ artifactory_password @@}}
+
 alias ecr_login="gimme-aws-creds --profile devprod-prod && aws ecr get-login-password --region us-west-2 --profile devprod-prod | docker login --username AWS --password-stdin 519856050701.dkr.ecr.us-west-2.amazonaws.com"
 alias pip_login='gimme-aws-creds --profile devprod-prod && aws codeartifact login --profile devprod-prod --tool pip --domain confluent --domain-owner 519856050701 --region us-west-2 --repository pypi'
 alias twine_login='gimme-aws-creds --profile devprod-prod && aws codeartifact login --profile devprod-prod --tool twine --domain confluent --domain-owner 519856050701 --region us-west-2 --repository pypi-internal'
