@@ -9,6 +9,22 @@ cd "$(dirname "${0}")/.."
 ensure_brewfile_installed Brewfile.confluent
 
 enable_pyenv
+enable_goenv
+enable_jenv
+
 pipx_install 3.8 confluent-release-tools
 pipx_install 3.9 confluent-ci-tools
 pipx_install 3.11 ansible-hostmanager bump2version gimme-aws-creds gql tox
+
+mkdir -p "${HOME}/confluent"
+
+(
+  cd "${HOME}/confluent"
+  pyenv local "$(ensure_pyenv_version 3.9)"
+  goenv local "$(ensure_goenv_version 1.18)"
+
+  jenv_sync_versions
+  jenv_enable_plugins
+
+  jenv local 11.0
+)

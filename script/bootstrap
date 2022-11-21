@@ -8,7 +8,6 @@ cd "$(dirname "${0}")/.."
 
 # Set up dotdrop dependencies
 git submodule update --init --recursive
-git submodule update --remote dotdrop
 
 script/setup-dotdrop-venv.sh
 
@@ -26,15 +25,6 @@ fi
 # Install all dotfiles into the home directory
 ensure_command "yq"
 
-function ensure_profile_exists() {
-  local profile
-
-  profile=${1}
-  if [ -z "$(yq e ".profiles.\"${profile}\" // \"\"" config.yaml)" ]; then
-    ensure_profile_includes "${PROFILE}" default
-  fi
-}
-
 function ensure_profile_includes() {
   local profile
   local include
@@ -50,7 +40,7 @@ function ensure_profile_includes() {
 
 # create a new profile (if necessary) and include default
 PROFILE=$(hostname)
-ensure_profile_exists "${PROFILE}"
+ensure_profile_includes "${PROFILE}" default
 if is_mac; then
   ensure_profile_includes "${PROFILE}" mac
 elif is_linux; then
@@ -70,3 +60,8 @@ for extra in "${@}"; do
     "./script/bootstrap-${extra}"
   fi
 done
+
+enable_pyenv
+enable_goenv
+pyenv global "$(ensure_pyenv_version 3.11)"
+goenv global "$(ensure_goenv_version 1.19)"

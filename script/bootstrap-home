@@ -9,4 +9,14 @@ cd "$(dirname "${0}")/.."
 ensure_brewfile_installed Brewfile.home
 
 enable_pyenv
+enable_goenv
+
 pipx_install 3.11 python-kasa python-vipaccess
+
+mkdir "${HOME}/home"
+(
+  cd "${HOME}/home"
+
+  pyenv local "$(ensure_pyenv_version 3.11)"
+  goenv local "$(ensure_goenv_version 1.19)"
+)
