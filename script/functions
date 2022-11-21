@@ -112,11 +112,20 @@ function ensure_command() {
 }
 
 function enable_pyenv() {
-  if ! command -v pyenv >/dev/null; then
-    export PYENV_ROOT="${HOME}/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-  fi
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
+  eval "$(pyenv init -)"
+}
+
+function enable_goenv() {
+  export GOENV_ROOT="${HOME}/.goenv"
+  export PATH="${GOENV_ROOT}/bin:${PATH}"
+  eval "$(goenv init -)"
+}
+
+function enable_jenv() {
+  export PATH="${HOME}/.jenv/bin:${PATH}"
+  eval "$(jenv init -)"
 }
 
 # pipx_install takes a version of Python installed via pyenv & installs a list of pipx packages with that version
@@ -127,13 +136,52 @@ function pipx_install() {
   to_install=${1}
   shift
 
-  pyenv install --skip-existing "$(pyenv latest --known "${to_install}")"
-
   local version
-  version=$(pyenv latest "${to_install}")
+  version=$(ensure_pyenv_version "${to_install}")
   local py_bin
   py_bin=$(PYENV_VERSION=${version} pyenv prefix)/bin/python
   for package in "$@"; do
     pipx install "${package}" --python "${py_bin}"
+  done
+}
+
+function ensure_pyenv_version() {
+  ensure_command "pyenv"
+
+  local to_install
+  to_install=${1}
+
+  # avoid outputing to stdout as the following line indicates the installed version, for later use
+  pyenv install --skip-existing "$(pyenv latest --known "${to_install}")" >/dev/null
+  pyenv latest "${to_install}"
+}
+
+function ensure_goenv_version() {
+  ensure_command "goenv"
+
+  local to_install
+  to_install=${1}
+
+  # avoid outputing to stdout as the following line indicates the installed version, for later use
+  goenv install --skip-existing "$(goenv install -l | grep "${to_install}" | tail -1 | tr -d '[:space:]')" >/dev/null
+  goenv install -l | grep "${to_install}" | tail -1 | tr -d '[:space:]'
+}
+
+# jenv_sync_versions makes sure that all installed JDKs are added to jenv
+function jenv_sync_versions() {
+  ensure_command "jenv"
+
+  for dir in /Library/Java/JavaVirtualMachines/*; do
+    jenv add "$dir/Contents/Home"
+  done
+}
+
+function jenv_enable_plugins() {
+  jenvplugins=(maven gradle export)
+
+  for jenvplugin in "${jenvplugins[@]}"; do
+    if [[ ! -L "${HOME}/.jenv/plugins/${jenvplugin}" ]]; then
+      jenv enable-plugin "${jenvplugin}"
+    fi
   done
 }
