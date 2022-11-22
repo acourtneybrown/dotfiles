@@ -28,6 +28,7 @@ actions:
 config:
   backup: true
   create: true
+  force_chmod: true
   link_dotfile_default: link
   link_on_import: link
   dotpath: dotfiles
