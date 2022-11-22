@@ -6,11 +6,6 @@ cd "$(dirname "${0}")/.."
 # shellcheck disable=SC1091
 . script/functions
 
-# Set up dotdrop dependencies
-git submodule update --init --recursive
-
-script/setup-dotdrop-venv.sh
-
 # Install oh-my-zsh
 if [ ! -d ~/.oh-my-zsh ]; then
   if command -v curl >/dev/null; then
@@ -53,7 +48,7 @@ done
 
 script/extract-onepassword-secrets.sh
 
-./dotdrop.sh install --force --profile="${PROFILE}"
+dotdrop install --force --profile="${PROFILE}" --cfg config.yaml
 
 for extra in "${@}"; do
   if [ -f "./script/bootstrap-${extra}" ]; then
