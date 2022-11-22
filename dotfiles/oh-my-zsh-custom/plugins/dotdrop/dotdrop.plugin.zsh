@@ -4,6 +4,5 @@
 fpath+=$(pwd)
 
 function dotdrop() {
-  # "{{@@ _dotdrop_dotpath @@}}/../dotdrop.sh" "${@}"
-  dotdrop.sh --cfg "{{@@ _dotdrop_dotpath @@}}/config.yaml"
+  /usr/local/bin/dotdrop --cfg "{{@@ _dotdrop_dotpath @@}}/config.yaml" "${@}"
 }
