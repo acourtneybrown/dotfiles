@@ -53,7 +53,6 @@ Items in *italics* require manual intervention currently.
 
 Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `confluent`).
 
-1. setup `dotdrop` environment & dependencies
 1. setup `.ssh` directory
 1. create `dotdrop` profile if necessary & install
 1. install `oh-my-zsh`

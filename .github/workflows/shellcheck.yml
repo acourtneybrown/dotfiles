@@ -26,7 +26,7 @@ jobs:
           excludes+=("! -path \"*./${dir}/*\"")
           excludes+=("! -path \"*/${dir}/*\"")
         done
-        for file in dotdrop.sh zshrc; do
+        for file in zshrc; do
           echo "::debug:: Adding file '${file}' to excludes"
           excludes+=("! -name \"${file}\"")
         done
