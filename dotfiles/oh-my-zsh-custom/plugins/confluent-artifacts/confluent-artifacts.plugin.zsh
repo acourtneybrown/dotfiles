@@ -41,7 +41,9 @@
 #   fi
 # fi
 
+# shellcheck disable=SC1083
 export ARTIFACTORY_USERNAME={{@@ artifactory_user @@}}
+# shellcheck disable=SC1083
 export ARTIFACTORY_PASSWORD={{@@ artifactory_password @@}}
 
 alias ecr_login="gimme-aws-creds --profile devprod-prod && aws ecr get-login-password --region us-west-2 --profile devprod-prod | docker login --username AWS --password-stdin 519856050701.dkr.ecr.us-west-2.amazonaws.com"
