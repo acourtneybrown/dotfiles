@@ -14,7 +14,7 @@ enable_goenv
 
 pipx_install 3.11 python-kasa python-vipaccess
 
-mkdir "${HOME}/personal"
+mkdir -p "${HOME}/personal"
 (
   cd "${HOME}/personal"
 
