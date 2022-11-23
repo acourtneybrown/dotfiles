@@ -211,26 +211,6 @@ profiles:
   abrown-confluent.notcharlie.com:
     include:
       - abrown-confluent
-  cara-mbp:
-    include:
-      - default
-      - mac
-  cara-mbp.local:
-    include:
-      - cara-mbp
-  cara-mbp.notcharlie.com:
-    include:
-      - cara-mbp
-  carters-air:
-    include:
-      - default
-      - mac
-  carters-air.local:
-    include:
-      - carters-air
-  carters-air.notcharlie.com:
-    include:
-      - carters-air
   exhubber:
     include:
       - default
