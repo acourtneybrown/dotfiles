@@ -6,6 +6,7 @@ cd "$(dirname "${0}")/.."
 # shellcheck disable=SC1091
 . script/functions
 
+extract_gpg_key acourtneybrown@gmail.com
 ensure_brewfile_installed Brewfile.personal
 
 enable_pyenv

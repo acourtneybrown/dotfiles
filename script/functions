@@ -185,3 +185,29 @@ function jenv_enable_plugins() {
     fi
   done
 }
+
+function op_get_file() {
+  if [ -f "${HOME}/${2}" ]; then
+    echo "${2} already exists."
+    return
+  fi
+  echo "Extracting ${2}..."
+  op document get "${1}" --output "${HOME}/${2}"
+  chmod 600 "${HOME}/${2}"
+}
+
+function extract_gpg_key() {
+  local key
+  key="${1}"
+
+  # shellcheck disable=SC2174
+  mkdir -p -m 700 ~/.gnupg
+
+  ensure_command "gpg"
+  if ! gpg --list-keys | grep -q "${key}"; then
+    op_get_file "${key}.private.gpg-key" .gnupg/"${key}.private.gpg-key"
+    op item get "${key}.private.gpg-key passphrase" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${key}.private.gpg-key"
+  else
+    echo "key for ${key} already imported"
+  fi
+}
