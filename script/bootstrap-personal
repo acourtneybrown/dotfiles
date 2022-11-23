@@ -6,6 +6,7 @@ cd "$(dirname "${0}")/.."
 # shellcheck disable=SC1091
 . script/functions
 
+extract_gpg_key acourtneybrown@gmail.com
 ensure_brewfile_installed Brewfile.personal
 
 enable_pyenv
@@ -13,7 +14,7 @@ enable_goenv
 
 pipx_install 3.11 python-kasa python-vipaccess
 
-mkdir "${HOME}/personal"
+mkdir -p "${HOME}/personal"
 (
   cd "${HOME}/personal"
 
