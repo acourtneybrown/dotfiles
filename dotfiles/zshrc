@@ -125,13 +125,13 @@ plugins+=(
 plugins=(
   evalcache
 
-  {{@@ if mac @@}}
+{%@@ if mac @@%}
   homebrew
-  {{@@ endif @@}}
+{%@@ endif @@%}
 
-  {{@@ if linux @@}}
+{%@@ if linux @@%}
   linuxbrew
-  {{@@ endif @@}}
+{%@@ endif @@%}
 
   $plugins
 )
