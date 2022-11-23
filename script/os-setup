@@ -26,15 +26,11 @@ if is_mac; then
   # MacOS customization script
   script/macos
 
-  # install homebrew
-  script/install-homebrew.sh
   # install LaunchDaemon to ensure mosh is added to fw allow list
   script/install-fix-mosh.sh
 
   # ensure that NFS options are set
   script/update-nfs.sh
-
-  [ -z "${SKIP_BUNDLE}" ] && ensure_brewfile_installed
 elif is_linux; then
   # On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
   if [ -f /etc/locale.gen ]; then
@@ -42,8 +38,6 @@ elif is_linux; then
     sudo locale-gen en_US.UTF-8
     sudo update-locale en_US.UTF-8
   fi
-
-  script/install-linuxbrew.sh
-
-  [ -z "${SKIP_BUNDLE}" ] && ensure_brewfile_installed Brewfile.linux
 fi
+
+install_homebrew

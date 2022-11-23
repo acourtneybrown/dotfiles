@@ -211,3 +211,24 @@ function extract_gpg_key() {
     echo "key for ${key} already imported"
   fi
 }
+
+function install_homebrew() {
+  if is_linux; then
+    case $(lsb_release --id --short) in
+    Raspbian | Debian | Ubuntu)
+      sudo apt -y -q install build-essential procps curl file git
+      ;;
+    esac
+  fi
+
+  download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
+    41d5eb515a76b43e192259fde18e6cd683ea8b6a3d7873bcfc5065ab5b12235c |
+    /tmp/install.sh
+
+  bash -c /tmp/install.sh
+  rm /tmp/install.sh
+
+  export PATH="/usr/local/bin:/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
+  echo "Updating Homebrew:"
+  brew update
+}

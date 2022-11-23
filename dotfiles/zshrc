@@ -122,22 +122,19 @@ plugins+=(
 )
 {%@@ endif @@%}
 
-case $(uname -s) in
-Linux)
-  plugins=(
-    evalcache
-    linuxbrew
-    $plugins
-  )
-  ;;
-Darwin)
-  plugins=(
-    evalcache
-    homebrew
-    $plugins
-  )
-  ;;
-esac
+plugins=(
+  evalcache
+
+  {{@@ if mac @@}}
+  homebrew
+  {{@@ endif @@}}
+
+  {{@@ if linux @@}}
+  linuxbrew
+  {{@@ endif @@}}
+
+  $plugins
+)
 
 if [ -d "$ZSH" ]; then
   source "$ZSH/oh-my-zsh.sh"
