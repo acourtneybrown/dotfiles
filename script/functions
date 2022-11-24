@@ -60,6 +60,14 @@ function sudo_check_then_alive() {
   sudo_keepalive
 }
 
+function check_sha256() {
+  if is_mac; then
+    shasum -a 256 "${@}"
+  else
+    sha256sum "${@}"
+  fi
+}
+
 function download_and_verify() {
   local url
   local sha256
@@ -74,7 +82,7 @@ function download_and_verify() {
   tempout=$(mktemp /tmp/curl.XXXXXX)
   echo "${sha256} -" >"${tempfile}"
 
-  if curl -fLsS "${url}" | tee "${tempout}" | sha256sum -c "${tempfile}"; then
+  if curl -fLsS "${url}" | tee "${tempout}" | check_sha256 -c "${tempfile}"; then
     mv "${tempout}" "${output}"
   else
     echo "Hash did not match"
