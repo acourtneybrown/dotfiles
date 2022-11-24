@@ -74,7 +74,7 @@ function download_and_verify() {
   tempout=$(mktemp /tmp/curl.XXXXXX)
   echo "${sha256} -" >"${tempfile}"
 
-  if curl -fLs "${url}" | tee "${tempout}" | sha256sum -c "${tempfile}"; then
+  if curl -fLsS "${url}" | tee "${tempout}" | sha256sum -c "${tempfile}"; then
     mv "${tempout}" "${output}"
   else
     echo "Hash did not match"
@@ -222,10 +222,10 @@ function install_homebrew() {
   fi
 
   download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    41d5eb515a76b43e192259fde18e6cd683ea8b6a3d7873bcfc5065ab5b12235c |
+    41d5eb515a76b43e192259fde18e6cd683ea8b6a3d7873bcfc5065ab5b12235c \
     /tmp/install.sh
 
-  bash -c /tmp/install.sh
+  bash -c "$(/tmp/install.sh)"
   rm /tmp/install.sh
 
   export PATH="/usr/local/bin:/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
