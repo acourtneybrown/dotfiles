@@ -301,8 +301,6 @@ profiles:
       - f_zshenv
       - f_zshrc
   shared:
-    include:
-      - init
     dotfiles:
       - d_bin
       - d_config_gh
@@ -320,7 +318,5 @@ profiles:
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc
-  init:
-    dotfiles:
       - fake_goenv
       - fake_pyenv
