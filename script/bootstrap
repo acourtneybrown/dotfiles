@@ -58,8 +58,8 @@ for named in "${included_profiles[@]}"; do
     "after::${named}"
   fi
 done
-op signout
-op account forget --all
 
 # Install all dotfiles into the home directory
 dotdrop install --force --profile="${PROFILE}" --cfg config.yaml
+op signout
+op account forget --all
