@@ -73,22 +73,22 @@ function download_and_verify() {
   local sha256
   local output
   local tempfile
-  local tempout
 
   url="${1}"
   sha256="${2}"
   output="${3}"
   tempfile=$(mktemp /tmp/sha256.XXXXXX)
-  tempout=$(mktemp /tmp/curl.XXXXXX)
-  echo "${sha256} -" >"${tempfile}"
+  echo "${sha256}  $(basename "${output}")" >"${tempfile}"
 
-  if curl -fLsS "${url}" | tee "${tempout}" | check_sha256 -c "${tempfile}"; then
-    mv "${tempout}" "${output}"
-  else
-    echo "Hash did not match"
-  fi
+  (
+    cd "$(dirname "${output}")"
+    curl -fLsS --output "${output}" "${url}"
+    if ! check_sha256 -c "${tempfile}"; then
+      echo "Hash did not match"
+    fi
+  )
 
-  rm -f "${tempfile}" "${tempout}"
+  rm -f "${tempfile}"
 }
 
 function ensure_brew_in_path() {
