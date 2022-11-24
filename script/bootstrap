@@ -5,7 +5,7 @@ cd "$(dirname "${0}")/.."
 
 # shellcheck disable=SC1091
 . script/functions
-
+sudo_check_then_alive
 install_homebrew
 ensure_brewfile_installed
 
