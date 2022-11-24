@@ -3,13 +3,6 @@
 function profile::default() {
   ensure_brewfile_installed
 
-  extract_gpg_key acourtneybrown@gmail.com
-
-  enable_pyenv
-  enable_goenv
-  pyenv global "$(ensure_pyenv_version 3.11)"
-  goenv global "$(ensure_goenv_version 1.19)"
-
   # Install oh-my-zsh
   if [ ! -d ~/.oh-my-zsh ]; then
     if command -v curl >/dev/null; then
@@ -22,10 +15,17 @@ function profile::default() {
   fi
 }
 
+function after::default() {
+  extract_gpg_key acourtneybrown@gmail.com
+
+  enable_pyenv
+  enable_goenv
+  pyenv global "$(ensure_pyenv_version 3.11)"
+  goenv global "$(ensure_goenv_version 1.19)"
+}
+
 function profile::confluent() {
   ensure_brewfile_installed Brewfile.confluent
-
-  extract_gpg_key abrown@confluent.io
 
   enable_pyenv
   enable_goenv
@@ -46,6 +46,10 @@ function profile::confluent() {
 
     jenv local 11.0
   )
+}
+
+function after::confluent() {
+  extract_gpg_key abrown@confluent.io
 }
 
 function profile::personal() {
