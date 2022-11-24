@@ -91,6 +91,12 @@ function download_and_verify() {
   rm -f "${tempfile}" "${tempout}"
 }
 
+function ensure_brew_in_path() {
+  if ! command -v brew >/dev/null; then
+    export PATH="/usr/local/bin:/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
+  fi
+}
+
 function ensure_brewfile_installed() {
   local brewfile
   if [[ "${#}" -lt 1 ]]; then
@@ -99,7 +105,8 @@ function ensure_brewfile_installed() {
     brewfile="${1}"
   fi
 
-  if [[ -f ${brewfile} ]] && is_mac; then
+  ensure_brew_in_path
+  if [[ -f ${brewfile} ]]; then
     # We can't control if some packages fail to install, so don't exit out
     set +e
     brew bundle check --file "${brewfile}" >/dev/null 2>&1 || {
@@ -233,10 +240,10 @@ function install_homebrew() {
     41d5eb515a76b43e192259fde18e6cd683ea8b6a3d7873bcfc5065ab5b12235c \
     /tmp/install.sh
 
-  bash -c "$(/tmp/install.sh)"
+  NONINTERACTIVE=1 bash /tmp/install.sh
   rm /tmp/install.sh
 
-  export PATH="/usr/local/bin:/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
   echo "Updating Homebrew:"
+  ensure_brew_in_path
   brew update
 }

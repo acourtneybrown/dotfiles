@@ -17,6 +17,9 @@ if [ ! -d ~/.oh-my-zsh ]; then
   fi
 fi
 
+install_homebrew
+ensure_brewfile_installed
+
 # Install all dotfiles into the home directory
 ensure_command "yq"
 
@@ -36,14 +39,16 @@ function ensure_profile_includes() {
 # create a new profile (if necessary) and include default
 PROFILE=$(hostname)
 ensure_profile_includes "${PROFILE}" default
-is_mac && ensure_profile_includes "${PROFILE}" mac
-is_linux && ensure_profile_includes "${PROFILE}" linux
+is_mac && ensure_profile_includes "${PROFILE}" mac && ensure_brewfile_installed Brewfile.mac
+is_linux && ensure_profile_includes "${PROFILE}" linux && ensure_brewfile_installed Brewfile.linux
 
 for extra in "${@}"; do
   ensure_profile_includes "${PROFILE}" "${extra}"
 done
 
 dotdrop install --force --profile="${PROFILE}" --cfg config.yaml
+
+extract_gpg_key acourtneybrown@gmail.com
 
 for extra in "${@}"; do
   if [ -f "./script/bootstrap-${extra}" ]; then

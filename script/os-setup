@@ -39,5 +39,3 @@ elif is_linux; then
     sudo update-locale en_US.UTF-8
   fi
 fi
-
-install_homebrew
