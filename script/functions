@@ -218,8 +218,7 @@ function extract_gpg_key() {
   # shellcheck disable=SC2174
   mkdir -p -m 700 ~/.gnupg
 
-  ensure_command "gpg"
-  if ! gpg --list-keys | grep -q "${key}"; then
+  if ! "$(brew --prefix)/opt/gnupg/bin/gpg" --list-keys | grep -q "${key}"; then
     op_get_file "${key}.private.gpg-key" .gnupg/"${key}.private.gpg-key"
     op item get "${key}.private.gpg-key passphrase" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${key}.private.gpg-key"
   else

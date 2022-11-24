@@ -23,8 +23,9 @@ function profile::default() {
 }
 
 function profile::confluent() {
-  extract_gpg_key abrown@confluent.io
   ensure_brewfile_installed Brewfile.confluent
+
+  extract_gpg_key abrown@confluent.io
 
   enable_pyenv
   enable_goenv
