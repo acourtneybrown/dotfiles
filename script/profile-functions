@@ -1,0 +1,73 @@
+# shellcheck shell=bash
+
+function profile::default() {
+  ensure_brewfile_installed
+
+  extract_gpg_key acourtneybrown@gmail.com
+
+  enable_pyenv
+  enable_goenv
+  pyenv global "$(ensure_pyenv_version 3.11)"
+  goenv global "$(ensure_goenv_version 1.19)"
+
+  # Install oh-my-zsh
+  if [ ! -d ~/.oh-my-zsh ]; then
+    if command -v curl >/dev/null; then
+      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
+    elif command -v wget >/dev/null; then
+      sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -) --unattended"
+    else
+      abort "Either curl or wget must be installed"
+    fi
+  fi
+}
+
+function profile::confluent() {
+  extract_gpg_key abrown@confluent.io
+  ensure_brewfile_installed Brewfile.confluent
+
+  enable_pyenv
+  enable_goenv
+  enable_jenv
+
+  pipx_install 3.8 confluent-release-tools
+  pipx_install 3.9 confluent-ci-tools
+  pipx_install 3.11 ansible-hostmanager bump2version gimme-aws-creds gql tox
+
+  mkdir -p "${HOME}/confluent"
+  (
+    cd "${HOME}/confluent" || return
+    pyenv local "$(ensure_pyenv_version 3.9)"
+    goenv local "$(ensure_goenv_version 1.18)"
+
+    jenv_sync_versions
+    jenv_enable_plugins
+
+    jenv local 11.0
+  )
+}
+
+function profile::personal() {
+  ensure_brewfile_installed Brewfile.personal
+
+  enable_pyenv
+  enable_goenv
+
+  pipx_install 3.11 python-kasa python-vipaccess
+
+  mkdir -p "${HOME}/personal"
+  (
+    cd "${HOME}/personal" || return
+
+    pyenv local "$(ensure_pyenv_version 3.11)"
+    goenv local "$(ensure_goenv_version 1.19)"
+  )
+}
+
+function profile::linux() {
+  ensure_brewfile_installed Brewfile.linux
+}
+
+function profile::mac() {
+  ensure_brewfile_installed Brewfile.mac
+}

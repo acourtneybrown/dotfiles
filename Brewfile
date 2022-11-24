@@ -1,6 +1,5 @@
 tap "buo/cask-upgrade"
 tap "homebrew/bundle"
-tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 
