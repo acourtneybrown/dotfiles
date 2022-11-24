@@ -6,17 +6,6 @@ cd "$(dirname "${0}")/.."
 # shellcheck disable=SC1091
 . script/functions
 
-# Install oh-my-zsh
-if [ ! -d ~/.oh-my-zsh ]; then
-  if command -v curl >/dev/null; then
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-  elif command -v wget >/dev/null; then
-    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -) --unattended"
-  else
-    abort "Either curl or wget must be installed"
-  fi
-fi
-
 install_homebrew
 ensure_brewfile_installed
 
@@ -60,3 +49,14 @@ enable_pyenv
 enable_goenv
 pyenv global "$(ensure_pyenv_version 3.11)"
 goenv global "$(ensure_goenv_version 1.19)"
+
+# Install oh-my-zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+  if command -v curl >/dev/null; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
+  elif command -v wget >/dev/null; then
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -) --unattended"
+  else
+    abort "Either curl or wget must be installed"
+  fi
+fi
