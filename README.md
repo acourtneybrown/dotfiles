@@ -5,6 +5,8 @@ In addition, it relies on [`deadc0de6/dotdrop`](https://github.com/deadc0de6/dot
 
 ## Setup
 
+### macOS
+
 On macOS, it may be necessary to run `xcode-select --install` if the `git` command is not initially available on the Mac.
 
 When first setting up a (new?) machine, run the `os-setup` script.
@@ -12,6 +14,12 @@ When first setting up a (new?) machine, run the `os-setup` script.
 Run the `bootstrap` script to install the dotfiles into the relevant location(s).
 
 Ultimately, both of these files should be idempotent and thus can be used to re-run to update as needed.
+
+### Linux
+
+The `os-setup` script currently works for Debian-based Linux distros, including Ubuntu & Raspbian.
+
+It may be necessary to install git (`sudo apt install git`) in order to clone the repo for installation.
 
 ### General flow
 
