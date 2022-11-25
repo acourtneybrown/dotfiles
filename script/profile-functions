@@ -89,6 +89,11 @@ function profile::linux() {
 
     sudo apt update && sudo apt install 1password-cli
   fi
+  sudo apt update && sudo apt install zsh
+}
+
+function after::linux() {
+  chsh -s /usr/bin/zsh
 }
 
 function profile::mac() {
