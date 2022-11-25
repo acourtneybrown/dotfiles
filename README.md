@@ -15,6 +15,8 @@ Run the `bootstrap` script to install the dotfiles into the relevant location(s)
 
 Ultimately, both of these files should be idempotent and thus can be used to re-run to update as needed.
 
+**Note: During an initial installation run, you may see complaints about `_*env_install` dotdrop actions failing, but those are _not_ consequential.**
+
 ### Linux
 
 The `os-setup` script currently works for Debian-based Linux distros, including Ubuntu & Raspbian.
