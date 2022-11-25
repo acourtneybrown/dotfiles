@@ -202,6 +202,9 @@ function jenv_enable_plugins() {
 }
 
 function op_get_file() {
+  if [ -s "${HOME}/${2}" ]; then
+    echo "${2} is empty, removing it."
+  fi
   if [ -f "${HOME}/${2}" ]; then
     echo "${2} already exists."
     return
