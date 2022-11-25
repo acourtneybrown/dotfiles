@@ -5,20 +5,18 @@ cd "$(dirname "${0}")/.."
 
 # shellcheck disable=SC1091
 . script/functions
+# shellcheck disable=SC1091
+. script/profile-functions
 
-# Install oh-my-zsh
-if [ ! -d ~/.oh-my-zsh ]; then
-  if command -v curl >/dev/null; then
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-  elif command -v wget >/dev/null; then
-    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -) --unattended"
-  else
-    abort "Either curl or wget must be installed"
-  fi
+if ! command -v brew >/dev/null; then
+  echo "need sudo permission for initial Homebrew install"
+  is_mac && sudo_check_then_alive
+  install_homebrew
 fi
 
-# Install all dotfiles into the home directory
-ensure_command "yq"
+if ! command -v yq >/dev/null; then
+  brew install yq
+fi
 
 function ensure_profile_includes() {
   local profile
@@ -33,25 +31,36 @@ function ensure_profile_includes() {
   fi
 }
 
-# create a new profile (if necessary) and include default
-PROFILE=$(hostname)
-ensure_profile_includes "${PROFILE}" default
-is_mac && ensure_profile_includes "${PROFILE}" mac
-is_linux && ensure_profile_includes "${PROFILE}" linux
-
-for extra in "${@}"; do
-  ensure_profile_includes "${PROFILE}" "${extra}"
+for action in _goenv_install _pyenv_install; do
+  bash -c "$(yq eval ".actions.${action}" config.yaml)"
 done
 
-dotdrop install --force --profile="${PROFILE}" --cfg config.yaml
-
-for extra in "${@}"; do
-  if [ -f "./script/bootstrap-${extra}" ]; then
-    "./script/bootstrap-${extra}"
+# create a new profile (if necessary), including default & os-specific ones
+PROFILE=$(hostname)
+included_profiles=(default)
+if is_mac; then
+  included_profiles+=(mac)
+fi
+if is_linux; then
+  included_profiles+=(linux)
+fi
+included_profiles+=("${@}")
+for named in "${included_profiles[@]}"; do
+  ensure_profile_includes "${PROFILE}" "${named}"
+  if command -v "profile::${named}"; then
+    "profile::${named}"
   fi
 done
 
-enable_pyenv
-enable_goenv
-pyenv global "$(ensure_pyenv_version 3.11)"
-goenv global "$(ensure_goenv_version 1.19)"
+eval "$(op signin)"
+for named in "${included_profiles[@]}"; do
+  ensure_profile_includes "${PROFILE}" "${named}"
+  if command -v "after::${named}"; then
+    "after::${named}"
+  fi
+done
+
+# Install all dotfiles into the home directory
+dotdrop install --force --profile="${PROFILE}" --cfg config.yaml
+op signout --account my --forget
+op account forget --all

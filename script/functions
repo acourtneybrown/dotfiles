@@ -60,27 +60,41 @@ function sudo_check_then_alive() {
   sudo_keepalive
 }
 
+function check_sha256() {
+  if is_mac; then
+    shasum -a 256 "${@}"
+  else
+    sha256sum "${@}"
+  fi
+}
+
 function download_and_verify() {
   local url
   local sha256
   local output
   local tempfile
-  local tempout
 
   url="${1}"
   sha256="${2}"
   output="${3}"
   tempfile=$(mktemp /tmp/sha256.XXXXXX)
-  tempout=$(mktemp /tmp/curl.XXXXXX)
-  echo "${sha256} -" >"${tempfile}"
+  echo "${sha256}  $(basename "${output}")" >"${tempfile}"
 
-  if curl -fLs "${url}" | tee "${tempout}" | sha256sum -c "${tempfile}"; then
-    mv "${tempout}" "${output}"
-  else
-    echo "Hash did not match"
+  (
+    cd "$(dirname "${output}")"
+    curl -fLsS --output "${output}" "${url}"
+    if ! check_sha256 -c "${tempfile}"; then
+      echo "Hash did not match"
+    fi
+  )
+
+  rm -f "${tempfile}"
+}
+
+function ensure_brew_in_path() {
+  if ! command -v brew >/dev/null; then
+    export PATH="/usr/local/bin:/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
   fi
-
-  rm -f "${tempfile}" "${tempout}"
 }
 
 function ensure_brewfile_installed() {
@@ -91,7 +105,8 @@ function ensure_brewfile_installed() {
     brewfile="${1}"
   fi
 
-  if [[ -f ${brewfile} ]] && is_mac; then
+  ensure_brew_in_path
+  if [[ -f ${brewfile} ]]; then
     # We can't control if some packages fail to install, so don't exit out
     set +e
     brew bundle check --file "${brewfile}" >/dev/null 2>&1 || {
@@ -187,13 +202,20 @@ function jenv_enable_plugins() {
 }
 
 function op_get_file() {
-  if [ -f "${HOME}/${2}" ]; then
+  local output
+  output="${HOME}/${2}"
+
+  if [ -f "${output}" -a ! -s "${output}" ]; then
+    echo "${2} is empty, removing it."
+    rm "${output}"
+  fi
+  if [ -f "${output}" ]; then
     echo "${2} already exists."
     return
   fi
   echo "Extracting ${2}..."
-  op document get "${1}" --output "${HOME}/${2}"
-  chmod 600 "${HOME}/${2}"
+  op document get "${1}" --output "${output}"
+  chmod 600 "${output}"
 }
 
 function extract_gpg_key() {
@@ -203,11 +225,31 @@ function extract_gpg_key() {
   # shellcheck disable=SC2174
   mkdir -p -m 700 ~/.gnupg
 
-  ensure_command "gpg"
-  if ! gpg --list-keys | grep -q "${key}"; then
+  if ! "$(brew --prefix)/opt/gnupg/bin/gpg" --list-keys | grep -q "${key}"; then
     op_get_file "${key}.private.gpg-key" .gnupg/"${key}.private.gpg-key"
     op item get "${key}.private.gpg-key passphrase" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${key}.private.gpg-key"
   else
     echo "key for ${key} already imported"
   fi
+}
+
+function install_homebrew() {
+  if is_linux; then
+    case $(lsb_release --id --short) in
+    Raspbian | Debian | Ubuntu)
+      sudo apt -y -q install build-essential procps curl file git
+      ;;
+    esac
+  fi
+
+  download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
+    41d5eb515a76b43e192259fde18e6cd683ea8b6a3d7873bcfc5065ab5b12235c \
+    /tmp/install.sh
+
+  NONINTERACTIVE=1 bash /tmp/install.sh
+  rm /tmp/install.sh
+
+  echo "Updating Homebrew:"
+  ensure_brew_in_path
+  brew update
 }
