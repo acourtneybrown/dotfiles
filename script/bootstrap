@@ -9,8 +9,8 @@ cd "$(dirname "${0}")/.."
 . script/profile-functions
 
 if ! command -v brew >/dev/null; then
-  is_mac && sudo_check_then_alive
   echo "need sudo permission for initial Homebrew install"
+  is_mac && sudo_check_then_alive
   install_homebrew
 fi
 
