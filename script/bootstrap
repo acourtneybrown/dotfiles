@@ -62,5 +62,5 @@ done
 
 # Install all dotfiles into the home directory
 dotdrop install --force --profile="${PROFILE}" --cfg config.yaml
-op signout
+op signout --account my --forget
 op account forget --all
