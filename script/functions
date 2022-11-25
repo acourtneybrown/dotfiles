@@ -205,7 +205,7 @@ function op_get_file() {
   local output
   output="${HOME}/${2}"
 
-  if [ ! -s "${output}" ]; then
+  if [ -f "${output}" -a ! -s "${output}" ]; then
     echo "${2} is empty, removing it."
     rm "${output}"
   fi
