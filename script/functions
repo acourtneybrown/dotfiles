@@ -237,7 +237,7 @@ function install_homebrew() {
   if is_linux; then
     case $(lsb_release --id --short) in
     Raspbian | Debian | Ubuntu)
-      sudo apt -y -q install build-essential procps curl file git
+      sudo apt update && sudo apt -y -q install build-essential procps curl file git
       ;;
     esac
   fi
