@@ -1,7 +1,5 @@
 # shellcheck shell=bash
 
-printf 'My location: %s\n' "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
-
 function update_nfs() {
   if ! grep 'nfs.client.mount.options = intr,locallocks,nfc' /etc/nfs.conf; then
     echo 'nfs.client.mount.options = intr,locallocks,nfc' | sudo tee -a /etc/nfs.conf
