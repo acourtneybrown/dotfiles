@@ -6,7 +6,7 @@ set -e
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
-. functions
+. install.sh
 
 # Install the Xcode Command Line Tools.
 if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
@@ -48,4 +48,4 @@ if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
   fi
 fi
 
-xcode_license
+install::xcode_license

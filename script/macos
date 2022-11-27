@@ -5,15 +5,16 @@ set -x
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
-. lib/functions
-sudo_keepalive
+. lib/util.sh
+
+util::sudo_keepalive
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
-[ "${USER}" = "root" ] && abort "Run macos as yourself, not root."
-groups | grep -q admin || abort "Add ${USER} to the admin group."
+[ "${USER}" = "root" ] && util::abort "Run macos as yourself, not root."
+groups | grep -q admin || util::abort "Add ${USER} to the admin group."
 
 ###############################################################################
 # General UI/UX                                                               #
