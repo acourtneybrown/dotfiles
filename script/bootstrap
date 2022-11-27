@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
-. lib/utils.sh
+. lib/util.sh
 # shellcheck disable=SC1091
 . lib/profile.sh
 
