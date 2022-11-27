@@ -6,7 +6,7 @@ set -e
 cd "$(dirname "${0}")/.."
 
 # shellcheck disable=SC1091
-. script/functions
+. script/lib/functions
 
 # Install the Xcode Command Line Tools.
 if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then

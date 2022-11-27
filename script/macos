@@ -5,7 +5,7 @@ set -x
 cd "$(dirname "${0}")/.."
 
 # shellcheck disable=SC1091
-. script/functions
+. script/lib/functions
 sudo_keepalive
 
 # Close any open System Preferences panes, to prevent them from overriding

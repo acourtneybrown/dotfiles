@@ -1,5 +1,11 @@
 # shellcheck shell=bash
 
+function update_nfs() {
+  if ! grep 'nfs.client.mount.options = intr,locallocks,nfc' /etc/nfs.conf; then
+    echo 'nfs.client.mount.options = intr,locallocks,nfc' | sudo tee -a /etc/nfs.conf
+  fi
+}
+
 # install_updates checks for macOS software updates & installs them
 function install_updates() {
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
@@ -237,7 +243,7 @@ function install_homebrew() {
   if is_linux; then
     case $(lsb_release --id --short) in
     Raspbian | Debian | Ubuntu)
-      sudo apt update && sudo apt -y -q install build-essential procps curl file git
+      sudo apt -y -q install build-essential procps curl file git
       ;;
     esac
   fi

@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "${0}")/.."
 
 # shellcheck disable=SC1091
-. script/functions
+. script/lib/functions
 sudo_check_then_alive
 
 if is_mac; then
@@ -19,16 +19,13 @@ if is_mac; then
   [ -z "${SKIP_UPDATES}" ] && install_updates
 
   # install xcode command line tools
-  script/install-xcode.sh
+  script/lib/install-xcode.sh
 
   # MacOS customization script
   script/macos
 
-  # install LaunchDaemon to ensure mosh is added to fw allow list
-  script/install-fix-mosh.sh
-
   # ensure that NFS options are set
-  script/update-nfs.sh
+  update_nfs
 elif is_linux; then
   # On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
   if [ -f /etc/locale.gen ]; then
@@ -36,4 +33,6 @@ elif is_linux; then
     sudo locale-gen en_US.UTF-8
     sudo update-locale en_US.UTF-8
   fi
+
+  sudo apt update
 fi

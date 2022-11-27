@@ -4,9 +4,9 @@ set -e
 cd "$(dirname "${0}")/.."
 
 # shellcheck disable=SC1091
-. script/functions
+. script/lib/functions
 # shellcheck disable=SC1091
-. script/profile-functions
+. script/lib/profile-functions
 
 if ! command -v brew >/dev/null; then
   echo "need sudo permission for initial Homebrew install"

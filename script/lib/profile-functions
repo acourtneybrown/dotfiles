@@ -89,7 +89,7 @@ function profile::linux() {
 
     sudo apt update && sudo apt install -qy 1password-cli
   fi
-  sudo apt update && sudo apt install -qy zsh
+  sudo apt install -qy zsh
 }
 
 function after::linux() {
@@ -98,4 +98,9 @@ function after::linux() {
 
 function profile::mac() {
   ensure_brewfile_installed Brewfile.mac
+}
+
+function after::mac() {
+  # install LaunchDaemon to ensure mosh is added to fw allow list
+  script/lib/install-fix-mosh.sh
 }
