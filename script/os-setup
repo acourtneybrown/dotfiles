@@ -12,7 +12,7 @@ util::sudo_check_then_alive
 
 [ -z "${SKIP_UPDATES}" ] && install::os_updates
 
-if is_mac; then
+if util::is_mac; then
   echo "Enable Full Disk access for Terminal.  System Preferences > Security & Privacy > Privacy"
   echo "Do this first, before running the script again."
   read -r _
@@ -22,7 +22,7 @@ if is_mac; then
   read -r _
 
   # install xcode command line tools
-  lib/install-xcode.sh
+  lib/install-xcode
 
   # MacOS customization script
   ./macos
