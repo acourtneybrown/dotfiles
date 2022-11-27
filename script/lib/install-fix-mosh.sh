@@ -4,7 +4,7 @@
 
 set -e
 
-SOURCE="$(cd "$(dirname "${0}")" && pwd)"
+SOURCE="$(cd "$(dirname "$(readlink -f "${0}")")" && pwd)"
 
 echo "Installing LaunchDaemon & script for mosh..."
 

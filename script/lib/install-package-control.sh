@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 set -e
-cd "$(dirname "${0}")/.."
+cd "$(dirname "$(readlink -f "${0}")")"
 
 # shellcheck disable=SC1091
-. script/lib/functions
+. functions
 
 if [[ ${#} != 1 ]]; then
   abort "Must specify root directory for SublimeText configuration"
