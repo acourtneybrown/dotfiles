@@ -107,6 +107,11 @@ function profile::linux() {
     sudo apt update && sudo apt install -qy 1password-cli
   fi
   sudo apt install -qy zsh
+
+  # Install recommended dependencies for Python builds - https://github.com/pyenv/pyenv/wiki#troubleshooting--faq
+  sudo apt install -qy make build-essential libssl-dev zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 }
 
 function profile::linux_after() {
