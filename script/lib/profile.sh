@@ -1,9 +1,9 @@
 # shellcheck shell=bash
 
-# shellcheck disable=SC1091
-. util.sh
+PROFILE_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-PROFILE_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+# shellcheck disable=SC1091
+. "${PROFILE_SH_DIR}/util.sh"
 
 function profile::extract_gpg_key() {
   local key
@@ -21,7 +21,7 @@ function profile::extract_gpg_key() {
 }
 
 function profile::default() {
-  profile::ensure_brewfile_installed "${PROFILE_DIR}/resources/Brewfile"
+  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
   # Install oh-my-zsh
   if [ ! -d ~/.oh-my-zsh ]; then
@@ -45,7 +45,7 @@ function profile::default_after() {
 }
 
 function profile::confluent() {
-  profile::ensure_brewfile_installed "${PROFILE_DIR}/resources/Brewfile.confluent"
+  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.confluent"
 
   profile::enable_pyenv
   profile::enable_goenv
@@ -73,7 +73,7 @@ function profile::confluent_after() {
 }
 
 function profile::personal() {
-  profile::ensure_brewfile_installed "${PROFILE_DIR}/resources/Brewfile.personal"
+  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.personal"
 
   profile::enable_pyenv
   profile::enable_goenv
@@ -90,7 +90,7 @@ function profile::personal() {
 }
 
 function profile::linux() {
-  profile::ensure_brewfile_installed "${PROFILE_DIR}/resources/Brewfile.linux"
+  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.linux"
 
   if [ -z "$(apt -qq list 1password-cli)" ]; then
     # Install 1Password CLI (https://developer.1password.com/docs/cli/get-started#install)
@@ -122,12 +122,12 @@ function profile::linux_after() {
 }
 
 function profile::mac() {
-  profile::ensure_brewfile_installed "${PROFILE_DIR}/resources/Brewfile.mac"
+  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
 }
 
 function profile::mac_after() {
   # install LaunchDaemon to ensure mosh is added to fw allow list
-  "${PROFILE_DIR}/install-fix-mosh"
+  "${PROFILE_SH_DIR}/install-fix-mosh"
 }
 
 function profile::ensure_brew_in_path() {

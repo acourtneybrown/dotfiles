@@ -1,7 +1,9 @@
 # shellcheck shell=bash
 
+INSTALL_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
 # shellcheck disable=SC1091
-. util.sh
+. "${INSTALL_SH_DIR}/util.sh"
 
 function install::mac_update_nfs() {
   if ! grep 'nfs.client.mount.options = intr,locallocks,nfc' /etc/nfs.conf; then
