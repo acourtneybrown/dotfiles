@@ -53,14 +53,14 @@ for named in "${included_profiles[@]}"; do
 done
 
 eval "$(op signin)"
+
+# Install all dotfiles into the home directory
+dotdrop install --force --profile="${PROFILE}" --cfg ../config.yaml
 for named in "${included_profiles[@]}"; do
   ensure_profile_includes "${PROFILE}" "${named}"
   if command -v "profile::${named}_after"; then
     "after::${named}"
   fi
 done
-
-# Install all dotfiles into the home directory
-dotdrop install --force --profile="${PROFILE}" --cfg ../config.yaml
 op signout --account my --forget
 op account forget --all
