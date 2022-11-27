@@ -6,8 +6,13 @@ function update_nfs() {
   fi
 }
 
-# install_updates checks for macOS software updates & installs them
 function install_updates() {
+  is_mac && install::mac_updates
+  is_linux && install::linux_updates
+}
+
+# install:mac_updates checks for macOS software updates & installs them
+function install:mac_updates() {
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
     echo "No software updates to install"
   else
@@ -15,6 +20,17 @@ function install_updates() {
     sudo softwareupdate --install --all
     xcode_license
   fi
+}
+
+function install::linux_updates() {
+  case $(lsb_release --id --short) in
+  Raspbian | Debian | Ubuntu)
+    sudo apt update && sudo apt upgrade
+    ;;
+  *)
+    abort "Only Debian-based Linux distros are supported"
+    ;;
+  esac
 }
 
 # xcode_license checks if the Xcode license is agreed to and agree if not.
@@ -227,7 +243,10 @@ function install_homebrew() {
   if is_linux; then
     case $(lsb_release --id --short) in
     Raspbian | Debian | Ubuntu)
-      sudo apt -y -q install build-essential procps curl file git
+      sudo apt install -qy build-essential procps curl file git
+      ;;
+    *)
+      abort "Only Debian-based Linux distros are supported"
       ;;
     esac
   fi

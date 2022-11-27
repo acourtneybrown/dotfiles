@@ -7,6 +7,8 @@ cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 . lib/functions
 sudo_check_then_alive
 
+[ -z "${SKIP_UPDATES}" ] && install_updates
+
 if is_mac; then
   echo "Enable Full Disk access for Terminal.  System Preferences > Security & Privacy > Privacy"
   echo "Do this first, before running the script again."
@@ -15,8 +17,6 @@ if is_mac; then
   open -a 'App Store.app'
   echo "Login to Apple ID.  Press <enter> when done."
   read -r _
-
-  [ -z "${SKIP_UPDATES}" ] && install_updates
 
   # install xcode command line tools
   lib/install-xcode.sh
@@ -33,6 +33,4 @@ elif is_linux; then
     sudo locale-gen en_US.UTF-8
     sudo update-locale en_US.UTF-8
   fi
-
-  sudo apt update
 fi
