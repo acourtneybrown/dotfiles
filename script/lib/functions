@@ -1,5 +1,7 @@
 # shellcheck shell=bash
 
+printf 'My location: %s\n' "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
 function update_nfs() {
   if ! grep 'nfs.client.mount.options = intr,locallocks,nfc' /etc/nfs.conf; then
     echo 'nfs.client.mount.options = intr,locallocks,nfc' | sudo tee -a /etc/nfs.conf
@@ -104,12 +106,11 @@ function ensure_brew_in_path() {
 }
 
 function ensure_brewfile_installed() {
-  local brewfile
   if [[ "${#}" -lt 1 ]]; then
-    brewfile=Brewfile
-  else
-    brewfile="${1}"
+    abort "Must specify Brewfile to install"
   fi
+  local brewfile
+  brewfile="${1}"
 
   ensure_brew_in_path
   if [[ -f ${brewfile} ]]; then
