@@ -4,7 +4,7 @@
 
 set -e
 
-SOURCE="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+RESOURCES="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/resources
 
 echo "Installing LaunchDaemon & script for mosh..."
 
@@ -12,8 +12,8 @@ echo "Installing LaunchDaemon & script for mosh..."
 mkdir -p "/Users/Shared/.startup"
 
 # put files in correct locations for LaunchDaemon
-sudo cp "${SOURCE}/mosh.sh" "/Users/Shared/.startup/mosh.sh"
-sudo cp "${SOURCE}/com.mosh.plist" "/Library/LaunchDaemons/com.mosh.plist"
+sudo cp "${RESOURCES}/mosh.sh" "/Users/Shared/.startup/mosh.sh"
+sudo cp "${RESOURCES}/com.mosh.plist" "/Library/LaunchDaemons/com.mosh.plist"
 
 # create correct file permissions
 sudo chmod 644 "/Users/Shared/.startup/mosh.sh"
