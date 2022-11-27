@@ -25,7 +25,8 @@ function install:mac_updates() {
 function install::linux_updates() {
   case $(lsb_release --id --short) in
   Raspbian | Debian | Ubuntu)
-    sudo apt update && sudo apt upgrade
+    sudo apt autoremove
+    sudo apt update && sudo apt upgrade -qy
     ;;
   *)
     abort "Only Debian-based Linux distros are supported"
