@@ -25,7 +25,7 @@ function install:mac_updates() {
 function install::linux_updates() {
   case $(lsb_release --id --short) in
   Raspbian | Debian | Ubuntu)
-    sudo apt autoremove
+    sudo apt autoremove -qy
     sudo apt update && sudo apt upgrade -qy
     ;;
   *)
