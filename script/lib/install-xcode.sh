@@ -3,7 +3,7 @@
 # Adapted from https://github.com/MikeMcQuaid/strap
 
 set -e
-cd "$(dirname "$(readlink -f "$0")")"
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
 . functions
