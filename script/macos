@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # macos — originally: https://mths.be/macos & https://github.com/MikeMcQuaid/strap
 set -e
-set -x
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
