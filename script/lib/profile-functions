@@ -104,5 +104,5 @@ function profile::mac() {
 
 function after::mac() {
   # install LaunchDaemon to ensure mosh is added to fw allow list
-  script/lib/install-fix-mosh.sh
+  "${PROFILE_DIR}/install-fix-mosh.sh"
 }
