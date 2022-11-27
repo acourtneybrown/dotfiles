@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 set -e
-cd "$(dirname "${0}")/.."
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
-. script/functions
+. lib/functions
 # shellcheck disable=SC1091
-. script/profile-functions
+. lib/profile-functions
 
 if ! command -v brew >/dev/null; then
   echo "need sudo permission for initial Homebrew install"
@@ -25,14 +25,14 @@ function ensure_profile_includes() {
   profile=${1}
   include=${2}
 
-  present=$(yq e "[\"${include}\"] - .profiles.\"${profile}\".include | length == 0" config.yaml)
+  present=$(yq e "[\"${include}\"] - .profiles.\"${profile}\".include | length == 0" ../config.yaml)
   if [[ ${present} == "false" ]]; then
-    yq eval ".profiles.\"${profile}\".\"include\" += [\"${include}\"]" -i config.yaml
+    yq eval ".profiles.\"${profile}\".\"include\" += [\"${include}\"]" -i ../config.yaml
   fi
 }
 
 for action in _goenv_install _pyenv_install; do
-  bash -c "$(yq eval ".actions.${action}" config.yaml)"
+  bash -c "$(yq eval ".actions.${action}" ../config.yaml)"
 done
 
 # create a new profile (if necessary), including default & os-specific ones
@@ -53,14 +53,14 @@ for named in "${included_profiles[@]}"; do
 done
 
 eval "$(op signin)"
-for named in "${included_profiles[@]}"; do
-  ensure_profile_includes "${PROFILE}" "${named}"
-  if command -v "after::${named}"; then
-    "after::${named}"
-  fi
-done
 
 # Install all dotfiles into the home directory
-dotdrop install --force --profile="${PROFILE}" --cfg config.yaml
+dotdrop install --force --profile="${PROFILE}" --cfg ../config.yaml
+for named in "${included_profiles[@]}"; do
+  ensure_profile_includes "${PROFILE}" "${named}"
+  if command -v "profile::${named}_after"; then
+    "profile::${named}_after"
+  fi
+done
 op signout --account my --forget
 op account forget --all

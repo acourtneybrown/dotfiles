@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 set -e
-cd "$(dirname "${0}")/.."
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
-. script/functions
+. lib/functions
 sudo_check_then_alive
+
+[ -z "${SKIP_UPDATES}" ] && install_updates
 
 if is_mac; then
   echo "Enable Full Disk access for Terminal.  System Preferences > Security & Privacy > Privacy"
@@ -16,19 +18,14 @@ if is_mac; then
   echo "Login to Apple ID.  Press <enter> when done."
   read -r _
 
-  [ -z "${SKIP_UPDATES}" ] && install_updates
-
   # install xcode command line tools
-  script/install-xcode.sh
+  lib/install-xcode.sh
 
   # MacOS customization script
-  script/macos
-
-  # install LaunchDaemon to ensure mosh is added to fw allow list
-  script/install-fix-mosh.sh
+  ./macos
 
   # ensure that NFS options are set
-  script/update-nfs.sh
+  update_nfs
 elif is_linux; then
   # On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
   if [ -f /etc/locale.gen ]; then

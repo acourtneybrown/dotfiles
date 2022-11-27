@@ -1,0 +1,2 @@
+brew "docker"
+brew "openssl@1.1", link: false

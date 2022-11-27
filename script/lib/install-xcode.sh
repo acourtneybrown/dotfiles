@@ -3,10 +3,10 @@
 # Adapted from https://github.com/MikeMcQuaid/strap
 
 set -e
-cd "$(dirname "${0}")/.."
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
-. script/functions
+. functions
 
 # Install the Xcode Command Line Tools.
 if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then

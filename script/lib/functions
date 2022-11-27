@@ -1,7 +1,18 @@
 # shellcheck shell=bash
 
-# install_updates checks for macOS software updates & installs them
+function update_nfs() {
+  if ! grep 'nfs.client.mount.options = intr,locallocks,nfc' /etc/nfs.conf; then
+    echo 'nfs.client.mount.options = intr,locallocks,nfc' | sudo tee -a /etc/nfs.conf
+  fi
+}
+
 function install_updates() {
+  is_mac && install::mac_updates
+  is_linux && install::linux_updates
+}
+
+# install:mac_updates checks for macOS software updates & installs them
+function install:mac_updates() {
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
     echo "No software updates to install"
   else
@@ -9,6 +20,18 @@ function install_updates() {
     sudo softwareupdate --install --all
     xcode_license
   fi
+}
+
+function install::linux_updates() {
+  case $(lsb_release --id --short) in
+  Raspbian | Debian | Ubuntu)
+    sudo apt autoremove -qy
+    sudo apt update && sudo apt upgrade -qy
+    ;;
+  *)
+    abort "Only Debian-based Linux distros are supported"
+    ;;
+  esac
 }
 
 # xcode_license checks if the Xcode license is agreed to and agree if not.
@@ -98,12 +121,11 @@ function ensure_brew_in_path() {
 }
 
 function ensure_brewfile_installed() {
-  local brewfile
   if [[ "${#}" -lt 1 ]]; then
-    brewfile=Brewfile
-  else
-    brewfile="${1}"
+    abort "Must specify Brewfile to install"
   fi
+  local brewfile
+  brewfile="${1}"
 
   ensure_brew_in_path
   if [[ -f ${brewfile} ]]; then
@@ -218,26 +240,14 @@ function op_get_file() {
   chmod 600 "${output}"
 }
 
-function extract_gpg_key() {
-  local key
-  key="${1}"
-
-  # shellcheck disable=SC2174
-  mkdir -p -m 700 ~/.gnupg
-
-  if ! "$(brew --prefix)/opt/gnupg/bin/gpg" --list-keys | grep -q "${key}"; then
-    op_get_file "${key}.private.gpg-key" .gnupg/"${key}.private.gpg-key"
-    op item get "${key}.private.gpg-key passphrase" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${key}.private.gpg-key"
-  else
-    echo "key for ${key} already imported"
-  fi
-}
-
 function install_homebrew() {
   if is_linux; then
     case $(lsb_release --id --short) in
     Raspbian | Debian | Ubuntu)
-      sudo apt update && sudo apt -y -q install build-essential procps curl file git
+      sudo apt install -qy build-essential procps curl file git
+      ;;
+    *)
+      abort "Only Debian-based Linux distros are supported"
       ;;
     esac
   fi
