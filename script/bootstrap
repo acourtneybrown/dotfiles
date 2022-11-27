@@ -47,7 +47,7 @@ function main() {
   fi
   included_profiles+=("${@}")
   for named in "${included_profiles[@]}"; do
-    profile::ensure_profile_includes "${PROFILE}" "${named}"
+    ensure_profile_includes "${PROFILE}" "${named}"
     if command -v "profile::${named}"; then
       "profile::${named}"
     fi
@@ -58,7 +58,7 @@ function main() {
   # Install all dotfiles into the home directory
   dotdrop install --force --profile="${PROFILE}" --cfg ../config.yaml
   for named in "${included_profiles[@]}"; do
-    profile::ensure_profile_includes "${PROFILE}" "${named}"
+    ensure_profile_includes "${PROFILE}" "${named}"
     if command -v "profile::${named}_after"; then
       "profile::${named}_after"
     fi

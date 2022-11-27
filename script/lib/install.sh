@@ -2,7 +2,7 @@
 
 INSTALL_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
-# shellcheck disable=SC1091
+# shellcheck disable=SC1090,SC1091
 . "${INSTALL_SH_DIR}/util.sh"
 
 function install::mac_update_nfs() {
