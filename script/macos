@@ -37,7 +37,7 @@ read -r LOGIN_NAME
 echo "Enter your email address (for login screen message). Leave empty to not change."
 read -r LOGIN_EMAIL
 if [ -n "${LOGIN_NAME}" ] && [ -n "${LOGIN_EMAIL}" ]; then
-  LOGIN_TEXT=$(escape "Found this computer? Please contact ${LOGIN_NAME} at ${LOGIN_EMAIL}.")
+  LOGIN_TEXT=$(util::escape "Found this computer? Please contact ${LOGIN_NAME} at ${LOGIN_EMAIL}.")
   echo "${LOGIN_TEXT}" | grep -q '[()]' && LOGIN_TEXT="'${LOGIN_TEXT}'"
   sudo defaults write /Library/Preferences/com.apple.loginwindow \
     LoginwindowText \
