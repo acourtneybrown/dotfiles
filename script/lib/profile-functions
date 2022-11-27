@@ -33,10 +33,6 @@ function profile::confluent() {
   enable_goenv
   enable_jenv
 
-  pipx_install 3.8 confluent-release-tools
-  pipx_install 3.9 confluent-ci-tools
-  pipx_install 3.11 ansible-hostmanager bump2version gimme-aws-creds gql tox
-
   mkdir -p "${HOME}/confluent"
   (
     cd "${HOME}/confluent" || return
@@ -52,6 +48,10 @@ function profile::confluent() {
 
 function after::confluent() {
   extract_gpg_key abrown@confluent.io
+
+  pipx_install 3.8 confluent-release-tools
+  pipx_install 3.9 confluent-ci-tools
+  pipx_install 3.11 ansible-hostmanager bump2version gimme-aws-creds gql tox
 }
 
 function profile::personal() {
