@@ -223,21 +223,6 @@ function op_get_file() {
   chmod 600 "${output}"
 }
 
-function extract_gpg_key() {
-  local key
-  key="${1}"
-
-  # shellcheck disable=SC2174
-  mkdir -p -m 700 ~/.gnupg
-
-  if ! "$(brew --prefix)/opt/gnupg/bin/gpg" --list-keys | grep -q "${key}"; then
-    op_get_file "${key}.private.gpg-key" .gnupg/"${key}.private.gpg-key"
-    op item get "${key}.private.gpg-key passphrase" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${key}.private.gpg-key"
-  else
-    echo "key for ${key} already imported"
-  fi
-}
-
 function install_homebrew() {
   if is_linux; then
     case $(lsb_release --id --short) in

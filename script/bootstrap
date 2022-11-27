@@ -55,7 +55,7 @@ done
 eval "$(op signin)"
 for named in "${included_profiles[@]}"; do
   ensure_profile_includes "${PROFILE}" "${named}"
-  if command -v "after::${named}"; then
+  if command -v "profile::${named}_after"; then
     "after::${named}"
   fi
 done
