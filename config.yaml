@@ -262,10 +262,6 @@ profiles:
       mac: false
       personal: false
     dynvariables:
-      artifactory_host: op item get "JFrog Artifactory" --format json | jq -r '.urls[0].href'
-      artifactory_password: op item get "JFrog Artifactory" --fields "API Key"
-      artifactory_path: op item get "JFrog Artifactory" --fields "Root path"
-      artifactory_user: op item get "JFrog Artifactory" --fields username
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
       github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
       hub_cli_token: op item get "GitHub" --fields "hub cli token"
