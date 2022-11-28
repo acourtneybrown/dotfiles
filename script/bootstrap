@@ -21,6 +21,12 @@ function ensure_profile_includes() {
   fi
 }
 
+function list_includes() {
+  local profile
+  profile="${1}"
+  yq eval ".profiles.\"${profile}\".include[]" ../config.yaml
+}
+
 function main() {
   if ! command -v brew >/dev/null; then
     echo "need sudo permission for initial Homebrew install"
@@ -48,6 +54,9 @@ function main() {
   included_profiles+=("${@}")
   for named in "${included_profiles[@]}"; do
     ensure_profile_includes "${PROFILE}" "${named}"
+  done
+
+  for named in $(list_includes "${PROFILE}"); do
     if command -v "profile::${named}"; then
       "profile::${named}"
     fi
@@ -57,7 +66,8 @@ function main() {
 
   # Install all dotfiles into the home directory
   dotdrop install --force --profile="${PROFILE}" --cfg ../config.yaml
-  for named in "${included_profiles[@]}"; do
+
+  for named in $(list_includes "${PROFILE}"); do
     ensure_profile_includes "${PROFILE}" "${named}"
     if command -v "profile::${named}_after"; then
       "profile::${named}_after"
