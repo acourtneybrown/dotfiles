@@ -40,8 +40,8 @@ function profile::default_after() {
 
   profile::enable_pyenv
   profile::enable_goenv
-  pyenv global "$(ensure_pyenv_version 3.11)"
-  goenv global "$(ensure_goenv_version 1.19)"
+  pyenv global "$(profile::ensure_pyenv_version 3.11)"
+  goenv global "$(profile::ensure_goenv_version 1.19)"
 }
 
 function profile::confluent() {
@@ -54,8 +54,8 @@ function profile::confluent() {
   mkdir -p "${HOME}/confluent"
   (
     cd "${HOME}/confluent" || return
-    pyenv local "$(ensure_pyenv_version 3.9)"
-    goenv local "$(ensure_goenv_version 1.18)"
+    pyenv local "$(profile::ensure_pyenv_version 3.9)"
+    goenv local "$(profile::ensure_goenv_version 1.18)"
 
     profile::jenv_sync_versions
     profile::jenv_enable_plugins
@@ -84,8 +84,8 @@ function profile::personal() {
   (
     cd "${HOME}/personal" || return
 
-    pyenv local "$(ensure_pyenv_version 3.11)"
-    goenv local "$(ensure_goenv_version 1.19)"
+    pyenv local "$(profile::ensure_pyenv_version 3.11)"
+    goenv local "$(profile::ensure_goenv_version 1.19)"
   )
 }
 
