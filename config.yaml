@@ -1,6 +1,6 @@
 actions:
   add_authorized_keys: cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
-  install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control.sh ~/\"{{@@ sublime_home @@}}\""
+  install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/\"{{@@ sublime_home @@}}\""
   _pyenv_install: |
     if [ -d ~/.pyenv ]; then
       git -C ~/.pyenv pull origin;

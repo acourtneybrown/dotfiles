@@ -4,12 +4,15 @@ set -e
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
-. lib/functions
-sudo_check_then_alive
+. lib/util.sh
+# shellcheck disable=SC1091
+. lib/install.sh
 
-[ -z "${SKIP_UPDATES}" ] && install_updates
+util::sudo_check_then_alive
 
-if is_mac; then
+[ -z "${SKIP_UPDATES}" ] && install::os_updates
+
+if util::is_mac; then
   echo "Enable Full Disk access for Terminal.  System Preferences > Security & Privacy > Privacy"
   echo "Do this first, before running the script again."
   read -r _
@@ -19,14 +22,14 @@ if is_mac; then
   read -r _
 
   # install xcode command line tools
-  lib/install-xcode.sh
+  lib/install-xcode
 
   # MacOS customization script
   ./macos
 
   # ensure that NFS options are set
-  update_nfs
-elif is_linux; then
+  install::mac_update_nfs
+elif util::is_linux; then
   # On Raspberry Pi, ensure en_US.UTF-8 locale available & installed
   if [ -f /etc/locale.gen ]; then
     sudo sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
