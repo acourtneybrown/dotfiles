@@ -193,8 +193,13 @@ function profile::pipx_install() {
   version=$(profile::ensure_pyenv_version "${to_install}")
   local py_bin
   py_bin=$(PYENV_VERSION=${version} pyenv prefix)/bin/python
-  for package in "$@"; do
-    pipx install "${package}" --python "${py_bin}"
+  local installed
+  installed=$(pipx list --json | jq '.venvs')
+
+  for package in "${@}"; do
+    if [[ $(jq "has(\"${package}\")" <<<"${installed}") == "false" ]]; then
+      pipx install "${package}" --python "${py_bin}"
+    fi
   done
 }
 
