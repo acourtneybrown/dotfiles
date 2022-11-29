@@ -1,3 +1,6 @@
 # shellcheck disable=SC2148
 
-export SSH_AUTH_SOCK="{{@@ ssh_agent @@}}"
+# shellcheck disable=SC2157
+if [[ -n "{{@@ ssh_agent @@}}" ]]; then
+  export SSH_AUTH_SOCK="{{@@ ssh_agent @@}}"
+fi
