@@ -265,6 +265,7 @@ profiles:
       linux: false
       mac: false
       personal: false
+      ssh_agent: ''
     dynvariables:
       artifactory_host: op item get "JFrog Artifactory" --format json | jq -r '.urls[0].href'
       artifactory_password: op item get "JFrog Artifactory" --fields "API Key"
