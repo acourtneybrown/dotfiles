@@ -230,13 +230,15 @@ profiles:
     dotfiles:
       - d_user
       - f_finicky.js
-  linux:
+  linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
-      linux: true
       ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
     dotfiles:
       - d_user
+  linux:
+    variables:
+      linux: true
   personal:
     variables:
       personal: true
@@ -261,6 +263,7 @@ profiles:
       linux: false
       mac: false
       personal: false
+      ssh_agent: ''
     dynvariables:
       artifactory_host: op item get "JFrog Artifactory" --format json | jq -r '.urls[0].href'
       artifactory_password: op item get "JFrog Artifactory" --fields "API Key"

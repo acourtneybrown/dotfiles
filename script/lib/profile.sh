@@ -121,6 +121,23 @@ function profile::linux_after() {
   chsh -s /usr/bin/zsh
 }
 
+function profile::linux_desktop() {
+  if [[ -z "$(apt -qq list sublime-text)" ]]; then
+    # Install Sublime Text (https://www.sublimetext.com/docs/linux_repositories.html#apt)
+    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg |
+      gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg >/dev/null
+
+    echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+
+    sudo apt-get update && sudo apt-get install sublime-text
+  fi
+  sudo apt install -qy 1password
+}
+
+function profile::linux_desktop_after() {
+  profile::op_forget_cli_login
+}
+
 function profile::mac() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
 }
@@ -128,6 +145,8 @@ function profile::mac() {
 function profile::mac_after() {
   # install LaunchDaemon to ensure mosh is added to fw allow list
   "${PROFILE_SH_DIR}/install-fix-mosh"
+
+  profile::op_forget_cli_login
 }
 
 function profile::ensure_brew_in_path() {
@@ -259,6 +278,11 @@ function profile::op_get_file() {
   echo "Extracting ${2}..."
   op document get "${1}" --output "${output}"
   chmod 600 "${output}"
+}
+
+function profile::op_forget_cli_login() {
+  op signout --account my --forget
+  op account forget --all
 }
 
 function profile::install_homebrew() {
