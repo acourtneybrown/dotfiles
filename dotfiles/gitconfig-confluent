@@ -19,5 +19,5 @@
 
 [user]
 
-    email = abrown@confluent.io
+    email = {{@@ okta_username @@}}@confluent.io
     signingkey = DCCDC77C400AC72C

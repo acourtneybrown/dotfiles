@@ -2,32 +2,32 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                        https://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <mirrors>
-        <mirror>
-        <id>confluent-artifactory-central</id>
-        <mirrorOf>default,central,confluent</mirrorOf>
-        <url>{{@@ artifactory_host @@}}{{@@ artifactory_path @@}}</url>
+  <mirrors>
+    <mirror>
+        <id>confluent-codeartifact-internal</id>
+        <mirrorOf>central,java.net,findify,jcenter</mirrorOf>
+        <url>https://confluent-519856050701.d.codeartifact.us-west-2.amazonaws.com/maven/maven/</url>
         </mirror>
     </mirrors>
     <servers>
         <server>
-            <id>confluent-artifactory-central</id>
-            <username>{{@@ artifactory_user @@}}</username>
-            <password>{{@@ artifactory_password @@}}</password>
+            <id>confluent-codeartifact-central</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
         </server>
         <server>
-            <id>confluent-artifactory-stabilization</id>
-            <username>{{@@ artifactory_user @@}}</username>
-            <password>{{@@ artifactory_password @@}}</password>
+            <id>confluent-codeartifact-internal</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
         </server>
     </servers>
     <profiles>
         <profile>
-            <id>confluent-artifactory</id>
+            <id>confluent-codeartifact</id>
             <repositories>
                 <repository>
-                    <id>confluent-artifactory-stabilization</id>
-                    <url>{{@@ artifactory_host @@}}/confluent/maven-releases-stabilization/</url>
+                    <id>confluent-codeartifact-central</id>
+                    <url>https://confluent-519856050701.dp.confluent.io/maven/maven-public/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -36,8 +36,8 @@
                     </snapshots>
                 </repository>
                 <repository>
-                    <id>confluent-artifactory-central</id>
-                    <url>{{@@ artifactory_host @@}}{{@@ artifactory_path @@}}</url>
+                    <id>confluent-codeartifact-internal</id>
+                    <url>https://confluent-519856050701.d.codeartifact.us-west-2.amazonaws.com/maven/maven/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -48,19 +48,21 @@
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
-                    <id>confluent-artifactory-stabilization</id>
-                    <url>{{@@ artifactory_host @@}}/confluent/maven-releases-stabilization/</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
+                    <id>confluent-codeartifact-central</id>
+                    <name>Confluent Plugin Repository</name>
+                    <url>https://confluent-519856050701.dp.confluent.io/maven/maven-public/</url>
+                    <layout>default</layout>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
                 </pluginRepository>
                 <pluginRepository>
-                    <id>confluent-artifactory-central</id>
+                    <id>confluent-codeartifact-internal</id>
                     <name>Confluent Plugin Repository</name>
-                    <url>{{@@ artifactory_host @@}}{{@@ artifactory_path @@}}</url>
+                    <url>https://confluent-519856050701.d.codeartifact.us-west-2.amazonaws.com/maven/maven/</url>
                     <layout>default</layout>
                     <snapshots>
                         <enabled>true</enabled>
@@ -73,6 +75,6 @@
         </profile>
     </profiles>
     <activeProfiles>
-        <activeProfile>confluent-artifactory</activeProfile>
+        <activeProfile>confluent-codeartifact</activeProfile>
     </activeProfiles>
 </settings>
