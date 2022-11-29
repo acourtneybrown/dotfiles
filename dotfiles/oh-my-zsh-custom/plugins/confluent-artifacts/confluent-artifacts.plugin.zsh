@@ -26,6 +26,7 @@ function maven_login() {
     return
   fi
 
+  mkdir -p "$(dirname $CA_TOKEN_FILE)"
   if [[ ! -f ${CA_TOKEN_FILE} ]]; then
     touch ${CA_TOKEN_FILE}
   fi
@@ -36,7 +37,6 @@ function maven_login() {
   export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain confluent --region us-west-2 --query authorizationToken --output text --profile devprod-prod)
   sed -i'.bak' "s/mavenPassword=.*/mavenPassword=$CODEARTIFACT_AUTH_TOKEN/" ~/.gradle/gradle.properties
   sed -i'.bak' "s/cflt.password=.*/cflt.password=${CODEARTIFACT_AUTH_TOKEN}/" ~/.config/coursier/credentials.properties
-  mkdir -p ~/.config/confluent
   echo "${CODEARTIFACT_AUTH_TOKEN}" >${CA_TOKEN_FILE}
 }
 alias maven-login=maven_login
