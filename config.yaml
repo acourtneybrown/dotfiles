@@ -59,7 +59,7 @@ dotfiles:
   d_git_template:
     src: git-template
     dst: ~/.git-template
-    link: link_children
+    link: nolink
   d_gradle_init_d:
     src: gradle_init.d
     dst: ~/.gradle/init.d
