@@ -2,8 +2,10 @@ NoHostAuthenticationForLocalhost yes
 CanonicalizeHostname yes
 CanonicalDomains notcharlie.com
 
+{% if ssh_agent %}
 Host *
   IdentityAgent "{{@@ ssh_agent @@}}"
+{% endif %}
 
 # Personal
 Host *.notcharlie.com
