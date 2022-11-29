@@ -231,8 +231,6 @@ profiles:
       - d_user
       - f_finicky.js
   linux_desktop:
-    include:
-      - linux
     variables:
       sublime_home: .config/sublime-text-3
       ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
