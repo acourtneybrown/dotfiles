@@ -73,8 +73,6 @@ function main() {
       "profile::${named}_after"
     fi
   done
-  op signout --account my --forget
-  op account forget --all
 }
 
 main "${@}"

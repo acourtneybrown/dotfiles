@@ -38,7 +38,7 @@ function util::sudo_check_then_alive() {
 }
 
 function util::check_sha256() {
-  if is_mac; then
+  if util::is_mac; then
     shasum -a 256 "${@}"
   else
     sha256sum "${@}"
