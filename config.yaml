@@ -230,13 +230,17 @@ profiles:
     dotfiles:
       - d_user
       - f_finicky.js
-  linux:
+  linux_desktop:
+    include:
+      - linux
     variables:
       sublime_home: .config/sublime-text-3
-      linux: true
       ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
     dotfiles:
       - d_user
+  linux:
+    variables:
+      linux: true
   personal:
     variables:
       personal: true
