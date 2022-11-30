@@ -1,4 +1,4 @@
 github.com:
-- user: acourtneybrown
+- user: {{@@ github_account @@}}
   oauth_token: {{@@ hub_cli_token @@}}
   protocol: https

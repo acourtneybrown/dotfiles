@@ -71,7 +71,7 @@ module.exports = {
           /nytimes.com/,
           /wsj.com/,
         ]),
-        /^https:\/\/github.com\/acourtneybrown\/.*$/,
+        /^https:\/\/github.com\/{{@@ github_account @@}}\/.*$/,
       ],
       browser: "Safari"
     },
