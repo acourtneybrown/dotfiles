@@ -270,6 +270,11 @@ profiles:
       hub_cli_token: op item get "GitHub" --fields "hub cli token"
       okta_default_device_token: op item get "Okta" --fields "gimme-aws-creds device_token"
       okta_username: op item get "Okta" --field username
+      gpg_personal_email: op item get personal.private.gpg-key --field email
+      gpg_personal_name: op item get personal.private.gpg-key --field name
+      # gpg_personal_signingkey: gpg --list-secret-keys --keyid-format long | grep -B2 acourtneybrown@gmail.com | grep sec | sed 's".*/\([^ ]*\).*"\1"'
+      gpg_personal_signingkey: gpg --list-secret-keys --keyid-format long | grep -B2 "$({{@@ gpg_personal_email @@}})" | grep sec | sed 's".*/\([^ ]*\).*"\1"'
+      gpg_confluent_signingkey: gpg --list-secret-keys --keyid-format long | grep -B2 "$({{@@ okta_username @@}})@confluent.io" | grep sec | sed 's".*/\([^ ]*\).*"\1"'
     include:
       - zsh
   zsh:

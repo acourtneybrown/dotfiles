@@ -20,4 +20,4 @@
 [user]
 
     email = {{@@ okta_username @@}}@confluent.io
-    signingkey = DCCDC77C400AC72C
+    signingkey = {{@@ gpg_confluent_signingkey @@}}

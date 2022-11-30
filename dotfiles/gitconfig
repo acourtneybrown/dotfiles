@@ -158,9 +158,9 @@
 
 [user]
 
-	name = Adam Brown
-	email = acourtneybrown@gmail.com
-	signingkey = 92486DAB3FC7E2A0
+	name = {{@@ gpg_personal_name @@}}
+	email = {{@@ gpg_personal_email @@}}
+	signingkey = {{@@ gpg_personal_signingkey @@}}
 
 {%@@ if confluent @@%}
 [includeIf "gitdir/i:~/confluent/"]
