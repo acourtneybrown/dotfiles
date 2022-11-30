@@ -272,9 +272,8 @@ profiles:
       okta_username: op item get "Okta" --field username
       gpg_personal_email: op item get personal.private.gpg-key --field email
       gpg_personal_name: op item get personal.private.gpg-key --field name
-      # gpg_personal_signingkey: gpg --list-secret-keys --keyid-format long | grep -B2 acourtneybrown@gmail.com | grep sec | sed 's".*/\([^ ]*\).*"\1"'
-      gpg_personal_signingkey: gpg --list-secret-keys --keyid-format long | grep -B2 "$({{@@ gpg_personal_email @@}})" | grep sec | sed 's".*/\([^ ]*\).*"\1"'
-      gpg_confluent_signingkey: gpg --list-secret-keys --keyid-format long | grep -B2 "$({{@@ okta_username @@}})@confluent.io" | grep sec | sed 's".*/\([^ ]*\).*"\1"'
+      gpg_personal_signingkey: op item get personal.private.gpg-key --field signingkey
+      gpg_confluent_signingkey: op item get confluent.private.gpg-key --field signingkey
     include:
       - zsh
   zsh:
