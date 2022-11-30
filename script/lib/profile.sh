@@ -13,8 +13,10 @@ function profile::extract_gpg_key() {
   mkdir -p -m 700 ~/.gnupg
 
   if ! "$(brew --prefix)/opt/gnupg/bin/gpg" --list-keys | grep -q "${key}"; then
-    profile::op_get_file "${key}.private.gpg-key" .gnupg/"${key}.private.gpg-key"
-    op item get "${key}.private.gpg-key passphrase" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${key}.private.gpg-key"
+    local op_item
+    op_item="${key}.private.gpg-key"
+    profile::op_get_file "${op_item}" .gnupg/"${op_item}"
+    op item get "${op_item}" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${op_item}"
   else
     echo "key for ${key} already imported"
   fi
@@ -36,7 +38,7 @@ function profile::default() {
 }
 
 function profile::default_after() {
-  profile::extract_gpg_key acourtneybrown@gmail.com
+  profile::extract_gpg_key personal
 
   profile::enable_pyenv
   profile::enable_goenv
@@ -65,7 +67,8 @@ function profile::confluent() {
 }
 
 function profile::confluent_after() {
-  profile::extract_gpg_key abrown@confluent.io
+  profile::extract_gpg_key personal
+  profile::extract_gpg_key confluent
 
   profile::pipx_install 3.8 confluent-release-tools
   profile::pipx_install 3.9 confluent-ci-tools

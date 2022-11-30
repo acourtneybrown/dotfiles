@@ -89,7 +89,7 @@
 
 [github]
 
-	user = acourtneybrown
+	user = {{@@ github_account @@}}
 
 [gpg]
 
@@ -143,7 +143,7 @@
 	insteadOf = "git://github.com/"
 	insteadOf = https://github.com/
 
-[url "ssh://git@github.com/acourtneybrown/"]
+[url "ssh://git@github.com/{{@@ github_account @@}}/"]
 
 	insteadOf = "gha:"
 
@@ -153,14 +153,14 @@
 	insteadOf = "gist:"
 	insteadOf = "git://gist.github.com/"
 
-[url "https://github.com/acourtneybrown/"]
+[url "https://github.com/{{@@ github_account @@}}/"]
 	insteadOf = "jb-settings:"
 
 [user]
 
-	name = Adam Brown
-	email = acourtneybrown@gmail.com
-	signingkey = 92486DAB3FC7E2A0
+	name = {{@@ gpg_personal_name @@}}
+	email = {{@@ gpg_personal_email @@}}
+	signingkey = {{@@ gpg_personal_signingkey @@}}
 
 {%@@ if confluent @@%}
 [includeIf "gitdir/i:~/confluent/"]

@@ -1,7 +1,7 @@
 machine api.github.com
-    login acourtneybrown
+    login {{@@ github_account @@}}
     password {{@@ github_netrc_token @@}}
 
 machine github.com
-    login acourtneybrown
+    login {{@@ github_account @@}}
     password {{@@ github_netrc_token @@}}
