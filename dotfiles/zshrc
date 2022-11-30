@@ -107,6 +107,7 @@ plugins+=(
   bazel-custom
   cc-dotfiles
   confluent-artifacts
+  gcloud-custom
   gradle
   graphviz
   helm
@@ -125,13 +126,13 @@ plugins+=(
 plugins=(
   evalcache
 
-{%@@ if mac @@%}
+  {%@@ if mac @@%}
   homebrew
-{%@@ endif @@%}
+  {%@@ endif @@%}
 
-{%@@ if linux @@%}
+  {%@@ if linux @@%}
   linuxbrew
-{%@@ endif @@%}
+  {%@@ endif @@%}
 
   $plugins
 )
