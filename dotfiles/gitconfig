@@ -55,7 +55,6 @@
 
 [commit]
 
-	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = true
 
 {%@@ if mac @@%}
@@ -93,7 +92,6 @@
 
 [gpg]
 
-	program = /usr/local/bin/gpg
 	format = ssh
 
 [help]
