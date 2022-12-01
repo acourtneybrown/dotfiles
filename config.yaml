@@ -3,25 +3,25 @@ actions:
   install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/\"{{@@ sublime_home @@}}\""
   _pyenv_install: |
     if [ -d ~/.pyenv ]; then
-      git -C ~/.pyenv pull origin;
+      git -C ~/.pyenv pull --prune origin;
     else
       git clone https://github.com/pyenv/pyenv.git ~/.pyenv;
     fi
   _goenv_install: |
     if [ -d ~/.goenv ]; then
-      git -C ~/.goenv pull origin;
+      git -C ~/.goenv pull --prune origin;
     else
       git clone https://github.com/syndbg/goenv.git ~/.goenv;
     fi
   _nvm_install: |
     if [ -d ~/.nvm ]; then
-      git -C ~/.nvm pull origin;
+      git -C ~/.nvm pull --prune origin;
     else
       git clone https://github.com/nvm-sh/nvm.git ~/.nvm;
     fi
   _cc_dotfiles_install: |
     if [ -d ~/.cc-dotfiles ]; then
-      git -C ~/.cc-dotfiles pull origin;
+      git -C ~/.cc-dotfiles pull --prune origin;
     else
       git clone https://github.com/confluentinc/cc-dotfiles.git ~/.cc-dotfiles;
     fi
