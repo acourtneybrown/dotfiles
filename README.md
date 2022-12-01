@@ -68,7 +68,6 @@ Optionally takes any additional dotdrop profiles to add to the newly created mac
 1. install `oh-my-zsh`
 1. pull data from 1password
     1. *login to my.1password account*
-    1. pull gpg key from 1password
 1. run `bootstrap-<profile>` for any additional profiles specified as arguments
 
 ### `script/bootstrap-<profile>`

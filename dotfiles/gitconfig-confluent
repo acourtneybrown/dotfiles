@@ -19,5 +19,5 @@
 
 [user]
 
-    email = {{@@ okta_username @@}}@confluent.io
-    signingkey = {{@@ gpg_confluent_signingkey @@}}
+    email = {{@@ work_email @@}}
+    signingkey = {{@@ work_public_key @@}}
