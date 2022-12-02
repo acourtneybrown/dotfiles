@@ -5,7 +5,7 @@
   <mirrors>
     <mirror>
         <id>confluent-codeartifact-internal</id>
-        <mirrorOf>central,java.net,findify,jcenter</mirrorOf>
+        <mirrorOf>central,java.net,findify,jcenter,confluent</mirrorOf>
         <url>https://confluent-519856050701.d.codeartifact.us-west-2.amazonaws.com/maven/maven/</url>
         </mirror>
     </mirrors>
