@@ -310,3 +310,8 @@ profiles:
       - f_wgetrc
       - fake_goenv
       - fake_pyenv
+  ubuntu22-04vm:
+    include:
+      - default
+      - linux
+      - linux_desktop
