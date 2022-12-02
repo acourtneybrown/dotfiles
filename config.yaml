@@ -245,6 +245,7 @@ profiles:
   confluent:
     variables:
       confluent: true
+      gimme_aws_creds_mfa_type: webauthn
     dotfiles:
       - d_config_coursier
       - d_config_yapf
@@ -257,6 +258,11 @@ profiles:
       - f_pypirc
       - fake_cc_dotfiles
       - fake_nvm
+  confluent_totp:
+    variables:
+      gimme_aws_creds_mfa_type: "token:software:totp"
+    include:
+      - confluent
   default:
     variables:
       confluent: false
