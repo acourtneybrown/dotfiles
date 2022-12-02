@@ -50,12 +50,10 @@ cd .dotfiles
 1. [optional] install OS updates
 1. run `macos` script
 1. install xcode tools
-1. install homebrew/linuxbrew (& casks)
-1. install brew bundle (Brewfile)
 
 #### On Linux
-1. install Homebrew on Linux
-1. install brew bundle (Brewfile.linux)
+1. [optional] install OS updates
+2. Ensure en_US.UTF-8 locale is available & installed
 
 Items in *italics* require manual intervention currently.
 
@@ -63,17 +61,16 @@ Items in *italics* require manual intervention currently.
 
 Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `confluent`).
 
-1. setup `.ssh` directory
-1. create `dotdrop` profile if necessary & install
-1. install `oh-my-zsh`
-1. pull data from 1password
-    1. *login to my.1password account*
-    1. pull gpg key from 1password
-1. run `bootstrap-<profile>` for any additional profiles specified as arguments
+1. install homebrew/linuxbrew
+1. add profile & included profiles to dotdrop config
+1. for each profile, run the profile-specific installation
+1. `dotdrop install`
+1. for each profile, run the profile-specific after-installation
 
-### `script/bootstrap-<profile>`
+### `profile::<profile>` & `profile::<profile>_after`
 
-General approach for these files:
+General approach for these functions:
 
-1. install brew bundle (Brewfile.<profile>)
+1. install brew bundle (`Brewfile.<profile>`)
 2. install Python-based tools (& multiple versions of Python)
+3. install any OS-specific packages via native (non-homebrew) package manager
