@@ -271,10 +271,6 @@ profiles:
       hub_cli_token: op item get "GitHub" --fields "hub cli token"
       okta_default_device_token: op item get "Okta" --fields "gimme-aws-creds device_token"
       okta_username: op item get "Okta" --field username
-      # gpg_personal_email: op item get personal.private.gpg-key --field email
-      # gpg_personal_name: op item get personal.private.gpg-key --field name
-      # gpg_personal_signingkey: op item get personal.private.gpg-key --field signingkey
-      # gpg_confluent_signingkey: op item get confluent.private.gpg-key --field signingkey
       personal_email: op item get 2rou2jbvdvahrl4ov7wtxstdka --field email
       full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
       work_email: echo "$({{@@ okta_username @@}})@confluent.io"
