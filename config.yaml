@@ -310,3 +310,8 @@ profiles:
       - f_wgetrc
       - fake_goenv
       - fake_pyenv
+  mac-vm:
+    include:
+      - default
+      - mac
+      - personal
