@@ -36,9 +36,10 @@ function profile::get_ssh_key() {
   local key="${1}"
 
   if [[ ! -f ~/.ssh/id_rsa ]]; then
+    mkdir -p ~/.ssh
     touch ~/.ssh/id_rsa
     chmod 600 ~/.ssh/id_rsa
-    op item get "${key}" --field 'private key' >~/.ssh/id_rsa
+    op item get "${key}" --field 'private key' | tr -d \" >~/.ssh/id_rsa
     _finalizers+=("profile::remote_ssh_key")
   else
     echo "${HOME}/.ssh/id_rsa key file already exists, skipping"
