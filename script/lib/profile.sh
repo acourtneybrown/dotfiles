@@ -28,6 +28,23 @@ function profile::extract_gpg_key() {
   fi
 }
 
+function profile::remote_ssh_key() {
+  rm -f ~/.ssh/id_rsa
+}
+
+function profile::get_ssh_key() {
+  local key="${1}"
+
+  if [[ ! -f ~/.ssh/id_rsa ]]; then
+    touch ~/.ssh/id_rsa
+    chmod 600 ~/.ssh/id_rsa
+    op item get "${key}" --field 'private key' >~/.ssh/id_rsa
+    _finalizers+=("profile::remote_ssh_key")
+  else
+    echo "${HOME}/.ssh/id_rsa key file already exists, skipping"
+  fi
+}
+
 function profile::default() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
@@ -77,6 +94,8 @@ function profile::confluent() {
 function profile::confluent_after() {
   profile::extract_gpg_key personal
   profile::extract_gpg_key confluent
+
+  profile::get_ssh_key 'Default key'
 
   profile::run_dotdrop_action _cc_dotfiles_install
 
