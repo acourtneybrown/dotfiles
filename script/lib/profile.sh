@@ -5,6 +5,11 @@ PROFILE_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 # shellcheck disable=SC1090,SC1091
 . "${PROFILE_SH_DIR}/util.sh"
 
+function profile::run_dotdrop_action() {
+  local action="${1}"
+  bash -c "$(yq eval ".actions.${action}" ../config.yaml)"
+}
+
 function profile::extract_gpg_key() {
   local key
   key="${1}"
@@ -64,15 +69,33 @@ function profile::confluent() {
 
     jenv local 11.0
   )
+
+  profile::pipx_install gimme-aws-creds
 }
 
 function profile::confluent_after() {
   profile::extract_gpg_key personal
   profile::extract_gpg_key confluent
 
+  profile::run_dotdrop_action _cc_dotfiles_install
+  (
+    # shellcheck disable=SC1090
+    source ~/.cc-dotfiles/include/devprod-ga/code-artifact.sh
+
+    pip-login
+  )
+
   profile::pipx_install 3.8 confluent-release-tools
   profile::pipx_install 3.9 confluent-ci-tools
-  profile::pipx_install 3.11 ansible-hostmanager bump2version gimme-aws-creds gql tox
+  profile::pipx_install 3.11 ansible-hostmanager bump2version gql tox
+}
+
+function profile::confluent_totp() {
+  profile::confluent
+}
+
+function profile::confluent_totp_after() {
+  profile::confluent_after
 }
 
 function profile::personal() {
