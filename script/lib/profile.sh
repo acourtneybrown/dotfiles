@@ -102,7 +102,7 @@ function profile::confluent_after() {
 
   # shellcheck disable=SC1090
   source ~/.cc-dotfiles/include/devprod-ga/code-artifact.sh
-  export PATH="${HOME}/.login/bin:${PATH}"
+  export PATH="${HOME}/.local/bin:${PATH}"
   gimme-aws-creds devprod-prod # force initial login
 
   pip-login
