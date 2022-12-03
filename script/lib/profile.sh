@@ -1,6 +1,7 @@
 # shellcheck shell=bash
 
 PROFILE_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+declare -a _finalizers
 
 # shellcheck disable=SC1090,SC1091
 . "${PROFILE_SH_DIR}/util.sh"
@@ -160,7 +161,7 @@ function profile::linux_desktop() {
 }
 
 function profile::linux_desktop_after() {
-  profile::op_forget_cli_login
+  _finalizers+=("profile::op_forget_cli_login")
 }
 
 function profile::mac() {
@@ -171,7 +172,13 @@ function profile::mac_after() {
   # install LaunchDaemon to ensure mosh is added to fw allow list
   "${PROFILE_SH_DIR}/install-fix-mosh"
 
-  profile::op_forget_cli_login
+  _finalizers+=("profile::op_forget_cli_login")
+}
+
+function profile::finalize() {
+  for func in "${_finalizers[@]}"; do
+    "${func}"
+  done
 }
 
 function profile::ensure_brew_in_path() {

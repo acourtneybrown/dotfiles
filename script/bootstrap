@@ -73,6 +73,8 @@ function main() {
       "profile::${named}_after"
     fi
   done
+
+  profile::finalize
 }
 
 main "${@}"
