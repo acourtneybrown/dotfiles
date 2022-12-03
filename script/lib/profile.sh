@@ -78,12 +78,11 @@ function profile::confluent_after() {
   profile::extract_gpg_key confluent
 
   profile::run_dotdrop_action _cc_dotfiles_install
-  (
-    # shellcheck disable=SC1090
-    source ~/.cc-dotfiles/include/devprod-ga/code-artifact.sh
 
-    pip-login
-  )
+  # shellcheck disable=SC1090
+  source ~/.cc-dotfiles/include/devprod-ga/code-artifact.sh
+
+  pip-login
 
   profile::pipx_install 3.8 confluent-release-tools
   profile::pipx_install 3.9 confluent-ci-tools
