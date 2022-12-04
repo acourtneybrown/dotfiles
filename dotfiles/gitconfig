@@ -55,7 +55,6 @@
 
 [commit]
 
-	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = true
 
 {%@@ if mac @@%}
@@ -93,7 +92,7 @@
 
 [gpg]
 
-	program = /usr/local/bin/gpg
+	format = ssh
 
 [help]
 
@@ -158,9 +157,9 @@
 
 [user]
 
-	name = {{@@ gpg_personal_name @@}}
-	email = {{@@ gpg_personal_email @@}}
-	signingkey = {{@@ gpg_personal_signingkey @@}}
+	name = {{@@ full_name @@}}
+	email = {{@@ personal_email @@}}
+	signingKey = {{@@ personal_public_key @@}}
 
 {%@@ if confluent @@%}
 [includeIf "gitdir/i:~/confluent/"]

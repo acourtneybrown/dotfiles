@@ -11,23 +11,6 @@ function profile::run_dotdrop_action() {
   bash -c "$(yq eval ".actions.${action}" ../config.yaml)"
 }
 
-function profile::extract_gpg_key() {
-  local key
-  key="${1}"
-
-  # shellcheck disable=SC2174
-  mkdir -p -m 700 ~/.gnupg
-
-  if ! "$(brew --prefix)/opt/gnupg/bin/gpg" --list-keys | grep -q "${key}"; then
-    local op_item
-    op_item="${key}.private.gpg-key"
-    profile::op_get_file "${op_item}" .gnupg/"${op_item}"
-    op item get "${op_item}" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${op_item}"
-  else
-    echo "key for ${key} already imported"
-  fi
-}
-
 function profile::remote_ssh_key() {
   rm -f ~/.ssh/id_rsa
 }
@@ -62,8 +45,6 @@ function profile::default() {
 }
 
 function profile::default_after() {
-  profile::extract_gpg_key personal
-
   profile::enable_pyenv
   profile::enable_goenv
   pyenv global "$(profile::ensure_pyenv_version 3.11)"
@@ -93,9 +74,6 @@ function profile::confluent() {
 }
 
 function profile::confluent_after() {
-  profile::extract_gpg_key personal
-  profile::extract_gpg_key confluent
-
   profile::get_ssh_key 'Default key'
 
   profile::run_dotdrop_action _cc_dotfiles_install

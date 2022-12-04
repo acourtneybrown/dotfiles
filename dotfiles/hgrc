@@ -8,7 +8,7 @@ editor   = vim
 # sets up global ignore file
 ignore   = ~/.hgignore
 # replace this with your name and email
-username = {{@@ gpg_personal_name @@}} <{{@@ gpg_personal_email @@}}>
+username = {{@@ full_name @@}} <{{@@ personal_email @@}}>
 
 [alias]
 # you can alias commands here.
