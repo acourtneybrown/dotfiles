@@ -104,8 +104,7 @@ function profile::confluent_after() {
   source "${HOME}/.cc-dotfiles/include/devprod-ga/code-artifact.sh"
   export PATH="${HOME}/.local/bin:${PATH}"
   gimme-aws-creds --profile devprod-prod # force initial login
-
-  pip-login
+  devprod::pip_login
 
   profile::pipx_install 3.8 confluent-release-tools
   profile::pipx_install 3.9 confluent-ci-tools
