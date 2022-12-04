@@ -5,23 +5,6 @@ PROFILE_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 # shellcheck disable=SC1090,SC1091
 . "${PROFILE_SH_DIR}/util.sh"
 
-function profile::extract_gpg_key() {
-  local key
-  key="${1}"
-
-  # shellcheck disable=SC2174
-  mkdir -p -m 700 ~/.gnupg
-
-  if ! "$(brew --prefix)/opt/gnupg/bin/gpg" --list-keys | grep -q "${key}"; then
-    local op_item
-    op_item="${key}.private.gpg-key"
-    profile::op_get_file "${op_item}" .gnupg/"${op_item}"
-    op item get "${op_item}" --fields password | gpg --batch --passphrase-fd 0 --import "${HOME}/.gnupg/${op_item}"
-  else
-    echo "key for ${key} already imported"
-  fi
-}
-
 function profile::default() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
@@ -38,8 +21,6 @@ function profile::default() {
 }
 
 function profile::default_after() {
-  profile::extract_gpg_key personal
-
   profile::enable_pyenv
   profile::enable_goenv
   pyenv global "$(profile::ensure_pyenv_version 3.11)"
@@ -67,9 +48,6 @@ function profile::confluent() {
 }
 
 function profile::confluent_after() {
-  profile::extract_gpg_key personal
-  profile::extract_gpg_key confluent
-
   profile::pipx_install 3.8 confluent-release-tools
   profile::pipx_install 3.9 confluent-ci-tools
   profile::pipx_install 3.11 ansible-hostmanager bump2version gimme-aws-creds gql tox
