@@ -165,6 +165,7 @@ dotfiles:
     src: pypirc
     dst: ~/.pypirc
     chmod: 600
+    link: nolink
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
