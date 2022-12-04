@@ -39,7 +39,7 @@ function main() {
   fi
 
   for action in _goenv_install _pyenv_install; do
-    bash -c "$(yq eval ".actions.${action}" ../config.yaml)"
+    profile::run_dotdrop_action "${action}"
   done
 
   # create a new profile (if necessary), including default & os-specific ones
@@ -73,6 +73,8 @@ function main() {
       "profile::${named}_after"
     fi
   done
+
+  profile::finalize
 }
 
 main "${@}"

@@ -23,7 +23,7 @@ actions:
     if [ -d ~/.cc-dotfiles ]; then
       git -C ~/.cc-dotfiles pull --prune origin;
     else
-      git clone https://github.com/confluentinc/cc-dotfiles.git ~/.cc-dotfiles;
+      git clone https://github.com/confluentinc/cc-dotfiles.git -b acourtneybrown/code-artifact-functions ~/.cc-dotfiles;
     fi
 config:
   backup: true
@@ -247,6 +247,7 @@ profiles:
   confluent:
     variables:
       confluent: true
+      gimme_aws_creds_mfa_type: webauthn
     dotfiles:
       - d_config_coursier
       - d_config_yapf
@@ -259,6 +260,11 @@ profiles:
       - f_pypirc
       - fake_cc_dotfiles
       - fake_nvm
+  confluent_totp:
+    variables:
+      gimme_aws_creds_mfa_type: "token:software:totp"
+    include:
+      - confluent
   default:
     variables:
       confluent: false

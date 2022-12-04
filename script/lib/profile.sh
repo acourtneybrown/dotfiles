@@ -1,9 +1,33 @@
 # shellcheck shell=bash
 
 PROFILE_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+declare -a _finalizers
 
 # shellcheck disable=SC1090,SC1091
 . "${PROFILE_SH_DIR}/util.sh"
+
+function profile::run_dotdrop_action() {
+  local action="${1}"
+  bash -c "$(yq eval ".actions.${action}" ../config.yaml)"
+}
+
+function profile::remote_ssh_key() {
+  rm -f ~/.ssh/id_rsa
+}
+
+function profile::get_ssh_key() {
+  local key="${1}"
+
+  if [[ ! -f ~/.ssh/id_rsa ]]; then
+    mkdir -p ~/.ssh
+    touch ~/.ssh/id_rsa
+    chmod 600 ~/.ssh/id_rsa
+    op item get "${key}" --field 'private key' | tr -d \" >~/.ssh/id_rsa
+    _finalizers+=("profile::remote_ssh_key")
+  else
+    echo "${HOME}/.ssh/id_rsa key file already exists, skipping"
+  fi
+}
 
 function profile::default() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
@@ -45,12 +69,32 @@ function profile::confluent() {
 
     jenv local 11.0
   )
+
+  profile::pipx_install 3.11 gimme-aws-creds
 }
 
 function profile::confluent_after() {
+  profile::get_ssh_key 'Default key'
+
+  profile::run_dotdrop_action _cc_dotfiles_install
+
+  # shellcheck disable=SC1090,SC1091
+  source "${HOME}/.cc-dotfiles/include/devprod-ga/code-artifact.sh"
+  export PATH="${HOME}/.local/bin:${PATH}"
+  gimme-aws-creds --profile devprod-prod # force initial login
+  code_artifact::pip_login
+
   profile::pipx_install 3.8 confluent-release-tools
   profile::pipx_install 3.9 confluent-ci-tools
-  profile::pipx_install 3.11 ansible-hostmanager bump2version gimme-aws-creds gql tox
+  profile::pipx_install 3.11 ansible-hostmanager bump2version gql tox
+}
+
+function profile::confluent_totp() {
+  profile::confluent
+}
+
+function profile::confluent_totp_after() {
+  profile::confluent_after
 }
 
 function profile::personal() {
@@ -116,7 +160,7 @@ function profile::linux_desktop() {
 }
 
 function profile::linux_desktop_after() {
-  profile::op_forget_cli_login
+  _finalizers+=("profile::op_forget_cli_login")
 }
 
 function profile::mac() {
@@ -127,7 +171,13 @@ function profile::mac_after() {
   # install LaunchDaemon to ensure mosh is added to fw allow list
   "${PROFILE_SH_DIR}/install-fix-mosh"
 
-  profile::op_forget_cli_login
+  _finalizers+=("profile::op_forget_cli_login")
+}
+
+function profile::finalize() {
+  for func in "${_finalizers[@]}"; do
+    "${func}"
+  done
 }
 
 function profile::ensure_brew_in_path() {
