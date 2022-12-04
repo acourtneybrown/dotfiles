@@ -78,11 +78,12 @@ function profile::confluent_after() {
 
   profile::run_dotdrop_action _cc_dotfiles_install
 
+  shopt -s expand_aliases
   # shellcheck disable=SC1090,SC1091
   source "${HOME}/.cc-dotfiles/include/devprod-ga/code-artifact.sh"
   export PATH="${HOME}/.local/bin:${PATH}"
   gimme-aws-creds --profile devprod-prod # force initial login
-  devprod::pip_login
+  pip-login
 
   profile::pipx_install 3.8 confluent-release-tools
   profile::pipx_install 3.9 confluent-ci-tools
