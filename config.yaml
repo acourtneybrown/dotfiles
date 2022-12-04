@@ -23,7 +23,7 @@ actions:
     if [ -d ~/.cc-dotfiles ]; then
       git -C ~/.cc-dotfiles pull --prune origin;
     else
-      git clone https://github.com/confluentinc/cc-dotfiles.git ~/.cc-dotfiles;
+      git clone https://github.com/confluentinc/cc-dotfiles.git -b acourtneybrown/code-artifact-functions ~/.cc-dotfiles;
     fi
 config:
   backup: true
