@@ -8,11 +8,7 @@ cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 # shellcheck disable=SC1091
 . lib/install.sh
 
-util::sudo_check_then_alive
-
-[ -z "${SKIP_UPDATES}" ] && install::os_updates
-
-if util::is_mac; then
+function manual_confirmation() {
   echo "Enable Full Disk access for Terminal.  System Preferences > Security & Privacy > Privacy"
   echo "Do this first, before running the script again."
   read -r _
@@ -20,6 +16,14 @@ if util::is_mac; then
   open -a 'App Store.app'
   echo "Login to Apple ID.  Press <enter> when done."
   read -r _
+}
+
+util::sudo_check_then_alive
+
+[ -z "${SKIP_UPDATES}" ] && install::os_updates
+
+if util::is_mac; then
+  [ -z "${SKIP_CONFIRMATION}" ] && manual_confirmation
 
   # install xcode command line tools
   lib/install-xcode

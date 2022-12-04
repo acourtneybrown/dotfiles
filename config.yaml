@@ -149,6 +149,7 @@ dotfiles:
     src: m2_settings.xml
     dst: ~/.m2/settings.xml
     chmod: 600
+    link: nolink
   f_netrc:
     src: netrc
     dst: ~/.netrc
