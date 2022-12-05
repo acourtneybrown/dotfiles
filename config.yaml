@@ -158,14 +158,6 @@ dotfiles:
     src: okta_aws_login_config
     dst: ~/.okta_aws_login_config
     chmod: 600
-  f_pip_conf:
-    src: pip.conf
-    dst: ~/.pip/pip.conf
-  f_pypirc:
-    src: pypirc
-    dst: ~/.pypirc
-    chmod: 600
-    link: nolink
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
@@ -256,8 +248,6 @@ profiles:
       - f_m2_settings
       - f_netrc
       - f_okta_aws_login_config
-      - f_pip_conf
-      - f_pypirc
       - fake_cc_dotfiles
       - fake_nvm
   confluent_totp:
