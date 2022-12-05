@@ -8,6 +8,7 @@ fi
 if [[ -d "${HOME}/.cc-dotfiles" ]]; then
   export CC_AUTO_UPDATE=false
   export OKTA_DEVICE_ID="{{@@ okta_default_device_token @@}}"
+  export CODE_ARTIFACT_ENABLE_BAZEL=true
 
   # shellcheck disable=SC1091,SC1090
   source "${HOME}/.cc-dotfiles/caas.sh"
