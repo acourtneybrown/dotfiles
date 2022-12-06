@@ -30,5 +30,9 @@ if [[ ${commands[vault]} ]]; then
     vault kv get -field "${KEY}" v1/ci/kv/"${SECRET}"
   }
 
-  vault_switch vault
+  alias vault-login=vault_login
+  alias vault-switch=vault_switch
+  alias vault-jenkins-secret=vault_jenkins_secret
+
+  vault-switch vault
 fi
