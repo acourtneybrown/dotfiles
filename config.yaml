@@ -166,6 +166,11 @@ dotfiles:
     dst: ~/.pypirc
     chmod: 600
     link: nolink
+  f_sublime_license:
+    src: Library/Application Support/Sublime Text 3/Local/License.sublime_license
+    dst: "~/{{@@ sublime_home @@}}/Local/License.sublime_license"
+    chmod: 600
+    link: nolink
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
@@ -232,12 +237,14 @@ profiles:
     dotfiles:
       - d_user
       - f_finicky.js
+      - f_sublime_license
   linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
       ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
     dotfiles:
       - d_user
+      - f_sublime_license
   linux:
     variables:
       linux: true
@@ -284,6 +291,7 @@ profiles:
       work_email: echo "$({{@@ okta_username @@}})@confluent.io"
       personal_public_key: op item get "Default key" --field "public key"
       work_public_key: op item get Confluent --field "public key"
+      sublime_text_license: op item get "Sublime Text 4+" --field "license key"
     include:
       - zsh
   zsh:
