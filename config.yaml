@@ -280,18 +280,18 @@ profiles:
       personal: false
       ssh_agent: ''
     dynvariables:
+      full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
-      github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
       github_account: op item get "GitHub" --fields username
+      github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
       hub_cli_token: op item get "GitHub" --fields "hub cli token"
       okta_default_device_token: op item get "Okta" --fields "gimme-aws-creds device_token"
       okta_username: op item get "Okta" --field username
       personal_email: op item get 2rou2jbvdvahrl4ov7wtxstdka --field email
-      full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
-      work_email: echo "$({{@@ okta_username @@}})@confluent.io"
       personal_public_key: op item get "Default key" --field "public key"
-      work_public_key: op item get Confluent --field "public key"
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
+      work_email: echo "$({{@@ okta_username @@}})@confluent.io"
+      work_public_key: op item get Confluent --field "public key"
     include:
       - zsh
   zsh:
