@@ -34,5 +34,5 @@ if [[ ${commands[vault]} ]]; then
   alias vault-switch=vault_switch
   alias vault-jenkins-secret=vault_jenkins_secret
 
-  vault-switch vault
+  vault_switch vault
 fi
