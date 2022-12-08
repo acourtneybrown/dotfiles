@@ -4,7 +4,7 @@
 
 if [[ ${commands[vault]} ]]; then
 
-  # vault_login handles the perfered login approach for Confluent
+  # vault_login handles the prefered login approach for Confluent
   function vault_login() {
     vault login -method=oidc -path=okta -no-print &> /dev/null
   }
