@@ -26,7 +26,7 @@ if util::is_mac; then
   [ -z "${SKIP_CONFIRMATION}" ] && manual_confirmation
 
   # install xcode command line tools
-  lib/install-xcode
+  install::install_xcode
 
   # MacOS customization script
   ./macos
