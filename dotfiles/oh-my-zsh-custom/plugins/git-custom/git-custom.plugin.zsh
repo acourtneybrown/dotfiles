@@ -129,6 +129,8 @@ function gall() {
       echo "${BOLD}Entering ${DIR}${RESET}"
       (
         cd "${DIR}" || exit
+
+        # shellcheck disable=SC2294
         eval "${cmd}" "${@}"
       )
     fi
