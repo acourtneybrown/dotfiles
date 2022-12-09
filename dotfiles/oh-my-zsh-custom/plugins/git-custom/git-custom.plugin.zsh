@@ -72,7 +72,7 @@ function gdob() {
   git diff "origin/${branch}...${branch}"
 }
 
-# gdodb compares the upstream's default branch to the specified branch (if given) or the current HEAD
+# gdudb compares the upstream's default branch to the specified branch (if given) or the current HEAD
 function gdudb() {
   local branch="${1}"
   git diff "upstream/$(gdb upstream)...${branch}"
