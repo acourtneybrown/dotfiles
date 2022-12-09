@@ -174,10 +174,37 @@ function profile::mac() {
 }
 
 function profile::mac_after() {
-  # install LaunchDaemon to ensure mosh is added to fw allow list
-  "${PROFILE_SH_DIR}/install-fix-mosh"
+  profile::install_fix_mosh
 
   _finalizers+=("profile::op_forget_cli_login")
+}
+
+# install LaunchDaemon to ensure mosh is added to fw allow list
+function profile::install_fix_mosh() {
+  local RESOURCES
+  RESOURCES="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/resources
+
+  # create target destination
+  mkdir -p "/Users/Shared/.startup"
+
+  # put files in correct locations for LaunchDaemon
+  if [[ ! -f "/Users/Shared/.startup/mosh.sh" ]]; then
+    echo "Installing LaunchDaemon & script for mosh..."
+
+    sudo cp "${RESOURCES}/mosh.sh" "/Users/Shared/.startup/mosh.sh"
+    sudo cp "${RESOURCES}/com.mosh.plist" "/Library/LaunchDaemons/com.mosh.plist"
+
+    # create correct file permissions
+    sudo chmod 644 "/Users/Shared/.startup/mosh.sh"
+    sudo chmod 644 "/Library/LaunchDaemons/com.mosh.plist"
+
+    # create correct file ownerships
+    sudo chown root:wheel "/Users/Shared/.startup/mosh.sh"
+    sudo chown root:wheel "/Library/LaunchDaemons/com.mosh.plist"
+
+    # add mosh launch daemon
+    sudo launchctl load -w "/Library/LaunchDaemons/com.mosh.plist"
+  fi
 }
 
 function profile::finalize() {
