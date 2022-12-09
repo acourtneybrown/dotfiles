@@ -1,5 +1,6 @@
 actions:
   add_authorized_keys: |
+    mkdir -p ~/.ssh
     op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
     op item get "Confluent" --field "public key" > ~/.ssh/authorized_keys.confluent
     cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
