@@ -1,10 +1,10 @@
 actions:
-  add_authorized_keys: |
+  _add_authorized_keys: |
     mkdir -p ~/.ssh
     op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
     op item get "Confluent" --field "public key" > ~/.ssh/authorized_keys.confluent
     cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
-  install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/\"{{@@ sublime_home @@}}\""
+  _install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/\"{{@@ sublime_home @@}}\""
   _pyenv_install: |
     if [ -d ~/.pyenv ]; then
       git -C ~/.pyenv pull --prune origin;
@@ -78,7 +78,7 @@ dotfiles:
     dst: "~/{{@@ sublime_home @@}}/Packages/User"
     link: link_children
     actions:
-      - install_package_control
+      - _install_package_control
     upignore:
       - oscrypto-ca-bundle.crt
       - Package Control.cache
@@ -154,7 +154,7 @@ dotfiles:
     src:
     dst:
     actions:
-      - add_authorized_keys
+      - _add_authorized_keys
   f_ssh_config:
     src: ssh/config
     dst: ~/.ssh/config
