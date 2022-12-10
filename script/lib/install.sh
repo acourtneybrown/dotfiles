@@ -12,8 +12,11 @@ function install::mac_update_nfs() {
 }
 
 function install::os_updates() {
-  util::is_mac && install::mac_updates
-  util::is_linux && install::linux_updates
+  if util::is_mac; then
+    install::mac_updates
+  elif util::is_linux; then
+    install::linux_updates
+  fi
 }
 
 # install:mac_updates checks for macOS software updates & installs them
