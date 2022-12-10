@@ -17,7 +17,7 @@ function install::os_updates() {
 }
 
 # install:mac_updates checks for macOS software updates & installs them
-function install:mac_updates() {
+function install::mac_updates() {
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
     echo "No software updates to install"
   else
