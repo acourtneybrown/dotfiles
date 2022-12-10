@@ -11,21 +11,27 @@ function profile::run_dotdrop_action() {
   bash -c "$(yq eval ".actions.${action}" ../config.yaml)"
 }
 
-function profile::remote_ssh_key() {
-  rm -f ~/.ssh/id_rsa
+function profile::remove_ssh_key() {
+  local key_file="${1}"
+
+  rm -f "${key_file}"
 }
 
 function profile::get_ssh_key() {
   local key="${1}"
+  local key_type
+  key_type=$(op item get "${key}" --field "key type")
 
-  if [[ ! -f ~/.ssh/id_rsa ]]; then
-    mkdir -p ~/.ssh
-    touch ~/.ssh/id_rsa
-    chmod 600 ~/.ssh/id_rsa
-    op item get "${key}" --field 'private key' | tr -d \" >~/.ssh/id_rsa
-    _finalizers+=("profile::remote_ssh_key")
+  local key_file="${HOME}/.ssh/id_${key_type}"
+
+  if [[ ! -f "${key_file}" ]]; then
+    mkdir -p "$(dirname "${key_file}")"
+    touch "${key_file}"
+    chmod 600 "${key_file}"
+    op item get "${key}" --field 'private key' | tr -d \" >"${key_file}"
+    _finalizers+=("profile::remove_ssh_key ${key_file}")
   else
-    echo "${HOME}/.ssh/id_rsa key file already exists, skipping"
+    echo "${key_file} file already exists, skipping"
   fi
 }
 
@@ -168,15 +174,42 @@ function profile::mac() {
 }
 
 function profile::mac_after() {
-  # install LaunchDaemon to ensure mosh is added to fw allow list
-  "${PROFILE_SH_DIR}/install-fix-mosh"
+  profile::install_fix_mosh
 
   _finalizers+=("profile::op_forget_cli_login")
 }
 
+# install LaunchDaemon to ensure mosh is added to fw allow list
+function profile::install_fix_mosh() {
+  local RESOURCES
+  RESOURCES="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/resources
+
+  # create target destination
+  mkdir -p "/Users/Shared/.startup"
+
+  # put files in correct locations for LaunchDaemon
+  if [[ ! -f "/Users/Shared/.startup/mosh.sh" ]]; then
+    echo "Installing LaunchDaemon & script for mosh..."
+
+    sudo cp "${RESOURCES}/mosh.sh" "/Users/Shared/.startup/mosh.sh"
+    sudo cp "${RESOURCES}/com.mosh.plist" "/Library/LaunchDaemons/com.mosh.plist"
+
+    # create correct file permissions
+    sudo chmod 644 "/Users/Shared/.startup/mosh.sh"
+    sudo chmod 644 "/Library/LaunchDaemons/com.mosh.plist"
+
+    # create correct file ownerships
+    sudo chown root:wheel "/Users/Shared/.startup/mosh.sh"
+    sudo chown root:wheel "/Library/LaunchDaemons/com.mosh.plist"
+
+    # add mosh launch daemon
+    sudo launchctl load -w "/Library/LaunchDaemons/com.mosh.plist"
+  fi
+}
+
 function profile::finalize() {
-  for func in "${_finalizers[@]}"; do
-    "${func}"
+  for expr in "${_finalizers[@]}"; do
+    eval "${expr}"
   done
 }
 

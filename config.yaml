@@ -1,6 +1,10 @@
 actions:
-  add_authorized_keys: cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
-  install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/\"{{@@ sublime_home @@}}\""
+  _add_authorized_keys: |
+    mkdir -p ~/.ssh
+    op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
+    op item get "Confluent" --field "public key" > ~/.ssh/authorized_keys.confluent
+    cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
+  _install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/\"{{@@ sublime_home @@}}\""
   _pyenv_install: |
     if [ -d ~/.pyenv ]; then
       git -C ~/.pyenv pull --prune origin;
@@ -23,7 +27,7 @@ actions:
     if [ -d ~/.cc-dotfiles ]; then
       git -C ~/.cc-dotfiles pull --prune origin;
     else
-      git clone https://github.com/confluentinc/cc-dotfiles.git -b acourtneybrown/code-artifact-functions ~/.cc-dotfiles;
+      git clone https://github.com/confluentinc/cc-dotfiles.git ~/.cc-dotfiles;
     fi
 config:
   backup: true
@@ -69,32 +73,12 @@ dotfiles:
     dst: ~/.oh-my-zsh-custom
     link: link_children
     chmod: 700
-  d_ssh:
-    src: ssh
-    dst: ~/.ssh
-    link: link_children
-    upignore:
-      - authorized_keys
-      - caas-abrown*
-      - id_ed25519*
-      - id_rsa*
-      - sockets
-      - synology*
-    cmpignore:
-      - authorized_keys
-      - caas-abrown*
-      - id_ed25519*
-      - id_rsa*
-      - sockets
-      - synology*
-    actions:
-      - add_authorized_keys
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
     dst: "~/{{@@ sublime_home @@}}/Packages/User"
     link: link_children
     actions:
-      - install_package_control
+      - _install_package_control
     upignore:
       - oscrypto-ca-bundle.crt
       - Package Control.cache
@@ -158,6 +142,22 @@ dotfiles:
     src: okta_aws_login_config
     dst: ~/.okta_aws_login_config
     chmod: 600
+  f_ssh_authorized_keys:
+    src:
+    dst:
+    actions:
+      - _add_authorized_keys
+  f_ssh_config:
+    src: ssh/config
+    dst: ~/.ssh/config
+  f_ssh_known_hosts:
+    src: ssh/known_hosts
+    dst: ~/.ssh/known_hosts
+  f_sublime_license:
+    src: Library/Application Support/Sublime Text 3/Local/License.sublime_license
+    dst: "~/{{@@ sublime_home @@}}/Local/License.sublime_license"
+    chmod: 600
+    link: nolink
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
@@ -224,12 +224,14 @@ profiles:
     dotfiles:
       - d_user
       - f_finicky.js
+      - f_sublime_license
   linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
       ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
     dotfiles:
       - d_user
+      - f_sublime_license
   linux:
     variables:
       linux: true
@@ -263,16 +265,17 @@ profiles:
       personal: false
       ssh_agent: ''
     dynvariables:
+      full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
-      github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
       github_account: op item get "GitHub" --fields username
+      github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
       hub_cli_token: op item get "GitHub" --fields "hub cli token"
       okta_default_device_token: op item get "Okta" --fields "gimme-aws-creds device_token"
       okta_username: op item get "Okta" --field username
       personal_email: op item get 2rou2jbvdvahrl4ov7wtxstdka --field email
-      full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
-      work_email: echo "$({{@@ okta_username @@}})@confluent.io"
       personal_public_key: op item get "Default key" --field "public key"
+      sublime_text_license: op item get "Sublime Text 4+" --field "license key"
+      work_email: echo "$({{@@ okta_username @@}})@confluent.io"
       work_public_key: op item get Confluent --field "public key"
     include:
       - zsh
@@ -290,7 +293,6 @@ profiles:
       - d_config_gh
       - d_git_template
       - d_gradle_init_d
-      - d_ssh
       - f_bash_sessions_disable
       - f_config_hub
       - f_curlrc
@@ -299,6 +301,9 @@ profiles:
       - f_gradle_properties
       - f_hgrc
       - f_hushlogin
+      - f_ssh_authorized_keys
+      - f_ssh_config
+      - f_ssh_known_hosts
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc
