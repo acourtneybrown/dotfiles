@@ -42,6 +42,20 @@ cd .dotfiles
 ./script/bootstrap # optional dotdrop profiles to add for machine, like "confluent" or "personal"
 ```
 
+### Windows
+
+In an Powershell Administrator window:
+
+```
+irm https://raw.githubusercontent.com/acourtneybrown/dotfiles/master/script/win-admin-setup.ps1 | iex
+```
+
+In a Powershell windows (non-Administrator):
+
+```
+irm https://raw.githubusercontent.com/acourtneybrown/dotfiles/master/script/win-user-setup.ps1 | iex
+```
+
 ## Operations performed
 
 ### [`script/os-setup`](script/os-setup)
