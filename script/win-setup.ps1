@@ -2,7 +2,8 @@
 Write-Output "Installing chocolatey package manager..."
 # Set-ExecutionPolicy Bypass -Scope Process -Force
 Set-ExecutionPolicy AllSigned -Scope Process -Force
-runas /noprofile /user:Administrator Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+# runas /noprofile /user:Administrator Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+irm 'https://chocolatey.org/install.ps1' | runas /noprofile /user:Administrator iex
 
 # Install scoop.sh
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
