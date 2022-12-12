@@ -8,13 +8,13 @@ irm get.scoop.sh | iex
 # scoop bucket add TheRandomLabs https://github.com/TheRandomLabs/Scoop-Bucket.git
 
 # Install tools from Scoop
-# scoop install yq
-# scoop install jq
 scoop install 1password-cli
 scoop install git
+scoop install jq
+scoop install yq
 
 # Install version(s) of python
-# scoop install pyenv
+scoop install pyenv
 # pyenv update
 # pyenv install -q 3.11.0
 # pyenv global 3.11.0
