@@ -1,10 +1,3 @@
-# Install chocolatey
-Write-Output "Installing chocolatey package manager..."
-# Set-ExecutionPolicy Bypass -Scope Process -Force
-Set-ExecutionPolicy AllSigned -Scope Process -Force
-# runas /noprofile /user:Administrator Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-irm 'https://chocolatey.org/install.ps1' | runas /noprofile /user:Administrator iex
-
 # Install scoop.sh
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
@@ -34,14 +27,3 @@ scoop install git
 
 # no mismatched line endings
 git config --system core.autocrlf false
-
-# TODO: follow https://github.com/chocolatey-community/chocolatey-packages/issues/1773
-# choco install 1password
-
-choco install brave
-choco install epicgameslauncher
-choco install firefox
-choco install goggalaxy
-choco install retroarch
-choco install slack
-choco install steam
