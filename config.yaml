@@ -65,7 +65,7 @@ dotfiles:
     dst: ~/.git-template
     link: nolink
   d_gradle_init_d:
-    src: gradle_init.d
+    src: gradle/init.d
     dst: ~/.gradle/init.d
     link: link_children
   d_oh-my-zsh-custom:
@@ -120,7 +120,7 @@ dotfiles:
     src: gitignore
     dst: ~/.gitignore
   f_gradle_properties:
-    src: gradle.properties
+    src: gradle/gradle.properties
     dst: ~/.gradle/gradle.properties
     chmod: 600
   f_hgrc:
@@ -130,7 +130,7 @@ dotfiles:
     src: hushlogin
     dst: ~/.hushlogin
   f_m2_settings:
-    src: m2_settings.xml
+    src: m2/settings.xml
     dst: ~/.m2/settings.xml
     chmod: 600
     link: nolink
