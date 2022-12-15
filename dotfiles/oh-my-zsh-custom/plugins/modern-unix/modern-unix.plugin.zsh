@@ -21,6 +21,13 @@ function cat() {
   modern-unix::message "${args[@]}"
 }
 
+function less() {
+  local args=(bat https://github.com/sharkdp/bat)
+  modern-unix::message "${args[@]}"
+  /usr/bin/less "${@}"
+  modern-unix::message "${args[@]}"
+}
+
 function diff() {
   local args=(delta https://github.com/dandavison/delta)
   modern-unix::message "${args[@]}"
