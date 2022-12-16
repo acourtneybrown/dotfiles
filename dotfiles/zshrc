@@ -88,7 +88,6 @@ plugins=(
   git-custom
   goenv
   marked2
-  modern-unix
   mosh
   mosh-custom
   path
@@ -107,6 +106,7 @@ plugins+=(
   bazel
   bazel-custom
   cc-dotfiles
+  cflt-aliases
   gcloud-custom
   gradle
   graphviz
@@ -135,6 +135,8 @@ plugins=(
   {%@@ endif @@%}
 
   $plugins
+
+  modern-unix
 )
 
 if [ -d "$ZSH" ]; then
