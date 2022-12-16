@@ -25,7 +25,6 @@ module.exports = {
           "confluent.okta.com",
           "confluent.slack.com",
           "confluentinc.atlassian.net",
-          "confluentinc.semaphoreci.com",
           "docs.google.com",
           "hire.lever.co",
           "jenkins.confluent.io",
@@ -39,6 +38,7 @@ module.exports = {
           /confluent\.cloud/,
           /cultureamp.com/,
           /golinks.io/,
+          /semaphoreci.com/,
           /sumologic.com/,
         ]),
 
