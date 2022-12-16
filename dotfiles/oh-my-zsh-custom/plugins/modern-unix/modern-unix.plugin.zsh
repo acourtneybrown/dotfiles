@@ -41,3 +41,10 @@ function find() {
   /usr/bin/find "${@}"
   modern-unix::message "${args[@]}"
 }
+
+function grep() {
+  local args=(rg https://github.com/BurntSushi/ripgrep)
+  modern-unix::message "${args[@]}"
+  /usr/bin/grep "${@}"
+  modern-unix::message "${args[@]}"
+}
