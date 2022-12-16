@@ -52,7 +52,7 @@
                 </repository>
                 <repository>
                     <id>confluent-codeartifact-stabilization</id>
-                    <url>env.ORG_GRADLE_PROJECT_mavenUrl</url>
+                    <url>${env.ORG_GRADLE_PROJECT_mavenUrl}</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
