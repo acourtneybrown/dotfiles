@@ -20,6 +20,11 @@
             <username>aws</username>
             <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
         </server>
+        <server>
+            <id>confluent-codeartifact-stabilization</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+        </server>
     </servers>
     <profiles>
         <profile>
@@ -43,6 +48,16 @@
                     </releases>
                     <snapshots>
                         <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>confluent-codeartifact-stabilization</id>
+                    <url>env.ORG_GRADLE_PROJECT_mavenUrl</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                      <enabled>true</enabled>
                     </snapshots>
                 </repository>
             </repositories>
@@ -70,6 +85,16 @@
                     <releases>
                         <enabled>true</enabled>
                     </releases>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>confluent-codeartifact-stabilization</id>
+                    <url>${env.ORG_GRADLE_PROJECT_mavenUrl}</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
                 </pluginRepository>
             </pluginRepositories>
         </profile>
