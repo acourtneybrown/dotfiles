@@ -107,6 +107,7 @@ plugins+=(
   bazel
   bazel-custom
   cc-dotfiles
+  cflt-aliases
   gcloud-custom
   gradle
   graphviz
