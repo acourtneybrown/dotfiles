@@ -43,6 +43,20 @@ alias glr='git ls-remote'
 alias gcob="gco -b"
 alias grep_all="git branch -a | tr -d \* | sed '/->/d' | xargs git grep"
 
+# gbdsm deletes any branches that have been squash-merged on GitHub
+function gbdsm() {
+  local TARGET_BRANCH
+  local merge_base
+  TARGET_BRANCH=$(gdb)
+  git checkout -q "${TARGET_BRANCH}" &&
+    git for-each-ref refs/heads/ "--format=%(refname:short)" |
+    while read -r branch; do
+      merge_base=$(git merge-base "${TARGET_BRANCH}" "${branch}") &&
+        [[ $(git cherry "${TARGET_BRANCH}" "$(git commit-tree "$(git rev-parse "${branch}^{tree}")" -p "${merge_base}" -m _)") == "-"* ]] &&
+        git branch -D "${branch}"
+    done
+}
+
 # gcobu checks out a new branch prefixed with the github username
 # git checkout branch (for) username
 function gcobu() {
