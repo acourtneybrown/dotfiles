@@ -25,6 +25,7 @@ unalias gmum
 unalias grbm
 unalias gpsup
 unalias ggpush
+unalias gl
 
 alias gcdb='git checkout $(gdb)'
 alias git-svn-dcommit-push='git svn dcommit && git push github $(gdb):svntrunk'
@@ -32,7 +33,6 @@ alias gludb='git pull upstream $(gdb)'
 alias gmodb='git merge origin/$(gdb)'
 alias gmudb='git merge upstream/$(gdb upstream)'
 alias grbdb='git rebase $(gdb)'
-alias gl="git pull --prune --tags"
 alias gla="gl --all"
 alias gcdbl="gcdb && gl"
 alias gcdblff='gcdbl --ff-only'
@@ -42,6 +42,13 @@ alias gfu='git fetch upstream'
 alias glr='git ls-remote'
 alias gcob="gco -b"
 alias grep_all="git branch -a | tr -d \* | sed '/->/d' | xargs git grep"
+
+# gl performs a git pull, with optional additional flags,
+# then is deletes squash-merged branches
+function gl() {
+  git pull --prune --tags "${@}"
+  gbdsm
+}
 
 # gbdsm deletes any branches that have been squash-merged on GitHub
 function gbdsm() {
