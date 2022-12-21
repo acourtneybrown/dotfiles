@@ -2,11 +2,11 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                        https://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <mirrors>
-    <mirror>
-        <id>confluent-codeartifact-internal</id>
-        <mirrorOf>central,java.net,findify,jcenter,confluent,confluent-artifactory-internal,confluent-artifactory-central</mirrorOf>
-        <url>https://confluent-519856050701.d.codeartifact.us-west-2.amazonaws.com/maven/maven/</url>
+    <mirrors>
+        <mirror>
+            <id>confluent-codeartifact-internal</id>
+            <mirrorOf>central,java.net,findify,jcenter,confluent,confluent-artifactory-internal,confluent-artifactory-central</mirrorOf>
+            <url>https://confluent-519856050701.d.codeartifact.us-west-2.amazonaws.com/maven/maven/</url>
         </mirror>
     </mirrors>
     <servers>
