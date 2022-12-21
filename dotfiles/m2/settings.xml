@@ -50,16 +50,6 @@
                         <enabled>true</enabled>
                     </snapshots>
                 </repository>
-                <repository>
-                    <id>confluent-codeartifact-stabilization</id>
-                    <url>${env.ORG_GRADLE_PROJECT_mavenUrl}</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                      <enabled>true</enabled>
-                    </snapshots>
-                </repository>
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
@@ -86,6 +76,28 @@
                         <enabled>true</enabled>
                     </releases>
                 </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>confluent-codeartifact-release-stabilization</id>
+            <activation>
+                <property>
+                    <name>env.ORG_GRADLE_PROJECT_mavenUrl</name>
+                </property>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>confluent-codeartifact-stabilization</id>
+                    <url>${env.ORG_GRADLE_PROJECT_mavenUrl}</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                      <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
                 <pluginRepository>
                     <id>confluent-codeartifact-stabilization</id>
                     <url>${env.ORG_GRADLE_PROJECT_mavenUrl}</url>
