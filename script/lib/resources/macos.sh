@@ -244,6 +244,27 @@ function macos::setup_security() {
       tee ~/Desktop/"FileVault Recovery Key.txt"
     echo "Recovery key on Desktop"
   fi
+
+  # Check and, if necessary, enable sudo authentication using TouchID.
+  # Don't care about non-alphanumeric filenames when doing a specific match
+  # shellcheck disable=SC2010
+  if ls /usr/lib/pam | grep -q "pam_tid.so"; then
+    echo "Configuring sudo authentication using TouchID:"
+    PAM_FILE="/etc/pam.d/sudo"
+    FIRST_LINE="# sudo: auth account password session"
+    if grep -q pam_tid.so "${PAM_FILE}"; then
+      echo "ok"
+    elif ! head -n1 "${PAM_FILE}" | grep -q "${FIRST_LINE}"; then
+      echo "${PAM_FILE} is not in the expected format!"
+    else
+      TOUCHID_LINE="auth       sufficient     pam_tid.so"
+      sudo_askpass sed -i .bak -e \
+        "s/${FIRST_LINE}/${FIRST_LINE}\n${TOUCHID_LINE}/" \
+        "${PAM_FILE}"
+      sudo rm "${PAM_FILE}.bak"
+      echo "ok"
+    fi
+  fi
 }
 
 function macos::setup_input_devices() {
