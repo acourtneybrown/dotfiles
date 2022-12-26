@@ -261,7 +261,7 @@ function macos::setup_security() {
       echo "${PAM_FILE} is not in the expected format!"
     else
       TOUCHID_LINE="auth       sufficient     pam_tid.so"
-      sudo_askpass sed -i .bak -e \
+      sudo sed -i .bak -e \
         "s/${FIRST_LINE}/${FIRST_LINE}\n${TOUCHID_LINE}/" \
         "${PAM_FILE}"
       sudo rm "${PAM_FILE}.bak"

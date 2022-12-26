@@ -46,7 +46,7 @@ function install::install_xcode() {
   if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
     log "Installing the Xcode Command Line Tools:"
     CLT_PLACEHOLDER="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
-    sudo_askpass touch "$CLT_PLACEHOLDER"
+    sudo touch "$CLT_PLACEHOLDER"
 
     CLT_PACKAGE=$(softwareupdate -l |
       grep -B 1 "Command Line Tools" |
@@ -54,8 +54,8 @@ function install::install_xcode() {
       sed -e 's/^ *Label: //' -e 's/^ *//' |
       sort -V |
       tail -n1)
-    sudo_askpass softwareupdate -i "$CLT_PACKAGE"
-    sudo_askpass rm -f "$CLT_PLACEHOLDER"
+    sudo softwareupdate -i "$CLT_PACKAGE"
+    sudo rm -f "$CLT_PLACEHOLDER"
     if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
       if [ -n "$STRAP_INTERACTIVE" ]; then
         echo "Requesting user install of Xcode Command Line Tools:"
