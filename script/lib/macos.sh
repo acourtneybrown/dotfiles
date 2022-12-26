@@ -118,6 +118,9 @@ function macos::setup_ui_ux() {
   # Disable the over-the-top focus ring animation
   defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
 
+  # Adjust toolbar title rollover delay
+  defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
+
   # Disable smooth scrolling
   # (Uncomment if you’re on an older Mac that messes up the animation)
   #defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
@@ -484,7 +487,7 @@ function macos::config_Finder() {
   defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
   # Show the ~/Library folder
-  chflags nohidden ~/Library
+  chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 
   # Show the /Volumes folder
   sudo chflags nohidden /Volumes
