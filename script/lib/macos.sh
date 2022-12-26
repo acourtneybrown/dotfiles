@@ -47,7 +47,9 @@ function macos::setup() {
   # shellcheck disable=SC2128
   for app in ${apps}; do
     fn="macos::config_${app// /_}"
+    echo "${app} -> ${fn}"
     "${fn}"
+    echo "${fn} done"
   done
 
   macos::kill_apps
