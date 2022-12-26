@@ -15,9 +15,12 @@ function macos::setup() {
   # settings we’re about to change
   osascript -e 'tell application "System Preferences" to quit'
 
-  [[ -z "${SKIP_LOGIN_WINDOW}" ]] && macos::config_login_window
+  [[ -z "${SKIP_LOGIN_WINDOW}" ]] && macos::setup_login_window
 
   macos::setup_screen
+  macos::setup_ui_ux
+  macos::setup_security
+  macos::setup_input_devices
 
   local apps
   apps=(
