@@ -43,9 +43,7 @@ function macos::setup() {
     "QuickTime Player"
   )
   local fn
-  # ZSH "properly" handles the array (vs. bash)
-  # shellcheck disable=SC2128
-  for app in ${apps}; do
+  for app in "${apps[@]}"; do
     fn="macos::config_${app// /_}"
     echo "${app} -> ${fn}"
     "${fn}"
