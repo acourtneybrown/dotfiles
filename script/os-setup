@@ -29,7 +29,9 @@ if util::is_mac; then
   install::install_xcode
 
   # MacOS customization script
-  ./macos
+  # shellcheck disable=SC1091
+  . lib/macos.sh
+  macos::setup
 
   # ensure that NFS options are set
   install::mac_update_nfs
