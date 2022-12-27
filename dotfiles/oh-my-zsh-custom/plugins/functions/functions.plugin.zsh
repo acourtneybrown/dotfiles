@@ -65,7 +65,30 @@ function open-syn() {
 }
 
 # timezsh reloads the shell (zsh if not specified) a number of times for timing purposes
-timezsh() {
+function timezsh() {
   shell=${1-$SHELL}
   for _ in $(seq 1 10); do /usr/bin/time "$shell" -i -c exit; done
+}
+
+# enc4hub encrypts a file to send it securely to another Hubber
+#
+# Use https://gpgtools.org/ for an easy to use decryption UI.
+#
+# Usage:
+#   enc4hub <GitHub handle> /path/to/file
+function enc4hub() {
+  if [[ ${#} -ne 2 ]]; then
+    echo "Usage:"
+    echo "$0 <GitHub handle> /path/to/file"
+    return 1
+  fi
+
+  local recipient="${1}"
+  local file="${2}"
+
+  # Import the public key of the recipient from GitHub
+  gpg --import <(curl --silent "https://github.com/${recipient}.gpg")
+
+  # Encrypt the file with the recipient's key and sign it with my own key
+  gpg --encrypt --sign --armor --trust-model always --recipient "${recipient}@github.com" "${file}"
 }
