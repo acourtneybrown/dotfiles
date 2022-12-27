@@ -77,12 +77,10 @@ function timezsh() {
 # Usage:
 #   enc4hub <GitHub handle> /path/to/file
 function enc4hub() {
-  set -e
-
   if [[ ${#} -ne 2 ]]; then
     echo "Usage:"
     echo "$0 <GitHub handle> /path/to/file"
-    exit 1
+    return 1
   fi
 
   local recipient="${1}"
