@@ -5,7 +5,9 @@
 # shellcheck disable=SC2154
 if [[ ${commands[pipx]} ]]; then
   if [[ -d "${HOME}/.local/bin" ]]; then
-    path+=("${HOME}/.local/bin")
+    # Actually *want* path to be split
+    # shellcheck disable=2206
+    path=("${HOME}/.local/bin" ${path})
   fi
   typeset -U path
   export PATH

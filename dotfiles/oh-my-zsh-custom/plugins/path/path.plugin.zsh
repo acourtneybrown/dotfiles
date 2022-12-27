@@ -1,6 +1,7 @@
 # shellcheck disable=SC2148
 
-paths=("${HOME}/bin" "${HOME}/go/bin" /usr/local/bin /usr/local/sbin)
+# paths in reverse order of the expectation
+paths=(/usr/local/sbin /usr/local/bin "${HOME}/go/bin" "${HOME}/bin")
 
 # ZSH "properly" handles the array (vs. bash)
 # shellcheck disable=SC2128
