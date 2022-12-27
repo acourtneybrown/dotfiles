@@ -118,6 +118,9 @@ function macos::setup_ui_ux() {
   # Disable the over-the-top focus ring animation
   defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
 
+  # Adjust toolbar title rollover delay
+  defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
+
   # Disable smooth scrolling
   # (Uncomment if you’re on an older Mac that messes up the animation)
   #defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
