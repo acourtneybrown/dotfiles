@@ -39,7 +39,7 @@ function profile::default() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
   # Install oh-my-zsh
-  if [ ! -d ~/.oh-my-zsh ]; then
+  if [[ ! -d ~/.oh-my-zsh ]]; then
     if command -v curl >/dev/null; then
       sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
     elif command -v wget >/dev/null; then
@@ -123,7 +123,7 @@ function profile::personal() {
 function profile::linux() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.linux"
 
-  if [ -z "$(apt -qq list 1password-cli)" ]; then
+  if [[ -z "$(apt -qq list 1password-cli)" ]]; then
     # Install 1Password CLI (https://developer.1password.com/docs/cli/get-started#install)
     curl -sS https://downloads.1password.com/linux/keys/1password.asc |
       sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -335,7 +335,7 @@ function profile::op_get_file() {
     echo "${2} is empty, removing it."
     rm "${output}"
   fi
-  if [ -f "${output}" ]; then
+  if [[ -f "${output}" ]]; then
     echo "${2} already exists."
     return
   fi

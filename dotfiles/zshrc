@@ -80,6 +80,7 @@ plugins=(
   aliases
   docker
   dotdrop
+  dotfiles-envvars
   direnv
   fd
   functions
@@ -139,7 +140,7 @@ plugins=(
   modern-unix
 )
 
-if [ -d "$ZSH" ]; then
+if [[ -d "$ZSH" ]]; then
   source "$ZSH/oh-my-zsh.sh"
 else
   echo "Follow directions on https://ohmyz.sh/ to install oh-my-zsh"

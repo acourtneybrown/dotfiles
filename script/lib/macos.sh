@@ -15,7 +15,7 @@ function macos::setup() {
   # settings we’re about to change
   osascript -e 'tell application "System Preferences" to quit'
 
-  [[ -z "${SKIP_LOGIN_WINDOW}" ]] && macos::setup_login_window
+  [[ -z "${DOTFILES_SKIP_LOGIN_WINDOW}" ]] && macos::setup_login_window
 
   macos::setup_screen
   macos::setup_ui_ux
@@ -61,7 +61,7 @@ function macos::setup_login_window() {
   # Set computer name (as done via System Preferences → Sharing)
   echo "Enter computer name. Leave empty to not change."
   read -r COMPUTER_NAME
-  if [ -n "${COMPUTER_NAME}" ]; then
+  if [[ -n "${COMPUTER_NAME}" ]]; then
     sudo scutil --set ComputerName "${COMPUTER_NAME}"
     sudo scutil --set HostName "${COMPUTER_NAME}"
     sudo scutil --set LocalHostName "${COMPUTER_NAME}"
@@ -73,7 +73,7 @@ function macos::setup_login_window() {
   read -r LOGIN_NAME
   echo "Enter your email address (for login screen message). Leave empty to not change."
   read -r LOGIN_EMAIL
-  if [ -n "${LOGIN_NAME}" ] && [ -n "${LOGIN_EMAIL}" ]; then
+  if [[ -n "${LOGIN_NAME}" ]] && [[ -n "${LOGIN_EMAIL}" ]]; then
     LOGIN_TEXT=$(util::escape "Found this computer? Please contact ${LOGIN_NAME} at ${LOGIN_EMAIL}.")
     echo "${LOGIN_TEXT}" | grep -q '[()]' && LOGIN_TEXT="'${LOGIN_TEXT}'"
     sudo defaults write /Library/Preferences/com.apple.loginwindow \
@@ -494,7 +494,7 @@ function macos::config_Finder() {
 
   # Remove Dropbox’s green checkmark icons in Finder
   # file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-  # [ -e "${file}" ] && mv -f "${file}" "${file}.bak"
+  # [[ -e "${file}" ]] && mv -f "${file}" "${file}.bak"
 
   # Expand the following File Info panes:
   # “General”, “Open with”, and “Sharing & Permissions”

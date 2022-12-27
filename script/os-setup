@@ -20,10 +20,10 @@ function manual_confirmation() {
 
 util::sudo_check_then_alive
 
-[[ -z "${SKIP_UPDATES}" ]] && install::os_updates
+[[ -z "${DOTFILES_SKIP_UPDATES}" ]] && install::os_updates
 
 if util::is_mac; then
-  [[ -z "${SKIP_CONFIRMATION}" ]] && manual_confirmation
+  [[ -z "${DOTFILES_SKIP_CONFIRMATION}" ]] && manual_confirmation
 
   # install xcode command line tools
   install::install_xcode

@@ -11,7 +11,7 @@ function man-preview() {
 function cl() {
   DIR="$*"
   # if no DIR given, go home
-  if [ ${#} -lt 1 ]; then
+  if [[ ${#} -lt 1 ]]; then
     DIR=$HOME
   fi
   builtin cd "${DIR}" &&
@@ -21,9 +21,9 @@ function cl() {
 
 # Show what process is listening on a port
 listening() {
-  if [ ${#} -eq 0 ]; then
+  if [[ ${#} -eq 0 ]]; then
     sudo lsof -iTCP -sTCP:LISTEN -n -P
-  elif [ ${#} -eq 1 ]; then
+  elif [[ ${#} -eq 1 ]]; then
     sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color "${1}"
   else
     echo "Usage: listening [pattern]"
@@ -33,7 +33,7 @@ listening() {
 # Print history or search it
 function h() {
   # check if we passed any parameters
-  if [ -z "$*" ]; then
+  if [[ -z "$*" ]]; then
     # if no parameters were passed print entire history
     history 1
   else

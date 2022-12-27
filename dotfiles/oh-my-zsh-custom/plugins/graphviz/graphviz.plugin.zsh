@@ -7,7 +7,7 @@ if [[ ${commands[dot]} ]]; then
   function dotall() {
     local type
     type=png
-    if [ ${#} -eq 1 ]; then
+    if [[ ${#} -eq 1 ]]; then
       type="${1}"
     fi
 

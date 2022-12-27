@@ -1,7 +1,13 @@
 # Bootstrap & Dotfiles
 
-This repo borrows heavily from [`MikeMcQuaid/strap`](https://github.com/MikeMcQuaid/strap) (and associated [Heroku app](https://macos-strap.herokuapp.com/)) along with [`mathiasbynens/dottfiles`](https://github.com/mathiasbynens/dotfiles).
+This repo borrows heavily from [`MikeMcQuaid/strap`](https://github.com/MikeMcQuaid/strap) (and associated [app](https://strap.mikemcquaid.com/)) along with [`mathiasbynens/dottfiles`](https://github.com/mathiasbynens/dotfiles).
 In addition, it relies on [`deadc0de6/dotdrop`](https://github.com/deadc0de6/dotdrop/) to manage the dotfiles.
+
+## Flags affecting run
+
+- `DOTFILES_SKIP_UPDATES`: if set, skip OS updates
+- `DOTFILES_SKIP_CONFIRMATION`: on macOS, if set, skip the manual confirmation of setup that cannot be handled by the script
+- `DOTFILES_SKIP_LOGIN_WINDOW`: on macOS, if set, skip the configuration of the login window message
 
 ## Setup
 

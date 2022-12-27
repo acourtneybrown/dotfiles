@@ -10,11 +10,11 @@ function util::abort() {
 }
 
 function util::is_mac() {
-  [ "$(uname -s)" = "Darwin" ]
+  [[ "$(uname -s)" = "Darwin" ]]
 }
 
 function util::is_linux() {
-  [ "$(uname -s)" = "Linux" ]
+  [[ "$(uname -s)" = "Linux" ]]
 }
 
 function util::sudo_keepalive() {
