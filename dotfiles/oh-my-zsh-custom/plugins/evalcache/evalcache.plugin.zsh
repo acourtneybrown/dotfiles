@@ -19,9 +19,9 @@ function _evalcache() {
 
   local cacheFile="$ZSH_EVALCACHE_DIR/init-${1##*/}-${cmdHash}.sh"
 
-  if [ "$ZSH_EVALCACHE_DISABLE" = "true" ]; then
+  if [[ "$ZSH_EVALCACHE_DISABLE" = "true" ]]; then
     eval "$("$@")"
-  elif [ -s "$cacheFile" ]; then
+  elif [[ -s "$cacheFile" ]]; then
     # shellcheck disable=SC1090
     source "$cacheFile"
   else

@@ -20,7 +20,7 @@ err() {
 fmt() {
   local file="${1}"
 
-  if [ ! -f "${file}" ]; then
+  if [[ ! -f "${file}" ]]; then
     err "fmt: ${file} is not a file"
     exit $E_INVALID_INPUT
   fi
@@ -51,7 +51,7 @@ done
 shift $((OPTIND - 1))
 
 # make sure we have at least one path
-if [ ${#} -eq 0 ]; then
+if [[ ${#} -eq 0 ]]; then
   usage
 fi
 

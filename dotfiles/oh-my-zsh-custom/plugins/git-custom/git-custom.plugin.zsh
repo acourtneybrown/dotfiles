@@ -67,7 +67,7 @@ function gbdsm() {
 # gcobu checks out a new branch prefixed with the github username
 # git checkout branch (for) username
 function gcobu() {
-  if [ "${#}" -lt 1 ]; then
+  if [[ "${#}" -lt 1 ]]; then
     echo "Usage: gcobu <branch> [<starting_point>]"
     return
   fi
@@ -102,7 +102,7 @@ function gdudb() {
 # gitall performs a git operation across all of the git repositories under the
 # current directory.
 function gitall() {
-  if [ "${#}" -lt 1 ]; then
+  if [[ "${#}" -lt 1 ]]; then
     echo "Usage: gitall pull|push|commit ..."
     echo "Starts a git command for each directory found in current dir."
     return
@@ -115,7 +115,7 @@ function gitall() {
     RESET="\033[m"
   fi
   for DIR in *; do
-    if [ -d "${DIR}/.git" ]; then
+    if [[ -d "${DIR}/.git" ]]; then
       echo "${BOLD}Entering ${DIR}${RESET}"
       git -C "${DIR}" "${@}"
     fi
@@ -125,7 +125,7 @@ function gitall() {
 # gall performs a given command line across all of the git repositories under
 # the current directory.  It also handles all aliases.
 function gall() {
-  if [ "${#}" -lt 1 ]; then
+  if [[ "${#}" -lt 1 ]]; then
     echo "Usage: gall gcl|gcdb|..."
     echo "Starts a command for each directory found in current dir."
     return
@@ -146,7 +146,7 @@ function gall() {
   shift
 
   for DIR in *; do
-    if [ -d "${DIR}/.git" ]; then
+    if [[ -d "${DIR}/.git" ]]; then
       echo "${BOLD}Entering ${DIR}${RESET}"
       (
         cd "${DIR}" || exit
@@ -161,7 +161,7 @@ function gall() {
 # gpsup pushes the current branch to the specified remote (origin by default) & sets the upstream branch
 function gpsup() {
   local remote
-  if [ "${#}" -lt 1 ]; then
+  if [[ "${#}" -lt 1 ]]; then
     remote=origin
   else
     remote="${1}"
@@ -173,7 +173,7 @@ function gpsup() {
 # ggpush pushes the current branch to the specified remote (origin by default)
 function ggpush() {
   local remote
-  if [ "${#}" -lt 1 ]; then
+  if [[ "${#}" -lt 1 ]]; then
     remote=origin
   else
     remote="${1}"
@@ -185,7 +185,7 @@ function ggpush() {
 # ghclorg clones all of the repos under a GitHub org
 function ghclorg() {
   local org
-  if [ "${#}" -ne 1 ]; then
+  if [[ "${#}" -ne 1 ]]; then
     echo "Usage: ghclorg <org>"
     return
   fi
@@ -197,7 +197,7 @@ function ghclorg() {
 # ghcluser clones all of the repos under a GitHub org
 function ghcluser() {
   local user
-  if [ "${#}" -ne 1 ]; then
+  if [[ "${#}" -ne 1 ]]; then
     echo "Usage: ghcluser <org>"
     return
   fi

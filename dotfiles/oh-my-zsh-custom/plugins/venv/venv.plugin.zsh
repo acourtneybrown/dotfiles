@@ -5,7 +5,7 @@
 # ve creates a virtualenv for the given name, or .venv/ if not given
 function ve() {
   local env
-  if [ ${#} -eq 0 ]; then
+  if [[ ${#} -eq 0 ]]; then
     env=.venv
   else
     env="${1}"
@@ -16,7 +16,7 @@ function ve() {
 # ve2 creates a virtualenv for Python2 for the given name, or .venv if not given
 function ve2() {
   local env
-  if [ ${#} -eq 0 ]; then
+  if [[ ${#} -eq 0 ]]; then
     env=.venv
   else
     env="${1}"
@@ -27,7 +27,7 @@ function ve2() {
 # va activates a virtualenv for the given name, or .venv/ if present, or ~/.virtualenvs/<dir name>
 function va() {
   local env
-  if [ ${#} -eq 0 ]; then
+  if [[ ${#} -eq 0 ]]; then
     if [[ -d .venv ]]; then
       env=.venv
     elif [[ -d ~/.virtualenvs/$(basename "${PWD}") ]]; then

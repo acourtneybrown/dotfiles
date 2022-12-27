@@ -5,6 +5,9 @@ INSTALL_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 # shellcheck disable=SC1090,SC1091
 . "${INSTALL_SH_DIR}/util.sh"
 
+STDIN_FILE_DESCRIPTOR="0"
+[[ -t "$STDIN_FILE_DESCRIPTOR" ]] && DOTFILES_INTERACTIVE="1"
+
 function install::mac_update_nfs() {
   if ! grep 'nfs.client.mount.options = intr,locallocks,nfc' /etc/nfs.conf; then
     echo 'nfs.client.mount.options = intr,locallocks,nfc' | sudo tee -a /etc/nfs.conf
@@ -43,10 +46,10 @@ function install::linux_updates() {
 }
 
 function install::install_xcode() {
-  if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
+  if ! [[ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]]; then
     log "Installing the Xcode Command Line Tools:"
     CLT_PLACEHOLDER="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
-    sudo touch "$CLT_PLACEHOLDER"
+    sudo touch "${CLT_PLACEHOLDER}"
 
     CLT_PACKAGE=$(softwareupdate -l |
       grep -B 1 "Command Line Tools" |
@@ -54,10 +57,10 @@ function install::install_xcode() {
       sed -e 's/^ *Label: //' -e 's/^ *//' |
       sort -V |
       tail -n1)
-    sudo softwareupdate -i "$CLT_PACKAGE"
-    sudo rm -f "$CLT_PLACEHOLDER"
-    if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
-      if [ -n "$STRAP_INTERACTIVE" ]; then
+    sudo softwareupdate -i "${CLT_PACKAGE}"
+    sudo rm -f "${CLT_PLACEHOLDER}"
+    if ! [[ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]]; then
+      if [[ -n "${DOTFILES_INTERACTIVE}" ]]; then
         echo "Requesting user install of Xcode Command Line Tools:"
         xcode-select --install
       else
@@ -72,7 +75,7 @@ function install::install_xcode() {
 # xcode_license checks if the Xcode license is agreed to and agree if not.
 function install::xcode_license() {
   if /usr/bin/xcrun clang 2>&1 | grep -q license; then
-    if [ -n "${STRAP_INTERACTIVE}" ]; then
+    if [[ -n "${DOTFILES_INTERACTIVE}" ]]; then
       echo "Asking for Xcode license confirmation:"
       sudo xcodebuild -license accept
     else

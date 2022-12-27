@@ -7,7 +7,7 @@
 function rs-sync-forks() {
   set -e
   local -a repos
-  if [ "${#}" -lt 1 ]; then
+  if [[ "${#}" -lt 1 ]]; then
     repos=(ce-kafka kafka common rest-utils schema-registry
       ksql cc-docker-ksql confluent-cloud-plugins kafka-rest confluent-security-plugins
       secret-registry schema-registry-plugins)
