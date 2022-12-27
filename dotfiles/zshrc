@@ -80,6 +80,7 @@ plugins=(
   aliases
   docker
   dotdrop
+  dotfiles-envvars
   direnv
   fd
   functions
