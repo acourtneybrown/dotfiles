@@ -6,6 +6,7 @@ autoload -U zmv
 function man-preview() {
   man -t "${@}" | ps2pdf - - | open -f -a Preview
 }
+compdef man-preview=man
 
 # cd to a directory & ls it
 function cl() {
