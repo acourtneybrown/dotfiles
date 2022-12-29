@@ -4,8 +4,9 @@ autoload -U zmv
 
 # Opens a manpage in MacOS Preview
 function man-preview() {
-  man -t "${@}" | open -f -a Preview
+  man -t "${@}" | ps2pdf - - | open -f -a Preview
 }
+compdef man-preview=man
 
 # cd to a directory & ls it
 function cl() {
