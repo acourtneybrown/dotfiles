@@ -744,7 +744,7 @@ function macos::config_Time_Machine() {
     "~/temp")
   for exclusion in "${excluded[@]}"; do
     if ! tmutil isexcluded "${exclusion}" | grep -q '\[Excluded\]'; then
-      tmutil addexclusion -p "${exclusion}"
+      sudo tmutil addexclusion -p "${exclusion}"
     fi
   done
 }
