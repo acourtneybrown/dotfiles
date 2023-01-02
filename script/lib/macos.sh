@@ -733,6 +733,20 @@ function macos::config_Time_Machine() {
   # the following verb was removed in Sierra.  Perhaps set up a LaunchDaemon.
   # see: https://github.com/mathiasbynens/dotfiles/issues/842
   # hash tmutil &> /dev/null && sudo tmutil disablelocal
+
+  # shellcheck disable=SC2088
+  local excluded=(
+    "~/Dropbox"
+    "~/Parallels"
+    "~/Virtual Machines.localized"
+    "~/Shared with me"
+    "~/SynologyDrive"
+    "~/temp")
+  for exclusion in "${excluded[@]}"; do
+    if ! tmutil isexcluded "${exclusion}" | grep -q '\[Excluded\]'; then
+      tmutil addexclusion -p "${exclusion}"
+    fi
+  done
 }
 
 function macos::config_Activity_Monitor() {
