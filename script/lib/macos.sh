@@ -742,9 +742,18 @@ function macos::config_Time_Machine() {
     "~/Shared with me"
     "~/SynologyDrive"
     "~/temp")
+  local dir_existed
   for exclusion in "${excluded[@]}"; do
+    dir_existed=false
     if ! tmutil isexcluded "${exclusion}" | grep -q '\[Excluded\]'; then
+      [[ -d "${exclusion}" ]] || {
+        mkdir -p "${exclusion}"
+        dir_existed=true
+      }
       sudo tmutil addexclusion -p "${exclusion}"
+      if [[ ${dir_existed} == false ]]; then
+        rmdir "${exclusion}"
+      fi
     fi
   done
 }
