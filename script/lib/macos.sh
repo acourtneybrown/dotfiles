@@ -108,6 +108,9 @@ function macos::setup_ui_ux() {
   # Set standby delay to 24 hours (default is 1 hour)
   sudo pmset -a standbydelay 86400
 
+  # Disable sleep when connected to display
+  sudo pmset -a sleep 0
+
   # Set sidebar icon size to medium
   # defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
