@@ -734,14 +734,14 @@ function macos::config_Time_Machine() {
   # see: https://github.com/mathiasbynens/dotfiles/issues/842
   # hash tmutil &> /dev/null && sudo tmutil disablelocal
 
-  # shellcheck disable=SC2088
   local excluded=(
-    "~/Dropbox"
-    "~/Parallels"
-    "~/Virtual Machines.localized"
-    "~/Shared with me"
-    "~/SynologyDrive"
-    "~/temp")
+    "${HOME}/Dropbox"
+    "${HOME}/Parallels"
+    "${HOME}/Virtual Machines.localized"
+    "${HOME}/Shared with me"
+    "${HOME}/SynologyDrive"
+    "${HOME}/temp"
+  )
   local dir_existed
   for exclusion in "${excluded[@]}"; do
     dir_existed=false
