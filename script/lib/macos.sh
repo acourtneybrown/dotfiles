@@ -744,11 +744,11 @@ function macos::config_Time_Machine() {
   )
   local dir_existed
   for exclusion in "${excluded[@]}"; do
-    dir_existed=false
+    dir_existed=true
     if ! tmutil isexcluded "${exclusion}" | grep -q '\[Excluded\]'; then
       [[ -d "${exclusion}" ]] || {
         mkdir -p "${exclusion}"
-        dir_existed=true
+        dir_existed=false
       }
       sudo tmutil addexclusion -p "${exclusion}"
       if [[ ${dir_existed} == false ]]; then
