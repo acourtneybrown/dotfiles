@@ -260,7 +260,9 @@ function macos::setup_input_devices() {
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -bool false
 
   # Mission control & App expose with 4 fingers
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0
   defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -bool false
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 0
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -bool false
   defaults write com.apple.dock showMissionControlGestureEnabled -bool true
   defaults write com.apple.dock showAppExposeGestureEnabled -bool true
