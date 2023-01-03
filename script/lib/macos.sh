@@ -733,6 +733,29 @@ function macos::config_Time_Machine() {
   # the following verb was removed in Sierra.  Perhaps set up a LaunchDaemon.
   # see: https://github.com/mathiasbynens/dotfiles/issues/842
   # hash tmutil &> /dev/null && sudo tmutil disablelocal
+
+  local excluded=(
+    "${HOME}/Dropbox"
+    "${HOME}/Parallels"
+    "${HOME}/Virtual Machines.localized"
+    "${HOME}/Shared with me"
+    "${HOME}/SynologyDrive"
+    "${HOME}/temp"
+  )
+  local dir_existed
+  for exclusion in "${excluded[@]}"; do
+    dir_existed=true
+    if ! tmutil isexcluded "${exclusion}" | grep -q '\[Excluded\]'; then
+      [[ -d "${exclusion}" ]] || {
+        mkdir -p "${exclusion}"
+        dir_existed=false
+      }
+      sudo tmutil addexclusion -p "${exclusion}"
+      if [[ ${dir_existed} == false ]]; then
+        rmdir "${exclusion}"
+      fi
+    fi
+  done
 }
 
 function macos::config_Activity_Monitor() {
