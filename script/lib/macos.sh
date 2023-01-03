@@ -121,10 +121,6 @@ function macos::setup_ui_ux() {
   # Adjust toolbar title rollover delay
   defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
 
-  # Disable smooth scrolling
-  # (Uncomment if you’re on an older Mac that messes up the animation)
-  #defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
-
   # Increase window resize speed for Cocoa applications
   defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
@@ -142,9 +138,6 @@ function macos::setup_ui_ux() {
   # Automatically quit printer app once the print jobs complete
   defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-  # Disable the “Are you sure you want to open this application?” dialog
-  # defaults write com.apple.LaunchServices LSQuarantine -bool false
-
   # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
   /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
@@ -152,22 +145,8 @@ function macos::setup_ui_ux() {
   # Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
   defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
-  # Disable Resume system-wide
-  # defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
-
-  # Disable automatic termination of inactive apps
-  # defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
-
-  # Disable the crash reporter
-  #defaults write com.apple.CrashReporter DialogType -string "none"
-
   # Set Help Viewer windows to non-floating mode
   defaults write com.apple.helpviewer DevMode -bool true
-
-  # Fix for the ancient UTF-8 bug in QuickLook (https://mths.be/bbo)
-  # Commented out, as this is known to cause problems in various Adobe apps :(
-  # See https://github.com/mathiasbynens/dotfiles/issues/237
-  #echo "0x08000100:0" > ~/.CFUserTextEncoding
 
   # Reveal IP address, hostname, OS version, etc. when clicking the clock
   # in the login window
@@ -175,12 +154,6 @@ function macos::setup_ui_ux() {
 
   # Restart automatically if the computer freezes
   sudo systemsetup -setrestartfreeze on
-
-  # Never go into computer sleep mode
-  # sudo systemsetup -setcomputersleep Off > /dev/null
-
-  # Disable Notification Center and remove the menu bar icon
-  # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
   # Turn on remote login via SSH & remove password-based logins
   sudo cp /etc/ssh/sshd_config{,.sav}
@@ -311,16 +284,6 @@ function macos::setup_input_devices() {
   # Keyboard: touchbar Fn keys to "Show Control Strip"
   defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullControlStrip functionKeys functionKeys fullControlStrip
 
-  # Clear keyboard shortcut for Shift-Cmd-A (Search man page in index in Terminal.app)
-  # /usr/libexec/PlistBuddy -c "Add :NSServicesStatus dict" ~/Library/Preferences/pbs.plist
-  # /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages' dict" ~/Library/Preferences/pbs.plist
-  # /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':enabled_services_menu bool false" ~/Library/Preferences/pbs.plist
-  # /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':enabled_context_menu bool false" ~/Library/Preferences/pbs.plist
-  # /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':key_equivalent string" ~/Library/Preferences/pbs.plist
-  # /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes dict" ~/Library/Preferences/pbs.plist
-  # /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes:ContextMenu bool false" ~/Library/Preferences/pbs.plist
-  # /usr/libexec/PlistBuddy -c "Add :NSServicesStatus:com.apple.'Terminal - Search man Page Index in Terminal - searchManPages':presentation_modes:ServicesMenu bool false" ~/Library/Preferences/pbs.plist
-
   # Increase sound quality for Bluetooth headphones/headsets
   defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
@@ -339,14 +302,8 @@ function macos::setup_input_devices() {
   defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
   defaults write NSGlobalDomain AppleMetricUnits -bool false
 
-  # Show language menu in the top right corner of the boot screen
-  # sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
-
   # Set the timezone; see `sudo systemsetup -listtimezones` for other values
   # sudo systemsetup -settimezone "America/Phoenix" >/dev/null
-
-  # Stop iTunes from responding to the keyboard media keys
-  #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
   # Don't display keyboard/language selector
   defaults write "com.apple.TextInputMenu" visible -bool false
@@ -443,11 +400,6 @@ function macos::config_Finder() {
   defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
   defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-  # Disable disk image verification
-  # defaults write com.apple.frameworks.diskimages skip-verify -bool true
-  # defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-  # defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
-
   # Automatically open a new Finder window when a volume is mounted
   defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
   defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
@@ -492,10 +444,6 @@ function macos::config_Finder() {
   # Show the /Volumes folder
   sudo chflags nohidden /Volumes
 
-  # Remove Dropbox’s green checkmark icons in Finder
-  # file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-  # [[ -e "${file}" ]] && mv -f "${file}" "${file}.bak"
-
   # Expand the following File Info panes:
   # “General”, “Open with”, and “Sharing & Permissions”
   defaults write com.apple.finder FXInfoPanesExpanded -dict \
@@ -526,10 +474,10 @@ function macos::config_Dock() {
   # Wipe all (default) app icons from the Dock
   # This is only really useful when setting up a new Mac, or if you don’t use
   # the Dock to launch apps.
-  #defaults write com.apple.dock persistent-apps -array
+  # defaults write com.apple.dock persistent-apps -array
 
   # Show only open applications in the Dock
-  #defaults write com.apple.dock static-only -bool true
+  # defaults write com.apple.dock static-only -bool true
 
   # Don’t animate opening applications from the Dock
   # defaults write com.apple.dock launchanim -bool false
@@ -563,14 +511,6 @@ function macos::config_Dock() {
 
   # Make Dock position on right
   defaults write com.apple.dock orientation -string right
-
-  # Disable the Launchpad gesture (pinch with thumb and three fingers)
-  #defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
-
-  # Add a spacer to the left side of the Dock (where the applications are)
-  #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
-  # Add a spacer to the right side of the Dock (where the Trash is)
-  #defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
 }
 
 function macos::config_Safari() {
@@ -729,11 +669,6 @@ function macos::config_Time_Machine() {
   # Prevent Time Machine from prompting to use new hard drives as backup volume
   defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-  # TODO: Disable local Time Machine backups
-  # the following verb was removed in Sierra.  Perhaps set up a LaunchDaemon.
-  # see: https://github.com/mathiasbynens/dotfiles/issues/842
-  # hash tmutil &> /dev/null && sudo tmutil disablelocal
-
   local excluded=(
     "${HOME}/Dropbox"
     "${HOME}/Parallels"
@@ -791,9 +726,6 @@ function macos::config_App_Store() {
 
   # Install System data files & security updates
   defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
-
-  # Automatically download apps purchased on other Macs
-  # defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
 
   # Turn on app auto-update
   defaults write com.apple.commerce AutoUpdate -bool true
