@@ -27,7 +27,7 @@ function macos::setup() {
     Finder
     Dock
     Safari
-    Spotlight
+    # Spotlight
     iTerm
     "Time Machine"
     "Activity Monitor"
