@@ -100,6 +100,9 @@ dotfiles:
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
+  f_bazelrc:
+    src: bazelrc
+    dst: ~/.bazelrc
   f_config_hub:
     src: config/hub
     dst: ~/.config/hub
@@ -246,6 +249,7 @@ profiles:
       - d_config_coursier
       - d_config_yapf
       - f_aws_config
+      - f_bazelrc
       - f_gitconfig-confluent
       - f_m2_settings
       - f_netrc
@@ -265,6 +269,7 @@ profiles:
       personal: false
       ssh_agent: ''
     dynvariables:
+      buildbuddy_readwrite_key: op item get BuildBuddy --field "Read+Write API key"
       full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
       github_account: op item get "GitHub" --fields username
