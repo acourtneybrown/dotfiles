@@ -103,6 +103,7 @@ dotfiles:
   f_bazelrc:
     src: bazelrc
     dst: ~/.bazelrc
+    chmod: 600
   f_config_hub:
     src: config/hub
     dst: ~/.config/hub
