@@ -14,8 +14,8 @@ if [[ ${commands[vault]} ]]; then
     local hosts=(vault vaultnonprod vaultunstable)
 
     # shellcheck disable=SC1009,SC1036,SC1072,SC1073
-    if [[ ${#} -lt 1 || ! ${hosts[(Ie)${1}]} -le ${#hosts} ]]; then
-      echo "usage: vault_switch <vault | vaultnonprod | vaultunstable>"
+    if [[ ${#} -lt 1 || ${hosts[(Ie)${1}]} == 0 ]]; then
+      echo "usage: vault_switch <${hosts}>"
       return
     fi
     export VAULT_ADDR="https://${1}.cireops.gcp.internal.confluent.cloud"
