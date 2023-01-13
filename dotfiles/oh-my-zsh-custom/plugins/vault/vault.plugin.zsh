@@ -15,6 +15,7 @@ if [[ ${commands[vault]} ]]; then
 
     # shellcheck disable=SC1009,SC1036,SC1072,SC1073
     if [[ ${#} -lt 1 || ${hosts[(Ie)${1}]} == 0 ]]; then
+      # shellcheck disable=SC2128
       echo "usage: vault_switch <${hosts}>"
       return
     fi
