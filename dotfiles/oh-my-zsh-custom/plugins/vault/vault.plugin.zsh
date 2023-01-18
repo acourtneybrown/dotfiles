@@ -11,15 +11,14 @@ if [[ ${commands[vault]} ]]; then
 
   # vault_switch changes the VAULT_ADDR to one of the Cire-managed hosts
   function vault_switch() {
-    local hosts=(vault vaultnonprod vaultunstable)
-
-    # shellcheck disable=SC1009,SC1036,SC1072,SC1073
-    if [[ ${#} -lt 1 || ${hosts[(Ie)${1}]} == 0 ]]; then
-      # shellcheck disable=SC2128
-      echo "usage: vault_switch <${hosts}>"
-      return
-    fi
-    export VAULT_ADDR="https://${1}.cireops.gcp.internal.confluent.cloud"
+    case "${1}" in
+    vault | vaultnonprod | vaultunstable)
+      export VAULT_ADDR="https://${1}.cireops.gcp.internal.confluent.cloud"
+      ;;
+    *)
+      echo "usage: vault_switch <vault | vaultnonprod | vaultunstable>"
+      ;;
+    esac
   }
 
   # vault_jenkins_secret matches the tooling used in jenkins-common
