@@ -75,8 +75,6 @@ function profile::confluent() {
 
     jenv local 11.0
   )
-
-  profile::pipx_install 3.11 gimme-aws-creds
 }
 
 function profile::confluent_after() {
