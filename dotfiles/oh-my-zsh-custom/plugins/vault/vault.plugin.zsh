@@ -6,7 +6,7 @@ if [[ ${commands[vault]} ]]; then
 
   # vault_login handles the prefered login approach for Confluent
   function vault_login() {
-    vault login -method=oidc -path=okta -no-print &> /dev/null
+    vault login -method=oidc -path=okta -no-print &>/dev/null
   }
 
   # vault_switch changes the VAULT_ADDR to one of the Cire-managed hosts
