@@ -24,8 +24,8 @@ if [[ ${commands[vault]} ]]; then
   # vault_jenkins_secret matches the tooling used in jenkins-common
   function vault_jenkins_secret() {
     # remove optional trailing comma (,)
-    local SECRET="${1/%,}"
-    local KEY="${2/%,}"
+    local SECRET="${1/%,/}"
+    local KEY="${2/%,/}"
 
     vault kv get -field "${KEY}" v1/ci/kv/"${SECRET}"
   }
