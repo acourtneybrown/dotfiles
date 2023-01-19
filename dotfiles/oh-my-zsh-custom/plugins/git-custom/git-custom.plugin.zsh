@@ -47,14 +47,14 @@ alias grep_all="git branch -a | tr -d \* | sed '/->/d' | xargs git grep"
 # then is deletes squash-merged branches
 function gl() {
   git pull --prune --tags "${@}"
-  gbdsm
+  gbdsm "$(git branch --show-current)"
 }
 
 # gbdsm deletes any branches that have been squash-merged on GitHub
 function gbdsm() {
   local TARGET_BRANCH
   local merge_base
-  TARGET_BRANCH=$(gdb)
+  TARGET_BRANCH="${1:-$(gdb)}"
   git checkout -q "${TARGET_BRANCH}" &&
     git for-each-ref refs/heads/ "--format=%(refname:short)" |
     while read -r branch; do
