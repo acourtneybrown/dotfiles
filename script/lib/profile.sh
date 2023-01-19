@@ -280,6 +280,8 @@ function profile::pipx_install() {
   for package in "${@}"; do
     if [[ $(jq "has(\"${package}\")" <<<"${installed}") == "false" ]]; then
       pipx install "${package}" --python "${py_bin}"
+    else
+      pipx reinstall "${package}" --python "${py_bin}"
     fi
   done
 }
