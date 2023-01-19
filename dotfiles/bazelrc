@@ -1,2 +1,2 @@
-build --remote_header=x-buildbuddy-api-key={{@@ buildbuddy_readwrite_key @@}}
+build:buildbuddy --remote_header=x-buildbuddy-api-key={{@@ buildbuddy_readwrite_key @@}}
 build --disk_cache=~/.cache/bazel
