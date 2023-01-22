@@ -75,10 +75,12 @@ plugins=(
   1password
   1password-custom
   aliases
+  bazel
+  bazel-custom
+  direnv
   docker
   dotdrop
   dotfiles-envvars
-  direnv
   fd
   functions
   fzf
@@ -101,8 +103,6 @@ plugins=(
 
 {%@@ if confluent @@%}
 plugins+=(
-  bazel
-  bazel-custom
   cc-dotfiles
   cflt-aliases
   gcloud-custom

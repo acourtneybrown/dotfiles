@@ -1,5 +1,9 @@
+brew "bazelisk"
+brew "buildifier"
+brew "buildozer"
 brew "ffmpeg"
 brew "libdvdcss"
+brew "tfenv"
 
 cask "avidemux"
 cask "epic-games"
