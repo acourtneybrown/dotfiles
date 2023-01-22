@@ -24,14 +24,14 @@ function ve2() {
   virtualenv "${env}"
 }
 
-# va activates a virtualenv for the given name, or .venv/ if present, or ~/.virtualenvs/<dir name>
+# va activates a virtualenv for the given name, or .venv/ if present, or ${HOME}/.virtualenvs/<dir name>
 function va() {
   local env
   if [[ ${#} -eq 0 ]]; then
     if [[ -d .venv ]]; then
       env=.venv
-    elif [[ -d ~/.virtualenvs/$(basename "${PWD}") ]]; then
-      env=~/.virtualenvs/$(basename "${PWD}")
+    elif [[ -d ${HOME}/.virtualenvs/$(basename "${PWD}") ]]; then
+      env=${HOME}/.virtualenvs/$(basename "${PWD}")
     fi
   else
     env="${1}"
