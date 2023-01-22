@@ -1,8 +1,8 @@
 # shellcheck disable=SC2148
 
-alias ct="cd ~/confluent/temp"
+alias ct='cd ${HOME}/confluent/temp'
 function ctcl() {
-  cd ~/confluent/temp || return
+  ct || return
   gcl "ghc:${1}"
 
   # shellcheck disable=SC2164
