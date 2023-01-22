@@ -243,7 +243,7 @@ profiles:
     variables:
       linux: true
   personal:
-    # dotfiles:
+    dotfiles:
     variables:
       personal: true
   confluent:
