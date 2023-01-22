@@ -195,25 +195,31 @@ dotfiles:
       - _nvm_install
 profiles:
   abrown-confluent:
+    dotfiles:
     include:
       - default
       - mac
       - confluent
   abrown-confluent.local:
+    dotfiles:
     include:
       - abrown-confluent
   abrown-confluent.notcharlie.com:
+    dotfiles:
     include:
       - abrown-confluent
   exhubber:
+    dotfiles:
     include:
       - default
       - mac
       - personal
   exhubber.local:
+    dotfiles:
     include:
       - exhubber
   exhubber.notcharlie.com:
+    dotfiles:
     include:
       - exhubber
   mac:
@@ -233,9 +239,11 @@ profiles:
       - d_user
       - f_sublime_license
   linux:
+    dotfiles:
     variables:
       linux: true
   personal:
+    # dotfiles:
     variables:
       personal: true
   confluent:
@@ -253,11 +261,13 @@ profiles:
       - fake_cc_dotfiles
       - fake_nvm
   confluent_totp:
+    dotfiles:
     variables:
       gimme_aws_creds_mfa_type: "token:software:totp"
     include:
       - confluent
   default:
+    dotfiles:
     variables:
       confluent: false
       linux: false
