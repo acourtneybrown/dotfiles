@@ -21,6 +21,11 @@
             <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
         </server>
         <server>
+            <id>confluent-codeartifact-internal-dev</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+        </server>
+        <server>
             <id>confluent-codeartifact-stabilization</id>
             <username>aws</username>
             <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
@@ -29,6 +34,9 @@
     <profiles>
         <profile>
             <id>confluent-codeartifact</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <repositories>
                 <repository>
                     <id>confluent-codeartifact-central</id>
@@ -79,10 +87,45 @@
             </pluginRepositories>
         </profile>
         <profile>
+            <id>confluent-codeartifact-nonprod</id>
+            <activation>
+                <property>
+                    <name>env.CODE_ARTIFACT_USE_NONPROD</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>confluent-codeartifact-internal-dev</id>
+                    <url>https://confluent-755363985185.d.codeartifact.us-west-2.amazonaws.com/maven/maven-dev/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>confluent-codeartifact-internal-dev</id>
+                    <name>Confluent Plugin Repository</name>
+                    <url>https://confluent-755363985185.d.codeartifact.us-west-2.amazonaws.com/maven/maven-dev/</url>
+                    <layout>default</layout>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
             <id>confluent-codeartifact-release-stabilization</id>
             <activation>
                 <property>
-                    <name>env.ORG_GRADLE_PROJECT_mavenUrl</name>
+                    <name>env.USE_RS_PROFILE</name>
                 </property>
             </activation>
             <repositories>
@@ -111,7 +154,4 @@
             </pluginRepositories>
         </profile>
     </profiles>
-    <activeProfiles>
-        <activeProfile>confluent-codeartifact</activeProfile>
-    </activeProfiles>
 </settings>
