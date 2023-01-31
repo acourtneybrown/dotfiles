@@ -117,6 +117,7 @@ plugins+=(
   release-stable
   release-tools
   terraform
+  terraform-custom
   vault
 )
 {%@@ endif @@%}
