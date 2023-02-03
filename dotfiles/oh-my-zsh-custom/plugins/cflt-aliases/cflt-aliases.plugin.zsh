@@ -2,7 +2,7 @@
 
 alias ct='cd ${HOME}/confluent/temp'
 function ctcl() {
-  if [[ ${#} -lt 1 ]]; then
+  if [[ ${#} -ne 1 ]]; then
     echo "missing repo to clone"
     return
   fi
