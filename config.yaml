@@ -56,6 +56,10 @@ dotfiles:
     dst: ~/.config/gh
     chmod: 700
     link: link_children
+  d_config_pip:
+    src: config/pip
+    dst: ~/.config/pip
+    link: link_children
   d_config_yapf:
     src: config/yapf
     dst: ~/.config/yapf
