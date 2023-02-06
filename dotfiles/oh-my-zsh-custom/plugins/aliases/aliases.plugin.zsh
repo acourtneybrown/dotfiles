@@ -71,3 +71,5 @@ alias pubkey='ssh-keygen -y -f'
 # Use zmv to copy or link files
 alias zcp='zmv -C'
 alias zln='zmv -L'
+
+alias flush-dns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
