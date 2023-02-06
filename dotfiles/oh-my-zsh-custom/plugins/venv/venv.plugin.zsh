@@ -4,23 +4,13 @@
 
 # ve creates a virtualenv for the given name, or .venv/ if not given
 function ve() {
-  local env
-  if [[ ${#} -eq 0 ]]; then
-    env=.venv
-  else
-    env="${1}"
-  fi
+  local env=${1:-.venv}
   python3 -m venv "${env}"
 }
 
 # ve2 creates a virtualenv for Python2 for the given name, or .venv if not given
 function ve2() {
-  local env
-  if [[ ${#} -eq 0 ]]; then
-    env=.venv
-  else
-    env="${1}"
-  fi
+  local env=${1:-.venv}
   virtualenv "${env}"
 }
 
