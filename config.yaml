@@ -252,6 +252,7 @@ profiles:
       linux: true
   personal:
     dotfiles:
+      - d_config_pip
     variables:
       personal: true
   confluent:
