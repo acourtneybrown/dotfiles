@@ -1,2 +1,11 @@
 build:buildbuddy --remote_header=x-buildbuddy-api-key={{@@ buildbuddy_readwrite_key @@}}
+build:buildbuddy --bes_results_url=https://app.buildbuddy.io/invocation/
+build:buildbuddy --bes_backend=grpcs://remote.buildbuddy.io
+build:buildbuddy --remote_cache=grpcs://remote.buildbuddy.io
+
+build:bazel-remote --remote_cache=http://bazel.nonprod-bazel-remote-cache.confluent.io:80
+build:bazel-remote --remote_timeout=3600
+# limit Bazel to read-only access to the remote cache by using the flag for local dev
+build:bazel-remote --remote_upload_local_results=false
+
 build --disk_cache=~/.cache/bazel
