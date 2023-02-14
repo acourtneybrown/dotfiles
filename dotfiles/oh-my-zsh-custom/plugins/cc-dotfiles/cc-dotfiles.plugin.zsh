@@ -12,6 +12,7 @@ if [[ -d "${HOME}/.cc-dotfiles" ]]; then
 
   # shellcheck disable=SC1091,SC1090
   source "${HOME}/.cc-dotfiles/caas.sh"
+  bazel::use_cache
 
   function cc-dotfiles-alpha() {
     export CC_DOTFILES_ALPHA=true
