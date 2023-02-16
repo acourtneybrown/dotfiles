@@ -285,6 +285,7 @@ profiles:
       ssh_agent: ''
     dynvariables:
       buildbuddy_readwrite_key: op item get BuildBuddy --field "Read+Write API key"
+      buildbuddy_dev_ro_key: op item get BuildBuddy --field "textcflt-devprod-test Dev-RO key"
       full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
       github_account: op item get "GitHub" --fields username
