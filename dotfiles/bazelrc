@@ -1,0 +1,42 @@
+build --disk_cache=~/.cache/bazel
+
+build:bazel-remote --remote_cache=http://bazel.nonprod-bazel-remote-cache.confluent.io:80
+build:bazel-remote --remote_timeout=3600
+# limit Bazel to read-only access to the remote cache
+build:bazel-remote --noremote_upload_local_results
+
+build:buildbuddy --remote_header=x-buildbuddy-api-key={{@@ buildbuddy_dev_ro_key @@}}
+build:buildbuddy --bes_results_url=https://app.buildbuddy.io/invocation/
+build:buildbuddy --bes_backend=grpcs://remote.buildbuddy.io
+build:buildbuddy --remote_cache=grpcs://remote.buildbuddy.io
+# limit Bazel to read-only access to the remote cache
+build:buildbuddy --noremote_upload_local_results
+
+# from https://docs.engflow.com/re/client/bazel-first-time.html#3-set-up-bazelrc
+build:engflow --define=EXECUTOR=remote
+build:engflow --disk_cache=
+build:engflow --experimental_inmemory_dotd_files
+build:engflow --experimental_inmemory_jdeps_files
+build:engflow --incompatible_strict_action_env=true
+build:engflow --remote_timeout=600
+build:engflow --nolegacy_important_outputs
+build:engflow --grpc_keepalive_time=30s
+build:engflow --host_platform=//engflow_config/config:platform
+build:engflow --platforms=//engflow_config/config:platform
+build:engflow --extra_execution_platforms=//engflow_config/config:platform
+
+# TODO: determine right one here
+build:engflow --java_runtime_version=remotejdk_11
+
+build:engflow --remote_cache=grpcs://engflow.confluent.io
+build:engflow --remote_executor=grpcs://engflow.confluent.io
+build:engflow --bes_backend=grpcs://engflow.confluent.io
+build:engflow --bes_results_url=https://engflow.confluent.io/invocation/
+# build:engflow --tls_certificate=<PATH>/engflow-remote-execution/engflow-ca.crt
+
+
+build:buildbuddy-personal --remote_header=x-buildbuddy-api-key={{@@ buildbuddy_readwrite_key @@}}
+build:buildbuddy-personal --bes_results_url=https://app.buildbuddy.io/invocation/
+build:buildbuddy-personal --bes_backend=grpcs://remote.buildbuddy.io
+build:buildbuddy-personal --remote_cache=grpcs://remote.buildbuddy.io
+build:buildbuddy-personal --remote_upload_local_results

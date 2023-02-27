@@ -107,7 +107,7 @@ function profile::personal() {
   profile::enable_pyenv
   profile::enable_goenv
 
-  profile::pipx_install 3.11 python-kasa python-vipaccess
+  profile::pipx_install 3.11 python-kasa python-vipaccess devpi-client
 
   mkdir -p "${HOME}/personal"
   (
