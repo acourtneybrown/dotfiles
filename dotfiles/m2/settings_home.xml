@@ -13,8 +13,8 @@
   <servers>
     <server>
       <id>archiva.default</id>
-      <username>{{@@ archive_user @@}}</username>
-      <password>{{@@ archive_password @@}}</password>
+      <username>{{@@ archiva_user @@}}</username>
+      <password>{{@@ archiva_password @@}}</password>
     </server>
   </servers>
 

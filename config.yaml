@@ -290,8 +290,8 @@ profiles:
       personal: false
       ssh_agent: ''
     dynvariables:
-      archive_user: op item get k35fj7gqsj5y24cqcagcij6waq --field username
-      archive_password: op item get k35fj7gqsj5y24cqcagcij6waq --field password
+      archiva_user: op item get k35fj7gqsj5y24cqcagcij6waq --field username
+      archiva_password: op item get k35fj7gqsj5y24cqcagcij6waq --field password
       buildbuddy_readwrite_key: op item get BuildBuddy --field "Read+Write API key"
       buildbuddy_dev_ro_key: op item get BuildBuddy --field "textcflt-devprod-test Dev-RO key"
       full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
