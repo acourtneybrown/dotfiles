@@ -298,6 +298,7 @@ profiles:
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
       github_account: op item get "GitHub" --fields username
       github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
+      gitlab_account: op item get "GitLab" --field username
       hub_cli_token: op item get "GitHub" --fields "hub cli token"
       okta_default_device_token: op item get "Okta" --fields "gimme-aws-creds device_token"
       okta_username: op item get "Okta" --field username
