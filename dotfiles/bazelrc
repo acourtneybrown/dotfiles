@@ -12,6 +12,10 @@ build:buildbuddy --remote_cache=grpcs://remote.buildbuddy.io
 # limit Bazel to read-only access to the remote cache
 build:buildbuddy --noremote_upload_local_results
 
+build:buildgrid --spawn_strategy=remote
+build:buildgrid --remote_executor=grpc://buildgrid.nonprod-bazel-remote-cache.confluent.io:50051
+build:buildgrid --remote_instance_name=main
+
 # from https://docs.engflow.com/re/client/bazel-first-time.html#3-set-up-bazelrc
 build:engflow --define=EXECUTOR=remote
 build:engflow --disk_cache=
