@@ -5,7 +5,7 @@
   <mirrors>
     <mirror>
       <id>archiva.default</id>
-      <url>https://archiva.notcharlie.com/repository/internal/</url>
+      <url>{{@@ archiva_website @@}}/repository/internal/</url>
       <mirrorOf>external:*</mirrorOf>
     </mirror>
   </mirrors>
@@ -16,6 +16,33 @@
       <username>{{@@ archiva_user @@}}</username>
       <password>{{@@ archiva_password @@}}</password>
     </server>
+    <server>
+      <id>gitea</id>
+      <configuration>
+        <httpHeaders>
+          <property>
+            <name>Authorization</name>
+            <value>token {{@@ gitea_maven_token @@}}</value>
+          </property>
+        </httpHeaders>
+      </configuration>
+    </server>
   </servers>
 
+  <profiles>
+    <profile>
+      <id>gitea</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    <repositories>
+      <repository>
+        <id>gitea</id>
+        <url>{{@@ gitea_website @@}}/api/packages/{{@@ gitea_username @@}}/maven</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+      </repository>
+    </repositories>
+  </profiles>
 </settings>
