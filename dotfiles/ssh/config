@@ -40,4 +40,8 @@ Host unifi-*
 Host *.compute.amazonaws.com
   User ubuntu
   UserKnownHostsFile /dev/null
+
+Host jenkins*.confluent.io
+  User ubuntu
+  UserKnownHostsFile /dev/null
 {%@@ endif @@%}

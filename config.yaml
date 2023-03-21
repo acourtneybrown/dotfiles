@@ -56,6 +56,11 @@ dotfiles:
     dst: ~/.config/gh
     chmod: 700
     link: link_children
+  d_config_glab_cli:
+    src: config/glab-cli
+    dst: ~/.config/glab-cli
+    chmod: 700
+    link: link_children
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
@@ -310,6 +315,7 @@ profiles:
       github_account: op item get "GitHub" --fields username
       github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
       gitlab_account: op item get "GitLab" --field username
+      glab_cli_token: op item get "GitLab" --field "glab cli token"
       hub_cli_token: op item get "GitHub" --fields "hub cli token"
       okta_default_device_token: op item get "Okta" --fields "gimme-aws-creds device_token"
       okta_username: op item get "Okta" --field username
@@ -332,6 +338,7 @@ profiles:
     dotfiles:
       - d_bin
       - d_config_gh
+      - d_config_glab_cli
       - d_git_template
       - d_gradle_init_d
       - f_bash_sessions_disable
