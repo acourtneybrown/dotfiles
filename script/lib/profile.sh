@@ -82,10 +82,11 @@ function profile::confluent_after() {
 
   profile::run_dotdrop_action _cc_dotfiles_install
 
+  granted registry add -n confluent -u git@github.com:confluentinc/granted-registry.git
+
   # shellcheck disable=SC1090,SC1091
   source "${HOME}/.cc-dotfiles/include/devprod-ga/code-artifact.sh"
   export PATH="${HOME}/.local/bin:${PATH}"
-  gimme-aws-creds --profile devprod-prod # force initial login
   code_artifact::pip_login
 
   profile::pipx_install 3.8 confluent-release-tools

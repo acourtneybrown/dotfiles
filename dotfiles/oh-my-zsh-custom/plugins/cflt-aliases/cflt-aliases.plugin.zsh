@@ -13,3 +13,5 @@ function ctcl() {
   # shellcheck disable=SC2164
   cd "${1}"
 }
+
+alias assume="source /usr/local/bin/assume"
