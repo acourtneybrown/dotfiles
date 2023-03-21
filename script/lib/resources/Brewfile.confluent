@@ -2,6 +2,7 @@ tap "lindell/multi-gitter"
 tap "semaphoreci/tap"
 
 brew "ansible@2.9"
+brew "ansible"
 brew "aws-cdk"
 brew "aws-console"
 brew "awscli"
