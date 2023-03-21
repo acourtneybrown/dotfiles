@@ -44,3 +44,11 @@ build:buildbuddy-personal --bes_results_url=https://app.buildbuddy.io/invocation
 build:buildbuddy-personal --bes_backend=grpcs://remote.buildbuddy.io
 build:buildbuddy-personal --remote_cache=grpcs://remote.buildbuddy.io
 build:buildbuddy-personal --remote_upload_local_results
+
+build:buildgrid-local --spawn_strategy=remote
+build:buildgrid-local --remote_executor=http://localhost:8080
+build:buildgrid-local --remote_instance_name=main
+
+build:buildbarn-local --jobs=8
+build:buildbarn-local --remote_executor=grpc://localhost:8980
+build:buildbarn-local --remote_instance_name=local
