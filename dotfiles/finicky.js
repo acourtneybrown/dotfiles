@@ -28,6 +28,7 @@ module.exports = {
           "docs.google.com",
           "hire.lever.co",
           "jenkins.confluent.io",
+          "lookerstudio.google.com",
           "metabase.confluent.io",
           "status.zoom.us",
           "signin.aws.amazon.com",
