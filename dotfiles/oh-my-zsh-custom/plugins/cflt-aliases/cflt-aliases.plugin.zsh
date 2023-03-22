@@ -14,4 +14,4 @@ function ctcl() {
   cd "${1}"
 }
 
-alias assume="source $(brew --prefix)/bin/assume"
+alias assume='source $(brew --prefix)/bin/assume'
