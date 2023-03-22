@@ -89,7 +89,10 @@ function profile::confluent_after() {
   # shellcheck disable=SC1090,SC1091
   source "${HOME}/.cc-dotfiles/include/devprod-ga/code-artifact.sh"
   export PATH="${HOME}/.local/bin:${PATH}"
+
+  # first pip_login might initialize `assume`, second ensures actual credentials
   code_artifact::pip_login
+  code_artifact::pip_login -f
 
   profile::pipx_install 3.8 confluent-release-tools
   profile::pipx_install 3.9 confluent-ci-tools
