@@ -100,9 +100,6 @@ dotfiles:
       - Package Control.last-run
       - Package Control.merged-ca-bundle
       - Package Control.user-ca-bundle
-  f_aws_config:
-    src: aws/config
-    dst: ~/.aws/config
   f_bash_sessions_disable:
     src: bash_sessions_disable
     dst: ~/.bash_sessions_disable
@@ -155,10 +152,6 @@ dotfiles:
   f_netrc:
     src: netrc
     dst: ~/.netrc
-    chmod: 600
-  f_okta_aws_login_config:
-    src: okta_aws_login_config
-    dst: ~/.okta_aws_login_config
     chmod: 600
   f_ssh_authorized_keys:
     src:
@@ -269,23 +262,14 @@ profiles:
   confluent:
     variables:
       confluent: true
-      gimme_aws_creds_mfa_type: webauthn
     dotfiles:
       - d_config_coursier
       - d_config_yapf
-      - f_aws_config
       - f_gitconfig-confluent
       - f_m2_settings_confluent
       - f_netrc
-      - f_okta_aws_login_config
       - fake_cc_dotfiles
       - fake_nvm
-  confluent_totp:
-    dotfiles:
-    variables:
-      gimme_aws_creds_mfa_type: "token:software:totp"
-    include:
-      - confluent
   default:
     dotfiles:
     variables:
@@ -306,7 +290,6 @@ profiles:
       gitlab_account: op item get "GitLab" --field username
       glab_cli_token: op item get "GitLab" --field "glab cli token"
       hub_cli_token: op item get "GitHub" --fields "hub cli token"
-      okta_default_device_token: op item get "Okta" --fields "gimme-aws-creds device_token"
       okta_username: op item get "Okta" --field username
       personal_email: op item get 2rou2jbvdvahrl4ov7wtxstdka --field email
       personal_public_key: op item get "Default key" --field "public key"

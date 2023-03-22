@@ -1,9 +1,0 @@
-[default]
-region = us-west-2
-output = json
-[profile devprod-prod]
-region = us-west-2
-[profile devprod-nonprod]
-region = us-west-2
-[profile devprod-public]
-region = us-west-2
