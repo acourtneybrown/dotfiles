@@ -25,6 +25,7 @@ module.exports = {
           "confluent.okta.com",
           "confluent.slack.com",
           "confluentinc.atlassian.net",
+          "device.sso.us-west-2.amazonaws.com",
           "docs.google.com",
           "hire.lever.co",
           "jenkins.confluent.io",
