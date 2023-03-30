@@ -19,5 +19,14 @@ function bazel_deps() {
   bazel query --notool_deps --noimplicit_deps "deps(${target})" --output graph
 }
 
+# show_bazel_deps opens an SVG of the bazel_deps output
+function show_bazel_deps() {
+  local svgfile
+  svgfile="$(mktemp).svg" || return 1
+  bazel_deps "${@}" | dot -Tsvg >"${svgfile}"
+  open "${svgfile}"
+}
+
 alias bazel-clean-cache=bazel_clean_cache
 alias bazel-deps=bazel_deps
+alias show-bazel-deps=show_bazel_deps
