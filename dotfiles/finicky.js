@@ -64,6 +64,7 @@ module.exports = {
       ],
       browser: "Google Chrome"
     },
+    {%@@ if personal @@%}
     {
       match: [
         finicky.matchHostnames([
@@ -84,6 +85,7 @@ module.exports = {
       },
       browser: "Safari"
     },
+    {%@@ endif @@%}
     {
       match: [
         /zoom\.us/
