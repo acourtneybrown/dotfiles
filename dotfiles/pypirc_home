@@ -1,0 +1,7 @@
+[distutils]
+index-servers = gitea
+
+[gitea]
+repository = {{@@ gitea_website @@}}/api/packages/{{@@ gitea_username @@}}/pypi
+username = {{@@ gitea_username @@}}
+password = {{@@ gitea_pypi_token @@}}

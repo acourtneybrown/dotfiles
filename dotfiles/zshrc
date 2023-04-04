@@ -101,6 +101,12 @@ plugins=(
   zsh-completions
 )
 
+{%@@ if personal @@%}
+plugins+=(
+  home-gitea
+)
+{%@@ endif @@%}
+
 {%@@ if confluent @@%}
 plugins+=(
   cc-dotfiles

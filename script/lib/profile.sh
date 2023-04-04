@@ -113,7 +113,7 @@ function profile::personal() {
   profile::enable_pyenv
   profile::enable_goenv
 
-  profile::pipx_install 3.11 python-kasa python-vipaccess devpi-client
+  profile::pipx_install 3.11 python-kasa python-vipaccess tox twine pytest build
 
   mkdir -p "${HOME}/personal"
   (
