@@ -288,7 +288,6 @@ profiles:
       buildbuddy_readwrite_key: op item get BuildBuddy --field "Read+Write API key"
       full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
-      gitea_container_token: op item get "Gitea (acourtneybrown)" --field "Container token"
       gitea_maven_token: op item get "Gitea (acourtneybrown)" --field "Maven token"
       gitea_pypi_token: op item get "Gitea (acourtneybrown)" --field "PyPI token"
       gitea_username: op item get "Gitea (acourtneybrown)" --field username
