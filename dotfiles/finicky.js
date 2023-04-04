@@ -28,6 +28,7 @@ module.exports = {
           "device.sso.us-west-2.amazonaws.com",
           "docs.google.com",
           "hire.lever.co",
+          "ironcladapp.com",
           "jenkins.confluent.io",
           "lookerstudio.google.com",
           "metabase.confluent.io",
@@ -63,6 +64,7 @@ module.exports = {
       ],
       browser: "Google Chrome"
     },
+    {%@@ if personal @@%}
     {
       match: [
         finicky.matchHostnames([
@@ -83,6 +85,7 @@ module.exports = {
       },
       browser: "Safari"
     },
+    {%@@ endif @@%}
     {
       match: [
         /zoom\.us/
