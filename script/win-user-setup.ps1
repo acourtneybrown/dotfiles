@@ -3,7 +3,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
 
 # Set up additional scoop buckets
-# scoop bucket add extras
+scoop bucket add extras
 # scoop bucket add Ash258 ‘https://github.com/Ash258/Scoop-Ash258.git’
 # scoop bucket add TheRandomLabs https://github.com/TheRandomLabs/Scoop-Bucket.git
 
@@ -11,6 +11,7 @@ irm get.scoop.sh | iex
 scoop install 1password-cli
 scoop install git
 scoop install jq
+scoop install sunshine
 scoop install yq
 
 # Install version(s) of python
