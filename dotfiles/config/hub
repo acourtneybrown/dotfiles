@@ -1,4 +1,0 @@
-github.com:
-- user: {{@@ github_account @@}}
-  oauth_token: {{@@ hub_cli_token @@}}
-  protocol: https

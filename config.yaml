@@ -110,10 +110,6 @@ dotfiles:
     src: bazelrc
     dst: ~/.bazelrc
     chmod: 600
-  f_config_hub:
-    src: config/hub
-    dst: ~/.config/hub
-    chmod: 600
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
@@ -296,7 +292,6 @@ profiles:
       github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
       gitlab_account: op item get "GitLab" --field username
       glab_cli_token: op item get "GitLab" --field "glab cli token"
-      hub_cli_token: op item get "GitHub" --fields "hub cli token"
       okta_username: op item get "Okta" --field username
       personal_email: op item get 2rou2jbvdvahrl4ov7wtxstdka --field email
       personal_public_key: op item get "Default key" --field "public key"
@@ -322,7 +317,6 @@ profiles:
       - d_gradle_init_d
       - f_bash_sessions_disable
       - f_bazelrc
-      - f_config_hub
       - f_curlrc
       - f_gitconfig
       - f_gitignore
