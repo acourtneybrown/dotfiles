@@ -9,7 +9,3 @@ fi
 
 [[ -d "${HOME}/.linuxbrew" ]] && _evalcache "${HOME}/.linuxbrew/bin/brew" shellenv
 [[ -d /home/linuxbrew/.linuxbrew ]] && _evalcache /home/linuxbrew/.linuxbrew/bin/brew shellenv
-
-# shellcheck disable=SC2034
-typeset -U path
-export PATH

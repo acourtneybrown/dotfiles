@@ -9,9 +9,6 @@ if [[ -d ${GOENV_ROOT} ]]; then
   path=("${GOENV_ROOT}/bin/" $path)
   _evalcache goenv init -
 
-  typeset -U path
-  export PATH
-
   function goenv_prompt_info() {
     goenv version-name 2>/dev/null
   }
