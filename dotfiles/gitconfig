@@ -57,12 +57,6 @@
 
 	gpgsign = true
 
-{%@@ if mac @@%}
-[credential]
-
-	helper = osxkeychain
-{%@@ endif @@%}
-
 [delta]
 
     navigate = true    # use n and N to move between diff sections
