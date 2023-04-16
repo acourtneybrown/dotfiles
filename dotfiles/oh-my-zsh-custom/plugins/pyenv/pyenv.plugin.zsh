@@ -5,8 +5,6 @@ export PYENV_ROOT="${HOME}/.pyenv"
 if [[ -d ${PYENV_ROOT} ]]; then
   # shellcheck disable=SC2206
   path=("${PYENV_ROOT}/bin/" $path)
-  typeset -U path
-  export PATH
   _evalcache pyenv init - zsh
 
   function pyenv_prompt_info() {

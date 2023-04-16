@@ -12,6 +12,3 @@ for dir in ${paths}; do
     path=("${dir}" ${path})
   fi
 done
-
-typeset -U path
-export PATH

@@ -144,6 +144,7 @@ plugins=(
   # modern-unix
 )
 
+typeset -U path PATH
 if [[ -d "${ZSH}" ]]; then
   source "${ZSH}/oh-my-zsh.sh"
 else

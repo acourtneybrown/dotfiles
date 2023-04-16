@@ -9,8 +9,5 @@ if [[ ${commands[pipx]} ]]; then
     # shellcheck disable=2206
     path=("${HOME}/.local/bin" ${path})
   fi
-  typeset -U path
-  export PATH
-
   _evalcache register-python-argcomplete pipx
 fi
