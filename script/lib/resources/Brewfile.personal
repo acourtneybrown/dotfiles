@@ -1,8 +1,11 @@
+tap "twilio/brew"
+
 brew "bazelisk"
 brew "buildifier"
 brew "buildozer"
 brew "ffmpeg"
 brew "libdvdcss"
+brew "twilio"
 
 cask "avidemux"
 cask "epic-games"
