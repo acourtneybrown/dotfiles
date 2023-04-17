@@ -119,6 +119,9 @@ dotfiles:
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
+  f_gitconfig-nogpgsign:
+    src: gitconfig-nogpgsign
+    dst: ~/.gitconfig-nogpgsign
   f_gitconfig-confluent:
     src: gitconfig-confluent
     dst: ~/.gitconfig-confluent
@@ -319,6 +322,7 @@ profiles:
       - f_bazelrc
       - f_curlrc
       - f_gitconfig
+      - f_gitconfig-nogpgsign
       - f_gitignore
       - f_gradle_properties
       - f_hgrc

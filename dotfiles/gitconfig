@@ -168,3 +168,8 @@
 [includeIf "gitdir/i:~/confluent/"]
 	path = ~/.gitconfig-confluent
 {%@@ endif @@%}
+
+[includeIf "gitdir/i:/private/var/tmp/_bazel_*/"]
+	path = ~/.gitconfig-nogpgsign
+[includeIf "gitdir/i:/private/var/folders/"]
+	path = ~/.gitconfig-nogpgsign
