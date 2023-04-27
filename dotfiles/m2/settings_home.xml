@@ -22,14 +22,15 @@
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
-    <repositories>
-      <repository>
-        <id>gitea</id>
-        <url>{{@@ gitea_website @@}}/api/packages/{{@@ gitea_username @@}}/maven</url>
-        <releases>
-          <enabled>true</enabled>
-        </releases>
-      </repository>
-    </repositories>
+      <repositories>
+        <repository>
+          <id>gitea</id>
+          <url>{{@@ gitea_website @@}}/api/packages/{{@@ gitea_username @@}}/maven</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </repository>
+      </repositories>
+    </profile>
   </profiles>
 </settings>
