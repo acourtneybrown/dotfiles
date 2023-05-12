@@ -203,7 +203,7 @@ function ghclorg() {
   _ghclall orgs "${1}"
 }
 
-# ghcluser clones all of the repos under a GitHub user
+# ghcluser clones all of the non-archived repos under a GitHub user
 function ghcluser() {
   if [[ "${#}" -ne 1 ]]; then
     echo "Usage: ghcluser <org>"
