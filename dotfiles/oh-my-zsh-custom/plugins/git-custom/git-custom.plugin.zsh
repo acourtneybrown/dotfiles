@@ -182,26 +182,49 @@ function ggpush() {
   git push "${remote}" "$(git_current_branch)"
 }
 
+# _ghclall is an internal function that clones all of the non-archived, repos for a given user/org
+function _ghclall() {
+  local entity
+  if [[ "${#}" -ne 2 ]]; then
+    return 1
+  fi
+  collection="${1}"
+  entity="${2}"
+
+  gh api "${collection}/${entity}/repos" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t git clone gh:%
+}
+
 # ghclorg clones all of the repos under a GitHub org
 function ghclorg() {
-  local org
   if [[ "${#}" -ne 1 ]]; then
     echo "Usage: ghclorg <org>"
     return
   fi
-  org="${1}"
-
-  gh api "orgs/${org}/repos" --paginate --jq '.[].full_name' | xargs -n 1 -I % -P 6 -t git clone gh:%
+  _ghclall orgs "${1}"
 }
 
-# ghcluser clones all of the repos under a GitHub org
+# ghcluser clones all of the repos under a GitHub user
 function ghcluser() {
-  local user
   if [[ "${#}" -ne 1 ]]; then
     echo "Usage: ghcluser <org>"
     return
   fi
-  user="${1}"
+  _ghclall users "${1}"
+}
 
-  gh api "users/${user}/repos" --paginate --jq '.[].full_name' | xargs -n 1 -I % -P 6 -t git clone gh:%
+# ghrmarchived deletes the local clone for any repo that has been archived on GitHub
+function ghrmarchived() {
+  local archived
+  for DIR in *; do
+    if [[ -d "${DIR}/.git" ]]; then
+      archived=$(
+        cd "$DIR" || return
+        gh api "repos/{owner}/{repo}" --jq '.archived'
+      )
+      $archived && {
+        echo "removing archived repo '$DIR'"
+        rm -rf "$DIR"
+      }
+    fi
+  done
 }
