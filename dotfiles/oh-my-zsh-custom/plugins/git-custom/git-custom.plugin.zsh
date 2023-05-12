@@ -223,7 +223,7 @@ function ghrmarchived() {
       )
       $archived && {
         echo "removing archived repo '$DIR'"
-        rm -rf "$DIR"
+        rm -rf -- "$DIR"
       }
     fi
   done
