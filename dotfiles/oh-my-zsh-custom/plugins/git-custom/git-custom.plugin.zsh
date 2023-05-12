@@ -194,7 +194,7 @@ function _ghclall() {
   gh api "${collection}/${entity}/repos" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t git clone gh:%
 }
 
-# ghclorg clones all of the repos under a GitHub org
+# ghclorg clones all of the non-archived repos under a GitHub org
 function ghclorg() {
   if [[ "${#}" -ne 1 ]]; then
     echo "Usage: ghclorg <org>"
