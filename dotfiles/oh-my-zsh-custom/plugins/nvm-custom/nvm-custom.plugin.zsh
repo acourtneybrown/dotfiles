@@ -2,7 +2,7 @@
 
 NVM_DIR="${HOME}/.nvm"
 
-if [[ -d ${NVM_DIR} ]]; then
+if command -v nvm && [[ -d ${NVM_DIR} ]]; then
   function nvm_prompt_info() {
     # shellcheck disable=SC2155
     local version="$(nvm current)"
