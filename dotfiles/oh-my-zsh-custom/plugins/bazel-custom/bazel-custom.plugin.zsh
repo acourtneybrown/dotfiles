@@ -14,8 +14,8 @@ fi
 
 export GOPRIVATE="github.com/confluentinc/*"
 
-# bazel_clean_cache deletes cache file older than the time specified (60d by default)
-function bazel_clean_cache() {
+# bazel_clean_disk_cache deletes cache file older than the time specified (60d by default)
+function bazel_clean_disk_cache() {
   local OLDER_THAN=${1:-60d}
   find "${HOME}/.cache/bazel" -type f -atime "+${OLDER_THAN}" -delete
 }
@@ -48,6 +48,11 @@ function sri_hash() {
   openssl dgst "-${2}" -binary <"${1}" | openssl base64 -A
 }
 
+# bazel_nuke_repository_cache deletes the contents of the repository_cache for the logged in user
+function bazel_nuke_repository_cache() {
+  rm -rf "$(bazel info repository_cache)"
+}
+
 # bazel_all run the given command over every resulting target for the given query
 function bazel_all() {
   local command="${1}"
@@ -55,9 +60,10 @@ function bazel_all() {
   bazel query "${@}" | xargs -n 1 bazel "${command}"
 }
 
-alias bazel-clean-cache=bazel_clean_cache
+alias bazel-clean-disk-cache=bazel_clean_disk_cache
 alias sri-hash=sri_hash
 alias bazel-deps=bazel_deps
 alias show-bazel-deps=show_bazel_deps
 alias stbob='st "$(bazel info output_base)"'
+alias bazel-nuke-repository-cache=bazel_nuke_repository_cache
 alias bazel-all=bazel_all
