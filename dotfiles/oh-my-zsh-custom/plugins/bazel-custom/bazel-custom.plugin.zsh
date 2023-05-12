@@ -48,8 +48,16 @@ function sri_hash() {
   openssl dgst "-${2}" -binary <"${1}" | openssl base64 -A
 }
 
+# bazel_all run the given command over every resulting target for the given query
+function bazel_all() {
+  local command="${1}"
+  shift
+  bazel query "${@}" | xargs -n 1 bazel "${command}"
+}
+
 alias bazel-clean-cache=bazel_clean_cache
 alias sri-hash=sri_hash
 alias bazel-deps=bazel_deps
 alias show-bazel-deps=show_bazel_deps
 alias stbob='st "$(bazel info output_base)"'
+alias bazel-all=bazel_all
