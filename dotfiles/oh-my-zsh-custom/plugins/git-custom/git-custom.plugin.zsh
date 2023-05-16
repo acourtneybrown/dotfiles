@@ -223,8 +223,22 @@ function ghrmarchived() {
       )
       $archived && {
         echo "removing archived repo '$DIR'"
-        rm -rf "$DIR"
+        rm -rf -- "$DIR"
       }
     fi
   done
 }
+
+# ghrmdeleted deletes the local clone for any repo that has been deleted on GitHub
+function ghrmdeleted() {
+  for DIR in *; do
+    if [[ -d "${DIR}/.git" ]]; then
+      if ! (cd "$DIR" && gh api --silent "repos/{owner}/{repo}" 2>/dev/null); then
+        echo "removing deleted repo '$DIR'"
+        rm -rf -- "$DIR"
+      fi
+    fi
+  done
+}
+
+alias ghrmremoved='ghrmdeleted; ghrmarchived'
