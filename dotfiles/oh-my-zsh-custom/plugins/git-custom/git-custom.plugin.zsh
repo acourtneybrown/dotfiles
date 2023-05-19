@@ -78,6 +78,15 @@ function gcobu() {
   git checkout -b "${user}/${branch}" "${@}"
 }
 
+# gbu outputs the list of branches prefixes with the github username
+# if not specified as argument, username defaults to value configured in .gitconfig
+# git branch(es) list (for) username
+function gblu() {
+  local user
+  user=${1:-$(git config github.user)}
+  git branch --all --list "*/${user}/*"
+}
+
 # gdodb compares the origin's default branch to the specified branch (if given) or the current HEAD
 # git diff origin default branch
 function gdodb() {
