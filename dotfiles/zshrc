@@ -165,6 +165,7 @@ if [[ -n ${SSH_CONNECTION} ]]; then
   export EDITOR='vim'
 else
   export EDITOR='subl -w'
+  export GIT_EDITOR='subl -nw'
 fi
 
 # Don’t clear the screen after quitting a manual page.
