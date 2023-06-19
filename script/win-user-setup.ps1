@@ -12,6 +12,7 @@ scoop install 1password-cli
 scoop install git
 scoop install jq
 scoop install yq
+scoop install 7zip
 
 # Install version(s) of python
 scoop install pyenv
