@@ -44,4 +44,8 @@ Host *.compute.amazonaws.com
 Host jenkins*.confluent.io
   User ubuntu
   UserKnownHostsFile /dev/null
+
+Host *
+  PubkeyAcceptedKeyTypes=+ssh-rsa
+  HostKeyAlgorithms=+ssh-rsa
 {%@@ endif @@%}
