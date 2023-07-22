@@ -1,12 +1,24 @@
 // See https://github.com/johnste/finicky/wiki/Configuration
 
+function openInFirefoxContainer(containerName, urlString) {
+  return `ext+container:name=${containerName}&url=${encodeURIComponent(
+    urlString
+  )}`;
+}
+
 module.exports = {
-  defaultBrowser: "browserosaurus",
+  defaultBrowser: "Firefox",
   rewrite: [
     {
       // Redirect all urls to use https
       match: ({ url }) => url.protocol === "http",
       url: { protocol: "https" }
+    },
+    {
+      match: "*",
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("Misc", urlString);
+      }
     }
   ],
   handlers: [
@@ -62,6 +74,10 @@ module.exports = {
           "my.asu.edu",
         ])
       ],
+      // url: ({ urlString }) => {
+      //   return openInFirefoxContainer("Jenny", urlString);
+      // },
+      // browser: "Firefox"
       browser: "Google Chrome"
     },
     {%@@ if personal @@%}
