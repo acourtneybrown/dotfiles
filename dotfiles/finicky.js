@@ -14,15 +14,8 @@ module.exports = {
       match: ({ url }) => url.protocol === "http",
       url: { protocol: "https" }
     },
-    {
-      match: "*",
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("Misc", urlString);
-      }
-    }
   ],
   handlers: [
-    {%@@ if confluent @@%}
     {
       // Confluent-related sites
       match: [
@@ -65,9 +58,16 @@ module.exports = {
         /jetbrains.com/,
         /travis-ci.org\/github\/confluentinc/,
        ],
+    {%@@ if confluent @@%}
       browser: "Google Chrome"
-    },
     {%@@ endif @@%}
+    {%@@ if personal @@%}
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("CFLT", urlString);
+      },
+      browser: "Firefox"
+    {%@@ endif @@%}
+    },
     {
       match: [
         finicky.matchHostnames([
@@ -91,7 +91,10 @@ module.exports = {
         ]),
         /^https:\/\/github.com\/{{@@ github_account @@}}\/.*$/,
       ],
-      browser: "Safari"
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("Me", urlString);
+      },
+      browser: "Firefox"
     },
     {
       match: ({ opener }) => {
@@ -99,7 +102,10 @@ module.exports = {
         return opener.bundleId
           && (opener.bundleId === "com.agilebits.onepassword7" || opener.bundleId === "com.1password.1password")
       },
-      browser: "Safari"
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("Me", urlString);
+      },
+      browser: "Firefox"
     },
     {%@@ endif @@%}
     {
