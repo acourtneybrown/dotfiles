@@ -12,7 +12,7 @@ module.exports = {
     {
       // Redirect all urls to use https
       match: ({ url }) => url.protocol === "http",
-      url: { protocol: "https" }
+      url: { protocol: "https" },
     },
   ],
   handlers: [
@@ -59,13 +59,13 @@ module.exports = {
         /travis-ci.org\/github\/confluentinc/,
        ],
     {%@@ if confluent @@%}
-      browser: "Google Chrome"
+      browser: "Google Chrome",
     {%@@ endif @@%}
     {%@@ if personal @@%}
       url: ({ urlString }) => {
         return openInFirefoxContainer("CFLT", urlString);
       },
-      browser: "Firefox"
+      browser: "Firefox",
     {%@@ endif @@%}
     },
     {
@@ -78,7 +78,7 @@ module.exports = {
       //   return openInFirefoxContainer("Jenny", urlString);
       // },
       // browser: "Firefox"
-      browser: "Google Chrome"
+      browser: "Google Chrome",
     },
     {%@@ if personal @@%}
     {
@@ -89,30 +89,26 @@ module.exports = {
           /nytimes.com/,
           /wsj.com/,
         ]),
+
         /^https:\/\/github.com\/{{@@ github_account @@}}\/.*$/,
+
+        ({ opener }) => {
+          // finicky.log(opener.bundleId);
+          return opener.bundleId
+            && (opener.bundleId === "com.agilebits.onepassword7" || opener.bundleId === "com.1password.1password")
+        },
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Me", urlString);
       },
-      browser: "Firefox"
-    },
-    {
-      match: ({ opener }) => {
-        // finicky.log(opener.bundleId);
-        return opener.bundleId
-          && (opener.bundleId === "com.agilebits.onepassword7" || opener.bundleId === "com.1password.1password")
-      },
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("Me", urlString);
-      },
-      browser: "Firefox"
+      browser: "Firefox",
     },
     {%@@ endif @@%}
     {
       match: [
         /zoom\.us/
       ],
-      browser: "us.zoom.xos"
+      browser: "us.zoom.xos",
     }
   ]
 };
