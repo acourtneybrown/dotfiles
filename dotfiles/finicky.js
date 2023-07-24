@@ -60,8 +60,7 @@ module.exports = {
        ],
     {%@@ if confluent @@%}
       browser: "Google Chrome",
-    {%@@ endif @@%}
-    {%@@ if personal @@%}
+    {%@@ elif personal @@%}
       url: ({ urlString }) => {
         return openInFirefoxContainer("CFLT", urlString);
       },
