@@ -11,7 +11,7 @@ Host *
 Host *.notcharlie.com
   ForwardAgent yes
   User abrown
-Host exhubber
+Host exhubber adams-mbp
   User adambrown
 Host pfsense
   ForwardAgent no
