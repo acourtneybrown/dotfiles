@@ -219,6 +219,19 @@ profiles:
     dotfiles:
     include:
       - abrown-confluent
+  adams-mbp:
+    include:
+      - default
+      - mac
+      - personal
+  adams-mbp.local:
+    dotfiles:
+    include:
+      - adams-mbp
+  adams-mbp.notcharlie.com:
+    dotfiles:
+    include:
+      - adams-mbp
   exhubber:
     dotfiles:
     include:
