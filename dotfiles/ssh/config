@@ -27,7 +27,7 @@ Host synology-root
   Hostname synology.notcharlie.com
   Port 2222
   User root
-Host gitea
+Host gitea gitea.notcharlie.com
   Hostname synology.notcharlie.com
   Port 2234
   User git
