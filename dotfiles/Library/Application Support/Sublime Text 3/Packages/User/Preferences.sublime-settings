@@ -5,7 +5,7 @@
 	[
 		"Vintage",
 	],
-	"rubocop_path": "/usr/local/bin/rubocop",
+	"rubocop_path": "{{@@ homebrew_prefix @@}}/bin/rubocop",
 	"show_full_path": true,
 	"trim_trailing_white_space_on_save": true,
 	"color_scheme": "Breakers.sublime-color-scheme",
