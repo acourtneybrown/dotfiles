@@ -2,7 +2,7 @@
 {
 	"linters": {
 		"shellcheck": {
-			"executable": "/usr/local/bin/shellcheck"
+			"executable": "{{@@ homebrew_prefix @@}}/bin/shellcheck"
 		}
 	}
 }
