@@ -1,16 +1,21 @@
 // See https://github.com/johnste/finicky/wiki/Configuration
 
+function openInFirefoxContainer(containerName, urlString) {
+  return `ext+container:name=${containerName}&url=${encodeURIComponent(
+    urlString
+  )}`;
+}
+
 module.exports = {
-  defaultBrowser: "browserosaurus",
+  defaultBrowser: "Firefox",
   rewrite: [
     {
       // Redirect all urls to use https
       match: ({ url }) => url.protocol === "http",
-      url: { protocol: "https" }
-    }
+      url: { protocol: "https" },
+    },
   ],
   handlers: [
-    {%@@ if confluent @@%}
     {
       // Confluent-related sites
       match: [
@@ -53,16 +58,26 @@ module.exports = {
         /jetbrains.com/,
         /travis-ci.org\/github\/confluentinc/,
        ],
-      browser: "Google Chrome"
-    },
+    {%@@ if confluent @@%}
+      browser: "Google Chrome",
+    {%@@ elif personal @@%}
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("CFLT", urlString);
+      },
+      browser: "Firefox",
     {%@@ endif @@%}
+    },
     {
       match: [
         finicky.matchHostnames([
           "my.asu.edu",
         ])
       ],
-      browser: "Google Chrome"
+      // url: ({ urlString }) => {
+      //   return openInFirefoxContainer("Jenny", urlString);
+      // },
+      // browser: "Firefox"
+      browser: "Google Chrome",
     },
     {%@@ if personal @@%}
     {
@@ -73,24 +88,26 @@ module.exports = {
           /nytimes.com/,
           /wsj.com/,
         ]),
+
         /^https:\/\/github.com\/{{@@ github_account @@}}\/.*$/,
+
+        ({ opener }) => {
+          // finicky.log(opener.bundleId);
+          return opener.bundleId
+            && (opener.bundleId === "com.agilebits.onepassword7" || opener.bundleId === "com.1password.1password")
+        },
       ],
-      browser: "Safari"
-    },
-    {
-      match: ({ opener }) => {
-        // finicky.log(opener.bundleId);
-        return opener.bundleId
-          && (opener.bundleId === "com.agilebits.onepassword7" || opener.bundleId === "com.1password.1password")
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("Me", urlString);
       },
-      browser: "Safari"
+      browser: "Firefox",
     },
     {%@@ endif @@%}
     {
       match: [
         /zoom\.us/
       ],
-      browser: "us.zoom.xos"
+      browser: "us.zoom.xos",
     }
   ]
 };
