@@ -91,6 +91,8 @@ module.exports = {
 
         /^https:\/\/github.com\/{{@@ github_account @@}}\/.*$/,
 
+        "https://www.amazon.com/alexa-privacy/apd/rvh",
+
         ({ opener }) => {
           // finicky.log(opener.bundleId);
           return opener.bundleId
