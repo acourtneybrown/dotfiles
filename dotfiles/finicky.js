@@ -6,6 +6,42 @@ function openInFirefoxContainer(containerName, urlString) {
   )}`;
 }
 
+function contains1pId(urlSearch) {
+  // finicky.log(urlSearch)
+  for (const id of meContainerIds) {
+    if (urlSearch.includes(`${id}=${id}`)) {
+      return true
+    }
+  }
+  return false
+}
+
+function remove1pId(urlString) {
+  finicky.log(urlString)
+  result = urlString
+  for (const regex of meUrlSearchRegex) {
+    finicky.log(`checking ${regex}`)
+    result = result.replace(regex, "")
+  }
+  finicky.log(result)
+  return result
+}
+
+const noContainerHosts = new Set(['duckduckgo.com', 'www.google.com', 'www.amazon.com', 'wikipedia.org'])
+const bundleIdsFor1p = new Set(["com.agilebits.onepassword7", "com.1password.1password"])
+const bundleIdsForAlfred = new Set(["com.runningwithcrayons.Alfred"])
+const meContainerIds = [
+  {%@@ for id in firefox_me_ids.split() @@%}
+    {{@@ id @@}},
+  {%@@ endfor @@%}
+]
+const meUrlSearchRegex = [
+  {%@@ for id in firefox_me_ids.split() @@%}
+    new RegExp("[?&]?" + {{@@ id @@}} + "=" + {{@@ id @@}}),
+    // new RegExp({{@@ id @@}} + "=" + {{@@ id @@}}),
+  {%@@ endfor @@%}
+]
+
 module.exports = {
   defaultBrowser: "Firefox",
   rewrite: [
@@ -93,14 +129,21 @@ module.exports = {
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
-        ({ opener }) => {
+        ({ opener, url }) => {
           // finicky.log(opener.bundleId);
-          return opener.bundleId
-            && (opener.bundleId === "com.agilebits.onepassword7" || opener.bundleId === "com.1password.1password")
+          // finicky.log(url.host)
+          if (bundleIdsFor1p.has(opener.bundleId)) {
+            return true
+          }
+
+          if (bundleIdsForAlfred.has(opener.bundleId)) {
+            return !noContainerHosts.has(url.host) || contains1pId(url.search)
+          }
+          return false
         },
       ],
       url: ({ urlString }) => {
-        return openInFirefoxContainer("Me", urlString);
+        return openInFirefoxContainer("Me", remove1pId(urlString));
       },
       browser: "Firefox",
     },
