@@ -38,7 +38,6 @@ const meContainerIds = [
 const meUrlSearchRegex = [
   {%@@ for id in firefox_me_ids.split() @@%}
     new RegExp("[?&]?" + {{@@ id @@}} + "=" + {{@@ id @@}}),
-    // new RegExp({{@@ id @@}} + "=" + {{@@ id @@}}),
   {%@@ endfor @@%}
 ]
 
