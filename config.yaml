@@ -295,6 +295,7 @@ profiles:
     dynvariables:
       buildbuddy_dev_ro_key: op item get BuildBuddy --field "cflt-devprod-test Dev-RO key"
       buildbuddy_readwrite_key: op item get BuildBuddy --field "Read+Write API key"
+      firefox_me_ids: op item list --tags Firefox:Me --format=json | jq '.[].id' | sort
       full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
       gitea_maven_token: op item get "Gitea (acourtneybrown)" --field "Maven token"
