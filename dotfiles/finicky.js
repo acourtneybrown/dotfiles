@@ -7,7 +7,6 @@ function openInFirefoxContainer(containerName, urlString) {
 }
 
 function contains1pId(urlSearch) {
-  // finicky.log(urlSearch)
   for (const id of meContainerIds) {
     if (urlSearch.includes(`${id}=${id}`)) {
       return true
@@ -17,13 +16,10 @@ function contains1pId(urlSearch) {
 }
 
 function remove1pId(urlString) {
-  finicky.log(urlString)
   result = urlString
   for (const regex of meUrlSearchRegex) {
-    finicky.log(`checking ${regex}`)
     result = result.replace(regex, "")
   }
-  finicky.log(result)
   return result
 }
 
@@ -129,8 +125,6 @@ module.exports = {
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
         ({ opener, url }) => {
-          // finicky.log(opener.bundleId);
-          // finicky.log(url.host)
           if (bundleIdsFor1p.has(opener.bundleId)) {
             return true
           }
