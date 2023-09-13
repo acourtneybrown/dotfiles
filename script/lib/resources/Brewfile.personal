@@ -20,6 +20,7 @@ cask "raspberry-pi-imager"
 cask "sonos"
 cask "steam"
 cask "subler"
+cask "synology-drive"
 cask "vlc"
 cask "vmware-fusion"
 

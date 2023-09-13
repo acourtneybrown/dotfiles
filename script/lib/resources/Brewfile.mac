@@ -62,7 +62,6 @@ cask "slack"
 cask "spotify"
 cask "steam"
 cask "sublime-text"
-cask "synology-drive"
 cask "zoom"
 cask "zsa-wally"
 
