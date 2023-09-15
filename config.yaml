@@ -232,20 +232,6 @@ profiles:
     dotfiles:
     include:
       - adams-mbp
-  exhubber:
-    dotfiles:
-    include:
-      - default
-      - mac
-      - personal
-  exhubber.local:
-    dotfiles:
-    include:
-      - exhubber
-  exhubber.notcharlie.com:
-    dotfiles:
-    include:
-      - exhubber
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
