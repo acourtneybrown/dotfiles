@@ -10,6 +10,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 choco install -y brave
 choco install -y epicgameslauncher
 choco install -y firefox
+choco install -y geforce-experience
 choco install -y goggalaxy
 choco install -y retroarch
 choco install -y slack
