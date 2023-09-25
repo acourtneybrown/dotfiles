@@ -208,6 +208,7 @@ EOF
   # Bluetooth: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
   (defaults read com.apple.systemuiserver menuExtras | grep -q Bluetooth.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+  defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
 
   # Time & Clock: Show date in menu bar
   defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
