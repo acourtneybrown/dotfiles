@@ -288,6 +288,9 @@ function macos::setup_input_devices() {
   # Keyboard: touchbar Fn keys to "Show Control Strip"
   defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullControlStrip functionKeys functionKeys fullControlStrip
 
+  # Keyboard: default functions keys to F1, F2, etc
+  defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+
   # Increase sound quality for Bluetooth headphones/headsets
   defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
