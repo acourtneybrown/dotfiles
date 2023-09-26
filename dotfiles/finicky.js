@@ -25,6 +25,7 @@ function remove1pId(urlString) {
 
 const noContainerHosts = new Set(['duckduckgo.com', 'www.google.com', 'www.amazon.com', 'wikipedia.org'])
 const bundleIdsFor1p = new Set(["com.agilebits.onepassword7", "com.1password.1password"])
+const bundleIdsForHarmony = new Set(["com.logitech.myharmony"])
 const bundleIdsForAlfred = new Set(["com.runningwithcrayons.Alfred"])
 const meContainerIds = [
   {%@@ for id in firefox_me_ids.split() @@%}
@@ -126,6 +127,9 @@ module.exports = {
 
         ({ opener, url }) => {
           if (bundleIdsFor1p.has(opener.bundleId)) {
+            return true
+          }
+          if (bundleIdsForHarmony.has(opener.bundleId)) {
             return true
           }
 
