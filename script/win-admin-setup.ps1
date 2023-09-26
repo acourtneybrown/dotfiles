@@ -12,6 +12,7 @@ choco install -y epicgameslauncher
 choco install -y firefox
 choco install -y geforce-experience
 choco install -y goggalaxy
+choco install -y myharmony
 choco install -y retroarch
 choco install -y slack
 choco install -y steam
