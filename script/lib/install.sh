@@ -83,3 +83,8 @@ function install::xcode_license() {
     fi
   fi
 }
+
+# install_rosetta2 attempts to install Rosetta2, assuming on ARM-based Mac
+install::install_rosetta2() {
+  softwareupdate --install-rosetta --agree-to-license
+}

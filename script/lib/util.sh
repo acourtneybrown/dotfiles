@@ -13,6 +13,10 @@ function util::is_mac() {
   [[ "$(uname -s)" = "Darwin" ]]
 }
 
+function util::is_arm() {
+  [[ "$(uname -m)" = "arm64" ]]
+}
+
 function util::is_linux() {
   [[ "$(uname -s)" = "Linux" ]]
 }
