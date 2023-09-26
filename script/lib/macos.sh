@@ -209,6 +209,10 @@ EOF
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
   (defaults read com.apple.systemuiserver menuExtras | grep -q Bluetooth.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
 
+  # VPN: show icon in menu bar
+  defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.vpn" -bool true
+  (defaults read com.apple.systemuiserver menuExtras | grep -q VPN.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/VPN.menu"
+
   # Time & Clock: Show date in menu bar
   defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
 }
@@ -288,6 +292,9 @@ function macos::setup_input_devices() {
 
   # Keyboard: touchbar Fn keys to "Show Control Strip"
   defaults write com.apple.touchbar.agent PresentationModeFnModes -dict fullControlStrip functionKeys functionKeys fullControlStrip
+
+  # Keyboard: default functions keys to F1, F2, etc
+  defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
   # Increase sound quality for Bluetooth headphones/headsets
   defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40

@@ -28,6 +28,9 @@ if util::is_mac; then
   # install xcode command line tools
   install::install_xcode
 
+  # install Rosetta 2 on ARM-based Mac
+  util::is_arm && install::install_rosetta2
+
   # MacOS customization script
   # shellcheck disable=SC1091
   . lib/macos.sh
