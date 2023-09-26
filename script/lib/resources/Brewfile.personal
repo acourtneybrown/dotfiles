@@ -21,6 +21,7 @@ cask "sonos"
 cask "steam"
 cask "subler"
 cask "synology-drive"
+cask "virtualbuddy"
 cask "vlc"
 cask "vmware-fusion"
 
