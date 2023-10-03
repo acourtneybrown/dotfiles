@@ -236,8 +236,17 @@ function macos::setup_security() {
   # shellcheck disable=SC2010
   if ls /usr/lib/pam | grep -q "pam_tid.so"; then
     echo "Configuring sudo authentication using TouchID:"
-    PAM_FILE="/etc/pam.d/sudo"
-    FIRST_LINE="# sudo: auth account password session"
+    if [[ -f /etc/pam.d/sudo_local || -f /etc/pam.d/sudo_local.template ]]; then
+      # New in macOS Sonoma, survives updates.
+      PAM_FILE="/etc/pam.d/sudo_local"
+      FIRST_LINE="# sudo_local: local config file which survives system update and is included for sudo"
+      if [[ ! -f "/etc/pam.d/sudo_local" ]]; then
+        echo "$FIRST_LINE" | sudo tee "$PAM_FILE" >/dev/null
+      fi
+    else
+      PAM_FILE="/etc/pam.d/sudo"
+      FIRST_LINE="# sudo: auth account password session"
+    fi
     if grep -q pam_tid.so "${PAM_FILE}"; then
       echo "ok"
     elif ! head -n1 "${PAM_FILE}" | grep -q "${FIRST_LINE}"; then
