@@ -240,7 +240,7 @@ function macos::setup_security() {
       PAM_FILE="/etc/pam.d/sudo_local"
       FIRST_LINE="# sudo_local: local config file which survives system update and is included for sudo"
       if [[ ! -f "/etc/pam.d/sudo_local" ]]; then
-        echo "$FIRST_LINE" | sudo_askpass tee "$PAM_FILE" >/dev/null
+        echo "$FIRST_LINE" | sudo tee "$PAM_FILE" >/dev/null
       fi
     else
       PAM_FILE="/etc/pam.d/sudo"
