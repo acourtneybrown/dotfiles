@@ -59,6 +59,7 @@ cask "marked"
 cask "slack"
 cask "spotify"
 cask "sublime-text"
+cask "yubico-yubikey-manager"
 cask "zoom"
 cask "zsa-wally"
 
