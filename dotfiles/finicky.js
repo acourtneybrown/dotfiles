@@ -67,10 +67,11 @@ module.exports = {
           "hire.lever.co",
           "ironcladapp.com",
           "jenkins.confluent.io",
+          "login.docker.com",
           "lookerstudio.google.com",
           "metabase.confluent.io",
-          "status.zoom.us",
           "signin.aws.amazon.com",
+          "status.zoom.us",
 
           /^go$/,
           /confluent-internal\.io/,
