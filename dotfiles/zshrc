@@ -111,6 +111,7 @@ plugins+=(
 plugins+=(
   cc-dotfiles
   cflt-aliases
+  cflt-go
   gcloud-custom
   gradle
   graphviz
