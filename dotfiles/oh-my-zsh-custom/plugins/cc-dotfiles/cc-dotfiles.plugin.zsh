@@ -7,7 +7,6 @@ fi
 
 if [[ -d "${HOME}/.cc-dotfiles" ]]; then
   export CC_AUTO_UPDATE=false
-  export CODE_ARTIFACT_ENABLE_BAZEL=true
   export BUILDBUDDY_PERSONAL_KEY="{{@@ buildbuddy_readwrite_key @@}}"
 
   # shellcheck disable=SC1091,SC1090
