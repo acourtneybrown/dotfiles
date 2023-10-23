@@ -96,7 +96,7 @@ function profile::confluent_after() {
 
   profile::pipx_install 3.8 confluent-release-tools
   profile::pipx_install 3.9 confluent-ci-tools
-  profile::pipx_install 3.11 ansible-hostmanager bump2version gql tox
+  profile::pipx_install 3.11 ansible-hostmanager bump2version gql tox service-bot
 }
 
 function profile::confluent_totp() {
