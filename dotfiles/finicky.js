@@ -78,6 +78,7 @@ module.exports = {
           /confluent.io/,
           /confluent\.cloud/,
           /cultureamp.com/,
+          /geekbot\.com/,
           /golinks.io/,
           /semaphoreci.com/,
           /sumologic.com/,
