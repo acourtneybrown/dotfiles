@@ -116,12 +116,14 @@ module.exports = {
       match: [
         finicky.matchHostnames([
           "govzw.com",
+          "login.docker.com",
 
           /nytimes.com/,
           /wsj.com/,
         ]),
 
-        /^https:\/\/github.com\/{{@@ github_account @@}}\/.*$/,
+        /^https:\/\/github.com\/{{@@ github_account @@}}(\/|$)/,
+        /^https:\/\/github.com\/NotCharlie(\/|$)/,
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
