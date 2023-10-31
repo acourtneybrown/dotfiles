@@ -122,8 +122,8 @@ module.exports = {
           /wsj.com/,
         ]),
 
-        /^https:\/\/github.com\/{{@@ github_account @@}}\/.*$/,
-        /^https:\/\/github.com\/NotCharlie\//,
+        /^https:\/\/github.com\/{{@@ github_account @@}}(\/|$)/,
+        /^https:\/\/github.com\/NotCharlie(\/|$)/,
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
