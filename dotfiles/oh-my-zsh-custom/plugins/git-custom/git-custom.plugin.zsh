@@ -235,7 +235,7 @@ function _ghclall() {
   collection="${1}"
   entity="${2}"
 
-  gh api "${collection}/${entity}/repos" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t git clone gh:%
+  gh api "${collection}/${entity}/repos" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t gh repo clone %
 }
 
 # ghclorg clones all of the non-archived repos under a GitHub org
