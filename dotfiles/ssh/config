@@ -31,7 +31,7 @@ Host gitea gitea.notcharlie.com
   Hostname synology.notcharlie.com
   Port 2234
   User git
-Host unifi-*
+Host unifi-* unifi-*.notcharlie.com
   ForwardAgent no
   User unifi-admin
 
