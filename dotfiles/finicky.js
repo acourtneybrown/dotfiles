@@ -149,18 +149,6 @@ module.exports = {
     },
     {
       match: [
-        finicky.matchHostnames([
-          "my.asu.edu",
-        ])
-      ],
-      // url: ({ urlString }) => {
-      //   return openInFirefoxContainer("Jenny", urlString);
-      // },
-      // browser: "Firefox"
-      browser: "Google Chrome",
-    },
-    {
-      match: [
         /zoom\.us/
       ],
       browser: "us.zoom.xos",
