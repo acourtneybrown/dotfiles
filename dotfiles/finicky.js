@@ -101,10 +101,8 @@ module.exports = {
       match: [
         finicky.matchHostnames([
           "a.goodtime.io",
-          "app.firehydrant.io",
           "app.geekbot.com",
           "app.glean.com",
-          "circleci.com",
           "confluent-tools.datadoghq.com",
           "confluent.askspoke.com",
           "confluent.okta.com",
@@ -125,7 +123,6 @@ module.exports = {
           /confluent\.io/,
           /confluent\.cloud/,
           /cultureamp\.com/,
-          /golinks\.io/,
           /semaphoreci\.com/,
           /sumologic\.com/,
         ]),
