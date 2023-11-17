@@ -124,7 +124,7 @@ module.exports = {
           /confluent\.cloud/,
           /cultureamp\.com/,
           /semaphoreci\.com/,
-          /sumologic\.com/,
+          /slack\.com/,
         ]),
 
         /applications\.zoom\.us\/slack\/api\/call\/callback/,
