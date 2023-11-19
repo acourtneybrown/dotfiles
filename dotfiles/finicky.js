@@ -120,9 +120,10 @@ module.exports = {
 
           /^go$/,
           /confluent-internal\.io/,
-          /confluent\.io/,
           /confluent\.cloud/,
+          /confluent\.io/,
           /cultureamp\.com/,
+          /jetbrains\.com/,
           /semaphoreci\.com/,
           /slack\.com/,
         ]),
@@ -132,7 +133,6 @@ module.exports = {
         /confluent\.zoom\.us\/saml/,
         /github\.com\/.*confluentinc/,
         /github\.com\/semaphoreci/,
-        /jetbrains\.com/,
         /travis-ci\.org\/github\/confluentinc/,
        ],
     {%@@ if confluent @@%}
