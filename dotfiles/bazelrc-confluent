@@ -1,17 +1,4 @@
-build --disk_cache=~/.cache/bazel
-
-build:bazel-remote --remote_cache=http://bazel.nonprod-bazel-remote-cache.confluent.io:80
-build:bazel-remote --remote_timeout=3600
-# limit Bazel to read-only access to the remote cache
-build:bazel-remote --noremote_upload_local_results
-
-build:buildbuddy --remote_header=x-buildbuddy-api-key={{@@ buildbuddy_dev_ro_key @@}}
-build:buildbuddy --bes_results_url=https://app.buildbuddy.io/invocation/
-build:buildbuddy --bes_backend=grpcs://remote.buildbuddy.io
-build:buildbuddy --remote_cache=grpcs://remote.buildbuddy.io
-# limit Bazel to read-only access to the remote cache
-build:buildbuddy --noremote_upload_local_results
-
+import /Users/abrown/.cc-dotfiles.bazelrc
 build:buildgrid --spawn_strategy=remote
 build:buildgrid --remote_executor=grpc://buildgrid.nonprod-bazel-remote-cache.confluent.io:50051
 build:buildgrid --remote_instance_name=main
@@ -37,13 +24,6 @@ build:engflow --remote_executor=grpcs://engflow.confluent.io
 build:engflow --bes_backend=grpcs://engflow.confluent.io
 build:engflow --bes_results_url=https://engflow.confluent.io/invocation/
 # build:engflow --tls_certificate=<PATH>/engflow-remote-execution/engflow-ca.crt
-
-
-build:buildbuddy-personal --remote_header=x-buildbuddy-api-key={{@@ buildbuddy_readwrite_key @@}}
-build:buildbuddy-personal --bes_results_url=https://app.buildbuddy.io/invocation/
-build:buildbuddy-personal --bes_backend=grpcs://remote.buildbuddy.io
-build:buildbuddy-personal --remote_cache=grpcs://remote.buildbuddy.io
-build:buildbuddy-personal --remote_upload_local_results
 
 build:buildgrid-local --spawn_strategy=remote
 build:buildgrid-local --remote_executor=http://localhost:8080

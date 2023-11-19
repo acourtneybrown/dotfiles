@@ -106,8 +106,8 @@ dotfiles:
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
-  f_bazelrc:
-    src: bazelrc
+  f_bazelrc-confluent:
+    src: bazelrc-confluent
     dst: ~/.bazelrc
     chmod: 600
   f_curlrc:
@@ -265,6 +265,7 @@ profiles:
     dotfiles:
       - d_config_coursier
       - d_config_yapf
+      - f_bazelrc-confluent
       - f_gitconfig-confluent
       - f_m2_settings_confluent
       - f_netrc
@@ -317,7 +318,6 @@ profiles:
       - d_git_template
       - d_gradle_init_d
       - f_bash_sessions_disable
-      - f_bazelrc
       - f_curlrc
       - f_gitconfig
       - f_gitignore

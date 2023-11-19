@@ -12,8 +12,6 @@ if [[ -f ${HOME}/.config/coursier/credentials.properties ]]; then
   export COURSIER_CREDENTIALS=${HOME}/.config/coursier/credentials.properties
 fi
 
-export GOPRIVATE="github.com/confluentinc/*"
-
 # bazel_clean_disk_cache deletes cache file older than the time specified (60d by default)
 function bazel_clean_disk_cache() {
   local OLDER_THAN=${1:-60d}
