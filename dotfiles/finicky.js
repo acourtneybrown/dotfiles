@@ -75,20 +75,6 @@ module.exports = {
         /^https:\/\/github\.com\/NotCharlie(\/|$)/,
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
-
-        ({ opener, url }) => {
-          if (bundleIdsFor1p.has(opener.bundleId)) {
-            return true
-          }
-          if (bundleIdsForHarmony.has(opener.bundleId)) {
-            return true
-          }
-
-          if (bundleIdsForAlfred.has(opener.bundleId)) {
-            return !noContainerHosts.has(url.host) || contains1pId(url.search)
-          }
-          return false
-        },
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Me", remove1pId(urlString));
@@ -144,6 +130,29 @@ module.exports = {
       browser: "Firefox",
     {%@@ endif @@%}
     },
+    {%@@ if personal @@%}
+    {
+      match: [
+        ({ opener, url }) => {
+          if (bundleIdsFor1p.has(opener.bundleId)) {
+            return true
+          }
+          if (bundleIdsForHarmony.has(opener.bundleId)) {
+            return true
+          }
+
+          if (bundleIdsForAlfred.has(opener.bundleId)) {
+            return !noContainerHosts.has(url.host) || contains1pId(url.search)
+          }
+          return false
+        },
+      ],
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("Me", remove1pId(urlString));
+      },
+      browser: "Firefox",
+    },
+    {%@@ endif @@%}
     {
       match: [
         /zoom\.us/
