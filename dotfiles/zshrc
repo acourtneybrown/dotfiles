@@ -118,6 +118,7 @@ plugins+=(
   helm
   jenv
   jenv-custom
+  kubectl
   mvn
   nvm
   nvm-custom
