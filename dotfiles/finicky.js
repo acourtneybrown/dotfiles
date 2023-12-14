@@ -101,10 +101,10 @@ module.exports = {
           "login.docker.com",
           "lookerstudio.google.com",
           "metabase.confluent.io",
-          "signin.aws.amazon.com",
           "status.zoom.us",
 
           /^go$/,
+          /aws.amazon.com/,
           /confluent-internal\.io/,
           /confluent\.cloud/,
           /confluent\.io/,
