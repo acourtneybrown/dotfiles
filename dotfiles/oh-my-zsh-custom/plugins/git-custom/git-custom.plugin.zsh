@@ -45,6 +45,7 @@ alias grep_all="git branch -a | tr -d \* | sed '/->/d' | xargs git grep"
 
 # gl performs a git pull, with optional additional flags,
 # then is deletes squash-merged branches
+# shellcheck disable=SC2120
 function gl() {
   git pull --prune --tags "${@}"
   gbdsm "$(git branch --show-current)"
@@ -76,6 +77,17 @@ function gcobu() {
   local branch="${1}"
   shift
   git checkout -b "${user}/${branch}" "${@}"
+}
+
+# gcol - git checkout [and] pull
+function gcol() {
+  if [[ "${#}" -ne 1 ]]; then
+    echo "Usage: gcol <branch>"
+    return
+  fi
+
+  # shellcheck disable=SC2119
+  gco "${1}" && gl
 }
 
 # gbu outputs the list of branches prefixes with the github username
