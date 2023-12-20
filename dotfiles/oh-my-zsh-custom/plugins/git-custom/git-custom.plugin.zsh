@@ -45,6 +45,7 @@ alias grep_all="git branch -a | tr -d \* | sed '/->/d' | xargs git grep"
 
 # gl performs a git pull, with optional additional flags,
 # then is deletes squash-merged branches
+# shellcheck disable=SC2120
 function gl() {
   git pull --prune --tags "${@}"
   gbdsm "$(git branch --show-current)"
