@@ -78,6 +78,17 @@ function gcobu() {
   git checkout -b "${user}/${branch}" "${@}"
 }
 
+# gcol - git checkout [and] pull
+function gcol() {
+  if [[ "${#}" -ne 1 ]]; then
+    echo "Usage: gcol <branch>"
+    return
+  fi
+
+  # shellcheck disable=SC2119
+  gco "${1}" && gl
+}
+
 # gbu outputs the list of branches prefixes with the github username
 # if not specified as argument, username defaults to value configured in .gitconfig
 # git branch(es) list (for) username
