@@ -27,6 +27,9 @@
 	untrackedCache = true
 
 	pager = delta
+{%@@ if confluent @@%}
+	hooksPath = /usr/local/gitconfig/hooks/
+{%@@ endif @@%}
 
 [color]
 
