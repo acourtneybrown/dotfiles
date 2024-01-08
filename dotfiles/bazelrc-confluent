@@ -1,4 +1,4 @@
-import /Users/adambrown/.cc-dotfiles.bazelrc
+import /Users/{{@@ env['USER'] @@}}/.cc-dotfiles.bazelrc
 
 common --local_cpu_resources=HOST_CPUS*0.7
 
