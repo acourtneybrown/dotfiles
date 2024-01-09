@@ -46,6 +46,11 @@ dotfiles:
   d_bin:
     src: bin
     dst: ~/bin
+  d_config_1Password:
+    src: config/1Password
+    dst: ~/.config/1Password
+    chmod: 700
+    link: link_children
   d_config_coursier:
     src: config/coursier
     dst: ~/.config/coursier
@@ -326,6 +331,7 @@ profiles:
   shared:
     dotfiles:
       - d_bin
+      - d_config_1Password
       - d_config_gh
       - d_config_glab_cli
       - d_git_template
