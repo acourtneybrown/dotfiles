@@ -97,6 +97,7 @@ plugins=(
   ripgrep-all
   setopts
   sublime
+  tig
   venv
   zsh-completions
 )
