@@ -32,6 +32,9 @@
 [[ssh-keys]]
 item = "Confluent"
 vault = "Confluent"
+
+[[ssh-keys]]
+vault = "DevProd"
 {%@@ endif @@%}
 
 [[ssh-keys]]
