@@ -2,7 +2,6 @@ actions:
   _add_authorized_keys: |
     mkdir -p ~/.ssh
     op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
-    op item get "Confluent" --field "public key" > ~/.ssh/authorized_keys.confluent
     cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
   _install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/\"{{@@ sublime_home @@}}\""
   _pyenv_install: |
@@ -16,18 +15,6 @@ actions:
       git -C ~/.goenv pull --prune origin;
     else
       git clone https://github.com/syndbg/goenv.git ~/.goenv;
-    fi
-  _nvm_install: |
-    if [ -d ~/.nvm ]; then
-      git -C ~/.nvm pull --prune origin;
-    else
-      git clone https://github.com/nvm-sh/nvm.git ~/.nvm;
-    fi
-  _cc_dotfiles_install: |
-    if [ -d ~/.cc-dotfiles ]; then
-      git -C ~/.cc-dotfiles pull --prune origin;
-    else
-      git clone https://github.com/confluentinc/cc-dotfiles.git ~/.cc-dotfiles;
     fi
 config:
   backup: true
@@ -51,11 +38,6 @@ dotfiles:
     dst: ~/.config/1Password
     chmod: 700
     link: link_children
-  d_config_coursier:
-    src: config/coursier
-    dst: ~/.config/coursier
-    chmod: 700
-    link: link_children
   d_config_gh:
     src: config/gh
     dst: ~/.config/gh
@@ -69,10 +51,6 @@ dotfiles:
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
-    link: link_children
-  d_config_yapf:
-    src: config/yapf
-    dst: ~/.config/yapf
     link: link_children
   d_git_template:
     src: git-template
@@ -111,10 +89,6 @@ dotfiles:
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
-  f_bazelrc-confluent:
-    src: bazelrc-confluent
-    dst: ~/.bazelrc
-    chmod: 600
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
@@ -124,9 +98,6 @@ dotfiles:
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
-  f_gitconfig-confluent:
-    src: gitconfig-confluent
-    dst: ~/.gitconfig-confluent
   f_gitignore:
     src: gitignore
     dst: ~/.gitignore
@@ -140,20 +111,11 @@ dotfiles:
   f_hushlogin:
     src: hushlogin
     dst: ~/.hushlogin
-  f_m2_settings_confluent:
-    src: m2/settings_confluent.xml
-    dst: ~/.m2/settings.xml
-    chmod: 600
-    link: nolink
   f_m2_settings_home:
     src: m2/settings_home.xml
     dst: ~/.m2/settings.xml
     chmod: 600
     link: nolink
-  f_netrc:
-    src: netrc
-    dst: ~/.netrc
-    chmod: 600
   f_pypirc_home:
     src: pypirc_home
     dst: ~/.pypirc
@@ -192,11 +154,6 @@ dotfiles:
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
-  fake_cc_dotfiles:
-    src:
-    dst:
-    actions:
-      - _cc_dotfiles_install
   fake_pyenv:
     src:
     dst:
@@ -207,39 +164,7 @@ dotfiles:
     dst:
     actions:
       - _goenv_install
-  fake_nvm:
-    src:
-    dst:
-    actions:
-      - _nvm_install
 profiles:
-  abrown-confluent:
-    dotfiles:
-    include:
-      - default
-      - mac
-      - confluent
-  abrown-confluent.local:
-    dotfiles:
-    include:
-      - abrown-confluent
-  abrown-confluent.notcharlie.com:
-    dotfiles:
-    include:
-      - abrown-confluent
-  abrown-confluent-m3:
-    include:
-      - default
-      - mac
-      - confluent
-  abrown-confluent-m3.local:
-    dotfiles:
-    include:
-      - abrown-confluent-m3
-  abrown-confluent-m3.notcharlie.com:
-    dotfiles:
-    include:
-      - abrown-confluent-m3
   adams-mbp:
     include:
       - default
@@ -280,29 +205,14 @@ profiles:
       - f_pypirc_home
     variables:
       personal: true
-  confluent:
-    variables:
-      confluent: true
-    dotfiles:
-      - d_config_coursier
-      - d_config_yapf
-      - f_bazelrc-confluent
-      - f_gitconfig-confluent
-      - f_m2_settings_confluent
-      - f_netrc
-      - fake_cc_dotfiles
-      - fake_nvm
   default:
     dotfiles:
     variables:
-      confluent: false
       linux: false
       mac: false
       personal: false
       ssh_agent: ''
     dynvariables:
-      buildbuddy_dev_ro_key: op item get BuildBuddy --field "cflt-devprod-test Dev-RO key"
-      buildbuddy_readwrite_key: op item get BuildBuddy --field "Read+Write API key"
       firefox_me_ids: op item list --tags Firefox:Me --format=json | jq '.[].id' | sort
       full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
@@ -311,7 +221,6 @@ profiles:
       gitea_username: op item get "Gitea (acourtneybrown)" --field username
       gitea_website: op item get "Gitea (acourtneybrown)" --format json | jq -r '.urls[0].href'
       github_account: op item get "GitHub" --fields username
-      github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
       gitlab_account: op item get "GitLab" --field username
       glab_cli_token: op item get "GitLab" --field "glab cli token"
       homebrew_prefix: brew --prefix
@@ -319,8 +228,6 @@ profiles:
       personal_email: op item get 2rou2jbvdvahrl4ov7wtxstdka --field email
       personal_public_key: op item get "Default key" --field "public key"
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
-      work_email: echo "$({{@@ okta_username @@}})@confluent.io"
-      work_public_key: op item get Confluent --field "public key"
     include:
       - zsh
   zsh:
