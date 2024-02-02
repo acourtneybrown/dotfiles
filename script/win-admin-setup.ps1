@@ -8,6 +8,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 # choco install 1password
 
 choco install -y brave
+choco install -y carnac
 choco install -y epicgameslauncher
 choco install -y firefox
 choco install -y geforce-experience
