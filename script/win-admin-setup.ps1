@@ -17,3 +17,4 @@ choco install -y myharmony
 choco install -y retroarch
 choco install -y slack
 choco install -y steam
+choco install -y yubikey-manager
