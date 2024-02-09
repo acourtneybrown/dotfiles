@@ -86,49 +86,13 @@ module.exports = {
       // Confluent-related sites
       match: [
         finicky.matchHostnames([
-          "a.goodtime.io",
-          "app.geekbot.com",
-          "app.glean.com",
-          "confluent-tools.datadoghq.com",
-          "confluent.askspoke.com",
           "confluent.okta.com",
-          "confluent.slack.com",
-          "confluentinc.atlassian.net",
-          "device.sso.us-west-2.amazonaws.com",
-          "docs.google.com",
-          "ironcladapp.com",
-          "jenkins.confluent.io",
-          "login.docker.com",
-          "lookerstudio.google.com",
-          "metabase.confluent.io",
-          "status.zoom.us",
-
-          /^go$/,
-          /aws.amazon.com/,
-          /confluent-internal\.io/,
-          /confluent\.cloud/,
-          /confluent\.io/,
-          /cultureamp\.com/,
-          /jetbrains\.com/,
-          /semaphoreci\.com/,
-          /slack\.com/,
         ]),
-
-        /applications\.zoom\.us\/slack\/api\/call\/callback/,
-        /confluent\.zoom\.us\/rec\/play/,
-        /confluent\.zoom\.us\/saml/,
-        /github\.com\/.*confluentinc/,
-        /github\.com\/semaphoreci/,
-        /travis-ci\.org\/github\/confluentinc/,
        ],
-    {%@@ if confluent @@%}
-      browser: "Google Chrome",
-    {%@@ elif personal @@%}
       url: ({ urlString }) => {
         return openInFirefoxContainer("CFLT", urlString);
       },
       browser: "Firefox",
-    {%@@ endif @@%}
     },
     {%@@ if personal @@%}
     {

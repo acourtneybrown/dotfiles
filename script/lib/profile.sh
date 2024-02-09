@@ -57,56 +57,6 @@ function profile::default_after() {
   goenv global "$(profile::ensure_goenv_version 1.19)"
 }
 
-function profile::confluent() {
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.confluent"
-
-  profile::enable_pyenv
-  profile::enable_goenv
-  profile::enable_jenv
-
-  mkdir -p "${HOME}/confluent"
-  (
-    cd "${HOME}/confluent" || return
-    pyenv local "$(profile::ensure_pyenv_version 3.9)"
-    goenv local "$(profile::ensure_goenv_version 1.18)"
-
-    profile::jenv_sync_versions
-    profile::jenv_enable_plugins
-
-    jenv local 11.0
-  )
-}
-
-function profile::confluent_after() {
-  profile::get_ssh_key 'Default key'
-
-  profile::run_dotdrop_action _cc_dotfiles_install
-
-  if [[ ! -d ${HOME}/.granted/registries ]]; then
-    granted registry add -n confluent -u git@github.com:confluentinc/granted-registry.git
-  fi
-
-  # shellcheck disable=SC1090,SC1091
-  source "${HOME}/.cc-dotfiles/include/devprod-ga/code-artifact.sh"
-  export PATH="${HOME}/.local/bin:${PATH}"
-
-  # first pip_login might initialize `assume`, second ensures actual credentials
-  code_artifact::pip_login
-  code_artifact::pip_login -f
-
-  profile::pipx_install 3.8 confluent-release-tools
-  profile::pipx_install 3.9 confluent-ci-tools
-  profile::pipx_install 3.11 ansible-hostmanager bump2version gql tox
-}
-
-function profile::confluent_totp() {
-  profile::confluent
-}
-
-function profile::confluent_totp_after() {
-  profile::confluent_after
-}
-
 function profile::personal() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.personal"
 
