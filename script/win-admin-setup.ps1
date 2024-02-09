@@ -18,3 +18,6 @@ choco install -y retroarch
 choco install -y slack
 choco install -y steam
 choco install -y yubikey-manager
+
+# Disable Cortana
+Get-AppxPackage -Name Microsoft.549981C3F5F10 -AllUsers | Remove-AppxPackage
