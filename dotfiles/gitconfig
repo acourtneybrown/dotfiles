@@ -27,9 +27,6 @@
 	untrackedCache = true
 
 	pager = delta
-{%@@ if confluent @@%}
-	hooksPath = /usr/local/gitconfig/hooks/
-{%@@ endif @@%}
 
 [color]
 
@@ -166,8 +163,3 @@
 	name = {{@@ full_name @@}}
 	email = {{@@ personal_email @@}}
 	signingKey = {{@@ personal_public_key @@}}
-
-{%@@ if confluent @@%}
-[includeIf "gitdir/i:~/confluent/"]
-	path = ~/.gitconfig-confluent
-{%@@ endif @@%}

@@ -35,17 +35,6 @@ Host unifi-* unifi-*.notcharlie.com
   ForwardAgent no
   User unifi-admin
 
-{%@@ if confluent @@%}
-# Confluent
+# Don't save known hosts for AWS EC2 instances
 Host *.compute.amazonaws.com
-  User ubuntu
   UserKnownHostsFile /dev/null
-
-Host jenkins*.confluent.io
-  User ubuntu
-  UserKnownHostsFile /dev/null
-
-Host *
-  PubkeyAcceptedKeyTypes=+ssh-rsa
-  HostKeyAlgorithms=+ssh-rsa
-{%@@ endif @@%}
