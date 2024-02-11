@@ -218,7 +218,7 @@ profiles:
       ssh_agent: ''
     dynvariables:
       firefox_me_ids: op item list --tags Firefox:Me --format=json | jq '.[].id' | sort
-      full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
+      full_name: op item get 7ewiekzrvxiwjkwmfhl2646ynq --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
       gitea_maven_token: op item get "Gitea (acourtneybrown)" --field "Maven token"
       gitea_pypi_token: op item get "Gitea (acourtneybrown)" --field "PyPI token"
@@ -230,7 +230,7 @@ profiles:
       glab_cli_token: op item get "GitLab" --field "glab cli token"
       homebrew_prefix: brew --prefix
       okta_username: op item get "Okta" --field username
-      personal_email: op item get 2rou2jbvdvahrl4ov7wtxstdka --field email
+      personal_email: op item get 7ewiekzrvxiwjkwmfhl2646ynq --field email
       personal_public_key: op item get "Default key" --field "public key"
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
     include:
