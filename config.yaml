@@ -168,6 +168,9 @@ dotfiles:
     dst:
     actions:
     - _goenv_install
+  f_com.googlecode.iterm2.plist:
+    src: config/iterm2/com.googlecode.iterm2.plist
+    dst: ~/.config/iterm2/com.googlecode.iterm2.plist
 profiles:
   adams-mbp:
     include:
@@ -187,6 +190,7 @@ profiles:
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     dotfiles:
     - d_user
+    - f_com.googlecode.iterm2.plist
     - f_finicky.js
     - f_sublime_license
   linux_desktop:
