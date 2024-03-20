@@ -67,7 +67,7 @@ dotfiles:
     chmod: 700
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
-    dst: "~/{{@@ sublime_home @@}}/Packages/User"
+    dst: ~/{{@@ sublime_home @@}}/Packages/User
     link: link_children
     actions:
     - _install_package_control
@@ -137,7 +137,7 @@ dotfiles:
     dst: ~/.ssh/known_hosts
   f_sublime_license:
     src: Library/Application Support/Sublime Text 3/Local/License.sublime_license
-    dst: "~/{{@@ sublime_home @@}}/Local/License.sublime_license"
+    dst: ~/{{@@ sublime_home @@}}/Local/License.sublime_license
     chmod: 600
     link: nolink
   f_tigrc:
@@ -197,7 +197,6 @@ profiles:
     - d_user
     - f_sublime_license
   linux:
-    dotfiles:
     variables:
       linux: true
   personal:
@@ -208,7 +207,6 @@ profiles:
     variables:
       personal: true
   default:
-    dotfiles:
     variables:
       linux: false
       mac: false
