@@ -35,7 +35,7 @@ It may be necessary to install git (`sudo apt install git`) in order to clone th
 git clone <this repo> .dotfiles
 cd .dotfiles
 
-# export SKIP_UPDATES=y if avoiding system updates
+# export DOTFILES_SKIP_UPDATES=y if avoiding system updates
 
 ./script/os-setup
 

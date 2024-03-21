@@ -168,9 +168,6 @@ dotfiles:
     dst:
     actions:
     - _goenv_install
-  f_com.googlecode.iterm2.plist:
-    src: config/iterm2/com.googlecode.iterm2.plist
-    dst: ~/.config/iterm2/com.googlecode.iterm2.plist
 profiles:
   adams-mbp:
     include:
