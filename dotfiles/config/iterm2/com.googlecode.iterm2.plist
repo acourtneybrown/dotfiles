@@ -223,9 +223,7 @@
 				<real>1</real>
 			</dict>
 			<key>Bound Hosts</key>
-			<array>
-				<string></string>
-			</array>
+			<array/>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
