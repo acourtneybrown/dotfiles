@@ -20,7 +20,8 @@ Host retropie*
   User pi
 Host picluster-*
   User pi
-Host synology
+Host synology synology.notcharlie.com
+  ForwardAgent yes
   Port 2222
   User abrown
 Host synology-root
