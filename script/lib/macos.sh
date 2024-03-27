@@ -623,11 +623,13 @@ function macos::config_Safari() {
 }
 
 function macos::config_iTerm() {
+  # TODO: update to read config from ~/.config/iterm2
+
   # Don’t display the annoying prompt when quitting iTerm
-  defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+  # defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
   # Automatically check for updates
-  defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -bool true
+  # defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -bool true
 
   # Default to unlimited scrollback
   # /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Scrollback Lines' 0" ~/Library/Preferences/com.googlecode.iterm2.plist

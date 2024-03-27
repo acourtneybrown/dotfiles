@@ -1,6 +1,7 @@
 actions:
   _add_authorized_keys: |
     mkdir -p ~/.ssh
+    rm ~/.ssh/authorized_keys.*
     op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
     cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
   _install_package_control: '{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/"{{@@ sublime_home @@}}"'
@@ -89,6 +90,9 @@ dotfiles:
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
+  f_com.googlecode.iterm2.plist:
+    src: config/iterm2/com.googlecode.iterm2.plist
+    dst: ~/.config/iterm2/com.googlecode.iterm2.plist
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
@@ -187,6 +191,7 @@ profiles:
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     dotfiles:
     - d_user
+    - f_com.googlecode.iterm2.plist
     - f_finicky.js
     - f_sublime_license
   linux_desktop:
