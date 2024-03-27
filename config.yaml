@@ -1,6 +1,7 @@
 actions:
   _add_authorized_keys: |
     mkdir -p ~/.ssh
+    rm ~/.ssh/authorized_keys.*
     op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
     cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
   _install_package_control: '{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/"{{@@ sublime_home @@}}"'
