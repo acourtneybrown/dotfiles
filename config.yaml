@@ -225,7 +225,6 @@ profiles:
       gitlab_account: op item get "GitLab" --field username
       glab_cli_token: op item get "GitLab" --field "glab cli token"
       homebrew_prefix: brew --prefix
-      okta_username: op item get "Okta" --field username
       personal_email: op item get 7ewiekzrvxiwjkwmfhl2646ynq --field email
       personal_public_key: op item get "Default key" --field "public key"
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
