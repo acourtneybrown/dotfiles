@@ -119,6 +119,7 @@ plugins=(
   {%@@ if mac @@%}
   homebrew
   iterm2
+  iterm2-custom
   {%@@ endif @@%}
 
   {%@@ if linux @@%}

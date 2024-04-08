@@ -17,6 +17,12 @@ actions:
     else
       git clone https://github.com/syndbg/goenv.git ~/.goenv;
     fi
+  _iterm2_utils_install: |
+    if [ -d ~/.iterm2-shell-integration]; then
+      git -C ~/.iterm2-shell-integration pull --prune origin;
+    else
+      git clone https://github.com/gnachman/iTerm2-shell-integration ~/.iterm2-shell-integration;
+    fi
 config:
   backup: true
   create: true
@@ -172,6 +178,11 @@ dotfiles:
     dst:
     actions:
     - _goenv_install
+  fake_iterm2_utils:
+    src:
+    dst:
+    actions:
+    - _iterm2_utils_install
 profiles:
   adams-mbp:
     include:
@@ -194,6 +205,7 @@ profiles:
     - f_com.googlecode.iterm2.plist
     - f_finicky.js
     - f_sublime_license
+    - fake_iterm2_utils
   linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
