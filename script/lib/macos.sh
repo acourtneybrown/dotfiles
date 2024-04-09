@@ -631,6 +631,9 @@ function macos::config_iTerm() {
 
   defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile -bool true
   defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile_selection -bool false
+
+  # Use macOS system window restore
+  defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
 }
 
 function macos::config_Time_Machine() {
