@@ -18,7 +18,7 @@ actions:
       git clone https://github.com/syndbg/goenv.git ~/.goenv;
     fi
   _iterm2_utils_install: |
-    if [ -d ~/.iterm2-shell-integration]; then
+    if [ -d ~/.iterm2-shell-integration ]; then
       git -C ~/.iterm2-shell-integration pull --prune origin;
     else
       git clone https://github.com/gnachman/iTerm2-shell-integration ~/.iterm2-shell-integration;
