@@ -27,7 +27,6 @@ function macos::setup() {
     Finder
     Dock
     Safari
-    iTerm
     "Time Machine"
     "Activity Monitor"
     "App Store"
@@ -620,24 +619,6 @@ function macos::config_Safari() {
 
   # Update extensions automatically
   defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
-}
-
-function macos::config_iTerm() {
-  # TODO: update to read config from ~/.config/iterm2
-
-  # Don’t display the annoying prompt when quitting iTerm
-  # defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
-  # Automatically check for updates
-  # defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -bool true
-
-  # Default to unlimited scrollback
-  # /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Scrollback Lines' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
-  # /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Unlimited Scrollback' true" ~/Library/Preferences/com.googlecode.iterm2.plist
-
-  # if ! defaults find "GitHub repo" com.googlecode.iterm2 2>/dev/null | grep -q -e '^Found \d\+ keys'; then
-  #   /usr/libexec/PlistBuddy -c "Merge iterm-selection-rules.plist" ~/Library/Preferences/com.googlecode.iterm2.plist
-  # fi
 }
 
 function macos::config_Time_Machine() {
