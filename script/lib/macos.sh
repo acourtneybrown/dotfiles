@@ -27,6 +27,7 @@ function macos::setup() {
     Finder
     Dock
     Safari
+    iTerm
     "Time Machine"
     "Activity Monitor"
     "App Store"
@@ -619,6 +620,17 @@ function macos::config_Safari() {
 
   # Update extensions automatically
   defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+}
+
+function macos::config_iTerm() {
+  # read config from ~/.config/iterm2
+  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+  # shellcheck disable=SC2088
+  defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/iterm2"
+
+  defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile -bool true
+  defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile_selection -bool false
 }
 
 function macos::config_Time_Machine() {
