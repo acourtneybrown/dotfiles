@@ -62,9 +62,12 @@ cask "sublime-text"
 cask "yubico-yubikey-manager"
 cask "zoom"
 
-mas "Amphetamine", id: 937984704
-mas "Keynote", id: 409183694
-mas "Magnet", id: 441258766
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Xcode", id: 497799835
+if ENV['HOMEBREW_PROCESS_MAS'] == 'true' || ENV['HOMEBREW_PROCESS_MAS'] == '1'
+	mas "Amphetamine", id: 937984704
+	mas "Keynote", id: 409183694
+	mas "Magnet", id: 441258766
+	mas "Numbers", id: 409203825
+	mas "Pages", id: 409201541
+else
+	puts "Skipping App Store installs"
+end
