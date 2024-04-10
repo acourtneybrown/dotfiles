@@ -27,7 +27,7 @@ cask "virtualbuddy"
 cask "vlc"
 cask "vmware-fusion"
 
-if ENV['HOMEBREW_PROCESS_MAS'] == 'true' || ENV['HOMEBREW_PROCESS_MAS'] == '1'
+if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	# mas "Airmail", id: 918858936
 	mas "Apple Configurator 2", id: 1037126344
 	mas "Bridge Constructor Portal", id: 1316061122

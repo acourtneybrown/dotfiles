@@ -62,7 +62,7 @@ cask "sublime-text"
 cask "yubico-yubikey-manager"
 cask "zoom"
 
-if ENV['HOMEBREW_PROCESS_MAS'] == 'true' || ENV['HOMEBREW_PROCESS_MAS'] == '1'
+if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	mas "Amphetamine", id: 937984704
 	mas "Keynote", id: 409183694
 	mas "Magnet", id: 441258766
