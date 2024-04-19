@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/..
+
+git subtree pull --prefix dotfiles/oh-my-zsh-custom/themes/powerlevel10k https://github.com/romkatv/powerlevel10k.git master --squash
