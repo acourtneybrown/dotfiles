@@ -1,42 +1,50 @@
-# shellcheck disable=SC2148
-
 # Caches the output of a binary initialization command, to avoid the time to
 # execute it in the future.
 #
-# Usage: _evalcache <command> <generation args...>
+# Usage: _evalcache [NAME=VALUE]... COMMAND [ARG]...
 
 # default cache directory
 export ZSH_EVALCACHE_DIR=${ZSH_EVALCACHE_DIR:-"$HOME/.zsh-evalcache"}
 
-function _evalcache() {
-  local cmdHash="nohash"
+function _evalcache () {
+  local cmdHash="nohash" data="$*" name
 
-  if builtin command -v md5 >/dev/null; then
-    cmdHash=$(echo -n "$*" | md5)
-  elif builtin command -v md5sum >/dev/null; then
-    cmdHash=$(echo -n "$*" | md5sum | cut -d' ' -f1)
+  # use the first non-variable argument as the name
+  for name in $@; do
+    if [ "${name}" = "${name#[A-Za-z_][A-Za-z0-9_]*=}" ]; then
+      break
+    fi
+  done
+
+  # if command is a function, include its definition in data
+  if typeset -f "${name}" > /dev/null; then
+    data=${data}$(typeset -f "${name}")
   fi
 
-  local cacheFile="$ZSH_EVALCACHE_DIR/init-${1##*/}-${cmdHash}.sh"
+  if builtin command -v md5 > /dev/null; then
+    cmdHash=$(echo -n "${data}" | md5)
+  elif builtin command -v md5sum > /dev/null; then
+    cmdHash=$(echo -n "${data}" | md5sum | cut -d' ' -f1)
+  fi
 
-  if [[ "$ZSH_EVALCACHE_DISABLE" = "true" ]]; then
-    eval "$("$@")"
-  elif [[ -s "$cacheFile" ]]; then
-    # shellcheck disable=SC1090
+  local cacheFile="$ZSH_EVALCACHE_DIR/init-${name##*/}-${cmdHash}.sh"
+
+  if [ "$ZSH_EVALCACHE_DISABLE" = "true" ]; then
+    eval ${(q)@}
+  elif [ -s "$cacheFile" ]; then
     source "$cacheFile"
   else
-    if type "$1" >/dev/null; then
-      (echo >&2 "$1 initialization not cached, caching output of: $*")
+    if type "${name}" > /dev/null; then
+      echo "evalcache: ${name} initialization not cached, caching output of: $*" >&2
       mkdir -p "$ZSH_EVALCACHE_DIR"
-      "$@" >"$cacheFile"
-      # shellcheck disable=SC1090
+      eval ${(q)@} > "$cacheFile"
       source "$cacheFile"
     else
-      echo "evalcache ERROR: $1 is not installed or in PATH"
+      echo "evalcache: ERROR: ${name} is not installed or in PATH" >&2
     fi
   fi
 }
 
-function _evalcache_clear() {
+function _evalcache_clear () {
   rm -i "$ZSH_EVALCACHE_DIR"/init-*.sh
 }
