@@ -31,11 +31,11 @@ config:
   link_on_import: link
   dotpath: dotfiles
   upignore:
-  - .DS_Store
-  - .localized
+    - .DS_Store
+    - .localized
   cmpignore:
-  - .DS_Store
-  - .localized
+    - .DS_Store
+    - .localized
 dotfiles:
   d_bin:
     src: bin
@@ -73,27 +73,27 @@ dotfiles:
     link: link_children
     chmod: 700
     upignore:
-    - themes/powerlevel10k/*.zwc
+      - themes/powerlevel10k/*.zwc
     cmpignore:
-    - themes/powerlevel10k/*.zwc
+      - themes/powerlevel10k/*.zwc
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
     dst: ~/{{@@ sublime_home @@}}/Packages/User
     link: link_children
     actions:
-    - _install_package_control
+      - _install_package_control
     upignore:
-    - oscrypto-ca-bundle.crt
-    - Package Control.cache
-    - Package Control.last-run
-    - Package Control.merged-ca-bundle
-    - Package Control.user-ca-bundle
+      - oscrypto-ca-bundle.crt
+      - Package Control.cache
+      - Package Control.last-run
+      - Package Control.merged-ca-bundle
+      - Package Control.user-ca-bundle
     cmpignore:
-    - oscrypto-ca-bundle.crt
-    - Package Control.cache
-    - Package Control.last-run
-    - Package Control.merged-ca-bundle
-    - Package Control.user-ca-bundle
+      - oscrypto-ca-bundle.crt
+      - Package Control.cache
+      - Package Control.last-run
+      - Package Control.merged-ca-bundle
+      - Package Control.user-ca-bundle
   f_bash_sessions_disable:
     src: bash_sessions_disable
     dst: ~/.bash_sessions_disable
@@ -145,7 +145,7 @@ dotfiles:
     src:
     dst:
     actions:
-    - _add_authorized_keys
+      - _add_authorized_keys
   f_ssh_config:
     src: ssh/config
     dst: ~/.ssh/config
@@ -179,55 +179,55 @@ dotfiles:
     src:
     dst:
     actions:
-    - _pyenv_install
+      - _pyenv_install
   fake_goenv:
     src:
     dst:
     actions:
-    - _goenv_install
+      - _goenv_install
   fake_iterm2_utils:
     src:
     dst:
     actions:
-    - _iterm2_utils_install
+      - _iterm2_utils_install
 profiles:
   adams-mbp:
     include:
-    - default
-    - mac
-    - personal
+      - default
+      - mac
+      - personal
   adams-mbp.local:
     include:
-    - adams-mbp
+      - adams-mbp
   adams-mbp.notcharlie.com:
     include:
-    - adams-mbp
+      - adams-mbp
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     dotfiles:
-    - d_user
-    - f_com.googlecode.iterm2.plist
-    - f_finicky.js
-    - f_sublime_license
-    - fake_iterm2_utils
+      - d_user
+      - f_com.googlecode.iterm2.plist
+      - f_finicky.js
+      - f_sublime_license
+      - fake_iterm2_utils
   linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
       ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
     dotfiles:
-    - d_user
-    - f_sublime_license
+      - d_user
+      - f_sublime_license
   linux:
     variables:
       linux: true
   personal:
     dotfiles:
-    - d_config_pip
-    - f_m2_settings_home
-    - f_pypirc_home
+      - d_config_pip
+      - f_m2_settings_home
+      - f_pypirc_home
     variables:
       personal: true
   default:
@@ -253,38 +253,38 @@ profiles:
       personal_public_key: op item get "Default key" --field "public key"
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
     include:
-    - zsh
+      - zsh
   zsh:
     include:
-    - shared
+      - shared
     dotfiles:
-    - d_oh-my-zsh-custom
-    - f_bash_profile-for-zsh
-    - f_p10k.zsh
-    - f_zshenv
-    - f_zshrc
+      - d_oh-my-zsh-custom
+      - f_bash_profile-for-zsh
+      - f_p10k.zsh
+      - f_zshenv
+      - f_zshrc
   shared:
     dotfiles:
-    - d_bin
-    - d_config_1Password
-    - d_config_gh
-    - d_config_glab_cli
-    - d_git_template
-    - d_gradle_init_d
-    - f_bash_sessions_disable
-    - f_curlrc
-    - f_gitconfig
-    - f_gitignore
-    - f_gradle_properties
-    - f_hgrc
-    - f_hushlogin
-    - f_netrc
-    - f_ssh_authorized_keys
-    - f_ssh_config
-    - f_ssh_known_hosts
-    - f_tigrc
-    - f_tmux.conf
-    - f_vimrc
-    - f_wgetrc
-    - fake_goenv
-    - fake_pyenv
+      - d_bin
+      - d_config_1Password
+      - d_config_gh
+      - d_config_glab_cli
+      - d_git_template
+      - d_gradle_init_d
+      - f_bash_sessions_disable
+      - f_curlrc
+      - f_gitconfig
+      - f_gitignore
+      - f_gradle_properties
+      - f_hgrc
+      - f_hushlogin
+      - f_netrc
+      - f_ssh_authorized_keys
+      - f_ssh_config
+      - f_ssh_known_hosts
+      - f_tigrc
+      - f_tmux.conf
+      - f_vimrc
+      - f_wgetrc
+      - fake_goenv
+      - fake_pyenv
