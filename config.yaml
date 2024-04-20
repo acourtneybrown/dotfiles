@@ -130,6 +130,9 @@ dotfiles:
     src: netrc
     dst: ~/.netrc
     chmod: 600
+  f_p10k.zsh:
+    src: p10k.zsh
+    dst: ~/.p10k.zsh
   f_pypirc_home:
     src: pypirc_home
     dst: ~/.pypirc
@@ -253,6 +256,7 @@ profiles:
     dotfiles:
     - d_oh-my-zsh-custom
     - f_bash_profile-for-zsh
+    - f_p10k.zsh
     - f_zshenv
     - f_zshrc
   shared:
