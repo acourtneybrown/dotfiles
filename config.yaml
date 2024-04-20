@@ -73,9 +73,9 @@ dotfiles:
     link: link_children
     chmod: 700
     upignore:
-    - dotfiles/oh-my-zsh-custom/themes/powerlevel10k/*.zwc
+    - themes/powerlevel10k/*.zwc
     cmpignore:
-    - dotfiles/oh-my-zsh-custom/themes/powerlevel10k/*.zwc
+    - themes/powerlevel10k/*.zwc
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
     dst: ~/{{@@ sublime_home @@}}/Packages/User
