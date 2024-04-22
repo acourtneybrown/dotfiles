@@ -318,7 +318,7 @@ function profile::install_homebrew() {
   fi
 
   util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    41d5eb515a76b43e192259fde18e6cd683ea8b6a3d7873bcfc5065ab5b12235c \
+    6091f25a90028fe3b767004988c5d346f82f3133006a967322ed6736832d0d40 \
     /tmp/install.sh
 
   NONINTERACTIVE=1 bash /tmp/install.sh
