@@ -220,6 +220,10 @@ EOF
 
   # Time & Clock: Show date in menu bar
   defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
+
+  # Disable Handoff
+  defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool false
+  defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool false
 }
 
 function macos::setup_security() {
