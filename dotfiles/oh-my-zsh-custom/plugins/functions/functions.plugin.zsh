@@ -93,3 +93,12 @@ function enc4hub() {
   # Encrypt the file with the recipient's key and sign it with my own key
   gpg --encrypt --sign --armor --trust-model always --recipient "${recipient}@github.com" "${file}"
 }
+
+# colormap prints to color mapping for a terminal
+# Originally from https://github.com/romkatv/powerlevel10k/tree/master?tab=readme-ov-file#set-colors-through-powerlevel10k-configuration-parameters
+function colormap() {
+  for i in {0..255}; do
+    # shellcheck disable=SC2296,SC2298
+    print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
+  done
+}
