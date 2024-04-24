@@ -1,6 +1,5 @@
 tap "acourtneybrown/cask"
 tap "acourtneybrown/fonts"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 
@@ -8,7 +7,6 @@ brew "asciinema"
 brew "bash"
 brew "coreutils"
 brew "dark-mode"
-brew "exa"
 brew "findutils"
 brew "ghostscript"
 brew "gnu-sed"
@@ -35,6 +33,7 @@ cask "font-dejavu-sans-mono-for-powerline"
 cask "font-droid-sans-mono-for-powerline"
 cask "font-fira-mono-for-powerline"
 cask "font-gerry"
+cask "font-hack-nerd-font"
 cask "font-inconsolata-dz-for-powerline"
 cask "font-inconsolata-for-powerline"
 cask "font-inconsolata-for-powerline-bold"
@@ -45,6 +44,7 @@ cask "font-kernit"
 cask "font-liberation-mono-for-powerline"
 cask "font-menlo-for-powerline"
 cask "font-meslo-for-powerline"
+cask "font-meslolgs-nf"
 cask "font-monofur-for-powerline"
 cask "font-noto-mono-for-powerline"
 cask "font-powerline-symbols"
@@ -64,9 +64,12 @@ cask "sublime-text"
 cask "yubico-yubikey-manager"
 cask "zoom"
 
-mas "Amphetamine", id: 937984704
-mas "Keynote", id: 409183694
-mas "Magnet", id: 441258766
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Xcode", id: 497799835
+if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
+	mas "Amphetamine", id: 937984704
+	mas "Keynote", id: 409183694
+	mas "Magnet", id: 441258766
+	mas "Numbers", id: 409203825
+	mas "Pages", id: 409201541
+else
+	puts "Skipping App Store installs"
+end

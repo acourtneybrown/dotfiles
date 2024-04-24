@@ -1,9 +1,10 @@
 actions:
   _add_authorized_keys: |
     mkdir -p ~/.ssh
+    rm ~/.ssh/authorized_keys.*
     op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
     cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
-  _install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/\"{{@@ sublime_home @@}}\""
+  _install_package_control: '{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/"{{@@ sublime_home @@}}"'
   _pyenv_install: |
     if [ -d ~/.pyenv ]; then
       git -C ~/.pyenv pull --prune origin;
@@ -15,6 +16,12 @@ actions:
       git -C ~/.goenv pull --prune origin;
     else
       git clone https://github.com/syndbg/goenv.git ~/.goenv;
+    fi
+  _iterm2_utils_install: |
+    if [ -d ~/.iterm2-shell-integration ]; then
+      git -C ~/.iterm2-shell-integration pull --prune origin;
+    else
+      git clone https://github.com/gnachman/iTerm2-shell-integration ~/.iterm2-shell-integration;
     fi
 config:
   backup: true
@@ -65,9 +72,13 @@ dotfiles:
     dst: ~/.oh-my-zsh-custom
     link: link_children
     chmod: 700
+    upignore:
+      - themes/powerlevel10k/*.zwc
+    cmpignore:
+      - themes/powerlevel10k/*.zwc
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
-    dst: "~/{{@@ sublime_home @@}}/Packages/User"
+    dst: ~/{{@@ sublime_home @@}}/Packages/User
     link: link_children
     actions:
       - _install_package_control
@@ -89,6 +100,9 @@ dotfiles:
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
+  f_com.googlecode.iterm2.plist:
+    src: config/iterm2/com.googlecode.iterm2.plist
+    dst: ~/.config/iterm2/com.googlecode.iterm2.plist
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
@@ -120,6 +134,9 @@ dotfiles:
     src: netrc
     dst: ~/.netrc
     chmod: 600
+  f_p10k.zsh:
+    src: p10k.zsh
+    dst: ~/.p10k.zsh
   f_pypirc_home:
     src: pypirc_home
     dst: ~/.pypirc
@@ -137,7 +154,7 @@ dotfiles:
     dst: ~/.ssh/known_hosts
   f_sublime_license:
     src: Library/Application Support/Sublime Text 3/Local/License.sublime_license
-    dst: "~/{{@@ sublime_home @@}}/Local/License.sublime_license"
+    dst: ~/{{@@ sublime_home @@}}/Local/License.sublime_license
     chmod: 600
     link: nolink
   f_tigrc:
@@ -168,6 +185,11 @@ dotfiles:
     dst:
     actions:
       - _goenv_install
+  fake_iterm2_utils:
+    src:
+    dst:
+    actions:
+      - _iterm2_utils_install
 profiles:
   adams-mbp:
     include:
@@ -175,11 +197,9 @@ profiles:
       - mac
       - personal
   adams-mbp.local:
-    dotfiles:
     include:
       - adams-mbp
   adams-mbp.notcharlie.com:
-    dotfiles:
     include:
       - adams-mbp
   mac:
@@ -189,8 +209,10 @@ profiles:
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     dotfiles:
       - d_user
+      - f_com.googlecode.iterm2.plist
       - f_finicky.js
       - f_sublime_license
+      - fake_iterm2_utils
   linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
@@ -199,7 +221,6 @@ profiles:
       - d_user
       - f_sublime_license
   linux:
-    dotfiles:
     variables:
       linux: true
   personal:
@@ -210,7 +231,6 @@ profiles:
     variables:
       personal: true
   default:
-    dotfiles:
     variables:
       linux: false
       mac: false
@@ -229,7 +249,6 @@ profiles:
       gitlab_account: op item get "GitLab" --field username
       glab_cli_token: op item get "GitLab" --field "glab cli token"
       homebrew_prefix: brew --prefix
-      okta_username: op item get "Okta" --field username
       personal_email: op item get 7ewiekzrvxiwjkwmfhl2646ynq --field email
       personal_public_key: op item get "Default key" --field "public key"
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
@@ -241,6 +260,7 @@ profiles:
     dotfiles:
       - d_oh-my-zsh-custom
       - f_bash_profile-for-zsh
+      - f_p10k.zsh
       - f_zshenv
       - f_zshrc
   shared:

@@ -65,6 +65,7 @@ module.exports = {
       match: [
         finicky.matchHostnames([
           "govzw.com",
+          "i.cvs.com",
           "login.docker.com",
 
           /nytimes\.com/,

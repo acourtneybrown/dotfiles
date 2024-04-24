@@ -8,6 +8,7 @@ In addition, it relies on [`deadc0de6/dotdrop`](https://github.com/deadc0de6/dot
 - `DOTFILES_SKIP_UPDATES`: if set, skip OS updates
 - `DOTFILES_SKIP_CONFIRMATION`: on macOS, if set, skip the manual confirmation of setup that cannot be handled by the script
 - `DOTFILES_SKIP_LOGIN_WINDOW`: on macOS, if set, skip the configuration of the login window message
+- `HOMEBREW_PROCESS_MAS`: on macOS, if set to `y`, `mas` lines in `Brewfile.*` will be handled & installed.  The `dotfiles-envvars` plugin will set this to `y` if the username is *not* `virtualbuddy` (to make testing under VirtualBuddy easier).
 
 ## Setup
 
@@ -35,7 +36,7 @@ It may be necessary to install git (`sudo apt install git`) in order to clone th
 git clone <this repo> .dotfiles
 cd .dotfiles
 
-# export SKIP_UPDATES=y if avoiding system updates
+# export DOTFILES_SKIP_UPDATES=y if avoiding system updates
 
 ./script/os-setup
 
