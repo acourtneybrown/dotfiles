@@ -200,6 +200,7 @@ EOF
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
   (defaults read com.apple.systemuiserver menuExtras | grep -q Volume.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
   defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true
+  defaults -currentHost write com.apple.controlcenter Sound -int 18
 
   # TimeMachine: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -bool true
