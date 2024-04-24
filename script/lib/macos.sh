@@ -336,6 +336,9 @@ function macos::setup_input_devices() {
 
   # Display battery percentage
   defaults write "com.apple.menuextra.battery" ShowPercent YES
+  defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -bool true
+  defaults -currentHost write com.apple.controlcenter Battery -int 2
+  defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -int 1
 }
 
 # function macos::setup_ssd_tweaks() {
