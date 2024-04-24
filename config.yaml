@@ -1,10 +1,10 @@
 actions:
   _add_authorized_keys: |
     mkdir -p ~/.ssh
+    rm ~/.ssh/authorized_keys.*
     op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
-    op item get "Confluent" --field "public key" > ~/.ssh/authorized_keys.confluent
     cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
-  _install_package_control: "{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/\"{{@@ sublime_home @@}}\""
+  _install_package_control: '{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/"{{@@ sublime_home @@}}"'
   _pyenv_install: |
     if [ -d ~/.pyenv ]; then
       git -C ~/.pyenv pull --prune origin;
@@ -17,17 +17,11 @@ actions:
     else
       git clone https://github.com/syndbg/goenv.git ~/.goenv;
     fi
-  _nvm_install: |
-    if [ -d ~/.nvm ]; then
-      git -C ~/.nvm pull --prune origin;
+  _iterm2_utils_install: |
+    if [ -d ~/.iterm2-shell-integration ]; then
+      git -C ~/.iterm2-shell-integration pull --prune origin;
     else
-      git clone https://github.com/nvm-sh/nvm.git ~/.nvm;
-    fi
-  _cc_dotfiles_install: |
-    if [ -d ~/.cc-dotfiles ]; then
-      git -C ~/.cc-dotfiles pull --prune origin;
-    else
-      git clone https://github.com/confluentinc/cc-dotfiles.git ~/.cc-dotfiles;
+      git clone https://github.com/gnachman/iTerm2-shell-integration ~/.iterm2-shell-integration;
     fi
 config:
   backup: true
@@ -46,9 +40,9 @@ dotfiles:
   d_bin:
     src: bin
     dst: ~/bin
-  d_config_coursier:
-    src: config/coursier
-    dst: ~/.config/coursier
+  d_config_1Password:
+    src: config/1Password
+    dst: ~/.config/1Password
     chmod: 700
     link: link_children
   d_config_gh:
@@ -65,10 +59,6 @@ dotfiles:
     src: config/pip
     dst: ~/.config/pip
     link: link_children
-  d_config_yapf:
-    src: config/yapf
-    dst: ~/.config/yapf
-    link: link_children
   d_git_template:
     src: git-template
     dst: ~/.git-template
@@ -82,9 +72,13 @@ dotfiles:
     dst: ~/.oh-my-zsh-custom
     link: link_children
     chmod: 700
+    upignore:
+      - themes/powerlevel10k/*.zwc
+    cmpignore:
+      - themes/powerlevel10k/*.zwc
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
-    dst: "~/{{@@ sublime_home @@}}/Packages/User"
+    dst: ~/{{@@ sublime_home @@}}/Packages/User
     link: link_children
     actions:
       - _install_package_control
@@ -106,10 +100,9 @@ dotfiles:
   f_bash_profile-for-zsh:
     src: bash_profile-for-zsh
     dst: ~/.bash_profile
-  f_bazelrc:
-    src: bazelrc
-    dst: ~/.bazelrc
-    chmod: 600
+  f_com.googlecode.iterm2.plist:
+    src: config/iterm2/com.googlecode.iterm2.plist
+    dst: ~/.config/iterm2/com.googlecode.iterm2.plist
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
@@ -119,9 +112,6 @@ dotfiles:
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
-  f_gitconfig-confluent:
-    src: gitconfig-confluent
-    dst: ~/.gitconfig-confluent
   f_gitignore:
     src: gitignore
     dst: ~/.gitignore
@@ -135,11 +125,6 @@ dotfiles:
   f_hushlogin:
     src: hushlogin
     dst: ~/.hushlogin
-  f_m2_settings_confluent:
-    src: m2/settings_confluent.xml
-    dst: ~/.m2/settings.xml
-    chmod: 600
-    link: nolink
   f_m2_settings_home:
     src: m2/settings_home.xml
     dst: ~/.m2/settings.xml
@@ -149,6 +134,9 @@ dotfiles:
     src: netrc
     dst: ~/.netrc
     chmod: 600
+  f_p10k.zsh:
+    src: p10k.zsh
+    dst: ~/.p10k.zsh
   f_pypirc_home:
     src: pypirc_home
     dst: ~/.pypirc
@@ -166,9 +154,12 @@ dotfiles:
     dst: ~/.ssh/known_hosts
   f_sublime_license:
     src: Library/Application Support/Sublime Text 3/Local/License.sublime_license
-    dst: "~/{{@@ sublime_home @@}}/Local/License.sublime_license"
+    dst: ~/{{@@ sublime_home @@}}/Local/License.sublime_license
     chmod: 600
     link: nolink
+  f_tigrc:
+    src: tigrc
+    dst: ~/.tigrc
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
@@ -184,11 +175,6 @@ dotfiles:
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
-  fake_cc_dotfiles:
-    src:
-    dst:
-    actions:
-      - _cc_dotfiles_install
   fake_pyenv:
     src:
     dst:
@@ -199,37 +185,21 @@ dotfiles:
     dst:
     actions:
       - _goenv_install
-  fake_nvm:
+  fake_iterm2_utils:
     src:
     dst:
     actions:
-      - _nvm_install
+      - _iterm2_utils_install
 profiles:
-  abrown-confluent:
-    dotfiles:
-    include:
-      - default
-      - mac
-      - confluent
-  abrown-confluent.local:
-    dotfiles:
-    include:
-      - abrown-confluent
-  abrown-confluent.notcharlie.com:
-    dotfiles:
-    include:
-      - abrown-confluent
   adams-mbp:
     include:
       - default
       - mac
       - personal
   adams-mbp.local:
-    dotfiles:
     include:
       - adams-mbp
   adams-mbp.notcharlie.com:
-    dotfiles:
     include:
       - adams-mbp
   mac:
@@ -239,8 +209,10 @@ profiles:
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     dotfiles:
       - d_user
+      - f_com.googlecode.iterm2.plist
       - f_finicky.js
       - f_sublime_license
+      - fake_iterm2_utils
   linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
@@ -249,7 +221,6 @@ profiles:
       - d_user
       - f_sublime_license
   linux:
-    dotfiles:
     variables:
       linux: true
   personal:
@@ -259,46 +230,28 @@ profiles:
       - f_pypirc_home
     variables:
       personal: true
-  confluent:
-    variables:
-      confluent: true
-    dotfiles:
-      - d_config_coursier
-      - d_config_yapf
-      - f_gitconfig-confluent
-      - f_m2_settings_confluent
-      - f_netrc
-      - fake_cc_dotfiles
-      - fake_nvm
   default:
-    dotfiles:
     variables:
-      confluent: false
       linux: false
       mac: false
       personal: false
       ssh_agent: ''
     dynvariables:
-      buildbuddy_dev_ro_key: op item get BuildBuddy --field "cflt-devprod-test Dev-RO key"
-      buildbuddy_readwrite_key: op item get BuildBuddy --field "Read+Write API key"
       firefox_me_ids: op item list --tags Firefox:Me --format=json | jq '.[].id' | sort
-      full_name: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields "first name,last name" | tr ',' ' '
+      full_name: op item get 7ewiekzrvxiwjkwmfhl2646ynq --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
       gitea_maven_token: op item get "Gitea (acourtneybrown)" --field "Maven token"
       gitea_pypi_token: op item get "Gitea (acourtneybrown)" --field "PyPI token"
       gitea_username: op item get "Gitea (acourtneybrown)" --field username
       gitea_website: op item get "Gitea (acourtneybrown)" --format json | jq -r '.urls[0].href'
       github_account: op item get "GitHub" --fields username
-      github_netrc_token: op item get "GitHub" --fields "Confluent netrc"
+      github_netrc_token: op item get "GitHub" --fields "netrc"
       gitlab_account: op item get "GitLab" --field username
       glab_cli_token: op item get "GitLab" --field "glab cli token"
       homebrew_prefix: brew --prefix
-      okta_username: op item get "Okta" --field username
-      personal_email: op item get 2rou2jbvdvahrl4ov7wtxstdka --field email
+      personal_email: op item get 7ewiekzrvxiwjkwmfhl2646ynq --field email
       personal_public_key: op item get "Default key" --field "public key"
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
-      work_email: echo "$({{@@ okta_username @@}})@confluent.io"
-      work_public_key: op item get Confluent --field "public key"
     include:
       - zsh
   zsh:
@@ -307,26 +260,29 @@ profiles:
     dotfiles:
       - d_oh-my-zsh-custom
       - f_bash_profile-for-zsh
+      - f_p10k.zsh
       - f_zshenv
       - f_zshrc
   shared:
     dotfiles:
       - d_bin
+      - d_config_1Password
       - d_config_gh
       - d_config_glab_cli
       - d_git_template
       - d_gradle_init_d
       - f_bash_sessions_disable
-      - f_bazelrc
       - f_curlrc
       - f_gitconfig
       - f_gitignore
       - f_gradle_properties
       - f_hgrc
       - f_hushlogin
+      - f_netrc
       - f_ssh_authorized_keys
       - f_ssh_config
       - f_ssh_known_hosts
+      - f_tigrc
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc

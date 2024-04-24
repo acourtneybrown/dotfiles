@@ -42,10 +42,10 @@ fabric.properties
 .DS_Store
 
 .envrc
-.go-version
-.terraform-version
-.python-version
-.java-version
+# .go-version
+# .terraform-version
+# .python-version
+# .java-version
 
 # from https://github.com/github/gitignore/blob/main/community/Bazel.gitignore
 # gitignore template for Bazel build system

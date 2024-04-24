@@ -20,7 +20,8 @@ Host retropie*
   User pi
 Host picluster-*
   User pi
-Host synology
+Host synology synology.notcharlie.com
+  ForwardAgent yes
   Port 2222
   User abrown
 Host synology-root
@@ -31,21 +32,10 @@ Host gitea gitea.notcharlie.com
   Hostname synology.notcharlie.com
   Port 2234
   User git
-Host unifi-*
+Host unifi-* unifi-*.notcharlie.com
   ForwardAgent no
   User unifi-admin
 
-{%@@ if confluent @@%}
-# Confluent
+# Don't save known hosts for AWS EC2 instances
 Host *.compute.amazonaws.com
-  User ubuntu
   UserKnownHostsFile /dev/null
-
-Host jenkins*.confluent.io
-  User ubuntu
-  UserKnownHostsFile /dev/null
-
-Host *
-  PubkeyAcceptedKeyTypes=+ssh-rsa
-  HostKeyAlgorithms=+ssh-rsa
-{%@@ endif @@%}
