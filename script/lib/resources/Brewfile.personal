@@ -17,6 +17,7 @@ cask "kid3"
 cask "kindle"
 cask "logitech-harmony-desktop"
 cask "netdownloadhelpercoapp"
+cask "pycharm"
 cask "raspberry-pi-imager"
 cask "sonos"
 cask "steam"
@@ -26,12 +27,16 @@ cask "virtualbuddy"
 cask "vlc"
 cask "vmware-fusion"
 
-# mas "Airmail", id: 918858936
-mas "Apple Configurator 2", id: 1037126344
-mas "Bridge Constructor Portal", id: 1316061122
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-# mas "NetSpot", id: 514951692
-# mas "Notability", id: 736189492
-mas "Paprika Recipe Manager 3", id: 1303222628
-# mas "Reeder", id: 1449412482
+if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
+	# mas "Airmail", id: 918858936
+	mas "Apple Configurator 2", id: 1037126344
+	mas "Bridge Constructor Portal", id: 1316061122
+	mas "GarageBand", id: 682658836
+	mas "iMovie", id: 408981434
+	# mas "NetSpot", id: 514951692
+	mas "Notability", id: 360593530
+	mas "Paprika Recipe Manager 3", id: 1303222628
+	# mas "Reeder", id: 1449412482
+else
+	puts "Skipping App Store installs"
+end

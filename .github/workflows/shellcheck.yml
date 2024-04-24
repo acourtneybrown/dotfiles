@@ -8,7 +8,7 @@ jobs:
     name: Shellcheck
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Display shellcheck version
       shell: bash
       run: |
@@ -30,7 +30,7 @@ jobs:
           echo "::debug:: Adding file '${file}' to excludes"
           excludes+=("! -name \"${file}\"")
         done
-        echo "::set-output name=excludes::${excludes[@]}"
+        echo "echo name=excludes::${excludes[@]}" >> $GITHUB_OUTPUT
     - name: Find files
       shell: bash
       id: filepaths
@@ -75,7 +75,7 @@ jobs:
           head -n1 "$file" | grep -Eqs "$shebangregex" || continue
           filepaths+=("$file");
         done
-        echo "::set-output name=filepaths::${filepaths[@]}"
+        echo "echo name=filepaths::${filepaths[@]}" >> $GITHUB_OUTPUT
     - name: Run ShellCheck
       id: check
       shell: bash
@@ -87,7 +87,7 @@ jobs:
           shellcheck --exclude=SC2148 "${file}" || statuscode=$?;
         done
 
-        echo "::set-output name=statuscode::$statuscode"
+        echo "echo name=statuscode::$statuscode" >> $GITHUB_OUTPUT
 
     - name: Print information
       shell: bash

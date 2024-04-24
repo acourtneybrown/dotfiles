@@ -208,6 +208,10 @@ EOF
   # Bluetooth: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
   (defaults read com.apple.systemuiserver menuExtras | grep -q Bluetooth.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+  defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
+  defaults write com.apple.controlcenter "NSStatusItem Visible Item-2" -bool false
+  defaults write com.apple.controlcenter "NSStatusItem Preferred Position Bluetooth" -int 160
+  defaults -currentHost write com.apple.controlcenter Bluetooth -int 2
 
   # VPN: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.vpn" -bool true
@@ -624,19 +628,17 @@ function macos::config_Safari() {
 }
 
 function macos::config_iTerm() {
-  # Don’t display the annoying prompt when quitting iTerm
-  defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+  # read config from ~/.config/iterm2
+  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
-  # Automatically check for updates
-  defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -bool true
+  # shellcheck disable=SC2088
+  defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/iterm2"
 
-  # Default to unlimited scrollback
-  # /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Scrollback Lines' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
-  # /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Unlimited Scrollback' true" ~/Library/Preferences/com.googlecode.iterm2.plist
+  defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile -bool true
+  defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile_selection -bool false
 
-  # if ! defaults find "GitHub repo" com.googlecode.iterm2 2>/dev/null | grep -q -e '^Found \d\+ keys'; then
-  #   /usr/libexec/PlistBuddy -c "Merge iterm-selection-rules.plist" ~/Library/Preferences/com.googlecode.iterm2.plist
-  # fi
+  # Use macOS system window restore
+  defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
 }
 
 function macos::config_Time_Machine() {

@@ -12,8 +12,6 @@ if [[ -f ${HOME}/.config/coursier/credentials.properties ]]; then
   export COURSIER_CREDENTIALS=${HOME}/.config/coursier/credentials.properties
 fi
 
-export GOPRIVATE="github.com/confluentinc/*"
-
 # bazel_clean_disk_cache deletes cache file older than the time specified (60d by default)
 function bazel_clean_disk_cache() {
   local OLDER_THAN=${1:-60d}
@@ -53,6 +51,17 @@ function bazel_nuke_repository_cache() {
   rm -rf "$(bazel info repository_cache)"
 }
 
+# bazel_nuke_install_base deletes the contents of the install_base for the logged in user
+function bazel_nuke_install_base() {
+  rm -r "$(bazel info install_base)"
+}
+
+# bazel_nuke_other_caches deletes the contents of caches ties to the logged in user
+function bazel_nuke_other_caches() {
+  bazel_nuke_repository_cache
+  bazel_nuke_install_base
+}
+
 # bazel_all run the given command over every resulting target for the given query
 function bazel_all() {
   local command="${1}"
@@ -66,4 +75,6 @@ alias bazel-deps=bazel_deps
 alias show-bazel-deps=show_bazel_deps
 alias stbob='st "$(bazel info output_base)"'
 alias bazel-nuke-repository-cache=bazel_nuke_repository_cache
+alias bazel-nuke-install-base=bazel_nuke_install_base
+alias bazel-nuke-other-caches=bazel_nuke_other_caches
 alias bazel-all=bazel_all

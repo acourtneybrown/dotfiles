@@ -5,3 +5,7 @@ machine api.github.com
 machine github.com
     login {{@@ github_account @@}}
     password {{@@ github_netrc_token @@}}
+
+machine raw.githubusercontent.com
+    login {{@@ github_account @@}}
+    password {{@@ github_netrc_token @@}}

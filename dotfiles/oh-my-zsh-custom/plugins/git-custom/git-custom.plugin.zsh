@@ -45,6 +45,7 @@ alias grep_all="git branch -a | tr -d \* | sed '/->/d' | xargs git grep"
 
 # gl performs a git pull, with optional additional flags,
 # then is deletes squash-merged branches
+# shellcheck disable=SC2120
 function gl() {
   git pull --prune --tags "${@}"
   gbdsm "$(git branch --show-current)"
@@ -76,6 +77,17 @@ function gcobu() {
   local branch="${1}"
   shift
   git checkout -b "${user}/${branch}" "${@}"
+}
+
+# gcol - git checkout [and] pull
+function gcol() {
+  if [[ "${#}" -ne 1 ]]; then
+    echo "Usage: gcol <branch>"
+    return
+  fi
+
+  # shellcheck disable=SC2119
+  gco "${1}" && gl
 }
 
 # gbu outputs the list of branches prefixes with the github username
@@ -167,6 +179,41 @@ function gall() {
   done
 }
 
+# gall performs a given command line across all of the git repositories under
+# the current directory.  It also handles all aliases.
+function gall_find() {
+  if [[ "${#}" -lt 1 ]]; then
+    echo "Usage: gall gcl|gcdb|..."
+    echo "Starts a command for each directory found in current dir."
+    return
+  fi
+  if tput setaf 1 &>/dev/null; then
+    BOLD=$(tput bold)
+    RESET=$(tput sgr0)
+  else
+    BOLD=""
+    RESET="\033[m"
+  fi
+
+  cmd=${1}
+  # shellcheck disable=SC2154
+  if [[ ${aliases[${1}]} ]]; then
+    cmd=${aliases[${1}]}
+  fi
+  shift
+
+  while IFS= read -r -d '' GIT_DIR; do
+    DIR=$(dirname "${GIT_DIR}")
+    echo "${BOLD}Entering ${DIR}${RESET}"
+    (
+      cd "${DIR}" || exit
+
+      # shellcheck disable=SC2294
+      eval "${cmd}" "${@}"
+    )
+  done < <(find . -name .git -print0)
+}
+
 # gpsup pushes the current branch to the specified remote (origin by default) & sets the upstream branch
 function gpsup() {
   local remote
@@ -200,7 +247,7 @@ function _ghclall() {
   collection="${1}"
   entity="${2}"
 
-  gh api "${collection}/${entity}/repos" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t git clone gh:%
+  gh api "${collection}/${entity}/repos" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t gh repo clone %
 }
 
 # ghclorg clones all of the non-archived repos under a GitHub org
