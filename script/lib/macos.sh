@@ -40,6 +40,7 @@ function macos::setup() {
     TextEdit
     DiskUtility
     "QuickTime Player"
+    Alfred
   )
   local fn
   for app in "${apps[@]}"; do
@@ -838,6 +839,25 @@ function macos::config_DiskUtility() {
 function macos::config_QuickTime_Player() {
   # Auto-play videos when opened with QuickTime Player
   defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen -bool true
+}
+
+function macos::config_Alfred() {
+  # Change Spotlight shortcut
+  defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "
+    <dict>
+      <key>enabled</key><true/>
+      <key>value</key><dict>
+        <key>type</key><string>standard</string>
+        <key>parameters</key>
+        <array>
+          <integer>32</integer>
+          <integer>49</integer>
+          <integer>1835008</integer>
+        </array>
+      </dict>
+    </dict>
+  "
+  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 }
 
 function macos::kill_apps() {
