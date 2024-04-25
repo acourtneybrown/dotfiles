@@ -86,6 +86,10 @@ function macos::setup_screen() {
   defaults write com.apple.screensaver askForPassword -int 1
   defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+  defaults -currentHost write com.apple.screensaver idleTime -int 0
+  defaults -currentHost write com.apple.screensaver lastDelayTime -int 1200
+  defaults -currentHost write com.apple.screensaver tokenRemovalAction -int 0
+
   # Save screenshots to the desktop
   defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
