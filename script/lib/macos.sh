@@ -351,6 +351,51 @@ function macos::setup_input_devices() {
 
   # Don't display keyboard/language selector
   defaults write "com.apple.TextInputMenu" visible -bool false
+
+  # Update keyboard shortcuts for screenshots to not conflict with Firefox Multi-Account Containers
+  defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 184 "
+    <dict>
+      <key>enabled</key><false/>
+      <key>value</key><dict>
+        <key>type</key><string>standard</string>
+        <key>parameters</key>
+        <array>
+          <integer>53</integer>
+          <integer>23</integer>
+          <integer>1703936</integer>
+        </array>
+      </dict>
+    </dict>
+  "
+  defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 28 "
+    <dict>
+      <key>enabled</key><false/>
+      <key>value</key><dict>
+        <key>type</key><string>standard</string>
+        <key>parameters</key>
+        <array>
+          <integer>51</integer>
+          <integer>20</integer>
+          <integer>1703936</integer>
+        </array>
+      </dict>
+    </dict>
+  "
+  defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 30 "
+    <dict>
+      <key>enabled</key><false/>
+      <key>value</key><dict>
+        <key>type</key><string>standard</string>
+        <key>parameters</key>
+        <array>
+          <integer>52</integer>
+          <integer>21</integer>
+          <integer>1703936</integer>
+        </array>
+      </dict>
+    </dict>
+  "
+  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 }
 
 # function macos::setup_ssd_tweaks() {
