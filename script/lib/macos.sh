@@ -355,7 +355,7 @@ function macos::setup_input_devices() {
   # Update keyboard shortcuts for screenshots to not conflict with Firefox Multi-Account Containers
   defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 184 "
     <dict>
-      <key>enabled</key><false/>
+      <key>enabled</key><true/>
       <key>value</key><dict>
         <key>type</key><string>standard</string>
         <key>parameters</key>
@@ -369,7 +369,7 @@ function macos::setup_input_devices() {
   "
   defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 28 "
     <dict>
-      <key>enabled</key><false/>
+      <key>enabled</key><true/>
       <key>value</key><dict>
         <key>type</key><string>standard</string>
         <key>parameters</key>
@@ -383,7 +383,7 @@ function macos::setup_input_devices() {
   "
   defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 30 "
     <dict>
-      <key>enabled</key><false/>
+      <key>enabled</key><true/>
       <key>value</key><dict>
         <key>type</key><string>standard</string>
         <key>parameters</key>
