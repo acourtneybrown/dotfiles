@@ -86,6 +86,10 @@ function macos::setup_screen() {
   defaults write com.apple.screensaver askForPassword -int 1
   defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+  defaults -currentHost write com.apple.screensaver idleTime -int 0
+  defaults -currentHost write com.apple.screensaver lastDelayTime -int 1200
+  defaults -currentHost write com.apple.screensaver tokenRemovalAction -int 0
+
   # Save screenshots to the desktop
   defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
@@ -109,6 +113,10 @@ function macos::setup_ui_ux() {
 
   # Disable sleep when connected to display
   sudo pmset -a sleep 0
+
+  # Set how long to delay sleep on charger & battery
+  sudo pmset -c displaysleep 10
+  sudo pmset -b displaysleep 2
 
   # Set sidebar icon size to medium
   # defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
