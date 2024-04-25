@@ -5125,7 +5125,7 @@ function _p9k_timewarrior_clear() {
 
 function prompt_timewarrior() {
   local dir
-  [[ -n ${dir::=$TIMEWARRIORDB} || -n ${dir::=~/.timewarrior}(#qN/) ]] ||
+  [[ -n ${dir::=$TIMEWARRIORDB} || -n ${dir::=~/.timewarrior}(#q-/N) ]] ||
     dir=${XDG_DATA_HOME:-~/.local/share}/timewarrior
   dir+=/data
   local -a stat
@@ -5264,7 +5264,9 @@ function _p9k_taskwarrior_init_data() {
     local -a ts
     ts=($(command task +PENDING -OVERDUE list rc.verbose=nothing rc.color=0 rc._forcecolor=0 \
       rc.report.list.labels= rc.report.list.columns=due.epoch </dev/null 2>/dev/null)) || ts=()
-    if (( $#ts )); then
+    # The second condition is a workaround for a bug in taskwarrior v3.0.1.
+    # https://github.com/romkatv/powerlevel10k/issues/2648.
+    if (( $#ts && ! ${#${(@)ts:#(|-)<->(|.<->)}} )); then
       _p9k_taskwarrior_next_due=${${(on)ts}[1]}
       (( _p9k_taskwarrior_next_due > EPOCHSECONDS )) || _p9k_taskwarrior_next_due=$((EPOCHSECONDS+60))
     fi
@@ -9481,7 +9483,7 @@ if [[ $__p9k_dump_file != $__p9k_instant_prompt_dump_file && -n $__p9k_instant_p
   zf_rm -f -- $__p9k_instant_prompt_dump_file{,.zwc} 2>/dev/null
 fi
 
-typeset -g P9K_VERSION=1.20.8
+typeset -g P9K_VERSION=1.20.10
 unset VSCODE_SHELL_INTEGRATION
 
 _p9k_init_ssh
