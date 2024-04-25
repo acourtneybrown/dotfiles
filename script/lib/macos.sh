@@ -51,6 +51,7 @@ function macos::setup() {
   done
 
   macos::kill_apps
+  macos::finalize
 }
 
 function macos::setup_login_window() {
@@ -396,7 +397,6 @@ function macos::setup_input_devices() {
       </dict>
     </dict>
   "
-  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 }
 
 # function macos::setup_ssd_tweaks() {
@@ -857,7 +857,6 @@ function macos::config_Alfred() {
       </dict>
     </dict>
   "
-  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 }
 
 function macos::kill_apps() {
@@ -880,4 +879,9 @@ function macos::kill_apps() {
     killall "${app}" &>/dev/null
   done
   echo "Done. Note that some of these changes require a logout/restart to take effect."
+}
+
+function macos::finalize() {
+  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+
 }
