@@ -114,6 +114,10 @@ function macos::setup_ui_ux() {
   # Disable sleep when connected to display
   sudo pmset -a sleep 0
 
+  # Set how long to delay sleep on charger & battery
+  sudo pmset -c displaysleep 10
+  sudo pmset -b displaysleep 2
+
   # Set sidebar icon size to medium
   # defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
