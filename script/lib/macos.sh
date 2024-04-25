@@ -229,6 +229,12 @@ EOF
   # Time & Clock: Show date in menu bar
   defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
 
+  # Battery: show icon in menu bar
+  defaults write "com.apple.menuextra.battery" ShowPercent YES
+  defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -bool true
+  defaults -currentHost write com.apple.controlcenter Battery -int 2
+  defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -int 1
+
   # Disable Handoff
   defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool false
   defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool false
@@ -345,12 +351,6 @@ function macos::setup_input_devices() {
 
   # Don't display keyboard/language selector
   defaults write "com.apple.TextInputMenu" visible -bool false
-
-  # Display battery percentage
-  defaults write "com.apple.menuextra.battery" ShowPercent YES
-  defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -bool true
-  defaults -currentHost write com.apple.controlcenter Battery -int 2
-  defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -int 1
 }
 
 # function macos::setup_ssd_tweaks() {
