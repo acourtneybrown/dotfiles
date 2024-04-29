@@ -883,5 +883,4 @@ function macos::kill_apps() {
 
 function macos::finalize() {
   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-
 }
