@@ -94,6 +94,12 @@ dotfiles:
       - Package Control.last-run
       - Package Control.merged-ca-bundle
       - Package Control.user-ca-bundle
+  f_Alfred_prefs.json:
+    src: Alfred/prefs.json
+    dst: ~/Library/Application Support/Alfred/prefs.json
+  # f_Alfred_hotkey_prefs.plist:
+  #   src: Alfred/hotkey/prefs.plist
+  #   dst: ~/Library/Application Support/Alfred/Alfred.alfredpreferences/preferences/local/{{@@ alfred_preferences_localhash @@}}/hotkey/prefs.plist
   f_bash_sessions_disable:
     src: bash_sessions_disable
     dst: ~/.bash_sessions_disable
