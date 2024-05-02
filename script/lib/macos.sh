@@ -40,6 +40,7 @@ function macos::setup() {
     TextEdit
     DiskUtility
     "QuickTime Player"
+    Alfred
   )
   local fn
   for app in "${apps[@]}"; do
@@ -50,6 +51,7 @@ function macos::setup() {
   done
 
   macos::kill_apps
+  macos::finalize
 }
 
 function macos::setup_login_window() {
@@ -395,7 +397,6 @@ function macos::setup_input_devices() {
       </dict>
     </dict>
   "
-  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 }
 
 # function macos::setup_ssd_tweaks() {
@@ -840,6 +841,24 @@ function macos::config_QuickTime_Player() {
   defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen -bool true
 }
 
+function macos::config_Alfred() {
+  # Change Spotlight shortcut
+  defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "
+    <dict>
+      <key>enabled</key><true/>
+      <key>value</key><dict>
+        <key>type</key><string>standard</string>
+        <key>parameters</key>
+        <array>
+          <integer>32</integer>
+          <integer>49</integer>
+          <integer>1835008</integer>
+        </array>
+      </dict>
+    </dict>
+  "
+}
+
 function macos::kill_apps() {
   set +e
   for app in "Activity Monitor" \
@@ -860,4 +879,8 @@ function macos::kill_apps() {
     killall "${app}" &>/dev/null
   done
   echo "Done. Note that some of these changes require a logout/restart to take effect."
+}
+
+function macos::finalize() {
+  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 }
