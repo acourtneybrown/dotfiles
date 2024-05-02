@@ -240,6 +240,9 @@ EOF
   # Disable Handoff
   defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool false
   defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool false
+
+  # Disable Universal Control
+  default -currentHost write com.apple.universalcontrol Disable -bool true
 }
 
 function macos::setup_security() {
