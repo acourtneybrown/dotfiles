@@ -6,37 +6,7 @@ function openInFirefoxContainer(containerName, urlString) {
   )}`;
 }
 
-function contains1pId(urlSearch) {
-  for (const id of meContainerIds) {
-    if (urlSearch.includes(`${id}=${id}`)) {
-      return true
-    }
-  }
-  return false
-}
-
-function remove1pId(urlString) {
-  result = urlString
-  for (const regex of meUrlSearchRegex) {
-    result = result.replace(regex, "")
-  }
-  return result
-}
-
-const noContainerHosts = new Set(['duckduckgo.com', 'www.google.com', 'www.amazon.com', 'wikipedia.org'])
-const bundleIdsFor1p = new Set(["com.agilebits.onepassword7", "com.1password.1password"])
 const bundleIdsForHarmony = new Set(["com.logitech.myharmony"])
-const bundleIdsForAlfred = new Set(["com.runningwithcrayons.Alfred"])
-const meContainerIds = [
-  {%@@ for id in firefox_me_ids.split() @@%}
-    {{@@ id @@}},
-  {%@@ endfor @@%}
-]
-const meUrlSearchRegex = [
-  {%@@ for id in firefox_me_ids.split() @@%}
-    new RegExp("[?&]?" + {{@@ id @@}} + "=" + {{@@ id @@}}),
-  {%@@ endfor @@%}
-]
 
 module.exports = {
   defaultBrowser: "Firefox",
@@ -76,9 +46,13 @@ module.exports = {
         /^https:\/\/github\.com\/NotCharlie(\/|$)/,
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
+
+        ({ opener }) => {
+          return bundleIdsForHarmony.has(opener.bundleId)
+        },
       ],
       url: ({ urlString }) => {
-        return openInFirefoxContainer("Me", remove1pId(urlString));
+        return openInFirefoxContainer("Me", urlString);
       },
       browser: "Firefox",
     },
@@ -98,22 +72,56 @@ module.exports = {
     {%@@ if personal @@%}
     {
       match: [
-        ({ opener, url }) => {
-          if (bundleIdsFor1p.has(opener.bundleId)) {
-            return true
-          }
-          if (bundleIdsForHarmony.has(opener.bundleId)) {
-            return true
-          }
-
-          if (bundleIdsForAlfred.has(opener.bundleId)) {
-            return !noContainerHosts.has(url.host) || contains1pId(url.search)
-          }
-          return false
-        },
+        {%@@ for id in firefox_cara_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
       ],
       url: ({ urlString }) => {
-        return openInFirefoxContainer("Me", remove1pId(urlString));
+        return openInFirefoxContainer("Cara", urlString);
+      },
+      browser: "Firefox",
+    },
+    {
+      match: [
+        {%@@ for id in firefox_cb_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
+      ],
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("Carter", urlString);
+      },
+      browser: "Firefox",
+    },
+    {
+      match: [
+        {%@@ for id in firefox_joint_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
+      ],
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("Joint", urlString);
+      },
+      browser: "Firefox",
+    },
+    {
+      match: [
+        {%@@ for id in firefox_jenny_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
+      ],
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("Jenny", urlString);
+      },
+      browser: "Firefox",
+    },
+    {
+      match: [
+        {%@@ for id in firefox_all_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
+      ],
+      url: ({ urlString }) => {
+        return openInFirefoxContainer("Me", urlString);
       },
       browser: "Firefox",
     },
