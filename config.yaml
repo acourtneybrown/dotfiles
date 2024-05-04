@@ -250,12 +250,20 @@ profiles:
       firefox_jenny_ids: |
         op item list --categories Login --format=json |
           op item get - --format=json |
-          jq -r "select(.fields.[] | select(.id == \"username\") | .value | test(\"`{{@@ jenny_email_acct @@}}`\")) | .id" 2>/dev/null |
+          jq -r "
+              select(
+                     (.fields.[] | select(.id == \"username\") | .value | contains(\"`{{@@ jenny_email_acct @@}}`\")) or
+                     (.title | contains(\"Jenny\"))
+                    ) | .id" 2>/dev/null |
           sort
       firefox_joint_ids: |
         op item list --categories Login --format=json |
           op item get - --format=json |
-          jq -r "select(.fields.[] | select(.id == \"username\") | .value | test(\"`{{@@ joint_email_acct @@}}`\")) | .id" 2>/dev/null |
+          jq -r "
+              select(
+                     (.fields.[] | select(.id == \"username\") | .value | contains(\"`{{@@ joint_email_acct @@}}`\")) or
+                     (.title | contains(\"Joint\"))
+                    ) | .id" 2>/dev/null |
           sort
       full_name: op item get 7ewiekzrvxiwjkwmfhl2646ynq --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
