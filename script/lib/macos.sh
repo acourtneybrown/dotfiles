@@ -40,6 +40,7 @@ function macos::setup() {
     TextEdit
     DiskUtility
     "QuickTime Player"
+    Alfred
   )
   local fn
   for app in "${apps[@]}"; do
@@ -50,6 +51,7 @@ function macos::setup() {
   done
 
   macos::kill_apps
+  macos::finalize
 }
 
 function macos::setup_login_window() {
@@ -86,6 +88,10 @@ function macos::setup_screen() {
   defaults write com.apple.screensaver askForPassword -int 1
   defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+  defaults -currentHost write com.apple.screensaver idleTime -int 0
+  defaults -currentHost write com.apple.screensaver lastDelayTime -int 1200
+  defaults -currentHost write com.apple.screensaver tokenRemovalAction -int 0
+
   # Save screenshots to the desktop
   defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
@@ -109,6 +115,10 @@ function macos::setup_ui_ux() {
 
   # Disable sleep when connected to display
   sudo pmset -a sleep 0
+
+  # Set how long to delay sleep on charger & battery
+  sudo pmset -c displaysleep 10
+  sudo pmset -b displaysleep 2
 
   # Set sidebar icon size to medium
   # defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
@@ -199,6 +209,8 @@ EOF
   # Sound: show volume in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
   (defaults read com.apple.systemuiserver menuExtras | grep -q Volume.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
+  defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true
+  defaults -currentHost write com.apple.controlcenter Sound -int 18
 
   # TimeMachine: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -bool true
@@ -207,6 +219,10 @@ EOF
   # Bluetooth: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
   (defaults read com.apple.systemuiserver menuExtras | grep -q Bluetooth.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+  defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
+  defaults write com.apple.controlcenter "NSStatusItem Visible Item-2" -bool false
+  defaults write com.apple.controlcenter "NSStatusItem Preferred Position Bluetooth" -int 160
+  defaults -currentHost write com.apple.controlcenter Bluetooth -int 2
 
   # VPN: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.vpn" -bool true
@@ -214,6 +230,19 @@ EOF
 
   # Time & Clock: Show date in menu bar
   defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
+
+  # Battery: show icon in menu bar
+  defaults write "com.apple.menuextra.battery" ShowPercent YES
+  defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -bool true
+  defaults -currentHost write com.apple.controlcenter Battery -int 2
+  defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -int 1
+
+  # Disable Handoff
+  defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool false
+  defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool false
+
+  # Disable Universal Control
+  defaults -currentHost write com.apple.universalcontrol Disable -bool true
 }
 
 function macos::setup_security() {
@@ -328,8 +357,49 @@ function macos::setup_input_devices() {
   # Don't display keyboard/language selector
   defaults write "com.apple.TextInputMenu" visible -bool false
 
-  # Display battery percentage
-  defaults write "com.apple.menuextra.battery" ShowPercent YES
+  # Update keyboard shortcuts for screenshots to not conflict with Firefox Multi-Account Containers
+  defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 184 "
+    <dict>
+      <key>enabled</key><true/>
+      <key>value</key><dict>
+        <key>type</key><string>standard</string>
+        <key>parameters</key>
+        <array>
+          <integer>53</integer>
+          <integer>23</integer>
+          <integer>1703936</integer>
+        </array>
+      </dict>
+    </dict>
+  "
+  defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 28 "
+    <dict>
+      <key>enabled</key><true/>
+      <key>value</key><dict>
+        <key>type</key><string>standard</string>
+        <key>parameters</key>
+        <array>
+          <integer>51</integer>
+          <integer>20</integer>
+          <integer>1703936</integer>
+        </array>
+      </dict>
+    </dict>
+  "
+  defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 30 "
+    <dict>
+      <key>enabled</key><true/>
+      <key>value</key><dict>
+        <key>type</key><string>standard</string>
+        <key>parameters</key>
+        <array>
+          <integer>52</integer>
+          <integer>21</integer>
+          <integer>1703936</integer>
+        </array>
+      </dict>
+    </dict>
+  "
 }
 
 # function macos::setup_ssd_tweaks() {
@@ -774,6 +844,24 @@ function macos::config_QuickTime_Player() {
   defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen -bool true
 }
 
+function macos::config_Alfred() {
+  # Change Spotlight shortcut
+  defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "
+    <dict>
+      <key>enabled</key><true/>
+      <key>value</key><dict>
+        <key>type</key><string>standard</string>
+        <key>parameters</key>
+        <array>
+          <integer>32</integer>
+          <integer>49</integer>
+          <integer>1835008</integer>
+        </array>
+      </dict>
+    </dict>
+  "
+}
+
 function macos::kill_apps() {
   set +e
   for app in "Activity Monitor" \
@@ -794,4 +882,8 @@ function macos::kill_apps() {
     killall "${app}" &>/dev/null
   done
   echo "Done. Note that some of these changes require a logout/restart to take effect."
+}
+
+function macos::finalize() {
+  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 }

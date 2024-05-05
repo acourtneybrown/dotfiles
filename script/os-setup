@@ -20,6 +20,11 @@ function manual_confirmation() {
 
 util::sudo_check_then_alive
 
+if [[ $(whoami) == virtualbuddy ]]; then
+  export DOTFILES_SKIP_UPDATES=y
+  export DOTFILES_SKIP_CONFIRMATION=y
+fi
+
 [[ -z "${DOTFILES_SKIP_UPDATES}" ]] && install::os_updates
 
 if util::is_mac; then
