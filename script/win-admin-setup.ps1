@@ -7,7 +7,6 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 # TODO: follow https://github.com/chocolatey-community/chocolatey-packages/issues/1773
 # choco install 1password
 
-choco install -y brave
 choco install -y carnac
 choco install -y epicgameslauncher
 choco install -y firefox
