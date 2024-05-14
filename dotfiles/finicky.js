@@ -37,7 +37,7 @@ module.exports = {
           "govzw.com",
           "i.cvs.com",
           "login.docker.com",
-          "meet.google.com"
+          "meet.google.com",
 
           /nytimes\.com/,
           /wsj\.com/,
