@@ -25,7 +25,6 @@ cask "subler"
 cask "synology-drive"
 cask "virtualbuddy"
 cask "vlc"
-cask "vmware-fusion"
 
 if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	# mas "Airmail", id: 918858936
