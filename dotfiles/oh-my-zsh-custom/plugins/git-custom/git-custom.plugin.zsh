@@ -240,14 +240,13 @@ function ggpush() {
 
 # _ghclall is an internal function that clones all of the non-archived, repos for a given user/org
 function _ghclall() {
-  local entity
-  if [[ "${#}" -ne 2 ]]; then
+  local prefix
+  if [[ "${#}" -ne 1 ]]; then
     return 1
   fi
-  collection="${1}"
-  entity="${2}"
+  prefix="${1}"
 
-  gh api "${collection}/${entity}/repos" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t gh repo clone %
+  gh api "${prefix}/repos" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t gh repo clone %
 }
 
 # ghclorg clones all of the non-archived repos under a GitHub org
@@ -256,7 +255,7 @@ function ghclorg() {
     echo "Usage: ghclorg <org>"
     return
   fi
-  _ghclall orgs "${1}"
+  _ghclall "orgs/${1}"
 }
 
 # ghcluser clones all of the non-archived repos under a GitHub user
@@ -265,7 +264,12 @@ function ghcluser() {
     echo "Usage: ghcluser <org>"
     return
   fi
-  _ghclall users "${1}"
+
+  if [[ ${1} == $(git config github.user) ]]; then
+    _ghclall "user"
+  else
+    _ghclall "users/${1}"
+  fi
 }
 
 # ghrmarchived deletes the local clone for any repo that has been archived on GitHub
