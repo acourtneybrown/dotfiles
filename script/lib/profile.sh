@@ -64,14 +64,6 @@ function profile::personal() {
   profile::enable_goenv
 
   profile::pipx_install 3.11 python-kasa python-vipaccess tox twine pytest build
-
-  mkdir -p "${HOME}/personal"
-  (
-    cd "${HOME}/personal" || return
-
-    pyenv local "$(profile::ensure_pyenv_version 3.11)"
-    goenv local "$(profile::ensure_goenv_version 1.19)"
-  )
 }
 
 function profile::linux() {
