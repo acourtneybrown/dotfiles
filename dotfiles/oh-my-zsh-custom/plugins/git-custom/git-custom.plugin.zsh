@@ -240,13 +240,11 @@ function ggpush() {
 
 # _ghclall is an internal function that clones all of the non-archived, repos for a given user/org
 function _ghclall() {
-  local prefix
   if [[ "${#}" -ne 1 ]]; then
     return 1
   fi
-  prefix="${1}"
 
-  gh api "${prefix}/repos" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t gh repo clone %
+  gh api "${1}" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t gh repo clone %
 }
 
 # ghclorg clones all of the non-archived repos under a GitHub org
@@ -255,7 +253,7 @@ function ghclorg() {
     echo "Usage: ghclorg <org>"
     return
   fi
-  _ghclall "orgs/${1}"
+  _ghclall "orgs/${1}/repos"
 }
 
 # ghcluser clones all of the non-archived repos under a GitHub user
@@ -266,9 +264,9 @@ function ghcluser() {
   fi
 
   if [[ ${1} == $(git config github.user) ]]; then
-    _ghclall "user"
+    _ghclall "user/repos?type=owner"
   else
-    _ghclall "users/${1}"
+    _ghclall "users/${1}/repos"
   fi
 }
 
