@@ -23,7 +23,7 @@ if [[ ${commands[gh]} ]]; then
   # ghcluser clones all of the non-archived repos under a GitHub user
   function ghcluser() {
     if [[ "${#}" -ne 1 ]]; then
-      echo "Usage: ghcluser <org>"
+      echo "Usage: ghcluser <user>"
       return
     fi
 
