@@ -11,7 +11,7 @@ if [[ ${commands[glab]} ]]; then
     glab api "${1}" --paginate | jq '.[] | select(.archived == false) | .path_with_namespace' | xargs -n 1 -I % -P 6 -t glab project clone %
   }
 
-  # glclorg clones all of the non-archived projects under a GitLab group
+  # glclgroup clones all of the non-archived projects under a GitLab group
   function glclgroup() {
     if [[ "${#}" -ne 1 ]]; then
       echo "Usage: glclgroup <group>"
@@ -20,7 +20,7 @@ if [[ ${commands[glab]} ]]; then
     _glclall "groups/${1}/projects"
   }
 
-  # glclorg clones all of the non-archived projects under a GitLab user
+  # glcluser clones all of the non-archived projects under a GitLab user
   function glcluser() {
     if [[ "${#}" -ne 1 ]]; then
       echo "Usage: glcluser <user>"
