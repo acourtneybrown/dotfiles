@@ -96,13 +96,14 @@ plugins=(
   fd
   functions
   fzf
+  gh
+  gh-custom
   git
   git-custom
   goenv
   marked2
   mosh
   mosh-custom
-  path
   pipx
   pyenv
   ripgrep
@@ -132,6 +133,8 @@ plugins=(
   {%@@ if linux @@%}
   linuxbrew
   {%@@ endif @@%}
+
+  path
 
   $plugins
 
