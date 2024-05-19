@@ -96,6 +96,7 @@ plugins=(
   fd
   functions
   fzf
+  gh
   git
   git-custom
   goenv
