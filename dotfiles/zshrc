@@ -103,7 +103,6 @@ plugins=(
   marked2
   mosh
   mosh-custom
-  path
   pipx
   pyenv
   ripgrep
@@ -133,6 +132,8 @@ plugins=(
   {%@@ if linux @@%}
   linuxbrew
   {%@@ endif @@%}
+
+  path
 
   $plugins
 
