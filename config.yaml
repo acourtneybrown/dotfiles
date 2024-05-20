@@ -76,6 +76,11 @@ dotfiles:
       - themes/powerlevel10k/*.zwc
     cmpignore:
       - themes/powerlevel10k/*.zwc
+  d_tea:
+    src: Library/Application Support/tea
+    dst: "{{@@ xdg_config_home @@}}/tea"
+    link: link_children
+    chmod: 700
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
     dst: ~/{{@@ sublime_home @@}}/Packages/User
@@ -213,6 +218,7 @@ profiles:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+      xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
       - d_user
       - f_Alfred_prefs.json
@@ -224,6 +230,7 @@ profiles:
     variables:
       sublime_home: .config/sublime-text-3
       ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
+      xdg_config_home: ~/.config
     dotfiles:
       - d_user
       - f_sublime_license
@@ -267,6 +274,7 @@ profiles:
           sort
       full_name: op item get 7ewiekzrvxiwjkwmfhl2646ynq --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
+      gitea_hostname: "{{@@ gitea_website @@}} | sed 's|.*//||'"
       gitea_maven_token: op item get "Gitea (acourtneybrown)" --field "Maven token"
       gitea_pypi_token: op item get "Gitea (acourtneybrown)" --field "PyPI token"
       gitea_username: op item get "Gitea (acourtneybrown)" --field username
@@ -281,6 +289,7 @@ profiles:
       personal_email: op item get 7ewiekzrvxiwjkwmfhl2646ynq --field email
       personal_public_key: op item get "Default key" --field "public key"
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
+      tea_cli_token: op item get "Gitea (acourtneybrown)" --field "tea cli token"
     include:
       - zsh
   zsh:
@@ -300,6 +309,7 @@ profiles:
       - d_config_glab_cli
       - d_git_template
       - d_gradle_init_d
+      - d_tea
       - f_bash_sessions_disable
       - f_curlrc
       - f_gitconfig
