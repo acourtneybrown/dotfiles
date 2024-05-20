@@ -1,7 +1,6 @@
 tap "acourtneybrown/cask"
 tap "acourtneybrown/fonts"
 tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 
 brew "asciinema"
 brew "bash"
