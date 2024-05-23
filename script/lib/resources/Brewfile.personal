@@ -35,6 +35,7 @@ if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	mas "Notability", id: 360593530
 	mas "Paprika Recipe Manager 3", id: 1303222628
 	# mas "Reeder", id: 1449412482
+	mas "ScreenLogic Connect", id: 661530011
 else
 	puts "Skipping App Store installs"
 end
