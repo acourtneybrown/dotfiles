@@ -327,3 +327,7 @@ profiles:
       - f_wgetrc
       - fake_goenv
       - fake_pyenv
+  beelink:
+    include:
+      - default
+      - linux
