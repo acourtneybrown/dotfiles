@@ -247,6 +247,8 @@ profiles:
     variables:
       linux: true
       xdg_config_home: ~/.config
+    dotfiles:
+      - d_config_pip
   personal:
     dotfiles:
       - d_config_pip
