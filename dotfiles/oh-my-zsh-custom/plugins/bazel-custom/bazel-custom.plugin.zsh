@@ -1,13 +1,5 @@
 # shellcheck disable=SC2148
 
-# shellcheck disable=SC1091
-source "{{@@ _dotdrop_dotpath @@}}/../script/lib/docker.sh"
-
-username_cb="op item get Docker --field username"
-docker_pat_cb="op item get Docker --field 'Bazel PAT'"
-docker::ensure_login index.docker.io "${username_cb}" "${docker_pat_cb}"
-unset docker_username_cb docker_pat_cb
-
 if [[ -f ${HOME}/.config/coursier/credentials.properties ]]; then
   export COURSIER_CREDENTIALS=${HOME}/.config/coursier/credentials.properties
 fi

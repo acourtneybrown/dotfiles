@@ -3,8 +3,10 @@
 PROFILE_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 declare -a _finalizers
 
-# shellcheck disable=SC1090,SC1091
+# shellcheck disable=SC1091
 . "${PROFILE_SH_DIR}/util.sh"
+# shellcheck disable=SC1091
+. "${PROFILE_SH_DIR}/docker.sh"
 
 function profile::run_dotdrop_action() {
   local action="${1}"
@@ -51,10 +53,17 @@ function profile::default() {
 }
 
 function profile::default_after() {
+
   profile::enable_pyenv
   profile::enable_goenv
   pyenv global "$(profile::ensure_pyenv_version 3.11)"
   goenv global "$(profile::ensure_goenv_version 1.19)"
+
+  local username_cb
+  local docker_pat_cb
+  username_cb="op item get Docker --field username"
+  docker_pat_cb="op item get Docker --field 'Bazel PAT'"
+  docker::ensure_login index.docker.io "${username_cb}" "${docker_pat_cb}"
 }
 
 function profile::personal() {
@@ -64,6 +73,15 @@ function profile::personal() {
   profile::enable_goenv
 
   profile::pipx_install 3.11 python-kasa python-vipaccess tox twine pytest build
+}
+
+function profile::personal_after() {
+  local username_cb
+  local docker_pat_cb
+
+  gitea_username_cb="op item get 'Gitea (acourtneybrown)' --field username"
+  gitea_container_token_cb="op item get 'Gitea (acourtneybrown)' --field 'Container token'"
+  docker::ensure_login gitea.notcharlie.com "${gitea_username_cb}" "${gitea_container_token_cb}"
 }
 
 function profile::linux() {

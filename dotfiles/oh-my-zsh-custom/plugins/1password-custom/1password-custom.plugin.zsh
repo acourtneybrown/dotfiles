@@ -4,3 +4,5 @@
 if [[ -n "{{@@ ssh_agent @@}}" ]]; then
   export SSH_AUTH_SOCK="{{@@ ssh_agent @@}}"
 fi
+
+alias ops='eval $(op signin)'
