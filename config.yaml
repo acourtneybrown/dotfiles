@@ -230,13 +230,13 @@ profiles:
     variables:
       sublime_home: .config/sublime-text-3
       ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
-      xdg_config_home: ~/.config
     dotfiles:
       - d_user
       - f_sublime_license
   linux:
     variables:
       linux: true
+      xdg_config_home: ~/.config
   personal:
     dotfiles:
       - d_config_pip
