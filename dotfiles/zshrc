@@ -117,12 +117,6 @@ plugins=(
   zsh-completions
 )
 
-{%@@ if personal @@%}
-plugins+=(
-  home-gitea
-)
-{%@@ endif @@%}
-
 plugins=(
   evalcache
 
