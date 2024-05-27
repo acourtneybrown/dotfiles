@@ -84,8 +84,6 @@ ZSH_CUSTOM="${HOME}/.oh-my-zsh-custom"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  1password
-  1password-custom
   aliases
   bazel
   bazel-custom
@@ -127,6 +125,8 @@ plugins=(
   evalcache
 
   {%@@ if mac @@%}
+  1password
+  1password-custom
   homebrew
   iterm2
   iterm2-custom
