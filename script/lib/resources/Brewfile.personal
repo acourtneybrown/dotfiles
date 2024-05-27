@@ -8,6 +8,7 @@ brew "libdvdcss"
 brew "twilio"
 
 cask "avidemux"
+cask "balenaetcher"
 cask "epic-games"
 cask "gnucash"
 cask "gog-galaxy"
