@@ -213,6 +213,16 @@ profiles:
   adams-mbp.notcharlie.com:
     include:
       - adams-mbp
+  beelink:
+    include:
+      - default
+      - linux
+  beelink.local:
+    include:
+      - beelink
+  beelink.notcharlie.com:
+    include:
+      - beelink
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
@@ -327,7 +337,3 @@ profiles:
       - f_wgetrc
       - fake_goenv
       - fake_pyenv
-  beelink:
-    include:
-      - default
-      - linux
