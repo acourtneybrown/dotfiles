@@ -59,7 +59,8 @@ function profile::default_after() {
   pyenv global "$(profile::ensure_pyenv_version 3.11)"
   goenv global "$(profile::ensure_goenv_version 1.19)"
 
-  local username_cb, docker_pat_cb
+  local username_cb
+  local docker_pat_cb
   username_cb="op item get Docker --field username"
   docker_pat_cb="op item get Docker --field 'Bazel PAT'"
   docker::ensure_login index.docker.io "${username_cb}" "${docker_pat_cb}"
@@ -75,7 +76,8 @@ function profile::personal() {
 }
 
 function profile::personal_after() {
-  local username_cb, docker_pat_cb
+  local username_cb
+  local docker_pat_cb
 
   gitea_username_cb="op item get 'Gitea (acourtneybrown)' --field username"
   gitea_container_token_cb="op item get 'Gitea (acourtneybrown)' --field 'Container token'"
