@@ -219,7 +219,7 @@ profiles:
     variables:
       host_ssh_key_name: beelink key
     dynvariables:
-      host_ssh_ed25519_private_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/private key"
+      host_ssh_ed25519_private_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/private key?ssh-format=openssh"
     dotfiles:
       - f_ssh_id_ed25519
   beelink.local:
