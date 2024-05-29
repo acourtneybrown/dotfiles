@@ -30,4 +30,5 @@
 #  https://developer.1password.com/docs/ssh/agent/config
 
 [[ssh-keys]]
+item = "{{@@ host_ssh_key_name @@}}"
 vault = "Private"

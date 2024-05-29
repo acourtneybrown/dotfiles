@@ -1,9 +1,4 @@
 actions:
-  _add_authorized_keys: |
-    mkdir -p ~/.ssh
-    rm ~/.ssh/authorized_keys.*
-    op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
-    cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
   _install_package_control: '{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/"{{@@ sublime_home @@}}"'
   _pyenv_install: |
     if [ -d ~/.pyenv ]; then
@@ -153,10 +148,8 @@ dotfiles:
     dst: ~/.pypirc
     chmod: 600
   f_ssh_authorized_keys:
-    src:
-    dst:
-    actions:
-      - _add_authorized_keys
+    src: ssh/authorized_keys
+    dst: ~/.ssh/authorized_keys
   f_ssh_config:
     src: ssh/config
     dst: ~/.ssh/config
@@ -203,6 +196,8 @@ dotfiles:
       - _iterm2_utils_install
 profiles:
   adams-mbp:
+    variables:
+      host_ssh_key_name: adams-mbp key
     include:
       - default
       - mac
@@ -217,6 +212,8 @@ profiles:
     include:
       - default
       - linux
+    variables:
+      host_ssh_key_name: beelink key
   beelink.local:
     include:
       - beelink
@@ -260,7 +257,9 @@ profiles:
       mac: false
       personal: false
       ssh_agent: ''
+      host_ssh_key_name: Default key
     dynvariables:
+      authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
       firefox_all_ids: op item list --categories Login --format=json | jq -r '.[].id' | sort
       firefox_cara_ids: op item list --vault Cara --categories Login --format=json | jq -r '.[].id' | sort
       firefox_cb_ids: op item list --vault Carter --categories Login --format=json | jq -r '.[].id' | sort
@@ -297,7 +296,7 @@ profiles:
       jenny_email_acct: op item get mw5zoqbzxjfp3ccmx7wcv52lsi --fields email | sed 's/\([^+@]*\).*/\1/'
       joint_email_acct: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields email | sed 's/\([^+@]*\).*/\1/'
       personal_email: op item get 7ewiekzrvxiwjkwmfhl2646ynq --field email
-      personal_public_key: op item get "Default key" --field "public key"
+      github_signing_key: op item get "{{@@ host_ssh_key_name @@}}" --field "public key"
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
       tea_cli_token: op item get "Gitea (acourtneybrown)" --field "tea cli token"
     include:

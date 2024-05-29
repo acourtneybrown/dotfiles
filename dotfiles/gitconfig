@@ -162,4 +162,4 @@
 
 	name = {{@@ full_name @@}}
 	email = {{@@ personal_email @@}}
-	signingKey = {{@@ personal_public_key @@}}
+	signingKey = {{@@ github_signing_key @@}}
