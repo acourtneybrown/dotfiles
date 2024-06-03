@@ -75,7 +75,7 @@ dotfiles:
     src: smbcredentials
     dst: ~/.smbcredentials
     link: link_children
-    chmod: 600
+    chmod: 700
   d_tea:
     src: Library/Application Support/tea
     dst: "{{@@ xdg_config_home @@}}/tea"
