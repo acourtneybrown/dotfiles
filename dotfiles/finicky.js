@@ -98,6 +98,10 @@ module.exports = {
         {%@@ for id in firefox_joint_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
+
+        {%@@ for id in firefox_kids_ro_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Joint", urlString);
@@ -117,7 +121,15 @@ module.exports = {
     },
     {
       match: [
-        {%@@ for id in firefox_all_ids.split() @@%}
+        {%@@ for id in firefox_adam_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
+
+        {%@@ for id in firefox_adam_work_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
+
+        {%@@ for id in firefox_private_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
       ],
