@@ -1,0 +1,2 @@
+username={{@@ synology_username @@}}
+password={{@@ synology_password @@}}

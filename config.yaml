@@ -71,6 +71,11 @@ dotfiles:
       - themes/powerlevel10k/*.zwc
     cmpignore:
       - themes/powerlevel10k/*.zwc
+  d_smbcredentials:
+    src: smbcredentials
+    dst: ~/.smbcredentials
+    link: link_children
+    chmod: 600
   d_tea:
     src: Library/Application Support/tea
     dst: "{{@@ xdg_config_home @@}}/tea"
@@ -220,7 +225,10 @@ profiles:
       host_ssh_key_name: beelink key
     dynvariables:
       host_ssh_ed25519_private_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/private key?ssh-format=openssh"
+      synology_username: op read "op://Adults/opneaiq4inev5psrgc3hmrv4k4/username"
+      synology_password: op read "op://Adults/opneaiq4inev5psrgc3hmrv4k4/password"
     dotfiles:
+      - d_smbcredentials
       - f_ssh_id_ed25519
   beelink.local:
     include:
