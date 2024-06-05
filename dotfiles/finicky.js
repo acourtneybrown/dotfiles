@@ -34,13 +34,9 @@ module.exports = {
     {
       match: [
         finicky.matchHostnames([
-          "govzw.com",
           "i.cvs.com",
           "login.docker.com",
           "meet.google.com",
-
-          /nytimes\.com/,
-          /wsj\.com/,
         ]),
 
         /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
@@ -93,6 +89,10 @@ module.exports = {
     },
     {
       match: [
+        finicky.matchHostnames([
+          "govzw.com",
+        ]),
+
         {%@@ for id in firefox_joint_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
@@ -108,6 +108,11 @@ module.exports = {
     },
     {
       match: [
+        finicky.matchHostnames([
+          /nytimes\.com/,
+          /wsj\.com/,
+        ]),
+
         {%@@ for id in firefox_jenny_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
