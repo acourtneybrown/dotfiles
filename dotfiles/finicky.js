@@ -61,10 +61,8 @@ module.exports = {
     {
       // Confluent-related sites
       match: [
-        finicky.matchHostnames([
-          "confluent.okta.com",
-        ]),
-       ],
+        /^https:\/\/.*\.myworkday\.com\/confluent/,
+      ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("CFLT", urlString);
       },
