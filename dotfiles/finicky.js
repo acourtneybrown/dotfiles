@@ -34,12 +34,9 @@ module.exports = {
     {
       match: [
         finicky.matchHostnames([
-          "govzw.com",
           "i.cvs.com",
           "login.docker.com",
-
-          /nytimes\.com/,
-          /wsj\.com/,
+          "meet.google.com",
         ]),
 
         /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
@@ -60,10 +57,8 @@ module.exports = {
     {
       // Confluent-related sites
       match: [
-        finicky.matchHostnames([
-          "confluent.okta.com",
-        ]),
-       ],
+        /^https:\/\/.*\.myworkday\.com\/confluent/,
+      ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("CFLT", urlString);
       },
@@ -94,7 +89,15 @@ module.exports = {
     },
     {
       match: [
+        finicky.matchHostnames([
+          "govzw.com",
+        ]),
+
         {%@@ for id in firefox_joint_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
+
+        {%@@ for id in firefox_kids_ro_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
       ],
@@ -105,6 +108,11 @@ module.exports = {
     },
     {
       match: [
+        finicky.matchHostnames([
+          /nytimes\.com/,
+          /wsj\.com/,
+        ]),
+
         {%@@ for id in firefox_jenny_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
@@ -116,7 +124,15 @@ module.exports = {
     },
     {
       match: [
-        {%@@ for id in firefox_all_ids.split() @@%}
+        {%@@ for id in firefox_adam_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
+
+        {%@@ for id in firefox_adam_work_ids.split() @@%}
+          /{{@@ id @@}}={{@@ id @@}}/,
+        {%@@ endfor @@%}
+
+        {%@@ for id in firefox_private_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
       ],

@@ -1,9 +1,4 @@
 actions:
-  _add_authorized_keys: |
-    mkdir -p ~/.ssh
-    rm ~/.ssh/authorized_keys.*
-    op item get "Default key" --field "public key" > ~/.ssh/authorized_keys.default
-    cat ~/.ssh/authorized_keys* | uniq > ~/.ssh/authorized_keys
   _install_package_control: '{{@@ _dotdrop_dotpath @@}}/../script/lib/install-package-control ~/"{{@@ sublime_home @@}}"'
   _pyenv_install: |
     if [ -d ~/.pyenv ]; then
@@ -76,6 +71,16 @@ dotfiles:
       - themes/powerlevel10k/*.zwc
     cmpignore:
       - themes/powerlevel10k/*.zwc
+  d_smbcredentials:
+    src: smbcredentials
+    dst: ~/.smbcredentials
+    link: link_children
+    chmod: 700
+  d_tea:
+    src: Library/Application Support/tea
+    dst: "{{@@ xdg_config_home @@}}/tea"
+    link: link_children
+    chmod: 700
   d_user:
     src: Library/Application Support/Sublime Text 3/Packages/User
     dst: ~/{{@@ sublime_home @@}}/Packages/User
@@ -148,13 +153,15 @@ dotfiles:
     dst: ~/.pypirc
     chmod: 600
   f_ssh_authorized_keys:
-    src:
-    dst:
-    actions:
-      - _add_authorized_keys
+    src: ssh/authorized_keys
+    dst: ~/.ssh/authorized_keys
   f_ssh_config:
     src: ssh/config
     dst: ~/.ssh/config
+  f_ssh_id_ed25519:
+    src: ssh/id_ed25519
+    dst: ~/.ssh/id_ed25519
+    chmod: 600
   f_ssh_known_hosts:
     src: ssh/known_hosts
     dst: ~/.ssh/known_hosts
@@ -198,6 +205,8 @@ dotfiles:
       - _iterm2_utils_install
 profiles:
   adams-mbp:
+    variables:
+      host_ssh_key_name: adams-mbp key
     include:
       - default
       - mac
@@ -208,11 +217,31 @@ profiles:
   adams-mbp.notcharlie.com:
     include:
       - adams-mbp
+  beelink:
+    include:
+      - default
+      - linux
+    variables:
+      host_ssh_key_name: beelink key
+    dynvariables:
+      host_ssh_ed25519_private_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/private key?ssh-format=openssh"
+      synology_username: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/username"
+      synology_password: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/password"
+    dotfiles:
+      - d_smbcredentials
+      - f_ssh_id_ed25519
+  beelink.local:
+    include:
+      - beelink
+  beelink.notcharlie.com:
+    include:
+      - beelink
   mac:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+      xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
       - d_user
       - f_Alfred_prefs.json
@@ -230,6 +259,9 @@ profiles:
   linux:
     variables:
       linux: true
+      xdg_config_home: ~/.config
+    dotfiles:
+      - d_config_pip
   personal:
     dotfiles:
       - d_config_pip
@@ -243,44 +275,33 @@ profiles:
       mac: false
       personal: false
       ssh_agent: ''
+      host_ssh_key_name: Default key
     dynvariables:
-      firefox_all_ids: op item list --categories Login --format=json | jq -r '.[].id' | sort
+      authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
+      firefox_adam_ids: op item list --vault Adam --categories Login --format=json | jq -r '.[].id' | sort
+      firefox_adam_work_ids: op item list --vault "Adam @ Work" --categories Login --format=json | jq -r '.[].id' | sort
       firefox_cara_ids: op item list --vault Cara --categories Login --format=json | jq -r '.[].id' | sort
-      firefox_cb_ids: op item list --vault Carter --categories Login --format=json | jq -r '.[].id' | sort
-      firefox_jenny_ids: |
-        op item list --categories Login --format=json |
-          op item get - --format=json |
-          jq -r "
-              select(
-                     (.fields.[] | select(.id == \"username\") | .value | contains(\"`{{@@ jenny_email_acct @@}}`\")) or
-                     (.title | contains(\"Jenny\"))
-                    ) | .id" 2>/dev/null |
-          sort
-      firefox_joint_ids: |
-        op item list --categories Login --format=json |
-          op item get - --format=json |
-          jq -r "
-              select(
-                     (.fields.[] | select(.id == \"username\") | .value | contains(\"`{{@@ joint_email_acct @@}}`\")) or
-                     (.title | contains(\"Joint\"))
-                    ) | .id" 2>/dev/null |
-          sort
-      full_name: op item get 7ewiekzrvxiwjkwmfhl2646ynq --fields "first name,last name" | tr ',' ' '
+      firefox_cb_ids: op item list --vault CB --categories Login --format=json | jq -r '.[].id' | sort
+      firefox_jenny_ids: op item list --vault Jenny --categories Login --format=json | jq -r '.[].id' | sort
+      firefox_joint_ids: op item list --vault Joint --categories Login --format=json | jq -r '.[].id' | sort
+      firefox_kids_ro_ids: op item list --vault "Kids RO" --categories Login --format=json | jq -r '.[].id' | sort
+      firefox_private_ids: op item list --vault Private --categories Login --format=json | jq -r '.[].id' | sort
+      full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
       gh_cli_token: op item get "GitHub" --fields "gh cli token"
+      gitea_hostname: "{{@@ gitea_website @@}} | sed 's|.*//||'"
       gitea_maven_token: op item get "Gitea (acourtneybrown)" --field "Maven token"
       gitea_pypi_token: op item get "Gitea (acourtneybrown)" --field "PyPI token"
       gitea_username: op item get "Gitea (acourtneybrown)" --field username
       gitea_website: op item get "Gitea (acourtneybrown)" --format json | jq -r '.urls[0].href'
       github_account: op item get "GitHub" --fields username
       github_netrc_token: op item get "GitHub" --fields "netrc"
+      github_signing_key: op item get "{{@@ host_ssh_key_name @@}}" --field "public key"
       gitlab_account: op item get "GitLab" --field username
       glab_cli_token: op item get "GitLab" --field "glab cli token"
       homebrew_prefix: brew --prefix
-      jenny_email_acct: op item get mw5zoqbzxjfp3ccmx7wcv52lsi --fields email | sed 's/\([^+@]*\).*/\1/'
-      joint_email_acct: op item get 2rou2jbvdvahrl4ov7wtxstdka --fields email | sed 's/\([^+@]*\).*/\1/'
-      personal_email: op item get 7ewiekzrvxiwjkwmfhl2646ynq --field email
-      personal_public_key: op item get "Default key" --field "public key"
+      personal_email: op item get 6jjizlkc5bstuors76ickhd7fa --field email
       sublime_text_license: op item get "Sublime Text 4+" --field "license key"
+      tea_cli_token: op item get "Gitea (acourtneybrown)" --field "tea cli token"
     include:
       - zsh
   zsh:
@@ -300,6 +321,7 @@ profiles:
       - d_config_glab_cli
       - d_git_template
       - d_gradle_init_d
+      - d_tea
       - f_bash_sessions_disable
       - f_curlrc
       - f_gitconfig

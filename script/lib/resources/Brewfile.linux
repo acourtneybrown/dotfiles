@@ -1,2 +1,5 @@
+brew "bazelisk"
+brew "buildifier"
+brew "buildozer"
 brew "docker"
 brew "openssl@1.1", link: false

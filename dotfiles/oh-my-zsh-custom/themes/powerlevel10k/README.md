@@ -2,6 +2,11 @@
 [![Gitter](https://badges.gitter.im/powerlevel10k/community.svg)](
   https://gitter.im/powerlevel10k/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+- **THE PROJECT HAS VERY LIMITED SUPPORT**
+- **NO NEW FEATURES ARE IN THE WORKS**
+- **MOST BUGS WILL GO UNFIXED**
+- **HELP REQUESTS WILL BE IGNORED**
+
 Powerlevel10k is a theme for Zsh. It emphasizes [speed](#uncompromising-performance),
 [flexibility](#extremely-customizable) and [out-of-the-box experience](#configuration-wizard).
 
@@ -1342,6 +1347,12 @@ typeset -g POWERLEVEL9K_TIME_FOREGROUND='#FF0000'
 *Related:*
   - [Directory is difficult to see in prompt when using Rainbow style.](
       #directory-is-difficult-to-see-in-prompt-when-using-rainbow-style)
+  - [Incorrect foreground color in VSCode Terminal.](#incorrect-foreground-color-in-vscode-terminal)
+
+By default, VSCode Terminal may arbitrarily replace the foreground color of your choice with a
+different color. This behavior can be
+[turned off](https://code.visualstudio.com/docs/terminal/appearance#_minimum-contrast-ratio) in
+VSCode settings.
 
 ### Why does Powerlevel10k spawn extra processes?
 
@@ -1531,6 +1542,7 @@ Powerlevel10k are released. This may change in the future but not soon.
 - [Transient prompt stops working after some time](#transient-prompt-stops-working-after-some-time)
 - [Cannot make Powerlevel10k work with my plugin manager](#cannot-make-powerlevel10k-work-with-my-plugin-manager)
 - [Directory is difficult to see in prompt when using Rainbow style](#directory-is-difficult-to-see-in-prompt-when-using-rainbow-style)
+- [Incorrect foreground color in VSCode Terminal.](#incorrect-foreground-color-in-vscode-terminal)
 - [Horrific mess when resizing terminal window](#horrific-mess-when-resizing-terminal-window)
 - [Icons cut off in Konsole](#icons-cut-off-in-konsole)
 - [Arch Linux logo has a dot in the bottom right corner](#arch-linux-logo-has-a-dot-in-the-bottom-right-corner)
@@ -1873,6 +1885,15 @@ There are several ways to fix this.
   `POWERLEVEL9K_DIR_FOREGROUND`, `POWERLEVEL9K_DIR_SHORTENED_FOREGROUND`,
   `POWERLEVEL9K_DIR_ANCHOR_FOREGROUND` and `POWERLEVEL9K_DIR_ANCHOR_BOLD`. You can find them in
   `~/.p10k.zsh`.
+
+*Related*: [Incorrect foreground color in VSCode Terminal.](#incorrect-foreground-color-in-vscode-terminal)
+
+### Incorrect foreground color in VSCode Terminal
+
+By default, VSCode Terminal may arbitrarily replace the foreground color of your choice with a
+different color. This behavior can be
+[turned off](https://code.visualstudio.com/docs/terminal/appearance#_minimum-contrast-ratio) in
+VSCode settings.
 
 ### Horrific mess when resizing terminal window
 

@@ -96,29 +96,26 @@ plugins=(
   fd
   functions
   fzf
+  gh
+  gh-custom
   git
   git-custom
+  glab
   goenv
   marked2
   mosh
   mosh-custom
-  path
   pipx
   pyenv
   ripgrep
   ripgrep-all
   setopts
   sublime
+  tea
   tig
   venv
   zsh-completions
 )
-
-{%@@ if personal @@%}
-plugins+=(
-  home-gitea
-)
-{%@@ endif @@%}
 
 plugins=(
   evalcache
@@ -132,6 +129,8 @@ plugins=(
   {%@@ if linux @@%}
   linuxbrew
   {%@@ endif @@%}
+
+  path
 
   $plugins
 
