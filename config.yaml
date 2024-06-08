@@ -281,7 +281,7 @@ profiles:
       firefox_adam_ids: op item list --vault Adam --categories Login --format=json | jq -r '.[].id' | sort
       firefox_adam_work_ids: op item list --vault "Adam @ Work" --categories Login --format=json | jq -r '.[].id' | sort
       firefox_cara_ids: op item list --vault Cara --categories Login --format=json | jq -r '.[].id' | sort
-      firefox_cb_ids: op item list --vault Carter --categories Login --format=json | jq -r '.[].id' | sort
+      firefox_cb_ids: op item list --vault CB --categories Login --format=json | jq -r '.[].id' | sort
       firefox_jenny_ids: op item list --vault Jenny --categories Login --format=json | jq -r '.[].id' | sort
       firefox_joint_ids: op item list --vault Joint --categories Login --format=json | jq -r '.[].id' | sort
       firefox_kids_ro_ids: op item list --vault "Kids RO" --categories Login --format=json | jq -r '.[].id' | sort
