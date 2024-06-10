@@ -123,6 +123,9 @@ dotfiles:
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
+  f_gitconfig-shorteners:
+    src: gitconfig-shorteners
+    dst: ~/.gitconfig-shorteners
   f_gitignore:
     src: gitignore
     dst: ~/.gitignore
@@ -325,6 +328,7 @@ profiles:
       - f_bash_sessions_disable
       - f_curlrc
       - f_gitconfig
+      - f_gitconfig-shorteners
       - f_gitignore
       - f_gradle_properties
       - f_hgrc
