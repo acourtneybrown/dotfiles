@@ -149,7 +149,7 @@ zstyle :omz:plugins:iterm2 shell-integration yes
 {%@@ if not (ssh_agent is defined and ssh_agent|length) @@%}
 zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent lazy yes
-zstyle :omz:plugins:ssh-agent lifetime 4h
+zstyle :omz:plugins:ssh-agent lifetime {{@@ ssh_agent_lifetime @@}}
 {%@@ endif @@%}
 
 typeset -U path PATH

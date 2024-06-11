@@ -222,6 +222,7 @@ profiles:
       - linux
     variables:
       host_ssh_key_name: beelink key
+      ssh_agent_lifetime: 12h
     dynvariables:
       synology_username: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/username"
       synology_password: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/password"
@@ -272,6 +273,7 @@ profiles:
       mac: false
       personal: false
       ssh_agent: ''
+      ssh_agent_lifetime: 1h
       host_ssh_key_name: Default key
     dynvariables:
       authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
