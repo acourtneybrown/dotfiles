@@ -130,7 +130,7 @@ plugins=(
   linuxbrew
   {%@@ endif @@%}
 
-  {%@@ if ssh_agent is defined and ssh_agent|length @@%}
+  {%@@ if not (ssh_agent is defined and ssh_agent|length) @@%}
   ssh-agent
   {%@@ endif @@%}
 
@@ -146,7 +146,7 @@ zstyle :omz:plugins:iterm2 shell-integration yes
 {%@@ endif @@%}
 
 
-{%@@ if ssh_agent is defined and ssh_agent|length @@%}
+{%@@ if not (ssh_agent is defined and ssh_agent|length) @@%}
 zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent lifetime 4h
