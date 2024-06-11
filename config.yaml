@@ -161,10 +161,6 @@ dotfiles:
   f_ssh_config:
     src: ssh/config
     dst: ~/.ssh/config
-  f_ssh_id_ed25519:
-    src: ssh/id_ed25519
-    dst: ~/.ssh/id_ed25519
-    chmod: 600
   f_ssh_known_hosts:
     src: ssh/known_hosts
     dst: ~/.ssh/known_hosts
@@ -227,12 +223,10 @@ profiles:
     variables:
       host_ssh_key_name: beelink key
     dynvariables:
-      host_ssh_ed25519_private_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/private key?ssh-format=openssh"
       synology_username: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/username"
       synology_password: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/password"
     dotfiles:
       - d_smbcredentials
-      - f_ssh_id_ed25519
   beelink.local:
     include:
       - beelink
