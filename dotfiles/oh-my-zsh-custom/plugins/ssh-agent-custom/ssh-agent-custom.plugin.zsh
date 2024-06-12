@@ -1,7 +1,7 @@
-# Get the filename to store/lookup the environment from
-ssh_env_cache="$HOME/.ssh/environment-$SHORT_HOST"
+() {
+  # Get the filename to store/lookup the environment from
+  local ssh_env_cache="$HOME/.ssh/environment-$SHORT_HOST"
 
-function _start_agent() {
   # Check if ssh-agent is already running
   if [[ -f "$ssh_env_cache" ]]; then
     . "$ssh_env_cache" >/dev/null
@@ -28,6 +28,3 @@ function _start_agent() {
   chmod 600 "$ssh_env_cache"
   . "$ssh_env_cache" >/dev/null
 }
-
-unset ssh_env_cache
-unfunction _start_agent
