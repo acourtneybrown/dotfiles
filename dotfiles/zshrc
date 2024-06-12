@@ -131,7 +131,7 @@ plugins=(
   {%@@ endif @@%}
 
   {%@@ if not (ssh_agent is defined and ssh_agent|length) @@%}
-  ssh-agent
+  ssh-agent-custom
   {%@@ endif @@%}
 
   path
