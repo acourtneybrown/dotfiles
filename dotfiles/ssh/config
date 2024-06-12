@@ -9,19 +9,16 @@ Host *
 
 # Personal
 Host *.notcharlie.com
-  ForwardAgent yes
   User abrown
 Host adams-mbp
   User adambrown
 Host pfsense
-  ForwardAgent no
   User admin
 Host retropie*
   User pi
 Host picluster-*
   User pi
 Host synology synology.notcharlie.com
-  ForwardAgent yes
   Port 2222
   User abrown
 Host synology-root
@@ -33,7 +30,6 @@ Host gitea gitea.notcharlie.com
   Port 2234
   User git
 Host unifi-* unifi-*.notcharlie.com
-  ForwardAgent no
   User unifi-admin
 
 # Don't save known hosts for AWS EC2 instances
