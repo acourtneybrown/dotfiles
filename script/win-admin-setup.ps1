@@ -13,6 +13,8 @@ choco install -y geforce-experience
 choco install -y goggalaxy
 choco install -y myharmony
 choco install -y obsidian
+choco install -y slack
+choco install -y sourcetree
 choco install -y steam
 choco install -y yubikey-manager
 
