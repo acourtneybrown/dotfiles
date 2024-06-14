@@ -1,9 +1,11 @@
 tap "acourtneybrown/cask"
 tap "acourtneybrown/fonts"
 tap "homebrew/cask-fonts"
+tap "waydabber/betterdisplay"
 
 brew "asciinema"
 brew "bash"
+brew "betterdisplaycli"
 brew "coreutils"
 brew "dark-mode"
 brew "findutils"
