@@ -16,6 +16,7 @@ choco install -y obsidian
 choco install -y slack
 choco install -y sourcetree
 choco install -y steam
+choco install -y sublimetext4
 choco install -y yubikey-manager
 
 # Disable Cortana
