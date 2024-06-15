@@ -53,7 +53,6 @@ function profile::default() {
 }
 
 function profile::default_after() {
-
   profile::enable_pyenv
   profile::enable_goenv
   pyenv global "$(profile::ensure_pyenv_version 3.11)"
