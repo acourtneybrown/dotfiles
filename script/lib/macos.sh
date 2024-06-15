@@ -866,6 +866,11 @@ function macos::config_Alfred() {
 function macos::config_BetterDisplay() {
   plutil -convert binary1 -o - "${MACOS_SH_DIR}/resources/BetterDisplay.plist" |
     defaults import pro.betterdisplay.BetterDisplay -
+
+  /Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay manageLicense \
+    -activate \
+    -email="$(op read "op://Adam/BetterDisplay/Customer/registered email")" \
+    -key="$(op read "op://Adam/BetterDisplay/license key")"
 }
 
 function macos::kill_apps() {
