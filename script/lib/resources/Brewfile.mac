@@ -1,6 +1,5 @@
 tap "acourtneybrown/cask"
 tap "acourtneybrown/fonts"
-tap "homebrew/cask-fonts"
 tap "waydabber/betterdisplay"
 
 brew "asciinema"
