@@ -864,8 +864,13 @@ function macos::config_Alfred() {
 }
 
 function macos::config_BetterDisplay() {
-  plutil -convert binary1 -o - "${MACOS_SH_DIR}/resources/BetterDisplay.plist" |
-    defaults import pro.betterdisplay.BetterDisplay -
+  if ! defaults read pro.betterdisplay.BetterDisplay >/dev/null 2>&1; then
+    plutil -convert binary1 -o - "${MACOS_SH_DIR}/resources/BetterDisplay.plist" |
+      defaults import pro.betterdisplay.BetterDisplay -
+  else
+    echo "BetterDisplay preferences already set.  Will not overwrite."
+    echo "Run 'script/update-betterdisplay-plist' to compare via git"
+  fi
 }
 
 function macos::kill_apps() {
