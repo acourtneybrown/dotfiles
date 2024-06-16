@@ -72,6 +72,7 @@ if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	mas "Magnet", id: 441258766
 	mas "Numbers", id: 409203825
 	mas "Pages", id: 409201541
+	mas "Xcode", id: 497799835
 else
 	puts "Skipping App Store installs"
 end
