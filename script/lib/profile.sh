@@ -138,11 +138,7 @@ function profile::mac() {
 
 function profile::mac_after() {
   profile::install_fix_mosh
-
-  /Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay manageLicense \
-    -activate \
-    -email="$(op read "op://Adam/BetterDisplay/Customer/registered email")" \
-    -key="$(op read "op://Adam/BetterDisplay/license key")"
+  profile::handle_betterdisplay_license
 
   _finalizers+=("profile::op_forget_cli_login")
 }
@@ -172,6 +168,15 @@ function profile::install_fix_mosh() {
 
     # add mosh launch daemon
     sudo launchctl load -w "/Library/LaunchDaemons/com.mosh.plist"
+  fi
+}
+
+function profile::handle_betterdisplay_license() {
+  if /Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay manageLicense -status | grep -q "Not activated"; then
+    /Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay manageLicense \
+      -activate \
+      -email="$(op read "op://Adam/BetterDisplay/Customer/registered email")" \
+      -key="$(op read "op://Adam/BetterDisplay/license key")"
   fi
 }
 
