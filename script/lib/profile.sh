@@ -13,30 +13,6 @@ function profile::run_dotdrop_action() {
   bash -c "$(yq eval ".actions.${action}" ../config.yaml)"
 }
 
-function profile::remove_ssh_key() {
-  local key_file="${1}"
-
-  rm -f "${key_file}"
-}
-
-function profile::get_ssh_key() {
-  local key="${1}"
-  local key_type
-  key_type=$(op item get "${key}" --field "key type")
-
-  local key_file="${HOME}/.ssh/id_${key_type}"
-
-  if [[ ! -f "${key_file}" ]]; then
-    mkdir -p "$(dirname "${key_file}")"
-    touch "${key_file}"
-    chmod 600 "${key_file}"
-    op item get "${key}" --field 'private key' | tr -d \" >"${key_file}"
-    _finalizers+=("profile::remove_ssh_key ${key_file}")
-  else
-    echo "${key_file} file already exists, skipping"
-  fi
-}
-
 function profile::default() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
