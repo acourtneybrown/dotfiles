@@ -27,6 +27,18 @@ function list_includes() {
   yq eval ".profiles.\"${profile}\".include[]" ../config.yaml
 }
 
+function set_host_ssh_key_name_if_present() {
+  local profile
+  local key_name
+
+  profile=${1}
+  key_name="${profile} key"
+
+  if op item get "${key_name}"; then
+    yq eval ".profiles.\"${profile}\".variables.host_ssh_key_name = '${key_name}'" -i ../config.yaml
+  fi
+}
+
 function main() {
   if ! command -v brew >/dev/null; then
     echo "need sudo permission for initial Homebrew install"
@@ -63,12 +75,12 @@ function main() {
   done
 
   eval "$(op signin)"
+  set_host_ssh_key_name_if_present "${PROFILE}"
 
   # Install all dotfiles into the home directory
   dotdrop install --force --profile="${PROFILE}" --cfg ../config.yaml
 
   for named in $(list_includes "${PROFILE}"); do
-    ensure_profile_includes "${PROFILE}" "${named}"
     if command -v "profile::${named}_after"; then
       "profile::${named}_after"
     fi
