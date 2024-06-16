@@ -286,21 +286,21 @@ profiles:
       firefox_kids_ro_ids: op item list --vault "Kids RO" --categories Login --format=json | jq -r '.[].id' | sort
       firefox_private_ids: op item list --vault Private --categories Login --format=json | jq -r '.[].id' | sort
       full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
-      gh_cli_token: op item get "GitHub" --fields "gh cli token"
+      gh_cli_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/gh cli token"
       gitea_hostname: "{{@@ gitea_website @@}} | sed 's|.*//||'"
-      gitea_maven_token: op item get "Gitea (acourtneybrown)" --field "Maven token"
-      gitea_pypi_token: op item get "Gitea (acourtneybrown)" --field "PyPI token"
-      gitea_username: op item get "Gitea (acourtneybrown)" --field username
+      gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
+      gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
+      gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
       gitea_website: op item get "Gitea (acourtneybrown)" --format json | jq -r '.urls[0].href'
-      github_account: op item get "GitHub" --fields username
-      github_netrc_token: op item get "GitHub" --fields "netrc"
+      github_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login"
+      github_netrc_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/netrc"
       github_signing_key: op item get "{{@@ host_ssh_key_name @@}}" --field "public key"
-      gitlab_account: op item get "GitLab" --field username
-      glab_cli_token: op item get "GitLab" --field "glab cli token"
+      gitlab_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/username"
+      glab_cli_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/glab cli token"
       homebrew_prefix: brew --prefix
-      personal_email: op item get 6jjizlkc5bstuors76ickhd7fa --field email
-      sublime_text_license: op item get "Sublime Text 4+" --field "license key"
-      tea_cli_token: op item get "Gitea (acourtneybrown)" --field "tea cli token"
+      personal_email: op read "op://Adam/6jjizlkc5bstuors76ickhd7fa/Internet Details/email"
+      sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
+      tea_cli_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/tea cli token"
     include:
       - zsh
   zsh:

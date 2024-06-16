@@ -61,8 +61,8 @@ function profile::default_after() {
 
   local username_cb
   local docker_pat_cb
-  username_cb="op item get Docker --field username"
-  docker_pat_cb="op item get Docker --field 'Bazel PAT'"
+  username_cb="op read op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username"
+  docker_pat_cb="op read 'op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/Personal Access Tokens/Bazel PAT'"
   docker::ensure_login index.docker.io "${username_cb}" "${docker_pat_cb}"
 }
 
@@ -79,8 +79,8 @@ function profile::personal_after() {
   local username_cb
   local docker_pat_cb
 
-  gitea_username_cb="op item get 'Gitea (acourtneybrown)' --field username"
-  gitea_container_token_cb="op item get 'Gitea (acourtneybrown)' --field 'Container token'"
+  gitea_username_cb="op read op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
+  gitea_container_token_cb="op read 'op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Container token'"
   docker::ensure_login gitea.notcharlie.com "${gitea_username_cb}" "${gitea_container_token_cb}"
 }
 
