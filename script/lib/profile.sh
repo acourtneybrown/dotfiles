@@ -139,6 +139,11 @@ function profile::mac() {
 function profile::mac_after() {
   profile::install_fix_mosh
 
+  /Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay manageLicense \
+    -activate \
+    -email="$(op read "op://Adam/BetterDisplay/Customer/registered email")" \
+    -key="$(op read "op://Adam/BetterDisplay/license key")"
+
   _finalizers+=("profile::op_forget_cli_login")
 }
 
