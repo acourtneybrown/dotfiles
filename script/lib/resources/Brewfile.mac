@@ -4,7 +4,9 @@ tap "waydabber/betterdisplay"
 
 brew "asciinema"
 brew "bash"
-brew "betterdisplaycli"
+if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
+  brew "betterdisplaycli"
+end
 brew "coreutils"
 brew "dark-mode"
 brew "findutils"
