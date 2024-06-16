@@ -34,8 +34,8 @@ function set_host_ssh_key_name_if_present() {
   profile=${1}
   key_name="${profile} key"
 
-  if op item get "${key_name}"; then
-    yq eval ".profiles.\"${profile}\".variables.host_ssh_key_name = '${key_name}'" -i ../config.yaml
+  if op item get "${key_name}" >/dev/null 2>&1; then
+    yq eval ".profiles.\"${profile}\".variables.host_ssh_key_name = \"${key_name}\"" -i ../config.yaml
   fi
 }
 
