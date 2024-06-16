@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+defaults export pro.betterdisplay.BetterDisplay - | plutil -convert xml1 -o script/lib/resources/BetterDisplay.plist -

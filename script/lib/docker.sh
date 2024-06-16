@@ -14,6 +14,6 @@ function docker::ensure_login() {
     docker login \
       "${host}" \
       --username "${user}" \
-      --password "${password}"
+      --password "${password}" || echo "Failed to log in to Docker repo: ${host}"
   fi
 }
