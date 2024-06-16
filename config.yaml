@@ -294,7 +294,7 @@ profiles:
       gitea_website: op item get "Gitea (acourtneybrown)" --format json | jq -r '.urls[0].href'
       github_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login"
       github_netrc_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/netrc"
-      github_signing_key: op item get "{{@@ host_ssh_key_name @@}}" --field "public key"
+      github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
       gitlab_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/username"
       glab_cli_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/glab cli token"
       homebrew_prefix: brew --prefix
