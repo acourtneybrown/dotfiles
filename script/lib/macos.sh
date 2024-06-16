@@ -41,6 +41,7 @@ function macos::setup() {
     DiskUtility
     "QuickTime Player"
     Alfred
+    BetterDisplay
   )
   local fn
   for app in "${apps[@]}"; do
@@ -862,6 +863,16 @@ function macos::config_Alfred() {
   "
 }
 
+function macos::config_BetterDisplay() {
+  if ! defaults read pro.betterdisplay.BetterDisplay >/dev/null 2>&1; then
+    plutil -convert binary1 -o - "${MACOS_SH_DIR}/resources/BetterDisplay.plist" |
+      defaults import pro.betterdisplay.BetterDisplay -
+  else
+    echo "BetterDisplay preferences already set.  Will not overwrite."
+    echo "Run 'script/update-betterdisplay-plist' to compare via git"
+  fi
+}
+
 function macos::kill_apps() {
   set +e
   for app in "Activity Monitor" \
@@ -878,7 +889,9 @@ function macos::kill_apps() {
     "Photos" \
     "Safari" \
     "SystemUIServer" \
-    "iCal"; do
+    "iCal" \
+    "Alfred" \
+    "BetterDisplay"; do
     killall "${app}" &>/dev/null
   done
   echo "Done. Note that some of these changes require a logout/restart to take effect."
