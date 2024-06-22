@@ -39,6 +39,7 @@ module.exports = {
           "meet.google.com",
         ]),
 
+        /^https:\/\/calendly\.com\/omaras\//,
         /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/github\.com\/NotCharlie(\/|$)/,
 
