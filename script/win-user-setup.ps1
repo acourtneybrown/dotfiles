@@ -12,7 +12,6 @@ scoop install 1password-cli
 scoop install 7zip
 scoop install git
 scoop install jq
-scoop install sunshine
 scoop install yq
 
 # Install version(s) of python
