@@ -11,6 +11,7 @@ choco install -y epicgameslauncher
 choco install -y firefox
 choco install -y geforce-experience
 choco install -y goggalaxy
+choco install -y moonlight
 choco install -y myharmony
 choco install -y obsidian
 choco install -y slack
