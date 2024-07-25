@@ -93,7 +93,6 @@ plugins=(
   docker
   dotdrop
   dotfiles-envvars
-  fd
   functions
   fzf
   gh
@@ -107,7 +106,6 @@ plugins=(
   mosh-custom
   pipx
   pyenv
-  ripgrep
   ripgrep-all
   setopts
   sublime
