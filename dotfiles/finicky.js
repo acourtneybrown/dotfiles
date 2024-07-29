@@ -34,9 +34,13 @@ module.exports = {
     {
       match: [
         finicky.matchHostnames([
+          "bazelbuild.slack.com",
           "i.cvs.com",
           "login.docker.com",
           "meet.google.com",
+          "notcharlie.slack.com",
+          "pbj-dogs.slack.com",
+          "xooglerco.slack.com",
         ]),
 
         /^https:\/\/calendly\.com\/omaras\//,
