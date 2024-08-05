@@ -8,19 +8,17 @@ Host *
 {%@@ endif @@%}
 
 # Personal
-Host *.notcharlie.com
-  User abrown
-Host adams-mbp
+Host adams-mbp adams-mbp.notcharlie.com
   User adambrown
-Host pfsense
+Host pfsense pfsense.notcharlie.com
   User admin
-Host retropie*
+Host retropie* retropie*.notcharlie.com
   User pi
-Host picluster-*
+Host picluster-* picluster-*.notcharlie.com
   User pi
 Host synology synology.notcharlie.com
+  Hostname synology.notcharlie.com
   Port 2222
-  User abrown
 Host synology-root
   Hostname synology.notcharlie.com
   Port 2222
@@ -31,6 +29,8 @@ Host gitea gitea.notcharlie.com
   User git
 Host unifi-* unifi-*.notcharlie.com
   User unifi-admin
+Host *.notcharlie.com
+  User abrown
 
 # Don't save known hosts for AWS EC2 instances
 Host *.compute.amazonaws.com
