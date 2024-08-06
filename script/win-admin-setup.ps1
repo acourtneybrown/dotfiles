@@ -11,9 +11,13 @@ choco install -y epicgameslauncher
 choco install -y firefox
 choco install -y geforce-experience
 choco install -y goggalaxy
+choco install -y moonlight
 choco install -y myharmony
 choco install -y obsidian
+choco install -y slack
 choco install -y steam
+choco install -y sublimetext4
+choco install -y sunshine
 choco install -y yubikey-manager
 
 # Disable Cortana
