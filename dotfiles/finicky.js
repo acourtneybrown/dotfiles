@@ -35,6 +35,7 @@ module.exports = {
       match: [
         finicky.matchHostnames([
           "bazelbuild.slack.com",
+          "gaming.amazon.com",
           "i.cvs.com",
           "login.docker.com",
           "meet.google.com",
