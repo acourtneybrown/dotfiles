@@ -4,9 +4,7 @@ Write-Output "Installing chocolatey package manager..."
 Set-ExecutionPolicy AllSigned -Scope Process -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-# TODO: follow https://github.com/chocolatey-community/chocolatey-packages/issues/1773
-# choco install 1password
-
+choco install -y 1password
 choco install -y epicgameslauncher
 choco install -y firefox
 choco install -y geforce-experience
