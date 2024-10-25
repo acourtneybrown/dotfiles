@@ -206,6 +206,7 @@ profiles:
   adams-mbp:
     variables:
       host_ssh_key_name: adams-mbp key
+      alfred_preferences_localhash: "f10f132bffbde36d011dcf6644f262cf3d810ce7"
     include:
       - default
       - mac

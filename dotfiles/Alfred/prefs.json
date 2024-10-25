@@ -2,5 +2,6 @@
   "current" : "\/Users\/{{@@ env['USER'] @@}}\/SynologyDrive\/Alfred\/preference\/Alfred.alfredpreferences",
   "syncfolders" : {
     "5" : "~\/SynologyDrive\/Alfred\/preference"
-  }
+  },
+  "localhash" : "{{@@ alfred_preferences_localhash @@}}"
 }
