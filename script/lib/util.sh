@@ -64,8 +64,10 @@ function util::download_and_verify() {
   (
     cd "$(dirname "${output}")" || exit
     curl -fLsS --output "${output}" "${url}"
-    if ! util::check_sha256 -c "${tempfile}"; then
+    if ! util::check_sha256 -c "${tempfile}" >/dev/null 2>&1; then
       echo "Hash did not match"
+    else
+      echo "ok"
     fi
   )
 
