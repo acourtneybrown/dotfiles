@@ -17,7 +17,6 @@ brew "grep"
 brew "libmagic"
 brew "mas"
 brew "moreutils"
-brew "openssl@1.1"
 brew "watch"
 brew "wget"
 
