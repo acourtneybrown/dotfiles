@@ -312,9 +312,12 @@ function profile::install_homebrew() {
     esac
   fi
 
-  util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    6091f25a90028fe3b767004988c5d346f82f3133006a967322ed6736832d0d40 \
-    /tmp/install.sh
+  if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
+    b28bdad424c89f4f3265138801efedc2302f12730fb3200926a6a73e0e2ee340 \
+    /tmp/install.sh)" != "ok" ]; then
+    echo "Homebrew install script changed ... returning"
+    return
+  fi
 
   NONINTERACTIVE=1 bash /tmp/install.sh
   rm /tmp/install.sh
