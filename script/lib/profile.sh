@@ -28,7 +28,7 @@ function profile::default() {
       util::abort "Either curl or wget must be installed"
     fi
 
-    sh -c "$tmpscript --unattended"
+    sh $tmpscript --unattended
     rm -f "$tmpscript"
   fi
 }
