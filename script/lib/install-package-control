@@ -19,8 +19,7 @@ function main() {
     if [ "$(util::download_and_verify https://packagecontrol.io/Package%20Control.sublime-package \
       817937144c34c84c88cd43b85318b2656f9c3fac02f8f72cbc18360b2c26d139 \
       "${config_root}/Installed Packages/Package Control.sublime-package")" != "ok" ]; then
-      echo "Package Control file changed ... returning"
-      return
+      util::abort "Package Control file changed"
     fi
   fi
 }

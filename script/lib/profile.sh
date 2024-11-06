@@ -14,17 +14,22 @@ function profile::run_dotdrop_action() {
 }
 
 function profile::default() {
+  local tmpscript
+  tmpscript=$(mktemp /tmp/install.sh.XXXXXX)
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
   # Install oh-my-zsh
   if [[ ! -d ~/.oh-my-zsh ]]; then
-    if command -v curl >/dev/null; then
-      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-    elif command -v wget >/dev/null; then
-      sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -) --unattended"
-    else
+    if [ "$(
+      util::download_and_verify https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh \
+        96d90bb5cfd50793f5666db815c5a2b0f209d7e509049d3b22833042640f2676 \
+        "$tmpscript"
+    )" != "ok" ]; then
       util::abort "Either curl or wget must be installed"
     fi
+
+    sh -c "$tmpscript --unattended"
+    rm -f "$tmpscript"
   fi
 }
 
@@ -315,8 +320,7 @@ function profile::install_homebrew() {
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
     b28bdad424c89f4f3265138801efedc2302f12730fb3200926a6a73e0e2ee340 \
     /tmp/install.sh)" != "ok" ]; then
-    echo "Homebrew install script changed ... returning"
-    return
+    util::abort "Homebrew install script changed"
   fi
 
   NONINTERACTIVE=1 bash /tmp/install.sh
