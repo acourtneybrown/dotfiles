@@ -102,3 +102,11 @@ function colormap() {
     print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
   done
 }
+
+# urlsha256 outputs the SHA256 hash of the contents at the given URL
+function urlsha256() {
+  local url
+  url=$1
+
+  curl -fLsS --output - "${url}" | sha256sum | cut -d ' ' -f 1
+}
