@@ -9,6 +9,7 @@ paths=(
   "/Applications/GoLand.app/Contents/MacOS"
   "/Applications/IntelliJ IDEA.app/Contents/MacOS"
   "/Applications/PyCharm.app/Contents/MacOS/"
+  "{{@@ homebrew_prefix @@}}/opt/mariadb-connector-c/bin"
 )
 
 # ZSH "properly" handles the array (vs. bash)
