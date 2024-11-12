@@ -101,6 +101,7 @@ plugins=(
   git-custom
   glab
   goenv
+  mariadb-dev
   marked2
   mosh
   mosh-custom
