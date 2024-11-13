@@ -1,1 +1,1 @@
-[[ -z "$PS1" ]] && PATH=$PATH:/usr/local/bin:/usr/local/Homebrew/bin:/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin
+[[ -z "$PS1" ]] && PATH=$PATH:/usr/local/bin:{{@@ homebrew_prefix @@}}/bin
