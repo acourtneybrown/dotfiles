@@ -301,6 +301,8 @@ profiles:
       homebrew_prefix: brew --prefix
       personal_email: op read "op://Adam/6jjizlkc5bstuors76ickhd7fa/Internet Details/email"
       sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
+      synology_api_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/username"
+      synology_api_password: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/password"
       tea_cli_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/tea cli token"
     include:
       - zsh
