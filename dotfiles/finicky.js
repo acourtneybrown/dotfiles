@@ -18,18 +18,6 @@ module.exports = {
     },
   ],
   handlers: [
-    {
-      match: [
-        finicky.matchHostnames([
-          "my.asu.edu",
-        ])
-      ],
-      // url: ({ urlString }) => {
-      //   return openInFirefoxContainer("Jenny", urlString);
-      // },
-      // browser: "Firefox"
-      browser: "Google Chrome",
-    },
     {%@@ if personal @@%}
     {
       match: [
@@ -117,6 +105,7 @@ module.exports = {
         finicky.matchHostnames([
           /nytimes\.com/,
           /wsj\.com/,
+          "my.asu.edu",
         ]),
 
         {%@@ for id in firefox_jenny_ids.split() @@%}
