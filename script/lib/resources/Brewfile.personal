@@ -14,7 +14,6 @@ cask "gnucash"
 cask "google-chrome"
 cask "handbrake"
 cask "kid3"
-cask "kindle"
 cask "logitech-harmony-desktop"
 cask "moonlight"
 cask "netdownloadhelpercoapp"
@@ -31,6 +30,7 @@ if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	mas "Apple Configurator 2", id: 1037126344
 	mas "Bridge Constructor Portal", id: 1316061122
 	mas "GarageBand", id: 682658836
+	mas "Kindle", id: 302584613
 	mas "iMovie", id: 408981434
 	# mas "NetSpot", id: 514951692
 	mas "Notability", id: 360593530
