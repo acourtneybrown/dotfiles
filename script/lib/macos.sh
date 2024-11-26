@@ -856,7 +856,7 @@ function macos::config_Alfred() {
         <array>
           <integer>32</integer>
           <integer>49</integer>
-          <integer>1835008</integer>
+          <integer>917504</integer>
         </array>
       </dict>
     </dict>
