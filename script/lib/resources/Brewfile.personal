@@ -30,13 +30,14 @@ if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	mas "Apple Configurator 2", id: 1037126344
 	mas "Bridge Constructor Portal", id: 1316061122
 	mas "GarageBand", id: 682658836
+	# mas "Kasa Smart", id: 1034035493 # https://github.com/mas-cli/mas/issues/321
 	mas "Kindle", id: 302584613
 	mas "iMovie", id: 408981434
 	# mas "NetSpot", id: 514951692
 	mas "Notability", id: 360593530
 	mas "Paprika Recipe Manager 3", id: 1303222628
 	# mas "Reeder", id: 1449412482
-	mas "ScreenLogic Connect", id: 661530011
+	# mas "ScreenLogic Connect", id: 661530011 # https://github.com/mas-cli/mas/issues/321
 else
 	puts "Skipping App Store installs"
 end
