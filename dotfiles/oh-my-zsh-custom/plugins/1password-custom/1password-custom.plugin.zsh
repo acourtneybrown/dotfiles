@@ -16,3 +16,22 @@ function op-ssh-add() {
   op read "op://Private/${key}/private_key?ssh-format=openssh" | ssh-add -
 }
 {%@@ endif @@%}
+
+# op-check-vault looks for any logins which match a given username in the
+# specified vault, while ignoring any with the 'WrongVaultOk' tag
+function op-check-vault() {
+  local vault
+  local username
+
+  [ $# -ge 1 ] || return 1
+
+  vault=$1
+  username=${2:-adamjennybrown}
+
+  op item list --categories Login --vault "$vault" --format json |
+    op item get - --format json |
+      jq "select(
+             ((.fields.[] | select(.id == \"username\") | .value == null) or
+              (.fields.[] | select(.id == \"username\") | .value | contains(\"$username\"))) and
+             (.tags | index(\"WrongVaultOk\") == null)) | .id"
+}
