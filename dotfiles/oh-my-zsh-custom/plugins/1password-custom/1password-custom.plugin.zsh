@@ -33,5 +33,5 @@ function op-check-vault() {
       jq "select(
              ((.fields.[] | select(.id == \"username\") | .value == null) or
               (.fields.[] | select(.id == \"username\") | .value | contains(\"$username\"))) and
-             (.tags | index(\"WrongVaultOk\") == null)) | .id"
+             (.tags | contains([\"WrongVaultOk\"]) | not)) | .id"
 }
