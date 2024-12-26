@@ -5,10 +5,9 @@ Set-ExecutionPolicy AllSigned -Scope Process -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install -y 1password
-choco install -y epicgameslauncher
 choco install -y firefox
 choco install -y geforce-experience
-choco install -y goggalaxy
+choco install -y heroic-games-launcher
 choco install -y moonlight
 choco install -y myharmony
 choco install -y obsidian
