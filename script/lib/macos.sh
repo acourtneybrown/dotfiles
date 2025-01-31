@@ -705,6 +705,9 @@ function macos::config_iTerm() {
 
   # Use macOS system window restore
   defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
+
+  # Turn off Secure Keyboard Entry
+  defaults write com.googlecode.iterm2 "Secure Input" -bool false
 }
 
 function macos::config_Time_Machine() {
@@ -884,6 +887,7 @@ function macos::kill_apps() {
     "Finder" \
     "Google Chrome Canary" \
     "Google Chrome" \
+    "iTerm2" \
     "Mail" \
     "Messages" \
     "Photos" \
