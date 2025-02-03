@@ -318,7 +318,7 @@ function profile::install_homebrew() {
   fi
 
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    b28bdad424c89f4f3265138801efedc2302f12730fb3200926a6a73e0e2ee340 \
+    9ad0c8048f3f1a01d5f6610e0df347ceeae5879cf0aa51c1d987aa8aee740dca \
     /tmp/install.sh)" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi
