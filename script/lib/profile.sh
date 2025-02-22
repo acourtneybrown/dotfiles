@@ -120,6 +120,7 @@ function profile::mac() {
 function profile::mac_after() {
   profile::install_fix_mosh
   profile::handle_betterdisplay_license
+  profile::configure_calibre
 
   _finalizers+=("profile::op_forget_cli_login")
 }
@@ -159,6 +160,16 @@ function profile::handle_betterdisplay_license() {
       -email="$(op read "op://Adam/BetterDisplay/Customer/registered email")" \
       -key="$(op read "op://Adam/BetterDisplay/license key")"
   fi
+}
+
+function profile::configure_calibre() {
+  local tmpdir
+  local dedrm_version
+  tmpdir="$(command mktemp -d "${TMPDIR:/tmp}"/calibre-dedrm.$$.XXXXXXXXXX)" || return
+  dedrm_version="10.0.9"
+
+  gh release -R noDRM/DeDRM_tools download --dir "$tmpdir" "v${dedrm_version}"
+  calibre-customize --add-plugin "$tmpdir/DeDRM_tools_${dedrm_version}.zip"
 }
 
 function profile::finalize() {
