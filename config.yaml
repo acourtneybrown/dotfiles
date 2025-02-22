@@ -117,6 +117,9 @@ dotfiles:
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
+  f_dedrm.json:
+    src: Library/Preferences/calibre/plugins/dedrm.json
+    dst: ~/Library/Preferences/calibre/plugins/dedrm.json
   f_finicky.js:
     src: finicky.js
     dst: ~/.finicky.js
@@ -236,6 +239,8 @@ profiles:
     include:
       - beelink
   mac:
+    dynvariables:
+      kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
@@ -245,6 +250,7 @@ profiles:
       - d_user
       - f_Alfred_prefs.json
       - f_com.googlecode.iterm2.plist
+      - f_dedrm.json
       - f_finicky.js
       - f_sublime_license
       - fake_iterm2_utils
