@@ -169,7 +169,11 @@ function profile::configure_calibre() {
   dedrm_version="10.0.9"
 
   gh release -R noDRM/DeDRM_tools download --dir "$tmpdir" "v${dedrm_version}"
-  calibre-customize --add-plugin "$tmpdir/DeDRM_tools_${dedrm_version}.zip"
+  unzip -x "$tmpdir/DeDRM_tools_${dedrm_version}.zip" -d "${tmpdir}/DeDRM_tools_${dedrm_version}"
+  calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/DeDRM_Plugin.zip"
+  calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
+
+  rm -rf "$tmpdir"
 }
 
 function profile::finalize() {
