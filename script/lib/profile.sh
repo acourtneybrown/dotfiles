@@ -120,6 +120,7 @@ function profile::mac() {
 function profile::mac_after() {
   profile::install_fix_mosh
   profile::handle_betterdisplay_license
+  profile::configure_calibre
 
   _finalizers+=("profile::op_forget_cli_login")
 }
@@ -159,6 +160,27 @@ function profile::handle_betterdisplay_license() {
       -email="$(op read "op://Adam/BetterDisplay/Customer/registered email")" \
       -key="$(op read "op://Adam/BetterDisplay/license key")"
   fi
+}
+
+function profile::configure_calibre() {
+  local tmpdir
+  local dedrm_version
+  tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/calibre-dedrm.XXXXXXXXXX)" || return
+  dedrm_version="10.0.9"
+
+  gh release -R noDRM/DeDRM_tools download --dir "$tmpdir" "v${dedrm_version}"
+  unzip -x "$tmpdir/DeDRM_tools_${dedrm_version}.zip" -d "${tmpdir}/DeDRM_tools_${dedrm_version}"
+  calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/DeDRM_Plugin.zip"
+  calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
+
+  if [ "$(util::download_and_verify https://plugins.calibre-ebook.com/291290.zip \
+    ee0c6f1a274a65bc93ccd62820481fc4d9e212b488f8c5158b08b0bce1c13d49 \
+    "${tmpdir}/KFX Input.zip")" != "ok" ]; then
+    util::abort "KFX Input.zip file changed"
+  fi
+  calibre-customize --add-plugin "${tmpdir}/KFX Input.zip"
+
+  rm -rf "$tmpdir"
 }
 
 function profile::finalize() {
@@ -318,7 +340,7 @@ function profile::install_homebrew() {
   fi
 
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    9ad0c8048f3f1a01d5f6610e0df347ceeae5879cf0aa51c1d987aa8aee740dca \
+    a30b9fbf0d5c2cff3eb1d0643cceee30d8ba6ea1bb7bcabf60d3188bd62e6ba6 \
     /tmp/install.sh)" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi
