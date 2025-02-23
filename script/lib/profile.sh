@@ -165,7 +165,7 @@ function profile::handle_betterdisplay_license() {
 function profile::configure_calibre() {
   local tmpdir
   local dedrm_version
-  tmpdir="$(mktemp -d "${TMPDIR:/tmp}"/calibre-dedrm.XXXXXXXXXX)" || return
+  tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/calibre-dedrm.XXXXXXXXXX)" || return
   dedrm_version="10.0.9"
 
   gh release -R noDRM/DeDRM_tools download --dir "$tmpdir" "v${dedrm_version}"
