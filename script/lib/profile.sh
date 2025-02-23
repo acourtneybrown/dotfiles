@@ -173,6 +173,13 @@ function profile::configure_calibre() {
   calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/DeDRM_Plugin.zip"
   calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
 
+  if [ "$(util::download_and_verify https://plugins.calibre-ebook.com/291290.zip \
+    ee0c6f1a274a65bc93ccd62820481fc4d9e212b488f8c5158b08b0bce1c13d49 \
+    "${tmpdir}/KFX Input.zip")" != "ok" ]; then
+    util::abort "KFX Input.zip file changed"
+  fi
+  calibre-customize --add-plugin "${tmpdir}/KFX Input.zip"
+
   rm -rf "$tmpdir"
 }
 
