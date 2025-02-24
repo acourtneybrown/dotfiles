@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-op item get {{@@ host_password @@}}
+op read {{@@ host_password @@}}
