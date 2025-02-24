@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if ! op whoami >/dev/null; then
-  eval $(op signin)
+  eval "$(op signin)"
 fi
 
 op read {{@@ host_password @@}}
