@@ -282,6 +282,7 @@ profiles:
       personal: false
       ssh_agent: ''
       ssh_agent_lifetime: 1h
+      host_password: unset
       host_ssh_key_name: Default key
     dynvariables:
       authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
