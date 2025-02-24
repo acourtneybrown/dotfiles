@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-op read {{@@ host_password @@}}
