@@ -50,6 +50,9 @@ dotfiles:
     dst: ~/.config/glab-cli
     chmod: 700
     link: link_children
+  d_config_op_plugins:
+    src: config/op/plugins
+    dst: ~/config/op/plugins
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
@@ -114,6 +117,9 @@ dotfiles:
   f_com.googlecode.iterm2.plist:
     src: config/iterm2/com.googlecode.iterm2.plist
     dst: ~/.config/iterm2/com.googlecode.iterm2.plist
+  f_config_op_plugins.sh:
+    src: config/op/plugins.sh
+    dst: ~/config/op/plugins.sh
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
@@ -329,10 +335,12 @@ profiles:
       - d_config_1Password
       - d_config_gh
       - d_config_glab_cli
+      - d_config_op_plugins
       - d_git_template
       - d_gradle_init_d
       - d_tea
       - f_bash_sessions_disable
+      - f_config_op_plugins.sh
       - f_curlrc
       - f_gitconfig
       - f_gitconfig-shorteners
