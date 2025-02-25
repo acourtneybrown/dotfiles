@@ -37,3 +37,5 @@ function op-check-vault() {
               (.fields.[] | select(.id == \"username\") | .value | contains(\"$username\"))) and
              (.tags | contains([\"WrongVaultOk\"]) | not)) | .id"
 }
+
+[[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
