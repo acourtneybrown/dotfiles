@@ -52,7 +52,7 @@ dotfiles:
     link: link_children
   d_config_op_plugins:
     src: config/op/plugins
-    dst: ~/config/op/plugins
+    dst: ~/.config/op/plugins
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
@@ -119,7 +119,7 @@ dotfiles:
     dst: ~/.config/iterm2/com.googlecode.iterm2.plist
   f_config_op_plugins.sh:
     src: config/op/plugins.sh
-    dst: ~/config/op/plugins.sh
+    dst: ~/.config/op/plugins.sh
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
