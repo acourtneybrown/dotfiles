@@ -114,6 +114,7 @@ function profile::linux_desktop_after() {
 }
 
 function profile::mac() {
+  brew tap --force homebrew/cask
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
 }
 
