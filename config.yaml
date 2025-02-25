@@ -18,6 +18,8 @@ actions:
     else
       git clone https://github.com/gnachman/iTerm2-shell-integration ~/.iterm2-shell-integration;
     fi
+  chmod_files: |
+    find {{@@ _dotfile_abs_dst @@}} -type f -exec chmod {0} {{}} \;
 config:
   backup: true
   create: true
@@ -50,6 +52,13 @@ dotfiles:
     dst: ~/.config/glab-cli
     chmod: 700
     link: link_children
+  d_config_op_plugins:
+    src: config/op/plugins
+    dst: ~/.config/op/plugins
+    chmod: 700
+    link: nolink
+    actions:
+      - chmod_files 600
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
@@ -114,6 +123,9 @@ dotfiles:
   f_com.googlecode.iterm2.plist:
     src: config/iterm2/com.googlecode.iterm2.plist
     dst: ~/.config/iterm2/com.googlecode.iterm2.plist
+  f_config_op_plugins.sh:
+    src: config/op/plugins.sh
+    dst: ~/.config/op/plugins.sh
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
@@ -270,7 +282,9 @@ profiles:
       - d_config_pip
   personal:
     dotfiles:
+      - d_config_op_plugins
       - d_config_pip
+      - f_config_op_plugins.sh
       - f_m2_settings_home
       - f_pypirc_home
     variables:

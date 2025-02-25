@@ -1,0 +1,15 @@
+{
+	"account_id": "3OEQP7K6IVGS7NDF437AKNKISE",
+	"entrypoint": [
+		"twilio"
+	],
+	"credentials": [
+		{
+			"plugin": "twilio",
+			"credential_type": "api_key",
+			"usage_id": "api_key",
+			"vault_id": "mgstezrvpbsuwp2tkyk4gg25ay",
+			"item_id": "aeyjwewtugywftngkh2t6zexwe"
+		}
+	]
+}
