@@ -19,7 +19,7 @@ actions:
       git clone https://github.com/gnachman/iTerm2-shell-integration ~/.iterm2-shell-integration;
     fi
   chmod_files: |
-    echo "find {{@@ _dotfile_abs_dst @@}} -type f -exec 'chmod {0} {{}} ;'"
+    find {{@@ _dotfile_abs_dst @@}} -type f -exec chmod {0} {{}} \;
 config:
   backup: true
   create: true
