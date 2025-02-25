@@ -276,7 +276,9 @@ profiles:
       - d_config_pip
   personal:
     dotfiles:
+      - d_config_op_plugins
       - d_config_pip
+      - f_config_op_plugins.sh
       - f_m2_settings_home
       - f_pypirc_home
     variables:
@@ -335,12 +337,10 @@ profiles:
       - d_config_1Password
       - d_config_gh
       - d_config_glab_cli
-      - d_config_op_plugins
       - d_git_template
       - d_gradle_init_d
       - d_tea
       - f_bash_sessions_disable
-      - f_config_op_plugins.sh
       - f_curlrc
       - f_gitconfig
       - f_gitconfig-shorteners
