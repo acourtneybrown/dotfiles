@@ -18,6 +18,8 @@ actions:
     else
       git clone https://github.com/gnachman/iTerm2-shell-integration ~/.iterm2-shell-integration;
     fi
+  chmod_files: |
+    echo "chmod {0} {{@@ _dotfile_sub_abs_dst @@}}"
 config:
   backup: true
   create: true
@@ -55,6 +57,8 @@ dotfiles:
     dst: ~/.config/op/plugins
     chmod: 700
     link: nolink
+    actions:
+      - chmod_files 600
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
