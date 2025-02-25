@@ -53,6 +53,7 @@ dotfiles:
   d_config_op_plugins:
     src: config/op/plugins
     dst: ~/.config/op/plugins
+    chmod: 700
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
