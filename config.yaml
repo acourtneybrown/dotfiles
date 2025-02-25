@@ -54,6 +54,7 @@ dotfiles:
     src: config/op/plugins
     dst: ~/.config/op/plugins
     chmod: 700
+    link: link_children
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
