@@ -64,7 +64,7 @@ dotfiles:
     link: nolink
     actions:
       - chmod_files 600
-      - chmod_dirs
+      - chmod_dirs 700
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
