@@ -1,3 +1,7 @@
 #!/usr/bin/env zsh
 
-op plugin run -- gh "$@"
+if [[ -n $OP_PLUGIN_ALIASES_SOURCED ]]; then
+  exec op plugin run -- gh "$@"
+else
+  exec gh "$@"
+fi
