@@ -267,8 +267,10 @@ profiles:
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
+      - d_config_op_plugins
       - d_user
       - f_Alfred_prefs.json
+      - f_config_op_plugins.sh
       - f_com.googlecode.iterm2.plist
       - f_dedrm.json
       - f_finicky.js
@@ -289,9 +291,7 @@ profiles:
       - d_config_pip
   personal:
     dotfiles:
-      - d_config_op_plugins
       - d_config_pip
-      - f_config_op_plugins.sh
       - f_m2_settings_home
       - f_pypirc_home
     variables:
