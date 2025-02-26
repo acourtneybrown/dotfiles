@@ -2,13 +2,15 @@
 
 # shellcheck disable=SC2154
 if [[ ${commands[gh]} ]]; then
+  LOCAL_GH="$(dirname {{@@ _dotfile_sub_abs_dst @@}})/gh"
+
   # _ghclall is an internal function that clones all of the non-archived, repos for a given user/org
   function _ghclall() {
     if [[ "${#}" -ne 1 ]]; then
       return 1
     fi
 
-    gh api "${1}" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t gh repo clone %
+    $LOCAL_GH api "${1}" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t $LOCAL_GH repo clone %
   }
 
   # ghclorg clones all of the non-archived repos under a GitHub org
@@ -41,7 +43,7 @@ if [[ ${commands[gh]} ]]; then
       if [[ -d "${DIR}/.git" ]]; then
         archived=$(
           cd "$DIR" || return
-          gh api "repos/{owner}/{repo}" --jq '.archived'
+          $LOCAL_GH api "repos/{owner}/{repo}" --jq '.archived'
         )
         $archived && {
           echo "removing archived repo '$DIR'"
