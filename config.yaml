@@ -19,9 +19,9 @@ actions:
       git clone https://github.com/gnachman/iTerm2-shell-integration ~/.iterm2-shell-integration;
     fi
   chmod_files: |
-    find {{@@ _dotfile_abs_dst @@}} -type f -exec chmod {0} {{}} \;
+    find -L {{@@ _dotfile_abs_dst @@}} -type f -exec chmod {0} {{}} \;
   chmod_dirs: |
-    find {{@@ _dotfile_abs_dst @@}} -type d -exec chmod {0} {{}} \;
+    find -L {{@@ _dotfile_abs_dst @@}} -type d -exec chmod {0} {{}} \;
 config:
   backup: true
   create: true
@@ -61,7 +61,6 @@ dotfiles:
     src: config/op/plugins
     dst: ~/.config/op/plugins
     chmod: 700
-    link: nolink
     actions:
       - chmod_files 600
       - chmod_dirs 700
@@ -265,8 +264,8 @@ profiles:
       - d_config_op_plugins
       - d_user
       - f_Alfred_prefs.json
-      - f_config_op_plugins.sh
       - f_com.googlecode.iterm2.plist
+      - f_config_op_plugins.sh
       - f_dedrm.json
       - f_finicky.js
       - f_sublime_license
