@@ -311,7 +311,6 @@ profiles:
       firefox_kids_ro_ids: op item list --vault "Kids RO" --categories Login --format=json | jq -r '.[].id' | sort
       firefox_private_ids: op item list --vault Private --categories Login --format=json | jq -r '.[].id' | sort
       full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
-      gitea_hostname: "{{@@ gitea_website @@}} | sed 's|.*//||'"
       gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
       gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
       gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
