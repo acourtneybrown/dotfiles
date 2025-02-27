@@ -17,7 +17,7 @@ if [[ ${commands[tea]} ]]; then
   # gtclorg clones all of the non-archived projects under a Gitea org
   function gtclorg() {
     if [[ "${#}" -ne 1 ]]; then
-      echo "Usage: glclgroup <group>"
+      echo "Usage: gtclorg <org>"
       return
     fi
     _gtclall "${1}"
@@ -26,7 +26,7 @@ if [[ ${commands[tea]} ]]; then
   # glclorg clones all of the non-archived projects under a Gitea user
   function gtcluser() {
     if [[ "${#}" -ne 1 ]]; then
-      echo "Usage: glcluser <user>"
+      echo "Usage: gtcluser <user>"
       return
     fi
     _gtclall "${1}"
