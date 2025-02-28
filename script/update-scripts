@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/..
+
+# From https://xebia.com/blog/how-to-store-your-docker-registry-credentials-in-1password/
+git subtree pull --prefix dotfiles/scripts/docker-credential-1password https://github.com/xebia/docker-credential-1password.git master --squash
