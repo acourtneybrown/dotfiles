@@ -133,6 +133,9 @@ dotfiles:
   f_dedrm.json:
     src: Library/Preferences/calibre/plugins/dedrm.json
     dst: ~/Library/Preferences/calibre/plugins/dedrm.json
+  f_docker_config.json:
+    src: docker/config.json
+    dst: ~/.docker/config.json
   f_finicky.js:
     src: finicky.js
     dst: ~/.finicky.js
@@ -344,6 +347,7 @@ profiles:
       - d_gradle_init_d
       - f_bash_sessions_disable
       - f_curlrc
+      - f_docker_config.json
       - f_gitconfig
       - f_gitconfig-shorteners
       - f_gitignore
