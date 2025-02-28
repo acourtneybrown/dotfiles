@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+LOCAL_CMD="$(basename "${(%):-%N}")"
+if [[ -n $OP_PLUGIN_ALIASES_SOURCED ]]; then
+  exec op plugin run -- "$LOCAL_CMD" "$@"
+else
+  exec "$LOCAL_CMD" "$@"
+fi
