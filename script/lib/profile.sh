@@ -103,7 +103,10 @@ function profile::mac() {
 
 function profile::mac_after() {
   profile::install_fix_mosh
-  profile::handle_betterdisplay_license
+  if [[ ! $(whoami) == virtualbuddy ]]; then
+    # Avoid issues with exhausting device licenses during testing
+    profile::handle_betterdisplay_license
+  fi
   profile::configure_calibre
 
   _finalizers+=("profile::op_forget_cli_login")
