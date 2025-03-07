@@ -1,0 +1,26 @@
+{
+	"auths": {
+		"gitea.notcharlie.com": {},
+		"index.docker.io": {}
+	},
+	"credsStore": "1password",
+	"credHelpers": {
+		"gitea.notcharlie.com": "1password",
+		"index.docker.io": "1password"
+	},
+	"currentContext": "desktop-linux",
+	"plugins": {
+		"-x-cli-hints": {
+			"enabled": "true"
+		},
+		"debug": {
+			"hooks": "exec"
+		},
+		"scout": {
+			"hooks": "pull,buildx build"
+		}
+	},
+	"features": {
+		"hooks": "true"
+	}
+}

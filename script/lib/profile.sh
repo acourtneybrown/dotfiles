@@ -5,8 +5,6 @@ declare -a _finalizers
 
 # shellcheck disable=SC1091
 . "${PROFILE_SH_DIR}/util.sh"
-# shellcheck disable=SC1091
-. "${PROFILE_SH_DIR}/docker.sh"
 
 function profile::run_dotdrop_action() {
   local action="${1}"
@@ -38,12 +36,6 @@ function profile::default_after() {
   profile::enable_goenv
   pyenv global "$(profile::ensure_pyenv_version 3.11)"
   goenv global "$(profile::ensure_goenv_version 1.19)"
-
-  local username_cb
-  local docker_pat_cb
-  username_cb="op read op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username"
-  docker_pat_cb="op read 'op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/Personal Access Tokens/Bazel PAT'"
-  docker::ensure_login index.docker.io "${username_cb}" "${docker_pat_cb}"
 }
 
 function profile::personal() {
@@ -53,15 +45,6 @@ function profile::personal() {
   profile::enable_goenv
 
   profile::pipx_install 3.11 python-kasa python-vipaccess tox twine pytest build
-}
-
-function profile::personal_after() {
-  local username_cb
-  local docker_pat_cb
-
-  gitea_username_cb="op read op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
-  gitea_container_token_cb="op read 'op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Container token'"
-  docker::ensure_login gitea.notcharlie.com "${gitea_username_cb}" "${gitea_container_token_cb}"
 }
 
 function profile::linux() {
@@ -114,12 +97,17 @@ function profile::linux_desktop_after() {
 }
 
 function profile::mac() {
+  brew tap --force homebrew/cask
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
 }
 
 function profile::mac_after() {
   profile::install_fix_mosh
-  profile::handle_betterdisplay_license
+  if [[ ! $(whoami) == virtualbuddy ]]; then
+    # Avoid issues with exhausting device licenses during testing
+    profile::handle_betterdisplay_license
+  fi
+  profile::configure_calibre
 
   _finalizers+=("profile::op_forget_cli_login")
 }
@@ -159,6 +147,27 @@ function profile::handle_betterdisplay_license() {
       -email="$(op read "op://Adam/BetterDisplay/Customer/registered email")" \
       -key="$(op read "op://Adam/BetterDisplay/license key")"
   fi
+}
+
+function profile::configure_calibre() {
+  local tmpdir
+  local dedrm_version
+  tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/calibre-dedrm.XXXXXXXXXX)" || return
+  dedrm_version="10.0.9"
+
+  op plugin run -- gh release -R noDRM/DeDRM_tools download --dir "$tmpdir" "v${dedrm_version}"
+  unzip -x "$tmpdir/DeDRM_tools_${dedrm_version}.zip" -d "${tmpdir}/DeDRM_tools_${dedrm_version}"
+  calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/DeDRM_Plugin.zip"
+  calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
+
+  if [ "$(util::download_and_verify https://plugins.calibre-ebook.com/291290.zip \
+    5e4e48991fcab5b163b453a843213c77a64a66b4efbef18ba2a86e961b9ad4ea \
+    "${tmpdir}/KFX Input.zip")" != "ok" ]; then
+    util::abort "KFX Input.zip file changed"
+  fi
+  calibre-customize --add-plugin "${tmpdir}/KFX Input.zip"
+
+  rm -rf "$tmpdir"
 }
 
 function profile::finalize() {
@@ -318,7 +327,7 @@ function profile::install_homebrew() {
   fi
 
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    9ad0c8048f3f1a01d5f6610e0df347ceeae5879cf0aa51c1d987aa8aee740dca \
+    a30b9fbf0d5c2cff3eb1d0643cceee30d8ba6ea1bb7bcabf60d3188bd62e6ba6 \
     /tmp/install.sh)" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi
