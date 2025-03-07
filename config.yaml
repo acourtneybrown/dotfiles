@@ -23,7 +23,7 @@ actions:
   chmod_dirs: |
     find -L {{@@ _dotfile_abs_dst @@}} -type d -exec chmod {0} {{}} \;
 config:
-  backup: true
+  backup: false
   create: true
   force_chmod: true
   link_dotfile_default: link
