@@ -1164,6 +1164,7 @@ function os_icon_name() {
           amzn)                    echo LINUX_AMZN_ICON;;
           endeavouros)             echo LINUX_ENDEAVOUROS_ICON;;
           rocky)                   echo LINUX_ROCKY_ICON;;
+          almalinux)               echo LINUX_ALMALINUX_ICON;;
           guix)                    echo LINUX_GUIX_ICON;;
           neon)                    echo LINUX_NEON_ICON;;
           *)                       echo LINUX_ICON;;
@@ -2142,16 +2143,16 @@ while true; do
       elif (( ! cap_diamond )); then
         POWERLEVEL9K_MODE=awesome-fontconfig
       else
-        ask_arrow '\uFC35' || continue
+        ask_arrow '\UF0737' || continue
         if (( cap_arrow )); then
-          POWERLEVEL9K_MODE=nerdfont-complete
+          ask_width || continue
+        fi
+        if (( cap_arrow )); then
+          POWERLEVEL9K_MODE=nerdfont-v3
         else
-          ask_arrow '\UF0737' "Let's try another one." || continue
+          ask_arrow '\uFC35' "Let's try another one." || continue
           if (( cap_arrow )); then
-            ask_width || continue
-          fi
-          if (( cap_arrow )); then
-            POWERLEVEL9K_MODE=nerdfont-v3
+            POWERLEVEL9K_MODE=nerdfont-complete
           else
             POWERLEVEL9K_MODE=awesome-fontconfig
             ask_python || continue

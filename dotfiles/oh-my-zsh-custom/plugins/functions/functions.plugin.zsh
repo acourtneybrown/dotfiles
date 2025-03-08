@@ -102,3 +102,42 @@ function colormap() {
     print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'};
   done
 }
+
+# urlsha256 outputs the SHA256 hash of the contents at the given URL
+function urlsha256() {
+  local url
+  url=$1
+
+  curl -fLsS --output - "${url}" | sha256sum | cut -d ' ' -f 1
+}
+
+# qifi generates a QR code for the wifi network specified by the given parameters
+# inspired by https://qifi.org/
+function qifi() {
+  if [[ ${#} -ne 3 ]]; then
+    echo "Usage:"
+    echo "$0 <SSID> <encryption> <key>"
+    echo "  where <encryption> is one of None, WPA, or WEP"
+    return 1
+  fi
+
+  local ssid
+  local encryption
+  local password
+  ssid=$1
+  case "$2" in
+    WPA|WEP)
+      encryption="T:$2"
+      ;;
+    None)
+      encryption=""
+      ;;
+    *)
+      >&2 echo "<encryption> must be one of None, WPA, or WEP"
+      return 2
+  esac
+  # shellcheck disable=SC2001
+  password=$(echo "$3" | sed 's/[\\;,":]/\\&/g')
+
+  qrencode -o - "WIFI:S:${ssid};${encryption};P:${password};;"
+}

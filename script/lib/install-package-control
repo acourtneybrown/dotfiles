@@ -16,9 +16,11 @@ function main() {
 
   if [[ ! -f "${config_root}/Installed Packages/Package Control.sublime-package" ]]; then
     mkdir -p "${config_root}/Installed Packages/"
-    util::download_and_verify https://packagecontrol.io/Package%20Control.sublime-package \
+    if [ "$(util::download_and_verify https://packagecontrol.io/Package%20Control.sublime-package \
       817937144c34c84c88cd43b85318b2656f9c3fac02f8f72cbc18360b2c26d139 \
-      "${config_root}/Installed Packages/Package Control.sublime-package"
+      "${config_root}/Installed Packages/Package Control.sublime-package")" != "ok" ]; then
+      util::abort "Package Control file changed"
+    fi
   fi
 }
 

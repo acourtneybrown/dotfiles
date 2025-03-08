@@ -18,8 +18,12 @@ actions:
     else
       git clone https://github.com/gnachman/iTerm2-shell-integration ~/.iterm2-shell-integration;
     fi
+  chmod_files: |
+    find -L {{@@ _dotfile_abs_dst @@}} -type f -exec chmod {0} {{}} \;
+  chmod_dirs: |
+    find -L {{@@ _dotfile_abs_dst @@}} -type d -exec chmod {0} {{}} \;
 config:
-  backup: true
+  backup: false
   create: true
   force_chmod: true
   link_dotfile_default: link
@@ -49,7 +53,16 @@ dotfiles:
     src: config/glab-cli
     dst: ~/.config/glab-cli
     chmod: 700
-    link: link_children
+    actions:
+      - chmod_files 600
+      - chmod_dirs 700
+  d_config_op_plugins:
+    src: config/op/plugins
+    dst: ~/.config/op/plugins
+    chmod: 700
+    actions:
+      - chmod_files 600
+      - chmod_dirs 700
   d_config_pip:
     src: config/pip
     dst: ~/.config/pip
@@ -74,11 +87,6 @@ dotfiles:
   d_smbcredentials:
     src: smbcredentials
     dst: ~/.smbcredentials
-    link: link_children
-    chmod: 700
-  d_tea:
-    src: Library/Application Support/tea
-    dst: "{{@@ xdg_config_home @@}}/tea"
     link: link_children
     chmod: 700
   d_user:
@@ -114,9 +122,19 @@ dotfiles:
   f_com.googlecode.iterm2.plist:
     src: config/iterm2/com.googlecode.iterm2.plist
     dst: ~/.config/iterm2/com.googlecode.iterm2.plist
+  f_config_op_plugins.sh:
+    src: config/op/plugins.sh
+    dst: ~/.config/op/plugins.sh
+    link: nolink
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
+  f_dedrm.json:
+    src: Library/Preferences/calibre/plugins/dedrm.json
+    dst: ~/Library/Preferences/calibre/plugins/dedrm.json
+  f_docker_config.json:
+    src: docker/config.json
+    dst: ~/.docker/config.json
   f_finicky.js:
     src: finicky.js
     dst: ~/.finicky.js
@@ -161,10 +179,6 @@ dotfiles:
   f_ssh_config:
     src: ssh/config
     dst: ~/.ssh/config
-  f_ssh_id_ed25519:
-    src: ssh/id_ed25519
-    dst: ~/.ssh/id_ed25519
-    chmod: 600
   f_ssh_known_hosts:
     src: ssh/known_hosts
     dst: ~/.ssh/known_hosts
@@ -210,6 +224,7 @@ profiles:
   adams-mbp:
     variables:
       host_ssh_key_name: adams-mbp key
+      alfred_preferences_localhash: "f10f132bffbde36d011dcf6644f262cf3d810ce7"
     include:
       - default
       - mac
@@ -225,14 +240,14 @@ profiles:
       - default
       - linux
     variables:
+      host_password: op://jrew5nqtk5aqdgupcoxqjuevwu/beelink.notcharlie.com/password
       host_ssh_key_name: beelink key
+      ssh_agent_lifetime: 12h
     dynvariables:
-      host_ssh_ed25519_private_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/private key?ssh-format=openssh"
       synology_username: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/username"
       synology_password: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/password"
     dotfiles:
       - d_smbcredentials
-      - f_ssh_id_ed25519
   beelink.local:
     include:
       - beelink
@@ -240,15 +255,20 @@ profiles:
     include:
       - beelink
   mac:
+    dynvariables:
+      kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
+      - d_config_op_plugins
       - d_user
       - f_Alfred_prefs.json
       - f_com.googlecode.iterm2.plist
+      - f_config_op_plugins.sh
+      - f_dedrm.json
       - f_finicky.js
       - f_sublime_license
       - fake_iterm2_utils
@@ -278,6 +298,8 @@ profiles:
       mac: false
       personal: false
       ssh_agent: ''
+      ssh_agent_lifetime: 1h
+      host_password: unset
       host_ssh_key_name: Default key
     dynvariables:
       authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
@@ -290,21 +312,19 @@ profiles:
       firefox_kids_ro_ids: op item list --vault "Kids RO" --categories Login --format=json | jq -r '.[].id' | sort
       firefox_private_ids: op item list --vault Private --categories Login --format=json | jq -r '.[].id' | sort
       full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
-      gh_cli_token: op item get "GitHub" --fields "gh cli token"
-      gitea_hostname: "{{@@ gitea_website @@}} | sed 's|.*//||'"
-      gitea_maven_token: op item get "Gitea (acourtneybrown)" --field "Maven token"
-      gitea_pypi_token: op item get "Gitea (acourtneybrown)" --field "PyPI token"
-      gitea_username: op item get "Gitea (acourtneybrown)" --field username
-      gitea_website: op item get "Gitea (acourtneybrown)" --format json | jq -r '.urls[0].href'
-      github_account: op item get "GitHub" --fields username
-      github_netrc_token: op item get "GitHub" --fields "netrc"
-      github_signing_key: op item get "{{@@ host_ssh_key_name @@}}" --field "public key"
-      gitlab_account: op item get "GitLab" --field username
-      glab_cli_token: op item get "GitLab" --field "glab cli token"
+      gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
+      gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
+      gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
+      gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
+      github_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login"
+      github_netrc_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/netrc"
+      github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
+      gitlab_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/username"
       homebrew_prefix: brew --prefix
-      personal_email: op item get 6jjizlkc5bstuors76ickhd7fa --field email
-      sublime_text_license: op item get "Sublime Text 4+" --field "license key"
-      tea_cli_token: op item get "Gitea (acourtneybrown)" --field "tea cli token"
+      personal_email: op read "op://Adam/6jjizlkc5bstuors76ickhd7fa/Internet Details/email"
+      sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
+      synology_api_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/username"
+      synology_api_password: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/password"
     include:
       - zsh
   zsh:
@@ -324,9 +344,9 @@ profiles:
       - d_config_glab_cli
       - d_git_template
       - d_gradle_init_d
-      - d_tea
       - f_bash_sessions_disable
       - f_curlrc
+      - f_docker_config.json
       - f_gitconfig
       - f_gitconfig-shorteners
       - f_gitignore

@@ -41,6 +41,7 @@ function macos::setup() {
     DiskUtility
     "QuickTime Player"
     Alfred
+    BetterDisplay
   )
   local fn
   for app in "${apps[@]}"; do
@@ -704,6 +705,9 @@ function macos::config_iTerm() {
 
   # Use macOS system window restore
   defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
+
+  # Turn off Secure Keyboard Entry
+  defaults write com.googlecode.iterm2 "Secure Input" -bool false
 }
 
 function macos::config_Time_Machine() {
@@ -855,11 +859,21 @@ function macos::config_Alfred() {
         <array>
           <integer>32</integer>
           <integer>49</integer>
-          <integer>1835008</integer>
+          <integer>917504</integer>
         </array>
       </dict>
     </dict>
   "
+}
+
+function macos::config_BetterDisplay() {
+  if ! defaults read pro.betterdisplay.BetterDisplay >/dev/null 2>&1; then
+    plutil -convert binary1 -o - "${MACOS_SH_DIR}/resources/BetterDisplay.plist" |
+      defaults import pro.betterdisplay.BetterDisplay -
+  else
+    echo "BetterDisplay preferences already set.  Will not overwrite."
+    echo "Run 'script/update-betterdisplay-plist' to compare via git"
+  fi
 }
 
 function macos::kill_apps() {
@@ -873,12 +887,15 @@ function macos::kill_apps() {
     "Finder" \
     "Google Chrome Canary" \
     "Google Chrome" \
+    "iTerm2" \
     "Mail" \
     "Messages" \
     "Photos" \
     "Safari" \
     "SystemUIServer" \
-    "iCal"; do
+    "iCal" \
+    "Alfred" \
+    "BetterDisplay"; do
     killall "${app}" &>/dev/null
   done
   echo "Done. Note that some of these changes require a logout/restart to take effect."

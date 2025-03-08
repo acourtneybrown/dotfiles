@@ -9,3 +9,7 @@ machine github.com
 machine raw.githubusercontent.com
     login {{@@ github_account @@}}
     password {{@@ github_netrc_token @@}}
+
+machine admin.notcharlie.com
+    login {{@@ synology_api_account @@}}
+    password {{@@ synology_api_password @@}}

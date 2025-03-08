@@ -93,7 +93,6 @@ plugins=(
   docker
   dotdrop
   dotfiles-envvars
-  fd
   functions
   fzf
   gh
@@ -102,17 +101,18 @@ plugins=(
   git-custom
   glab
   goenv
+  mariadb-dev
   marked2
   mosh
   mosh-custom
   pipx
   pyenv
-  ripgrep
   ripgrep-all
   setopts
   sublime
   tea
   tig
+  twilio
   venv
   zsh-completions
 )
@@ -130,6 +130,10 @@ plugins=(
   linuxbrew
   {%@@ endif @@%}
 
+  {%@@ if not (ssh_agent is defined and ssh_agent|length) @@%}
+  ssh-agent
+  {%@@ endif @@%}
+
   path
 
   $plugins
@@ -139,6 +143,12 @@ plugins=(
 
 {%@@ if mac @@%}
 zstyle :omz:plugins:iterm2 shell-integration yes
+{%@@ endif @@%}
+
+{%@@ if not (ssh_agent is defined and ssh_agent|length) @@%}
+zstyle :omz:plugins:ssh-agent quiet yes
+zstyle :omz:plugins:ssh-agent lazy yes
+zstyle :omz:plugins:ssh-agent lifetime {{@@ ssh_agent_lifetime @@}}
 {%@@ endif @@%}
 
 typeset -U path PATH
@@ -174,3 +184,6 @@ export GPG_TTY=$(tty)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Enable 1Password plugin aliases (after all zsh plugins)
+[[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh

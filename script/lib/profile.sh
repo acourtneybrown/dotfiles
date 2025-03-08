@@ -5,65 +5,37 @@ declare -a _finalizers
 
 # shellcheck disable=SC1091
 . "${PROFILE_SH_DIR}/util.sh"
-# shellcheck disable=SC1091
-. "${PROFILE_SH_DIR}/docker.sh"
 
 function profile::run_dotdrop_action() {
   local action="${1}"
   bash -c "$(yq eval ".actions.${action}" ../config.yaml)"
 }
 
-function profile::remove_ssh_key() {
-  local key_file="${1}"
-
-  rm -f "${key_file}"
-}
-
-function profile::get_ssh_key() {
-  local key="${1}"
-  local key_type
-  key_type=$(op item get "${key}" --field "key type")
-
-  local key_file="${HOME}/.ssh/id_${key_type}"
-
-  if [[ ! -f "${key_file}" ]]; then
-    mkdir -p "$(dirname "${key_file}")"
-    touch "${key_file}"
-    chmod 600 "${key_file}"
-    op item get "${key}" --field 'private key' | tr -d \" >"${key_file}"
-    _finalizers+=("profile::remove_ssh_key ${key_file}")
-  else
-    echo "${key_file} file already exists, skipping"
-  fi
-}
-
 function profile::default() {
+  local tmpscript
+  tmpscript=$(mktemp /tmp/install.sh.XXXXXX)
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
   # Install oh-my-zsh
   if [[ ! -d ~/.oh-my-zsh ]]; then
-    if command -v curl >/dev/null; then
-      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-    elif command -v wget >/dev/null; then
-      sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -) --unattended"
-    else
+    if [ "$(
+      util::download_and_verify https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh \
+        96d90bb5cfd50793f5666db815c5a2b0f209d7e509049d3b22833042640f2676 \
+        "$tmpscript"
+    )" != "ok" ]; then
       util::abort "Either curl or wget must be installed"
     fi
+
+    sh $tmpscript --unattended
+    rm -f "$tmpscript"
   fi
 }
 
 function profile::default_after() {
-
   profile::enable_pyenv
   profile::enable_goenv
   pyenv global "$(profile::ensure_pyenv_version 3.11)"
   goenv global "$(profile::ensure_goenv_version 1.19)"
-
-  local username_cb
-  local docker_pat_cb
-  username_cb="op item get Docker --field username"
-  docker_pat_cb="op item get Docker --field 'Bazel PAT'"
-  docker::ensure_login index.docker.io "${username_cb}" "${docker_pat_cb}"
 }
 
 function profile::personal() {
@@ -73,15 +45,6 @@ function profile::personal() {
   profile::enable_goenv
 
   profile::pipx_install 3.11 python-kasa python-vipaccess tox twine pytest build
-}
-
-function profile::personal_after() {
-  local username_cb
-  local docker_pat_cb
-
-  gitea_username_cb="op item get 'Gitea (acourtneybrown)' --field username"
-  gitea_container_token_cb="op item get 'Gitea (acourtneybrown)' --field 'Container token'"
-  docker::ensure_login gitea.notcharlie.com "${gitea_username_cb}" "${gitea_container_token_cb}"
 }
 
 function profile::linux() {
@@ -134,11 +97,17 @@ function profile::linux_desktop_after() {
 }
 
 function profile::mac() {
+  brew tap --force homebrew/cask
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
 }
 
 function profile::mac_after() {
   profile::install_fix_mosh
+  if [[ ! $(whoami) == virtualbuddy ]]; then
+    # Avoid issues with exhausting device licenses during testing
+    profile::handle_betterdisplay_license
+  fi
+  profile::configure_calibre
 
   _finalizers+=("profile::op_forget_cli_login")
 }
@@ -169,6 +138,36 @@ function profile::install_fix_mosh() {
     # add mosh launch daemon
     sudo launchctl load -w "/Library/LaunchDaemons/com.mosh.plist"
   fi
+}
+
+function profile::handle_betterdisplay_license() {
+  if /Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay manageLicense -status | grep -q "Not activated"; then
+    /Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay manageLicense \
+      -activate \
+      -email="$(op read "op://Adam/BetterDisplay/Customer/registered email")" \
+      -key="$(op read "op://Adam/BetterDisplay/license key")"
+  fi
+}
+
+function profile::configure_calibre() {
+  local tmpdir
+  local dedrm_version
+  tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/calibre-dedrm.XXXXXXXXXX)" || return
+  dedrm_version="10.0.9"
+
+  op plugin run -- gh release -R noDRM/DeDRM_tools download --dir "$tmpdir" "v${dedrm_version}"
+  unzip -x "$tmpdir/DeDRM_tools_${dedrm_version}.zip" -d "${tmpdir}/DeDRM_tools_${dedrm_version}"
+  calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/DeDRM_Plugin.zip"
+  calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
+
+  if [ "$(util::download_and_verify https://plugins.calibre-ebook.com/291290.zip \
+    5e4e48991fcab5b163b453a843213c77a64a66b4efbef18ba2a86e961b9ad4ea \
+    "${tmpdir}/KFX Input.zip")" != "ok" ]; then
+    util::abort "KFX Input.zip file changed"
+  fi
+  calibre-customize --add-plugin "${tmpdir}/KFX Input.zip"
+
+  rm -rf "$tmpdir"
 }
 
 function profile::finalize() {
@@ -327,9 +326,11 @@ function profile::install_homebrew() {
     esac
   fi
 
-  util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    6091f25a90028fe3b767004988c5d346f82f3133006a967322ed6736832d0d40 \
-    /tmp/install.sh
+  if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
+    a30b9fbf0d5c2cff3eb1d0643cceee30d8ba6ea1bb7bcabf60d3188bd62e6ba6 \
+    /tmp/install.sh)" != "ok" ]; then
+    util::abort "Homebrew install script changed"
+  fi
 
   NONINTERACTIVE=1 bash /tmp/install.sh
   rm /tmp/install.sh

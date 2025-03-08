@@ -1,5 +1,5 @@
 {
-    "pretty_on_save": true,
+    "format_on_save": false,
     "shfmt_bin_path": "{{@@ homebrew_prefix @@}}/bin/shfmt",
     "indent": 2
 }

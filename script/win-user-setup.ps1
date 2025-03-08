@@ -9,10 +9,11 @@ irm get.scoop.sh | iex
 
 # Install tools from Scoop
 scoop install 1password-cli
+scoop install 7zip
 scoop install git
 scoop install jq
+scoop install nircmd
 scoop install yq
-scoop install 7zip
 
 # Install version(s) of python
 scoop install pyenv

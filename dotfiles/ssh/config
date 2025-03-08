@@ -8,22 +8,17 @@ Host *
 {%@@ endif @@%}
 
 # Personal
-Host *.notcharlie.com
-  ForwardAgent yes
-  User abrown
-Host adams-mbp
+Host adams-mbp adams-mbp.notcharlie.com
   User adambrown
-Host pfsense
-  ForwardAgent no
+Host pfsense pfsense.notcharlie.com
   User admin
-Host retropie*
+Host retropie* retropie*.notcharlie.com
   User pi
-Host picluster-*
+Host picluster-* picluster-*.notcharlie.com
   User pi
 Host synology synology.notcharlie.com
-  ForwardAgent yes
+  Hostname synology.notcharlie.com
   Port 2222
-  User abrown
 Host synology-root
   Hostname synology.notcharlie.com
   Port 2222
@@ -33,8 +28,9 @@ Host gitea gitea.notcharlie.com
   Port 2234
   User git
 Host unifi-* unifi-*.notcharlie.com
-  ForwardAgent no
   User unifi-admin
+Host *.notcharlie.com
+  User abrown
 
 # Don't save known hosts for AWS EC2 instances
 Host *.compute.amazonaws.com
