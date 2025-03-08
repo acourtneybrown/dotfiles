@@ -878,7 +878,7 @@ function macos::config_BetterDisplay() {
 }
 
 function macos::config_LuLu() {
-  sudo defaults write /Library/Preferences/Objective-See/LuLu/preferences allowInstall -bool false
+  sudo defaults write /Library/Objective-See/LuLu/preferences allowInstall -bool false
 }
 
 function macos::kill_apps() {
