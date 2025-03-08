@@ -42,7 +42,6 @@ function macos::setup() {
     "QuickTime Player"
     Alfred
     BetterDisplay
-    LuLu
   )
   local fn
   for app in "${apps[@]}"; do
@@ -877,10 +876,6 @@ function macos::config_BetterDisplay() {
   fi
 }
 
-function macos::config_LuLu() {
-  sudo defaults write /Library/Objective-See/LuLu/preferences allowInstall -bool false
-}
-
 function macos::kill_apps() {
   set +e
   for app in "Activity Monitor" \
@@ -901,7 +896,6 @@ function macos::kill_apps() {
     "iCal" \
     "Alfred" \
     "BetterDisplay" \
-    "LuLu" \
     ; do
     killall "${app}" &>/dev/null
   done
