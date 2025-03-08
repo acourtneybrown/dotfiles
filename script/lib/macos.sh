@@ -895,7 +895,8 @@ function macos::kill_apps() {
     "SystemUIServer" \
     "iCal" \
     "Alfred" \
-    "BetterDisplay"; do
+    "BetterDisplay" \
+    ; do
     killall "${app}" &>/dev/null
   done
   echo "Done. Note that some of these changes require a logout/restart to take effect."
