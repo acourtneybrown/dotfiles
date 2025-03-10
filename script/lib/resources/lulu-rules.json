@@ -2477,6 +2477,30 @@
       "scope": "0",
       "type": "3",
       "uuid": "DCCD9674-E0E3-4C3B-AA58-4345237E80BE"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-09T19:16:03-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.ssh",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.113.3",
+      "endpointHost": "140.82.113.3",
+      "endpointPort": "22",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.ssh",
+      "name": "ssh",
+      "path": "/usr/bin/ssh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "746DEF57-45BF-495D-81C2-5656DFDF7C6B"
     }
   ],
   "com.apple.stocks": [
