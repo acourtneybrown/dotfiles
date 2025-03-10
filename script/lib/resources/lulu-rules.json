@@ -1384,6 +1384,31 @@
       "uuid": "CCB36C2C-DBBA-4E32-A769-84556C404AC4"
     }
   ],
+  "com.apple.host": [
+    {
+      "action": "1",
+      "creation": "2025-03-09T17:02:39-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.host",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.host",
+      "name": "host",
+      "path": "/usr/bin/host",
+      "scope": "0",
+      "type": "1",
+      "uuid": "ED64B50B-B9D4-4EE7-9439-9389603FF243"
+    }
+  ],
   "com.apple.iCloudNotificationAgent": [
     {
       "action": "1",
@@ -2428,6 +2453,30 @@
       "scope": "0",
       "type": "3",
       "uuid": "95DBA5D5-864D-4720-93AD-2F986FF306F5"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-09T17:02:34-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.ssh",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.113.4",
+      "endpointHost": "140.82.113.4",
+      "endpointPort": "22",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.ssh",
+      "name": "ssh",
+      "path": "/usr/bin/ssh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "DCCD9674-E0E3-4C3B-AA58-4345237E80BE"
     }
   ],
   "com.apple.stocks": [
