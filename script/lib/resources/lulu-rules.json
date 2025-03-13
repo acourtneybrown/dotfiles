@@ -113,6 +113,27 @@
       "uuid": "B39E5FF3-83BD-4674-9453-3568B79227D4"
     }
   ],
+  "/opt/homebrew/Cellar/gh/2.67.0/bin/gh": [
+    {
+      "action": "1",
+      "creation": "2025-03-13T09:30:48-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.112.6",
+      "endpointHost": "140.82.112.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.67.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.67.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D5037E81-80BD-40C7-9B12-3F4C4AAD2E58"
+    }
+  ],
   "/opt/homebrew/Cellar/git/2.48.1/libexec/git-core/git-remote-http": [
     {
       "action": "1",
@@ -392,6 +413,125 @@
       "uuid": "3A72A89C-EE43-4215-A699-7B0549F9596E"
     }
   ],
+  "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)": [
+    {
+      "action": "1",
+      "creation": "2025-03-13T09:28:36-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.213.189.164",
+      "endpointHost": "3.213.189.164",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "049598A9-85DF-413F-8D74-8523D36450D7"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-13T09:28:48-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a01:17e7:c351:c8f:ce1b",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "EFCE6021-993C-447D-9860-9BD25049D91E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-13T09:28:54-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a00:46d9:b68:6688:7493",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "4366CCF1-D1FB-43D9-A8E9-84E70B813998"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-13T09:29:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a02:768c:5cbe:6d2d:46c0",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "08218EE0-B323-440C-AA97-A86FCCB9412C"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-13T09:30:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "52.55.158.181",
+      "endpointHost": "52.55.158.181",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "0358627B-2308-4C69-B17D-4E990BC0C460"
+    }
+  ],
   "com.apple.AMPDeviceDiscoveryAgent": [
     {
       "action": "1",
@@ -642,6 +782,31 @@
       "uuid": "9B0CBC06-757A-498C-8CC9-2074F406F407"
     }
   ],
+  "com.apple.LookupViewService": [
+    {
+      "action": "1",
+      "creation": "2025-03-13T12:22:16-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.LookupViewService",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.LookupViewService",
+      "name": "LookupViewService",
+      "path": "/System/Library/PrivateFrameworks/Lookup.framework/Versions/A/XPCServices/LookupViewService.xpc",
+      "scope": "0",
+      "type": "1",
+      "uuid": "90C91C16-DC76-4525-B376-D6439D1EED2E"
+    }
+  ],
   "com.apple.Maps": [
     {
       "action": "1",
@@ -890,6 +1055,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "1DA8FFB4-C324-4C73-B6E6-78678DDD09B7"
+    }
+  ],
+  "com.apple.accessoryupdaterd": [
+    {
+      "action": "1",
+      "creation": "2025-03-13T10:13:29-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.accessoryupdaterd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.accessoryupdaterd",
+      "name": "accessoryupdaterd",
+      "path": "/System/Library/PrivateFrameworks/MobileAccessoryUpdater.framework/Support/accessoryupdaterd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "B9DFEE0A-EB94-4949-B14E-D83620C70D72"
     }
   ],
   "com.apple.accountsd": [
@@ -2808,6 +2998,81 @@
       "scope": "0",
       "type": "1",
       "uuid": "9555BC5E-75CE-4A62-B44F-97E5D4CBB350"
+    }
+  ],
+  "com.apple.perl": [
+    {
+      "action": "1",
+      "creation": "2025-03-13T10:17:05-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.perl",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10.98.76.2",
+      "endpointHost": "10.98.76.2",
+      "endpointPort": "53",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.perl",
+      "name": "perl",
+      "path": "/usr/bin/perl",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A2D64081-A05C-4B86-829B-6745BAD865EA"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-13T10:17:21-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.perl",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10.98.76.20",
+      "endpointHost": "10.98.76.20",
+      "endpointPort": "22",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.perl",
+      "name": "perl",
+      "path": "/usr/bin/perl",
+      "scope": "0",
+      "type": "3",
+      "uuid": "160D1BA4-9655-4202-841F-08C61E10A3CE"
+    }
+  ],
+  "com.apple.ping": [
+    {
+      "action": "1",
+      "creation": "2025-03-13T10:16:28-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.ping",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.ping",
+      "name": "ping",
+      "path": "/sbin/ping",
+      "scope": "0",
+      "type": "1",
+      "uuid": "F831B888-50EB-49EF-A585-1353EC5E66E4"
     }
   ],
   "com.apple.podcasts": [
@@ -5253,6 +5518,31 @@
       "scope": "0",
       "type": "3",
       "uuid": "9FB3FAE4-5C47-454B-B81D-1B7917AEC535"
+    }
+  ],
+  "us.zoom.xos:Developer ID Application: Zoom Video Communications, Inc. (BJ4HAAB9B3)": [
+    {
+      "action": "1",
+      "creation": "2025-03-13T12:59:19-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Zoom Video Communications, Inc. (BJ4HAAB9B3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "us.zoom.xos",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "us.zoom.xos:Developer ID Application: Zoom Video Communications, Inc. (BJ4HAAB9B3)",
+      "name": "zoom.us",
+      "path": "/Applications/zoom.us.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "1A47A5F7-E0B8-4081-8675-C44AEA9BC511"
     }
   ]
 }
