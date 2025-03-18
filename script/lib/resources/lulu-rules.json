@@ -111,6 +111,19 @@
       "scope": "0",
       "type": "3",
       "uuid": "B39E5FF3-83BD-4674-9453-3568B79227D4"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-13T16:48:43-0700",
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "/Applications/Obsidian.app/Contents/Frameworks/Obsidian Helper.app",
+      "name": "Electron Helper",
+      "path": "/Applications/Obsidian.app/Contents/Frameworks/Obsidian Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "F1A6F788-C5C5-4F57-8F78-C3F6955E0A0F"
     }
   ],
   "/opt/homebrew/Cellar/gh/2.67.0/bin/gh": [
@@ -132,6 +145,25 @@
       "scope": "0",
       "type": "3",
       "uuid": "D5037E81-80BD-40C7-9B12-3F4C4AAD2E58"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-18T11:17:03-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.114.6",
+      "endpointHost": "140.82.114.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.67.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.67.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D6D8994F-CEB7-4815-8B82-5802073A546A"
     }
   ],
   "/opt/homebrew/Cellar/git/2.48.1/libexec/git-core/git-remote-http": [
@@ -530,6 +562,55 @@
       "scope": "0",
       "type": "3",
       "uuid": "0358627B-2308-4C69-B17D-4E990BC0C460"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-18T09:40:43-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.218.245.0",
+      "endpointHost": "3.218.245.0",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "76D25464-DAB3-4B0F-A520-8EFC2340EFBB"
+    }
+  ],
+  "com.apple.AMPArtworkAgent": [
+    {
+      "action": "1",
+      "creation": "2025-03-17T15:23:24-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.AMPArtworkAgent",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.AMPArtworkAgent",
+      "name": "AMPArtworkAgent",
+      "path": "/System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPArtworkAgent",
+      "scope": "0",
+      "type": "1",
+      "uuid": "DDEAEC99-E7FD-4854-A4DB-DCC99D2369BB"
     }
   ],
   "com.apple.AMPDeviceDiscoveryAgent": [
@@ -555,6 +636,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "B37D1718-BF3A-47E3-BF2C-6317CB73EF15"
+    }
+  ],
+  "com.apple.AMPLibraryAgent": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T18:56:44-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.AMPLibraryAgent",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.AMPLibraryAgent",
+      "name": "AMPLibraryAgent",
+      "path": "/System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent",
+      "scope": "0",
+      "type": "1",
+      "uuid": "C29A85BF-605D-49B9-B37A-314622D7EA99"
     }
   ],
   "com.apple.AddressBookSourceSync": [
@@ -605,6 +711,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "5B566042-30D4-4C85-9842-7AD24127BBD9"
+    }
+  ],
+  "com.apple.AppStore": [
+    {
+      "action": "1",
+      "creation": "2025-03-18T09:19:31-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.AppStore",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.AppStore",
+      "name": "App Store",
+      "path": "/System/Applications/App Store.app",
+      "scope": "0",
+      "type": "1",
+      "uuid": "F4F36C1E-BB44-4A61-AAAC-5C5182C508B4"
     }
   ],
   "com.apple.AssetCacheLocatorService": [
@@ -882,6 +1013,31 @@
       "uuid": "ED2E83DF-11BE-4EA9-974C-5F886541AC88"
     }
   ],
+  "com.apple.Music": [
+    {
+      "action": "1",
+      "creation": "2025-03-17T15:23:21-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.Music",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.Music",
+      "name": "Music",
+      "path": "/System/Applications/Music.app",
+      "scope": "0",
+      "type": "1",
+      "uuid": "E6D29A66-C850-4DB8-8909-C68F86AF1A01"
+    }
+  ],
   "com.apple.NetAuthSysAgent": [
     {
       "action": "1",
@@ -932,6 +1088,56 @@
       "uuid": "6FBA2C7A-D176-4FE3-ADBD-C7C7BB754F73"
     }
   ],
+  "com.apple.Safari": [
+    {
+      "action": "1",
+      "creation": "2025-03-18T09:10:24-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.Safari",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.Safari",
+      "name": "Safari",
+      "path": "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app",
+      "scope": "0",
+      "type": "1",
+      "uuid": "5F88B90D-C2DF-45EF-AAF3-3F292E856D5F"
+    }
+  ],
+  "com.apple.Safari.PasswordBreachAgent": [
+    {
+      "action": "1",
+      "creation": "2025-03-15T09:28:40-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.Safari.PasswordBreachAgent",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.Safari.PasswordBreachAgent",
+      "name": "PasswordBreachAgent",
+      "path": "/System/Volumes/Preboot/Cryptexes/App/usr/libexec/PasswordBreachAgent",
+      "scope": "0",
+      "type": "1",
+      "uuid": "874FFFE6-D412-4393-888A-97DC58C22A77"
+    }
+  ],
   "com.apple.Safari.SafeBrowsing": [
     {
       "action": "1",
@@ -957,6 +1163,31 @@
       "uuid": "F0A68945-D4A5-447C-9A91-32E342FAF12A"
     }
   ],
+  "com.apple.Safari.SearchHelper": [
+    {
+      "action": "1",
+      "creation": "2025-03-18T09:10:24-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.Safari.SearchHelper",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.Safari.SearchHelper",
+      "name": "com.apple.Safari.SearchHelper.xpc",
+      "path": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/PrivateFrameworks/SafariShared.framework/Versions/A/XPCServices/com.apple.Safari.SearchHelper.xpc",
+      "scope": "0",
+      "type": "1",
+      "uuid": "A175FE00-A25B-4826-9339-2259F9D2D0B8"
+    }
+  ],
   "com.apple.ScreenContinuity": [
     {
       "action": "1",
@@ -980,6 +1211,56 @@
       "scope": "0",
       "type": "1",
       "uuid": "4820CEAC-84DC-4C24-A260-1E89D01693D5"
+    }
+  ],
+  "com.apple.Spotlight": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:15-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.Spotlight",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.Spotlight",
+      "name": "Spotlight",
+      "path": "/System/Library/CoreServices/Spotlight.app",
+      "scope": "0",
+      "type": "1",
+      "uuid": "677EE766-4DE9-4875-91EE-8D70DF132FB0"
+    }
+  ],
+  "com.apple.StocksKitService": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:14-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.StocksKitService",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.StocksKitService",
+      "name": "StocksKitService",
+      "path": "/System/Library/PrivateFrameworks/StocksKit.framework/XPCServices/StocksKitService.xpc",
+      "scope": "0",
+      "type": "1",
+      "uuid": "E1BDCF56-A9E2-4427-A287-A26FE9713FB1"
     }
   ],
   "com.apple.Virtualization.Installation": [
@@ -1382,6 +1663,31 @@
       "uuid": "6441F038-CF62-443C-A974-DE9BD15A93B6"
     }
   ],
+  "com.apple.askpermissiond": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.askpermissiond",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.askpermissiond",
+      "name": "askpermissiond",
+      "path": "/System/Library/PrivateFrameworks/AskPermission.framework/Versions/A/Resources/askpermissiond",
+      "scope": "0",
+      "type": "1",
+      "uuid": "7301B1C7-23C0-41C1-A8BD-2F4B23CDD55E"
+    }
+  ],
   "com.apple.assistantd": [
     {
       "action": "1",
@@ -1580,6 +1886,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "AA8D945B-22FA-42F6-A269-6A0A665B8B95"
+    }
+  ],
+  "com.apple.commerce": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.commerce",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.commerce",
+      "name": "commerce",
+      "path": "/System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/commerce",
+      "scope": "0",
+      "type": "1",
+      "uuid": "262F1708-6DDF-434A-B957-A83FAF36A91A"
     }
   ],
   "com.apple.configd": [
@@ -1873,6 +2204,29 @@
       "scope": "0",
       "type": "3",
       "uuid": "D838D8ED-DE77-486B-97E0-53CEAE9A51BB"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-13T14:52:30-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.curl",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.curl",
+      "name": "curl",
+      "path": "/usr/bin/curl",
+      "scope": "0",
+      "type": "3",
+      "uuid": "FBB48B64-A803-4CD2-9DF1-605E2C34EF7C"
     }
   ],
   "com.apple.dataaccess.dataaccessd": [
@@ -1998,6 +2352,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "E0D867A1-EBCE-4122-A857-861EE7DF5504"
+    }
+  ],
+  "com.apple.gamed": [
+    {
+      "action": "1",
+      "creation": "2025-03-18T09:19:32-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.gamed",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.gamed",
+      "name": "gamed",
+      "path": "/System/Library/PrivateFrameworks/GameCenterFoundation.framework/Versions/A/gamed",
+      "scope": "0",
+      "type": "1",
+      "uuid": "25B74AD0-0804-4D11-BD94-F052E9984662"
     }
   ],
   "com.apple.geod": [
@@ -2448,6 +2827,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "AD247D20-8EB6-474F-B6E2-8DA4CA03279C"
+    }
+  ],
+  "com.apple.knowledge-agent": [
+    {
+      "action": "1",
+      "creation": "2025-03-17T20:00:13-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.knowledge-agent",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.knowledge-agent",
+      "name": "knowledge-agent",
+      "path": "/usr/libexec/knowledge-agent",
+      "scope": "0",
+      "type": "1",
+      "uuid": "31AF99B9-C7BA-4D6E-8632-42E06C6DD2C5"
     }
   ],
   "com.apple.locationd": [
@@ -3050,6 +3454,31 @@
       "uuid": "160D1BA4-9655-4202-841F-08C61E10A3CE"
     }
   ],
+  "com.apple.photoanalysisd": [
+    {
+      "action": "1",
+      "creation": "2025-03-15T18:39:59-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.photoanalysisd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.photoanalysisd",
+      "name": "photoanalysisd",
+      "path": "/System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "06BDA1EF-0CA3-48EA-90EE-46EFBB62F51B"
+    }
+  ],
   "com.apple.ping": [
     {
       "action": "1",
@@ -3323,6 +3752,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "18FB1DCE-9E75-4931-AABD-1C3E91219CAA"
+    }
+  ],
+  "com.apple.seld": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:57:54-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.seld",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.seld",
+      "name": "seld",
+      "path": "/usr/libexec/seld",
+      "scope": "0",
+      "type": "1",
+      "uuid": "09513505-141B-4305-95A2-8BC42685C240"
     }
   ],
   "com.apple.sharingd": [
@@ -3615,6 +4069,29 @@
       "scope": "0",
       "type": "3",
       "uuid": "F8F352D6-C56D-4847-BDCD-E27879FCF6F0"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-13T13:44:28-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.ssh",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.ssh",
+      "name": "ssh",
+      "path": "/usr/bin/ssh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "7A76ECF8-020D-49CA-9EAA-2E5A034407BE"
     }
   ],
   "com.apple.stocks": [
@@ -3690,6 +4167,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "622AAD50-6134-4D1B-89A2-ED331FE78139"
+    }
+  ],
+  "com.apple.studentd": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T09:57:30-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.studentd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.studentd",
+      "name": "studentd",
+      "path": "/usr/libexec/studentd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "46D72AF0-60E7-42E4-AE28-CFD752E3427C"
     }
   ],
   "com.apple.swcd": [
@@ -3892,6 +4394,31 @@
       "uuid": "45B7CC52-EBF4-4D8F-A126-961809909E4E"
     }
   ],
+  "com.apple.translationd": [
+    {
+      "action": "1",
+      "creation": "2025-03-15T09:42:27-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.translationd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.translationd",
+      "name": "translationd",
+      "path": "/System/Library/Frameworks/Translation.framework/translationd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "39F3E670-4E49-4C60-947B-802BDDE9219A"
+    }
+  ],
   "com.apple.transparencyd": [
     {
       "action": "1",
@@ -4042,6 +4569,31 @@
       "uuid": "BB4F9F63-2674-4D99-A80C-0561260622EB"
     }
   ],
+  "com.apple.weatherd": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:57-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.weatherd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.weatherd",
+      "name": "weatherd",
+      "path": "/System/Library/PrivateFrameworks/WeatherDaemon.framework/weatherd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "0B7A4EAA-47EB-4611-9628-B5D4E9B5A003"
+    }
+  ],
   "com.apple.webprivacyd": [
     {
       "action": "1",
@@ -4141,6 +4693,29 @@
       "scope": "0",
       "type": "3",
       "uuid": "780AB0E5-2AF8-4474-91F6-398D3D04D7E5"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:06-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Brett Terpstra (47TRS7H4BH)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.brettterpstra.marked2",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.brettterpstra.marked2:Developer ID Application: Brett Terpstra (47TRS7H4BH)",
+      "name": "Marked 2",
+      "path": "/Applications/Marked 2.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "14A9F265-EA73-4697-9798-966710E86705"
     }
   ],
   "com.googlecode.iterm2:Developer ID Application: GEORGE NACHMAN (H7V7XYVQ7D)": [
@@ -4167,6 +4742,31 @@
       "scope": "0",
       "type": "3",
       "uuid": "E75B8724-3FEA-4C8A-B70F-091F0B59C849"
+    }
+  ],
+  "com.heroicgameslauncher.hgl.helper:Developer ID Application: Flavio Lima (DLB2RYLUDX)": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:11-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Flavio Lima (DLB2RYLUDX)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.heroicgameslauncher.hgl.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.heroicgameslauncher.hgl.helper:Developer ID Application: Flavio Lima (DLB2RYLUDX)",
+      "name": "Electron Helper",
+      "path": "/Applications/Heroic.app/Contents/Frameworks/Heroic Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "03372699-88E9-4140-B8F4-A4D5E82804EF"
     }
   ],
   "com.heroicgameslauncher.hgl:Developer ID Application: Flavio Lima (DLB2RYLUDX)": [
@@ -4218,6 +4818,29 @@
       "scope": "0",
       "type": "3",
       "uuid": "1AECFCED-769C-4296-ACFA-E5A6686BA394"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:08-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Logitech Inc. (QED4VVPZWA)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.logitech.vc.LogiVCCoreService",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.logitech.vc.LogiVCCoreService:Developer ID Application: Logitech Inc. (QED4VVPZWA)",
+      "name": "LogiVCCoreService",
+      "path": "/Library/Application Support/Logitech/com.logitech.vc.LogiVCCoreService/LogiVCCoreService.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "CF2BE565-5B1B-452A-806D-F72DA90FE99D"
     }
   ],
   "com.mediaatelier.CheatSheet:Developer ID Application: Stefan Fuerst (2295B9BX7F)": [
@@ -4731,6 +5354,31 @@
       "uuid": "F8D7043C-1528-43EA-A8E0-9340BC96BB00"
     }
   ],
+  "com.runningwithcrayons.Alfred:Developer ID Application: Running with Crayons Ltd (XZZXE9SED4)": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:20-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Running with Crayons Ltd (XZZXE9SED4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.runningwithcrayons.Alfred",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.runningwithcrayons.Alfred:Developer ID Application: Running with Crayons Ltd (XZZXE9SED4)",
+      "name": "Alfred",
+      "path": "/Applications/Alfred 5.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "7CDDE11A-FCC0-4B74-8305-ED756C342DA6"
+    }
+  ],
   "com.spotify.client.helper:Developer ID Application: Spotify (2FNC3A47ZF)": [
     {
       "action": "1",
@@ -4805,6 +5453,29 @@
       "scope": "0",
       "type": "3",
       "uuid": "955E9D61-4F28-4F60-909E-E31A255891F1"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:46-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sublime HQ Pty Ltd (Z6D26JE4Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sublimetext.4",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sublimetext.4:Developer ID Application: Sublime HQ Pty Ltd (Z6D26JE4Y4)",
+      "name": "Sublime Text",
+      "path": "/Applications/Sublime Text.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "03DCC8D7-1BFC-4573-93CC-C8DA10E2CAB2"
     }
   ],
   "com.surteesstudios.Bartender:Developer ID Application: Bartender App LLC (24J875RH8J)": [
@@ -5028,6 +5699,29 @@
       "scope": "0",
       "type": "3",
       "uuid": "E8DCB2F4-B542-4BB4-A3F6-8E7555A09CC6"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-13T16:04:58-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Flavio Lima (DLB2RYLUDX)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "gogdl",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "gogdl:Developer ID Application: Flavio Lima (DLB2RYLUDX)",
+      "name": "gogdl",
+      "path": "/Applications/Heroic.app/Contents/Resources/app.asar.unpacked/build/bin/arm64/darwin/gogdl",
+      "scope": "0",
+      "type": "3",
+      "uuid": "C50ECC6C-FA37-4C62-81F4-E467DC060720"
     }
   ],
   "legendary:Developer ID Application: Flavio Lima (DLB2RYLUDX)": [
@@ -5053,6 +5747,57 @@
       "scope": "0",
       "type": "3",
       "uuid": "39E3EDFC-9F62-493B-8AA3-CE53783C1044"
+    }
+  ],
+  "md.obsidian.helper:Developer ID Application: Dynalist Inc. (6JSW4SJWN9)": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:22-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Dynalist Inc. (6JSW4SJWN9)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "md.obsidian.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "md.obsidian.helper:Developer ID Application: Dynalist Inc. (6JSW4SJWN9)",
+      "name": "Electron Helper",
+      "path": "/Applications/Obsidian.app/Contents/Frameworks/Obsidian Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "63722E24-C97D-4AEE-B0F4-E70B1B9B26B9"
+    }
+  ],
+  "net.kassett.finicky:Developer ID Application: John Sterling (C3XWNKDP3M)": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T10:03:20-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: John Sterling (C3XWNKDP3M)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "net.kassett.finicky",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "api.github.com",
+      "endpointHost": "api.github.com",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "net.kassett.finicky:Developer ID Application: John Sterling (C3XWNKDP3M)",
+      "name": "Finicky",
+      "path": "/Applications/Finicky.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D7DE7AEB-2B63-4948-BCBE-94503061AFD6"
     }
   ],
   "net.kovidgoyal.calibre:Developer ID Application: Kovid Goyal (NTY7FVCEKP)": [
@@ -5442,6 +6187,31 @@
       "scope": "0",
       "type": "3",
       "uuid": "38A42C39-129A-4C9A-8A7C-C67C10689B7F"
+    }
+  ],
+  "plugin_host-3:Developer ID Application: Sublime HQ Pty Ltd (Z6D26JE4Y4)": [
+    {
+      "action": "1",
+      "creation": "2025-03-14T06:56:24-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sublime HQ Pty Ltd (Z6D26JE4Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "plugin_host-3",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "plugin_host-3:Developer ID Application: Sublime HQ Pty Ltd (Z6D26JE4Y4)",
+      "name": "plugin_host-3.8",
+      "path": "/Applications/Sublime Text.app/Contents/MacOS/plugin_host-3.8",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D61D7C47-BA61-4627-BC49-6FD1DE54E992"
     }
   ],
   "pro.betterdisplay.BetterDisplay:Developer ID Application: Istvan Toth (299YSU96J7)": [
