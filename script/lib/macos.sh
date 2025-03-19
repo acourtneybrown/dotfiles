@@ -441,8 +441,15 @@ function macos::setup_input_devices() {
 # }
 
 function macos::setup_apple_intelligence() {
+  local mobileMeAccountID
+
   # disable Apple Intelligence
-  defaults write com.apple.CloudSubscriptionFeatures.optIn "1359968974" -bool "false"
+  mobileMeAccountID=$(/usr/libexec/PlistBuddy -c "print Accounts:0:AccountDSID" ~"/Library/Preferences/MobileMeAccounts.plist")
+  if [[ "${mobileMeAccountID}" == *"File Doesn't Exist"* ]]; then
+    defaults write com.apple.CloudSubscriptionFeatures.optIn device -bool "false"
+  else
+    defaults write com.apple.CloudSubscriptionFeatures.optIn "$mobileMeAccountID" -bool "false"
+  fi
 }
 
 function macos::config_Finder() {
