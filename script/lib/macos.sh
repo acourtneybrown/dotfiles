@@ -21,6 +21,7 @@ function macos::setup() {
   macos::setup_ui_ux
   macos::setup_security
   macos::setup_input_devices
+  macos::setup_apple_intelligence
 
   local apps
   apps=(
@@ -438,6 +439,11 @@ function macos::setup_input_devices() {
 # defaults write com.apple.dock wvous-bl-corner -int 5
 # defaults write com.apple.dock wvous-bl-modifier -int 0
 # }
+
+function macos::setup_apple_intelligence() {
+  # disable Apple Intelligence
+  defaults write com.apple.CloudSubscriptionFeatures.optIn "1359968974" -bool "false"
+}
 
 function macos::config_Finder() {
   # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
