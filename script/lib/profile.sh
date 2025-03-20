@@ -20,7 +20,7 @@ function profile::default() {
   if [[ ! -d ~/.oh-my-zsh ]]; then
     if [ "$(
       util::download_and_verify https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh \
-        96d90bb5cfd50793f5666db815c5a2b0f209d7e509049d3b22833042640f2676 \
+        fbfcd1c0bf99acfcf77f7f999d75bb8c833d3b58643b603b3971d8cd1991fc2e \
         "$tmpscript"
     )" != "ok" ]; then
       util::abort "oh-my-zsh install script changed"
