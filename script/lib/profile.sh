@@ -23,7 +23,7 @@ function profile::default() {
         96d90bb5cfd50793f5666db815c5a2b0f209d7e509049d3b22833042640f2676 \
         "$tmpscript"
     )" != "ok" ]; then
-      util::abort "Either curl or wget must be installed"
+      util::abort "oh-my-zsh install script changed"
     fi
 
     sh $tmpscript --unattended
@@ -73,6 +73,32 @@ function profile::linux() {
   sudo apt install -qy make build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+}
+
+function profile::synology() {
+  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.synology"
+
+  profile::install_op_cli_manual
+}
+
+function profile::install_op_cli_manual() {
+  # install 1Password CLI tool
+  local ARCH="amd64"
+  local OP_VERSION="2.30.3"
+  local tmpdir
+
+  tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/calibre-dedrm.XXXXXXXXXX)" || return
+  if [ "$(util::download_and_verify "https://cache.agilebits.com/dist/1P/op2/pkg/v${OP_VERSION}/op_linux_${ARCH}_v${OP_VERSION}.zip" \
+    a16307ebcecb40fd091d7a6ff4f0c380c3c0897c4f4616de2c5d285e57d5ee28 \
+    "${tmpdir}/op.zip")" != "ok" ]; then
+    util::abort "1password-cli zipfile changed"
+  fi
+  unzip -d "${tmpdir}/op" "${tmpdir}/op.zip"
+  sudo mv "${tmpdir}/op"/op /usr/local/bin/
+  rm -rf "$tmpdir"
+  sudo groupadd -f onepassword-cli
+  sudo chgrp onepassword-cli /usr/local/bin/op
+  sudo chmod g+s /usr/local/bin/op
 }
 
 function profile::linux_after() {

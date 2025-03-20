@@ -59,9 +59,10 @@ function main() {
   included_profiles=(default)
   if util::is_mac; then
     included_profiles+=(mac)
-  fi
-  if util::is_linux; then
+  elif util::is_linux; then
     included_profiles+=(linux)
+  elif util::is_synology_dsm; then
+    included_profiles+=(synology)
   fi
   included_profiles+=("${@}")
   for named in "${included_profiles[@]}"; do

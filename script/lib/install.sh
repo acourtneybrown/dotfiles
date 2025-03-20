@@ -40,7 +40,7 @@ function install::linux_updates() {
     sudo apt update && sudo apt upgrade -qy
     ;;
   *)
-    abort "Only Debian-based Linux distros are supported"
+    util::abort "Only Debian-based Linux distros are supported"
     ;;
   esac
 }
@@ -64,7 +64,7 @@ function install::install_xcode() {
         echo "Requesting user install of Xcode Command Line Tools:"
         xcode-select --install
       else
-        abort "Run 'xcode-select --install' to install the Xcode Command Line Tools."
+        util::abort "Run 'xcode-select --install' to install the Xcode Command Line Tools."
       fi
     fi
   fi
@@ -79,7 +79,7 @@ function install::xcode_license() {
       echo "Asking for Xcode license confirmation:"
       sudo xcodebuild -license accept
     else
-      abort "Run 'sudo xcodebuild -license' to agree to the Xcode license."
+      util::abort "Run 'sudo xcodebuild -license' to agree to the Xcode license."
     fi
   fi
 }

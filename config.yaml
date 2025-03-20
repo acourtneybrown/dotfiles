@@ -169,6 +169,9 @@ dotfiles:
   f_p10k.zsh:
     src: p10k.zsh
     dst: ~/.p10k.zsh
+  f_profile-for-zsh:
+    src: bash_profile-for-zsh
+    dst: ~/.profile
   f_pypirc_home:
     src: pypirc_home
     dst: ~/.pypirc
@@ -334,6 +337,7 @@ profiles:
       - d_oh-my-zsh-custom
       - f_bash_profile-for-zsh
       - f_p10k.zsh
+      - f_profile-for-zsh
       - f_zshenv
       - f_zshrc
   shared:
