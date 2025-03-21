@@ -13,7 +13,7 @@ function profile::run_dotdrop_action() {
 
 function profile::default() {
   local tmpscript
-  tmpscript=$(mktemp /tmp/install.sh.XXXXXX)
+  tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
   # Install oh-my-zsh
@@ -26,7 +26,7 @@ function profile::default() {
       util::abort "oh-my-zsh install script changed"
     fi
 
-    sh $tmpscript --unattended
+    sh "$tmpscript" --unattended
     rm -f "$tmpscript"
   fi
 }
@@ -357,14 +357,15 @@ function profile::install_homebrew() {
     esac
   fi
 
+  tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
     a30b9fbf0d5c2cff3eb1d0643cceee30d8ba6ea1bb7bcabf60d3188bd62e6ba6 \
-    /tmp/install.sh)" != "ok" ]; then
+    "$tmpscript")" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi
 
-  NONINTERACTIVE=1 bash /tmp/install.sh
-  rm /tmp/install.sh
+  NONINTERACTIVE=1 bash "$tmpscript"
+  rm -f "$tmpscript"
 
   echo "Updating Homebrew:"
   profile::ensure_brew_in_path

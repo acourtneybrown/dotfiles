@@ -62,7 +62,7 @@ function util::download_and_verify() {
   url="${1}"
   sha256="${2}"
   output="${3}"
-  tempfile=$(mktemp /tmp/sha256.XXXXXX)
+  tempfile=$(mktemp "${TMPDIR:-/tmp}/sha256.XXXXXX")
   echo "${sha256}  $(basename "${output}")" >"${tempfile}"
 
   (
