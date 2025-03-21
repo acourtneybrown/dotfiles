@@ -306,10 +306,13 @@ profiles:
   synology_dsm:
     include:
       - linux
+    variables:
+      synology_dsm: true
   default:
     variables:
       linux: false
       mac: false
+      synology_dsm: false
       personal: false
       ssh_agent: ''
       ssh_agent_lifetime: 1h

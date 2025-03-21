@@ -134,6 +134,10 @@ plugins=(
   ssh-agent
   {%@@ endif @@%}
 
+  {%@@ if synology_dsm @@%}
+  home-tmpdir
+  {%@@ endif @@%}
+
   path
 
   $plugins

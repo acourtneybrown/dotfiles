@@ -76,9 +76,16 @@ function profile::linux() {
 }
 
 function profile::synology_dsm() {
+  mkdir -p "${HOME}/tmp"
+  export TMPDIR="${HOME}/tmp"
+
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.synology"
 
   command -v op >/dev/null || profile::install_op_cli_manual
+}
+
+function profile::synology_dsm_after() {
+  _finalizers+=("profile::clean_tmpdir")
 }
 
 # based on https://developer.1password.com/docs/cli/get-started/
@@ -343,6 +350,10 @@ function profile::op_get_file() {
 function profile::op_forget_cli_login() {
   op signout --account my --forget
   op account forget --all
+}
+
+function profile::clean_tmpdir() {
+  [[ -d $TMPDIR ]] && rm -rf "${TMPDIR:?}/*"
 }
 
 function profile::install_homebrew() {
