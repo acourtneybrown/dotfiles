@@ -295,6 +295,9 @@ profiles:
       - f_pypirc_home
     variables:
       personal: true
+  synology_dsm:
+    include:
+      - linux
   default:
     variables:
       linux: false
