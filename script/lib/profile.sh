@@ -81,6 +81,9 @@ function profile::synology_dsm() {
   export HOMEBREW_TEMP="${HOME}/tmp"
 
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.synology"
+  if [[ ! -e $(brew --prefix)/bin/gcc ]]; then
+    ln -s "$(basename "$(find "$(brew --prefix)/bin" -iregex ".*/gcc-[0-9]*" | tail)")" "$(brew --prefix)/bin/gcc"
+  fi
 
   command -v op >/dev/null || profile::install_op_cli_manual
 }
