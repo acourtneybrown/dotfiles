@@ -110,5 +110,11 @@ function install:ensure_ldd() {
 }
 
 function install::ensure_os-release() {
-  [[ -f /etc/os-release ]] || sudo install -m 755 "${INSTALL_SH_DIR}/resources/fake_ldd" /etc/os-release
+  local pretty_name
+  # shellcheck disable=SC1091,SC2154
+  pretty_name=$(source /etc.defaults/VERSION && echo "${os_name} ${productversion}-${buildnumber} Update ${smallfixnumber}")
+
+  [[ -f /etc/os-release ]] || sudo install -m 755 /dev/stdin /etc/os-release <<EOF
+PRETTY_NAME="$pretty_name"
+EOF
 }
