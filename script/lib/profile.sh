@@ -97,7 +97,11 @@ function profile::install_op_cli_manual() {
   unzip -d "${tmpdir}/op" "${tmpdir}/op.zip"
   sudo mv "${tmpdir}/op"/op /usr/local/bin/
   rm -rf "$tmpdir"
-  sudo groupadd -f onepassword-cli
+  if util::is_linux; then
+    sudo groupadd -f onepassword-cli
+  elif util::is_synology_dsm; then
+    sudo /usr/syno/sbin/synogroup --add onepassword-cli
+  fi
   sudo chgrp onepassword-cli /usr/local/bin/op
   sudo chmod g+s /usr/local/bin/op
 }
