@@ -78,7 +78,7 @@ function profile::linux() {
 function profile::synology() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.synology"
 
-  profile::install_op_cli_manual
+  command -v op || profile::install_op_cli_manual
 }
 
 # based on https://developer.1password.com/docs/cli/get-started/
