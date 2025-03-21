@@ -50,6 +50,12 @@ elif util::is_linux; then
     sudo locale-gen en_US.UTF-8
     sudo update-locale en_US.UTF-8
   fi
+
+  # Ensure that the ulimit for number of files is large enough
+  # shellcheck disable=SC2063
+  if ! grep -q '* - nofile 10240' /etc/security/limits.conf; then
+    sudo bash -c "echo '* - nofile 10240' >> /etc/security/limits.conf"
+  fi
 elif util::is_synology_dsm; then
   install::ensure_home_mount
   install::ensure_linuxbrew_home
