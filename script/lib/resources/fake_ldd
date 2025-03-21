@@ -3,7 +3,7 @@
 function fake_ldd() {
   local GLIBC_VERSION
 
-  if [[ $(/usr/lib/libc.so.6 | /bin/grep "GNU C Library") =~ version\ ([^ ]+)\.\$ ]]; then
+  if [[ "$(/usr/lib/libc.so.6 | /bin/grep "GNU C Library")" =~ version\ ([^ ]+)\.$ ]]; then
     GLIBC_VERSION="${BASH_REMATCH[1]}"
   fi
   echo "ldd ${GLIBC_VERSION:-2.20}"
