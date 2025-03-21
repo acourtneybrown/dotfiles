@@ -78,6 +78,7 @@ function profile::linux() {
 function profile::synology_dsm() {
   mkdir -p "${HOME}/tmp"
   export TMPDIR="${HOME}/tmp"
+  export HOMEBREW_TEMP="${HOME}/tmp"
 
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.synology"
 
