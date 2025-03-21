@@ -62,7 +62,7 @@ function main() {
   elif util::is_linux; then
     included_profiles+=(linux)
   elif util::is_synology_dsm; then
-    included_profiles+=(synology)
+    included_profiles+=(synology_dsm)
   fi
   included_profiles+=("${@}")
   for named in "${included_profiles[@]}"; do

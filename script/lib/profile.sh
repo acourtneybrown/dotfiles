@@ -75,7 +75,7 @@ function profile::linux() {
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 }
 
-function profile::synology() {
+function profile::synology_dsm() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.synology"
 
   command -v op || profile::install_op_cli_manual
