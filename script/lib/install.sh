@@ -92,6 +92,7 @@ function install::install_rosetta2() {
 function install::ensure_home_mount() {
   if [[ ! -f /etc/systemd/system/home.mount ]]; then
     sudo install -m 755 "${INSTALL_SH_DIR}/resources/home.mount" /etc/systemd/system/home.mount
+    sudo chmod 755 /var/services/homes
     sudo mkdir -m 755 /home            # Create /home directory
     sudo systemctl daemon-reload       # Reload systemd services
     sudo systemctl enable home.mount   # Enable the service to be mounted on startup
