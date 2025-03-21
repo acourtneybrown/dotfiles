@@ -105,7 +105,7 @@ function install:ensure_linuxbrew_home() {
   fi
 }
 
-function install:ensure_ldd() {
+function install::ensure_ldd() {
   [[ -f /usr/bin/ldd ]] || sudo install -m 755 "${INSTALL_SH_DIR}/resources/fake_ldd" /usr/bin/ldd
 }
 

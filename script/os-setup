@@ -53,6 +53,6 @@ elif util::is_linux; then
 elif util::is_synology_dsm; then
   install::ensure_home_mount
   install:ensure_linuxbrew_home
-  install:ensure_ldd
+  install::ensure_ldd
   install::ensure_os-release
 fi
