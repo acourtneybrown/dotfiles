@@ -85,6 +85,30 @@ function install::xcode_license() {
 }
 
 # install_rosetta2 attempts to install Rosetta2, assuming on ARM-based Mac
-install::install_rosetta2() {
+function install::install_rosetta2() {
   softwareupdate --install-rosetta --agree-to-license
+}
+
+function install::ensure_home_mount() {
+  if [[ ! -f /etc/systemd/system/home.mount ]]; then
+    sudo install -m 755 "${INSTALL_SH_DIR}/resources/home.mount" /etc/systemd/system/home.mount
+    sudo mkdir -m 755 /home            # Create /home directory
+    sudo systemctl daemon-reload       # Reload systemd services
+    sudo systemctl enable home.mount   # Enable the service to be mounted on startup
+    sudo systemctl start home.mount    # Mount the /home volume
+  fi
+}
+
+function install:ensure_linuxbrew_home() {
+  if [[ ! -d /home/linuxbrew ]]; then
+    sudo mkdir -m 755 /home/linuxbrew
+  fi
+}
+
+function install:ensure_ldd() {
+  [[ -f /usr/bin/ldd ]] || sudo install -m 755 "${INSTALL_SH_DIR}/resources/fake_ldd" /usr/bin/ldd
+}
+
+function install::ensure_os-release() {
+  [[ -f /etc/os-release ]] || sudo install -m 755 "${INSTALL_SH_DIR}/resources/fake_ldd" /etc/os-release
 }
