@@ -306,6 +306,8 @@ profiles:
   synology_dsm:
     include:
       - linux
+    variables:
+      zsh_disable_compfix: true
   default:
     variables:
       linux: false
@@ -315,6 +317,7 @@ profiles:
       ssh_agent_lifetime: 1h
       host_password: unset
       host_ssh_key_name: Default key
+      zsh_disable_compfix: false
     dynvariables:
       authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
       firefox_adam_ids: op item list --vault Adam --categories Login --format=json | jq -r '.[].id' | sort
