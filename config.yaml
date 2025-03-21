@@ -257,6 +257,14 @@ profiles:
   beelink.notcharlie.com:
     include:
       - beelink
+  synology:
+    include:
+      - default
+      - synology_dsm
+    variables:
+      host_password: op://Adam/m77teghqv2ec7xttb47j3qchsa/password
+      host_ssh_key_name: synology key
+      ssh_agent_lifetime: 12h
   mac:
     dynvariables:
       kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
