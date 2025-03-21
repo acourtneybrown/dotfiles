@@ -100,7 +100,7 @@ function install::ensure_home_mount() {
   fi
 }
 
-function install:ensure_linuxbrew_home() {
+function install::ensure_linuxbrew_home() {
   if [[ ! -d /home/linuxbrew ]]; then
     sudo mkdir -m 755 /home/linuxbrew
   fi
