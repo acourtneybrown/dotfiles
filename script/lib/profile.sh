@@ -81,6 +81,7 @@ function profile::synology() {
   profile::install_op_cli_manual
 }
 
+# based on https://developer.1password.com/docs/cli/get-started/
 function profile::install_op_cli_manual() {
   # install 1Password CLI tool
   local ARCH="amd64"
