@@ -10,7 +10,7 @@ fi
 
 {%@@ if zsh_disable_compfix @@%}
 # For some multiuser systems, we can't restrict the permissions
-ZSH_DISABLE_COMPFIX=true
+export ZSH_DISABLE_COMPFIX=true
 {%@@ endif @@%}
 
 # Path to your oh-my-zsh installation.
