@@ -40,7 +40,7 @@ function install::linux_updates() {
     sudo apt update && sudo apt upgrade -qy
     ;;
   *)
-    abort "Only Debian-based Linux distros are supported"
+    util::abort "Only Debian-based Linux distros are supported"
     ;;
   esac
 }
@@ -64,7 +64,7 @@ function install::install_xcode() {
         echo "Requesting user install of Xcode Command Line Tools:"
         xcode-select --install
       else
-        abort "Run 'xcode-select --install' to install the Xcode Command Line Tools."
+        util::abort "Run 'xcode-select --install' to install the Xcode Command Line Tools."
       fi
     fi
   fi
@@ -79,12 +79,43 @@ function install::xcode_license() {
       echo "Asking for Xcode license confirmation:"
       sudo xcodebuild -license accept
     else
-      abort "Run 'sudo xcodebuild -license' to agree to the Xcode license."
+      util::abort "Run 'sudo xcodebuild -license' to agree to the Xcode license."
     fi
   fi
 }
 
 # install_rosetta2 attempts to install Rosetta2, assuming on ARM-based Mac
-install::install_rosetta2() {
+function install::install_rosetta2() {
   softwareupdate --install-rosetta --agree-to-license
+}
+
+function install::ensure_home_mount() {
+  if [[ ! -f /etc/systemd/system/home.mount ]]; then
+    sudo install -m 755 "${INSTALL_SH_DIR}/resources/home.mount" /etc/systemd/system/home.mount
+    sudo chmod 755 /var/services/homes
+    sudo mkdir -m 755 /home            # Create /home directory
+    sudo systemctl daemon-reload       # Reload systemd services
+    sudo systemctl enable home.mount   # Enable the service to be mounted on startup
+    sudo systemctl start home.mount    # Mount the /home volume
+  fi
+}
+
+function install::ensure_linuxbrew_home() {
+  if [[ ! -d /home/linuxbrew ]]; then
+    sudo mkdir -m 755 /home/linuxbrew
+  fi
+}
+
+function install::ensure_ldd() {
+  [[ -f /usr/bin/ldd ]] || sudo install -m 755 "${INSTALL_SH_DIR}/resources/fake_ldd" /usr/bin/ldd
+}
+
+function install::ensure_os-release() {
+  local pretty_name
+  # shellcheck disable=SC1091,SC2154
+  pretty_name=$(source /etc.defaults/VERSION && echo "${os_name} ${productversion}-${buildnumber} Update ${smallfixnumber}")
+
+  [[ -f /etc/os-release ]] || sudo install -m 755 /dev/stdin /etc/os-release <<EOF
+PRETTY_NAME="$pretty_name"
+EOF
 }

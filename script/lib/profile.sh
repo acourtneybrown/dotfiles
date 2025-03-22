@@ -13,20 +13,20 @@ function profile::run_dotdrop_action() {
 
 function profile::default() {
   local tmpscript
-  tmpscript=$(mktemp /tmp/install.sh.XXXXXX)
+  tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
   # Install oh-my-zsh
   if [[ ! -d ~/.oh-my-zsh ]]; then
     if [ "$(
       util::download_and_verify https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh \
-        96d90bb5cfd50793f5666db815c5a2b0f209d7e509049d3b22833042640f2676 \
+        fbfcd1c0bf99acfcf77f7f999d75bb8c833d3b58643b603b3971d8cd1991fc2e \
         "$tmpscript"
     )" != "ok" ]; then
-      util::abort "Either curl or wget must be installed"
+      util::abort "oh-my-zsh install script changed"
     fi
 
-    sh $tmpscript --unattended
+    sh "$tmpscript" --unattended
     rm -f "$tmpscript"
   fi
 }
@@ -73,6 +73,48 @@ function profile::linux() {
   sudo apt install -qy make build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+}
+
+function profile::synology_dsm() {
+  mkdir -p "${HOME}/tmp"
+  export TMPDIR="${HOME}/tmp"
+  export HOMEBREW_TEMP="${HOME}/tmp"
+
+  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.synology"
+  if [[ ! -e $(brew --prefix)/bin/gcc ]]; then
+    ln -s "$(basename "$(find "$(brew --prefix)/bin" -iregex ".*/gcc-[0-9]*" | tail)")" "$(brew --prefix)/bin/gcc"
+  fi
+
+  command -v op >/dev/null || profile::install_op_cli_manual
+}
+
+function profile::synology_dsm_after() {
+  _finalizers+=("profile::clean_tmpdir")
+}
+
+# based on https://developer.1password.com/docs/cli/get-started/
+function profile::install_op_cli_manual() {
+  # install 1Password CLI tool
+  local ARCH="amd64"
+  local OP_VERSION="2.30.3"
+  local tmpdir
+
+  tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/op-cli.XXXXXXXXXX)" || return
+  if [ "$(util::download_and_verify "https://cache.agilebits.com/dist/1P/op2/pkg/v${OP_VERSION}/op_linux_${ARCH}_v${OP_VERSION}.zip" \
+    a16307ebcecb40fd091d7a6ff4f0c380c3c0897c4f4616de2c5d285e57d5ee28 \
+    "${tmpdir}/op.zip")" != "ok" ]; then
+    util::abort "1password-cli zipfile changed"
+  fi
+  unzip -d "${tmpdir}/op" "${tmpdir}/op.zip"
+  sudo mv "${tmpdir}/op"/op /usr/local/bin/
+  rm -rf "$tmpdir"
+  if util::is_linux; then
+    sudo groupadd -f onepassword-cli
+  elif util::is_synology_dsm; then
+    sudo /usr/syno/sbin/synogroup --add onepassword-cli
+  fi
+  sudo chgrp onepassword-cli /usr/local/bin/op
+  sudo chmod g+s /usr/local/bin/op
 }
 
 function profile::linux_after() {
@@ -314,6 +356,10 @@ function profile::op_forget_cli_login() {
   op account forget --all
 }
 
+function profile::clean_tmpdir() {
+  [[ -d $TMPDIR ]] && rm -rf "${TMPDIR:?}/*"
+}
+
 function profile::install_homebrew() {
   if util::is_linux; then
     case $(lsb_release --id --short) in
@@ -326,14 +372,15 @@ function profile::install_homebrew() {
     esac
   fi
 
+  tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
     a30b9fbf0d5c2cff3eb1d0643cceee30d8ba6ea1bb7bcabf60d3188bd62e6ba6 \
-    /tmp/install.sh)" != "ok" ]; then
+    "$tmpscript")" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi
 
-  NONINTERACTIVE=1 bash /tmp/install.sh
-  rm /tmp/install.sh
+  NONINTERACTIVE=1 bash "$tmpscript"
+  rm -f "$tmpscript"
 
   echo "Updating Homebrew:"
   profile::ensure_brew_in_path
