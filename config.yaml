@@ -36,6 +36,10 @@ config:
     - .DS_Store
     - .localized
 dotfiles:
+  d_1Password_settings:
+    src: Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/settings
+    dst: ~/Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/settings
+    chmod: 700
   d_bin:
     src: bin
     dst: ~/bin
@@ -274,6 +278,7 @@ profiles:
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
+      - d_1Password_settings
       - d_config_op_plugins
       - d_user
       - f_Alfred_prefs.json
