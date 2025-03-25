@@ -25,6 +25,7 @@ module.exports = {
           "bazelbuild.slack.com",
           "gaming.amazon.com",
           "i.cvs.com",
+          "l.klara.com",
           "login.docker.com",
           "meet.google.com",
           "notcharlie.slack.com",
