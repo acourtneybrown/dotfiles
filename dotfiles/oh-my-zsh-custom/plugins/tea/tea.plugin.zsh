@@ -11,7 +11,7 @@ if [[ ${commands[tea]} ]]; then
       return 1
     fi
 
-    "$LOCAL_TEA" repos list --limit 500 --output yaml | grep -v '^NOTE:' | yq ".[] | select(.owner == \"${1}\") | .ssh" | xargs -n 1 -I % -t "$LOCAL_TEA" clone %
+    "$LOCAL_TEA" repos list --limit 500 --output yaml | grep -v '^NOTE:' | yq ".[] | select(.owner == \"${1}\") | .ssh" | xargs -n 1 -I % "$LOCAL_TEA" clone %
   }
 
   # gtclorg clones all of the non-archived projects under a Gitea org

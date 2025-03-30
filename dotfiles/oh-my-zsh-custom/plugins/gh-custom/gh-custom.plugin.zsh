@@ -11,7 +11,7 @@ if [[ ${commands[gh]} ]]; then
       return 1
     fi
 
-    $LOCAL_GH api "${1}" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 -t "$LOCAL_GH" repo clone %
+    $LOCAL_GH api "${1}" --paginate --jq '.[] | select(.archived == false) | .full_name' | xargs -n 1 -I % -P 6 "$LOCAL_GH" repo clone %
   }
 
   # ghclorg clones all of the non-archived repos under a GitHub org
