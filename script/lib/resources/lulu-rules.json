@@ -14,6 +14,65 @@
       "uuid": "F1A6F788-C5C5-4F57-8F78-C3F6955E0A0F"
     }
   ],
+  "/Users/adambrown/.pyenv/versions/3.11.9/bin/python3.11": [
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:57:47-0700",
+      "csInfo": {
+        "signatureIdentifier": "python.exe",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "151.101.0.223",
+      "endpointHost": "151.101.0.223",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/Users/adambrown/.pyenv/versions/3.11.9/bin/python3.11",
+      "name": "python3.11",
+      "path": "/Users/adambrown/.pyenv/versions/3.11.9/bin/python3.11",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D60CEB75-8B4C-4B57-BD32-3FB3056A1851"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:57:49-0700",
+      "csInfo": {
+        "signatureIdentifier": "python.exe",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10.98.76.30",
+      "endpointHost": "10.98.76.30",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/Users/adambrown/.pyenv/versions/3.11.9/bin/python3.11",
+      "name": "python3.11",
+      "path": "/Users/adambrown/.pyenv/versions/3.11.9/bin/python3.11",
+      "scope": "0",
+      "type": "3",
+      "uuid": "14A5186E-F1A1-4A98-9390-0CD59383F065"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:57:52-0700",
+      "csInfo": {
+        "signatureIdentifier": "python.exe",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "151.101.192.223",
+      "endpointHost": "151.101.192.223",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/Users/adambrown/.pyenv/versions/3.11.9/bin/python3.11",
+      "name": "python3.11",
+      "path": "/Users/adambrown/.pyenv/versions/3.11.9/bin/python3.11",
+      "scope": "0",
+      "type": "3",
+      "uuid": "85404DAC-5727-4EE8-8079-1900D43A9EC0"
+    }
+  ],
   "/opt/homebrew/Cellar/gh/2.67.0/bin/gh": [
     {
       "action": "1",
@@ -185,6 +244,198 @@
       "scope": "0",
       "type": "3",
       "uuid": "9E903FE3-2722-4A3C-A03B-6EE70E4859B0"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:38:44-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "20.209.227.65",
+      "endpointHost": "20.209.227.65",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.67.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.67.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "2FAB24E5-A94B-442E-A2FB-D1FDCE9166B3"
+    }
+  ],
+  "/opt/homebrew/Cellar/gh/2.69.0/bin/gh": [
+    {
+      "action": "1",
+      "creation": "2025-03-25T14:45:37-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.112.5",
+      "endpointHost": "140.82.112.5",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B6342E48-F77A-455B-99D8-8B6D082E7824"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-26T11:14:11-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.112.6",
+      "endpointHost": "140.82.112.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "DCA09842-5EED-490E-B04F-997642C01092"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-26T11:14:20-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "20.209.227.65",
+      "endpointHost": "20.209.227.65",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B67C6030-4C78-48D0-9FED-F186FE4A4038"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-26T11:14:22-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.117.62.14",
+      "endpointHost": "34.117.62.14",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "EB481065-AE8A-4FE9-BFBA-22B49C641E33"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-26T11:14:26-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "20.209.163.161",
+      "endpointHost": "20.209.163.161",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "1182DA36-9E9C-44B9-ACD7-66ED9C3CE379"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-26T13:29:56-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.114.6",
+      "endpointHost": "140.82.114.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "BD65E195-38AC-4B94-AF20-49B05B5AE4BE"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-29T17:09:44-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.113.5",
+      "endpointHost": "140.82.113.5",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "C1238A29-2681-4530-9E0E-3813CAD636B1"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-29T17:11:07-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.113.6",
+      "endpointHost": "140.82.113.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6B099305-A2AD-4FC0-8F55-A94F626D61C0"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-30T15:07:39-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.114.5",
+      "endpointHost": "140.82.114.5",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "877E0268-325A-4586-B6A5-350020C82D98"
     }
   ],
   "/opt/homebrew/Cellar/git/2.48.1/libexec/git-core/git-remote-http": [
@@ -265,6 +516,46 @@
       "uuid": "BF9B9F97-C532-49AF-B8AE-4CD3A905768E"
     }
   ],
+  "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http": [
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:42:32-0700",
+      "csInfo": {
+        "signatureIdentifier": "git-remote-http-5555494407800426af6c3b6f81ce266d6ec2c67a",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.112.3",
+      "endpointHost": "140.82.112.3",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
+      "name": "git-remote-http",
+      "path": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
+      "scope": "0",
+      "type": "3",
+      "uuid": "2D403CE0-3F34-4B43-A70E-4D126F2571B0"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-26T11:14:02-0700",
+      "csInfo": {
+        "signatureIdentifier": "git-remote-http-5555494407800426af6c3b6f81ce266d6ec2c67a",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.112.4",
+      "endpointHost": "140.82.112.4",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
+      "name": "git-remote-http",
+      "path": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
+      "scope": "0",
+      "type": "3",
+      "uuid": "58503C36-B4DA-4DD4-A110-C522EBAA7E43"
+    }
+  ],
   "/opt/homebrew/Cellar/mosh/1.4.0_26/bin/mosh-client": [
     {
       "action": "1",
@@ -324,6 +615,228 @@
       "scope": "0",
       "type": "3",
       "uuid": "D61F76A1-8B21-446F-850C-8C19EB52D0A2"
+    }
+  ],
+  "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node": [
+    {
+      "action": "1",
+      "creation": "2025-03-25T10:55:58-0700",
+      "csInfo": {
+        "signatureIdentifier": "node-555549448ea6a65cf5e93fd5be70cfae1439e4e3",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "54.231.196.9",
+      "endpointHost": "54.231.196.9",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
+      "name": "node",
+      "path": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6BD07871-3230-453D-BC0F-27916FEF284B"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-27T09:01:32-0700",
+      "csInfo": {
+        "signatureIdentifier": "node-555549448ea6a65cf5e93fd5be70cfae1439e4e3",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.167.83",
+      "endpointHost": "18.155.167.83",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
+      "name": "node",
+      "path": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A32C6554-F9A7-43B5-B4A8-20C4A68A47E9"
+    }
+  ],
+  "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/Resources/Python.app": [
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:57:37-0700",
+      "csInfo": {
+        "signatureIdentifier": "org.python.python",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "151.101.0.223",
+      "endpointHost": "151.101.0.223",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/Resources/Python.app",
+      "name": "Python",
+      "path": "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/Resources/Python.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "CBDF5646-6979-44F0-ABA1-24C273EC9D87"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:57:40-0700",
+      "csInfo": {
+        "signatureIdentifier": "org.python.python",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10.98.76.30",
+      "endpointHost": "10.98.76.30",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/Resources/Python.app",
+      "name": "Python",
+      "path": "/opt/homebrew/Cellar/python@3.12/3.12.9/Frameworks/Python.framework/Versions/3.12/Resources/Python.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "4CD6511D-274E-4B16-A324-3EABAC29AB3D"
+    }
+  ],
+  "/opt/homebrew/Cellar/tea/0.9.2/bin/tea": [
+    {
+      "action": "1",
+      "creation": "2025-03-28T15:55:21-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10.98.76.30",
+      "endpointHost": "10.98.76.30",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/tea/0.9.2/bin/tea",
+      "name": "tea",
+      "path": "/opt/homebrew/Cellar/tea/0.9.2/bin/tea",
+      "scope": "0",
+      "type": "3",
+      "uuid": "865CD267-64DC-4DBB-A0B6-B1DFF6A3A18E"
+    }
+  ],
+  "calibre-parallel:Developer ID Application: Kovid Goyal (NTY7FVCEKP)": [
+    {
+      "action": "1",
+      "creation": "2025-03-27T10:15:20-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "calibre-parallel",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "calibre-parallel:Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+      "name": "calibre-parallel",
+      "path": "/Applications/calibre.app/Contents/MacOS/calibre-parallel",
+      "scope": "0",
+      "type": "3",
+      "uuid": "12A3300A-E111-4765-BF91-F1AD8441C15C"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-28T10:44:37-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "calibre-parallel",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "23.227.38.74",
+      "endpointHost": "23.227.38.74",
+      "endpointPort": "80",
+      "isEndpointAddrRegex": "0",
+      "key": "calibre-parallel:Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+      "name": "calibre-parallel",
+      "path": "/Applications/calibre.app/Contents/MacOS/calibre-parallel",
+      "scope": "0",
+      "type": "3",
+      "uuid": "4DB3B283-7594-4F07-ADB3-EF370EC911D2"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-28T10:46:36-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "calibre-parallel",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "192.240.165.76",
+      "endpointHost": "192.240.165.76",
+      "endpointPort": "80",
+      "isEndpointAddrRegex": "0",
+      "key": "calibre-parallel:Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+      "name": "calibre-parallel",
+      "path": "/Applications/calibre.app/Contents/MacOS/calibre-parallel",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D95A3273-1E79-4A94-8DB0-381A3CD82D1A"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-28T10:58:56-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "calibre-parallel",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "162.129.45.30",
+      "endpointHost": "162.129.45.30",
+      "endpointPort": "80",
+      "isEndpointAddrRegex": "0",
+      "key": "calibre-parallel:Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+      "name": "calibre-parallel",
+      "path": "/Applications/calibre.app/Contents/MacOS/calibre-parallel",
+      "scope": "0",
+      "type": "3",
+      "uuid": "883495B6-29D8-4817-AD6D-7737283E455A"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-28T17:26:20-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "calibre-parallel",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "188.121.119.235",
+      "endpointHost": "188.121.119.235",
+      "endpointPort": "80",
+      "isEndpointAddrRegex": "0",
+      "key": "calibre-parallel:Developer ID Application: Kovid Goyal (NTY7FVCEKP)",
+      "name": "calibre-parallel",
+      "path": "/Applications/calibre.app/Contents/MacOS/calibre-parallel",
+      "scope": "0",
+      "type": "3",
+      "uuid": "9A15342C-AF62-4F39-B149-9FA45C6808D8"
     }
   ],
   "cloud-drive-auto-updater-55554944430f519a99903d30b71410b237df3b3a:Developer ID Application: Synology Inc. (X85BAK35Y4)": [
@@ -448,6 +961,202 @@
       "uuid": "296BD1D5-72D0-4C93-A031-FEDD167C3374"
     }
   ],
+  "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9:Developer ID Application: Synology Inc. (X85BAK35Y4)": [
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:50:59-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Synology Inc. (X85BAK35Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.96.113",
+      "endpointHost": "18.238.96.113",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9:Developer ID Application: Synology Inc. (X85BAK35Y4)",
+      "name": "cloud-drive-auto-updater",
+      "path": "/Users/adambrown/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/MacOS/cloud-drive-auto-updater",
+      "scope": "0",
+      "type": "3",
+      "uuid": "89DDD669-71C4-4845-A1A7-A961F35F750F"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:51:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Synology Inc. (X85BAK35Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.109.56",
+      "endpointHost": "18.238.109.56",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9:Developer ID Application: Synology Inc. (X85BAK35Y4)",
+      "name": "cloud-drive-auto-updater",
+      "path": "/Users/adambrown/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/MacOS/cloud-drive-auto-updater",
+      "scope": "0",
+      "type": "3",
+      "uuid": "480A61CE-2426-4CB1-BBE0-6FADF668D0CC"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-27T18:54:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Synology Inc. (X85BAK35Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.96.102",
+      "endpointHost": "18.238.96.102",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9:Developer ID Application: Synology Inc. (X85BAK35Y4)",
+      "name": "cloud-drive-auto-updater",
+      "path": "/Users/adambrown/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/MacOS/cloud-drive-auto-updater",
+      "scope": "0",
+      "type": "3",
+      "uuid": "61D6CEAB-1DFC-46B7-AA87-B830EFED559B"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-30T11:24:47-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Synology Inc. (X85BAK35Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.96.99",
+      "endpointHost": "18.238.96.99",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9:Developer ID Application: Synology Inc. (X85BAK35Y4)",
+      "name": "cloud-drive-auto-updater",
+      "path": "/Users/adambrown/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/MacOS/cloud-drive-auto-updater",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D7A63716-1BD7-40AF-A3AB-6BA27365EBF3"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-30T11:24:53-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Synology Inc. (X85BAK35Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.109.121",
+      "endpointHost": "18.238.109.121",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9:Developer ID Application: Synology Inc. (X85BAK35Y4)",
+      "name": "cloud-drive-auto-updater",
+      "path": "/Users/adambrown/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/MacOS/cloud-drive-auto-updater",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B8A2C4B5-A3CC-4B5B-BFB8-A35E4EC9C574"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-31T19:46:49-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Synology Inc. (X85BAK35Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.109.15",
+      "endpointHost": "18.238.109.15",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9:Developer ID Application: Synology Inc. (X85BAK35Y4)",
+      "name": "cloud-drive-auto-updater",
+      "path": "/Users/adambrown/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/MacOS/cloud-drive-auto-updater",
+      "scope": "0",
+      "type": "3",
+      "uuid": "1FAA90E4-5DB8-4F5E-B18D-A585BE5705F0"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-02T07:46:31-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Synology Inc. (X85BAK35Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.109.72",
+      "endpointHost": "18.238.109.72",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "cloud-drive-auto-updater-5555494445788b482cd6322f84e03cf207a990c9:Developer ID Application: Synology Inc. (X85BAK35Y4)",
+      "name": "cloud-drive-auto-updater",
+      "path": "/Users/adambrown/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/MacOS/cloud-drive-auto-updater",
+      "scope": "0",
+      "type": "3",
+      "uuid": "C883FE3F-197E-47A6-B42F-EEE4941A7478"
+    }
+  ],
+  "cloud-drive-daemon-55554944da91e8c13175312aaedb0e89a40950ba:Developer ID Application: Synology Inc. (X85BAK35Y4)": [
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:49:59-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Synology Inc. (X85BAK35Y4)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "cloud-drive-daemon-55554944da91e8c13175312aaedb0e89a40950ba",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10.98.76.30",
+      "endpointHost": "10.98.76.30",
+      "endpointPort": "6690",
+      "isEndpointAddrRegex": "0",
+      "key": "cloud-drive-daemon-55554944da91e8c13175312aaedb0e89a40950ba:Developer ID Application: Synology Inc. (X85BAK35Y4)",
+      "name": "cloud-drive-daemon",
+      "path": "/Users/adambrown/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/MacOS/cloud-drive-daemon",
+      "scope": "0",
+      "type": "3",
+      "uuid": "702B9984-6949-41F4-807A-827ED598A6F9"
+    }
+  ],
   "cloud-drive-daemon-55554944fda7b264691a37ac91ca9f627e416b38:Developer ID Application: Synology Inc. (X85BAK35Y4)": [
     {
       "action": "1",
@@ -497,6 +1206,54 @@
       "scope": "0",
       "type": "3",
       "uuid": "CBDE2B94-60EC-404B-8C54-B925F4E3D277"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-26T13:30:54-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Buddy Software LTDA (8C7439RJLG)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "codes.rambo.VirtualBuddy",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "api.virtualbuddy.app",
+      "endpointHost": "api.virtualbuddy.app",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "codes.rambo.VirtualBuddy:Developer ID Application: Buddy Software LTDA (8C7439RJLG)",
+      "name": "VirtualBuddy",
+      "path": "/Applications/VirtualBuddy.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6A2E6736-F876-4F96-ABC6-A8210393D43B"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-26T13:31:32-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Buddy Software LTDA (8C7439RJLG)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "codes.rambo.VirtualBuddy",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "cdimage.ubuntu.com",
+      "endpointHost": "cdimage.ubuntu.com",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "codes.rambo.VirtualBuddy:Developer ID Application: Buddy Software LTDA (8C7439RJLG)",
+      "name": "VirtualBuddy",
+      "path": "/Applications/VirtualBuddy.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "5CFB317F-5365-415E-9109-9824E4C5C5C1"
     }
   ],
   "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)": [
@@ -785,6 +1542,53 @@
       "scope": "0",
       "type": "3",
       "uuid": "3A1EAC93-AEDA-49E2-9D57-C9C99D34B7BE"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-30T15:07:35-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.223.57.85",
+      "endpointHost": "3.223.57.85",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "F11F9814-E100-453C-8B01-843FBCD5D05D"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-30T15:07:40-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a02:85fc:207e:2634:6a3b",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "CAFEB8F3-5293-4BCE-BC44-08B3D8995258"
     }
   ],
   "com.apple.AMPArtworkAgent": [
@@ -835,6 +1639,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "B37D1718-BF3A-47E3-BF2C-6317CB73EF15"
+    }
+  ],
+  "com.apple.AMPDevicesAgent": [
+    {
+      "action": "1",
+      "creation": "2025-03-24T10:58:17-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.AMPDevicesAgent",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.AMPDevicesAgent",
+      "name": "AMPDevicesAgent",
+      "path": "/System/Library/PrivateFrameworks/AMPDevices.framework/Versions/A/Support/AMPDevicesAgent",
+      "scope": "0",
+      "type": "1",
+      "uuid": "BB535797-ED53-4F39-9020-DF83583A9758"
     }
   ],
   "com.apple.AMPLibraryAgent": [
@@ -937,6 +1766,31 @@
       "uuid": "F4F36C1E-BB44-4A61-AAAC-5C5182C508B4"
     }
   ],
+  "com.apple.AppleMobileBackup": [
+    {
+      "action": "1",
+      "creation": "2025-03-24T10:58:38-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.AppleMobileBackup",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.AppleMobileBackup",
+      "name": "AppleMobileBackup",
+      "path": "/Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/AppleMobileDeviceHelper.app/Contents/Resources/AppleMobileBackup",
+      "scope": "0",
+      "type": "1",
+      "uuid": "206319C1-1A75-4459-A4AC-097094CA9B4F"
+    }
+  ],
   "com.apple.AssetCacheLocatorService": [
     {
       "action": "1",
@@ -1037,6 +1891,31 @@
       "uuid": "0C9E7811-D260-4F39-8F6D-19D53B000FEC"
     }
   ],
+  "com.apple.CoreDevice.remotepairingd": [
+    {
+      "action": "1",
+      "creation": "2025-03-24T10:55:04-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.CoreDevice.remotepairingd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.CoreDevice.remotepairingd",
+      "name": "remotepairingd",
+      "path": "/Library/Apple/System/Library/PrivateFrameworks/RemotePairing.framework/Versions/A/XPCServices/remotepairingd.xpc",
+      "scope": "0",
+      "type": "1",
+      "uuid": "AFA615D3-DFA3-4FE7-9243-A47850BFCC18"
+    }
+  ],
   "com.apple.CrashReporterSupportHelper": [
     {
       "action": "1",
@@ -1112,6 +1991,31 @@
       "uuid": "9B0CBC06-757A-498C-8CC9-2074F406F407"
     }
   ],
+  "com.apple.FileProviderDaemon.AppStoreService": [
+    {
+      "action": "1",
+      "creation": "2025-03-24T11:17:10-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.FileProviderDaemon.AppStoreService",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.FileProviderDaemon.AppStoreService",
+      "name": "AppStoreService",
+      "path": "/System/Library/PrivateFrameworks/FileProviderDaemon.framework/XPCServices/AppStoreService.xpc",
+      "scope": "0",
+      "type": "1",
+      "uuid": "0B2339CA-B352-4A30-9AD9-49A3CC1ED0F1"
+    }
+  ],
   "com.apple.LookupViewService": [
     {
       "action": "1",
@@ -1135,6 +2039,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "90C91C16-DC76-4525-B376-D6439D1EED2E"
+    }
+  ],
+  "com.apple.MDCrashReportTool": [
+    {
+      "action": "1",
+      "creation": "2025-03-24T11:00:48-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.MDCrashReportTool",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.MDCrashReportTool",
+      "name": "MDCrashReportTool",
+      "path": "/Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/AppleMobileDeviceHelper.app/Contents/Resources/MDCrashReportTool",
+      "scope": "0",
+      "type": "1",
+      "uuid": "DA92B288-05F0-4A57-A9C5-110515353367"
     }
   ],
   "com.apple.Maps": [
@@ -1235,6 +2164,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "E6D29A66-C850-4DB8-8909-C68F86AF1A01"
+    }
+  ],
+  "com.apple.NRD.UpdateBrainService": [
+    {
+      "action": "1",
+      "creation": "2025-04-01T23:58:03-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.NRD.UpdateBrainService",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.NRD.UpdateBrainService",
+      "name": "com.apple.NRD.UpdateBrainService",
+      "path": "/var/db/com.apple.xpc.roleaccountd.staging/exec/16777231.109510250.xpc",
+      "scope": "0",
+      "type": "1",
+      "uuid": "0F928547-0F97-476C-A4B3-4178736AFF81"
     }
   ],
   "com.apple.NetAuthSysAgent": [
@@ -1510,6 +2464,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "E1BDCF56-A9E2-4427-A287-A26FE9713FB1"
+    }
+  ],
+  "com.apple.SyncServices.AppleMobileDeviceHelper": [
+    {
+      "action": "1",
+      "creation": "2025-03-24T10:58:18-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.SyncServices.AppleMobileDeviceHelper",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.SyncServices.AppleMobileDeviceHelper",
+      "name": "AppleMobileDeviceHelper",
+      "path": "/Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/AppleMobileDeviceHelper.app",
+      "scope": "0",
+      "type": "1",
+      "uuid": "5DECCAE8-8F78-467D-A3F5-BC8800B4760B"
     }
   ],
   "com.apple.Virtualization.Installation": [
@@ -1887,6 +2866,31 @@
       "uuid": "52C9FA8F-FF8B-4A31-A815-5F43CBFAA566"
     }
   ],
+  "com.apple.appstorecomponentsd": [
+    {
+      "action": "1",
+      "creation": "2025-03-30T10:19:50-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.appstorecomponentsd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.appstorecomponentsd",
+      "name": "appstorecomponentsd",
+      "path": "/System/Library/PrivateFrameworks/AppStoreComponents.framework/Support/appstorecomponentsd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "BA382E5B-C353-4713-8A34-29A54D076861"
+    }
+  ],
   "com.apple.apsd": [
     {
       "action": "1",
@@ -2010,6 +3014,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "1841047C-A683-459D-A2F8-3B4E34312950"
+    }
+  ],
+  "com.apple.betaenrollmentd": [
+    {
+      "action": "1",
+      "creation": "2025-03-25T09:42:21-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.betaenrollmentd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.betaenrollmentd",
+      "name": "betaenrollmentd",
+      "path": "/usr/libexec/betaenrollmentd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "0C9C8861-096C-40E9-B114-0233A7ABDEF2"
     }
   ],
   "com.apple.bookassetd": [
@@ -2912,6 +3941,31 @@
       "uuid": "8055621A-A4E9-4358-803F-D8E38C96F041"
     }
   ],
+  "com.apple.installd": [
+    {
+      "action": "1",
+      "creation": "2025-03-26T19:21:55-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.installd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.installd",
+      "name": "installd",
+      "path": "/System/Library/PrivateFrameworks/PackageKit.framework/Versions/A/Resources/installd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "AACA0059-0807-4B22-902D-B24B203032FE"
+    }
+  ],
   "com.apple.installer": [
     {
       "action": "1",
@@ -3060,6 +4114,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "C9E1052F-52CA-4CDD-AFB4-A761AC8CD9F5"
+    }
+  ],
+  "com.apple.mediaanalysisd": [
+    {
+      "action": "1",
+      "creation": "2025-03-23T20:49:55-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.mediaanalysisd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.mediaanalysisd",
+      "name": "mediaanalysisd",
+      "path": "/System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "B8FF4FA8-F496-4711-B816-99C02B219044"
     }
   ],
   "com.apple.mediastream.mstreamd": [
@@ -3537,6 +4616,56 @@
       "uuid": "8E3D6377-669F-455D-ADFB-3493FD3577EC"
     }
   ],
+  "com.apple.osascript": [
+    {
+      "action": "1",
+      "creation": "2025-03-26T14:21:14-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.osascript",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10.98.76.2",
+      "endpointHost": "10.98.76.2",
+      "endpointPort": "53",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.osascript",
+      "name": "osascript",
+      "path": "/usr/bin/osascript",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D8CC9986-F2F2-41CB-BF56-50746F00EACA"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-26T14:21:17-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.osascript",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "api.github.com",
+      "endpointHost": "api.github.com",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.osascript",
+      "name": "osascript",
+      "path": "/usr/bin/osascript",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D8A902A2-827E-4F6F-A51C-7A6C8083F1C3"
+    }
+  ],
   "com.apple.parsec-fbf": [
     {
       "action": "1",
@@ -3710,6 +4839,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "F831B888-50EB-49EF-A585-1353EC5E66E4"
+    }
+  ],
+  "com.apple.pkgutil": [
+    {
+      "action": "1",
+      "creation": "2025-03-24T12:50:52-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.pkgutil",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.pkgutil",
+      "name": "pkgutil",
+      "path": "/usr/sbin/pkgutil",
+      "scope": "0",
+      "type": "1",
+      "uuid": "ED115438-3AC8-4BDB-88F8-0BB033910335"
     }
   ],
   "com.apple.podcasts": [
@@ -4953,6 +6107,107 @@
       "uuid": "14A9F265-EA73-4697-9798-966710E86705"
     }
   ],
+  "com.docker.docker:Developer ID Application: Docker Inc (9BNSXJN65R)": [
+    {
+      "action": "1",
+      "creation": "2025-03-26T13:28:46-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.docker.docker",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "255.255.255.255",
+      "endpointHost": "255.255.255.255",
+      "endpointPort": "68",
+      "isEndpointAddrRegex": "0",
+      "key": "com.docker.docker:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Docker",
+      "path": "/Applications/Docker.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "DA463EE7-B60D-46FB-BF14-89790475E80E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-27T10:16:50-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.docker.docker",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.docker.docker:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Docker",
+      "path": "/Applications/Docker.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A1A113FE-7C8B-4EE3-8A40-279599FDDB4C"
+    }
+  ],
+  "com.electron.dockerdesktop.helper:Developer ID Application: Docker Inc (9BNSXJN65R)": [
+    {
+      "action": "1",
+      "creation": "2025-03-26T11:38:52-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.electron.dockerdesktop.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "35.186.205.6",
+      "endpointHost": "35.186.205.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.electron.dockerdesktop.helper:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Electron Helper",
+      "path": "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D8B491B0-3FB1-4188-86F3-9AA5C2623276"
+    }
+  ],
+  "com.electron.dockerdesktop:Developer ID Application: Docker Inc (9BNSXJN65R)": [
+    {
+      "action": "1",
+      "creation": "2025-03-26T11:35:20-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.electron.dockerdesktop",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.107.240.12",
+      "endpointHost": "34.107.240.12",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.electron.dockerdesktop:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Docker Desktop",
+      "path": "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "52B438D2-C9A1-4A28-A641-228FDE038A0A"
+    }
+  ],
   "com.googlecode.iterm2:Developer ID Application: GEORGE NACHMAN (H7V7XYVQ7D)": [
     {
       "action": "1",
@@ -5052,6 +6307,342 @@
       "scope": "0",
       "type": "3",
       "uuid": "CF2BE565-5B1B-452A-806D-F72DA90FE99D"
+    }
+  ],
+  "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)": [
+    {
+      "action": "1",
+      "creation": "2025-03-24T14:19:55-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "174.73.211.200",
+      "endpointHost": "174.73.211.200",
+      "endpointPort": "47989",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "8F17C8B8-587F-4005-BBD0-D4DA668C9F65"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-24T14:20:06-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "ff02::fb",
+      "endpointPort": "5353",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "2B59C703-E576-4D4C-B5B0-3BCD35DAB178"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-24T14:20:22-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "224.0.0.251",
+      "endpointHost": "224.0.0.251",
+      "endpointPort": "5353",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D2DB67B3-7B3E-4DAD-B093-44C7BC4134CE"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-24T14:22:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10\\.98\\.76\\..*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "1",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "734476F7-171E-49FA-B2B3-F22E28481139"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-24T14:39:22-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.74.124.204",
+      "endpointHost": "34.74.124.204",
+      "endpointPort": "3478",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "BBFBAF93-5ED8-48FA-B296-66EE1F67D87C"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-24T14:39:27-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "172.233.245.118",
+      "endpointHost": "172.233.245.118",
+      "endpointPort": "3478",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A6126F96-CC62-41A9-9671-C14D1FAD943B"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-24T14:39:31-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "129.153.212.128",
+      "endpointHost": "129.153.212.128",
+      "endpointPort": "3478",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "40272EA6-0629-44F1-98A9-4CE09DA3FD0C"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-24T14:39:34-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.21.16.1",
+      "endpointHost": "104.21.16.1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B7147AA7-3F3A-464C-8C0C-3CD4BBC36FBA"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-24T14:40:07-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.21.96.1",
+      "endpointHost": "104.21.96.1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "3C36849D-C14D-40D4-ACA0-A25A866D1FDA"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-24T14:40:34-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.21.80.1",
+      "endpointHost": "104.21.80.1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "F5398FF2-221C-4485-913E-5C2465F270FC"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-24T14:40:41-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.21.32.1",
+      "endpointHost": "104.21.32.1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "5D527994-00F1-4C41-B00D-DA4F18A33B1B"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-24T14:40:51-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.21.112.1",
+      "endpointHost": "104.21.112.1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "514FC5DC-2E18-4ED8-8ED1-F75759E430D8"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-24T14:40:57-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.21.64.1",
+      "endpointHost": "104.21.64.1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "2AC6BFAD-0418-4FAF-BEA2-839307538251"
+    },
+    {
+      "action": "0",
+      "creation": "2025-03-25T10:08:14-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Cameron Gutman (45U78722YL)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.moonlight-stream.Moonlight",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.21.48.1",
+      "endpointHost": "104.21.48.1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.moonlight-stream.Moonlight:Developer ID Application: Cameron Gutman (45U78722YL)",
+      "name": "Moonlight.app",
+      "path": "/Applications/Moonlight.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "4DC348BA-C7D7-45D3-80DB-6C679976B0CA"
     }
   ],
   "com.objective-see.Netiquette:Developer ID Application: Objective-See, LLC (VBG97UB4TA)": [
@@ -5707,6 +7298,270 @@
       "scope": "0",
       "type": "3",
       "uuid": "A5D04B45-F620-40A9-89FA-C08044B0E191"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-27T20:56:04-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.230.73.252",
+      "endpointHost": "3.230.73.252",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B51BE8B7-F45F-4C1F-A4CE-800D56ADAD3F"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-27T20:57:08-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.210.62.99",
+      "endpointHost": "3.210.62.99",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "E45DBF87-8E6B-4750-B59E-054A7B0CF34F"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-27T21:06:14-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "54.225.82.52",
+      "endpointHost": "54.225.82.52",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "295E23A8-80F5-4CC8-AF92-2EFA6A40E632"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-27T21:07:20-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.217.114.251",
+      "endpointHost": "3.217.114.251",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A320A193-E3AF-410B-9FF7-C97FB2895046"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-29T13:24:14-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "i.scdn.co",
+      "endpointHost": "i.scdn.co",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "DACC0EAB-8499-4EE3-A051-B92BB123F1B9"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-30T13:14:11-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "35.172.57.58",
+      "endpointHost": "35.172.57.58",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "4ED57A17-925D-49F5-BF8B-54780AFCE91C"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-30T16:13:28-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "52.204.82.90",
+      "endpointHost": "52.204.82.90",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D812BDC6-749D-4DC1-9498-D1CFE0D3AB0D"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-30T17:10:07-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "52.70.184.97",
+      "endpointHost": "52.70.184.97",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6E3570E5-C571-4711-A996-ACCC90F67D07"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-01T14:11:49-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.209.150.190",
+      "endpointHost": "3.209.150.190",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "AE4E3EF9-2BD3-4F49-A86C-94EF0410BD26"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-01T17:06:53-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.83.197.169",
+      "endpointHost": "3.83.197.169",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6CC720AA-A916-40D0-A1CF-14626C48F39F"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-01T17:06:54-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.210.55.231",
+      "endpointHost": "3.210.55.231",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "81F218C1-BF84-44D1-8BF8-FC4FD9EEC533"
     }
   ],
   "com.spotify.client.helper:Developer ID Application: Spotify (2FNC3A47ZF)": [
@@ -5908,6 +7763,80 @@
       "scope": "0",
       "type": "3",
       "uuid": "F19362ED-C49F-4B6B-AF80-DC2871C52179"
+    }
+  ],
+  "ffmpeg:Developer ID Application: ACLAP (4YP9AW3WW3)": [
+    {
+      "action": "1",
+      "creation": "2025-03-31T10:10:18-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: ACLAP (4YP9AW3WW3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "ffmpeg",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.173.123",
+      "endpointHost": "18.155.173.123",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "ffmpeg:Developer ID Application: ACLAP (4YP9AW3WW3)",
+      "name": "ffmpeg",
+      "path": "/Applications/net.downloadhelper.coapp.app/Contents/MacOS/ffmpeg",
+      "scope": "0",
+      "type": "3",
+      "uuid": "FBCB0630-CCD6-43CA-8996-C8133A4F5118"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-31T10:10:20-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: ACLAP (4YP9AW3WW3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "ffmpeg",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.173.64",
+      "endpointHost": "18.155.173.64",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "ffmpeg:Developer ID Application: ACLAP (4YP9AW3WW3)",
+      "name": "ffmpeg",
+      "path": "/Applications/net.downloadhelper.coapp.app/Contents/MacOS/ffmpeg",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A8E16FC0-3592-411C-98EB-B5D317C43647"
+    },
+    {
+      "action": "1",
+      "creation": "2025-03-31T10:10:21-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: ACLAP (4YP9AW3WW3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "ffmpeg",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.173.101",
+      "endpointHost": "18.155.173.101",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "ffmpeg:Developer ID Application: ACLAP (4YP9AW3WW3)",
+      "name": "ffmpeg",
+      "path": "/Applications/net.downloadhelper.coapp.app/Contents/MacOS/ffmpeg",
+      "scope": "0",
+      "type": "3",
+      "uuid": "C84266C6-0841-4F71-93F3-725A95982463"
     }
   ],
   "gogdl:Developer ID Application: Flavio Lima (DLB2RYLUDX)": [
@@ -6372,6 +8301,104 @@
       "scope": "0",
       "type": "3",
       "uuid": "DB570ADE-9748-47FD-B843-41C79D63FCD4"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-01T08:55:20-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Mozilla Corporation (43AQ936H96)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "org.mozilla.plugincontainer",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "142.250.82.221",
+      "endpointHost": "142.250.82.221",
+      "endpointPort": "3478",
+      "isEndpointAddrRegex": "0",
+      "key": "org.mozilla.plugincontainer:Developer ID Application: Mozilla Corporation (43AQ936H96)",
+      "name": "plugin-container.app",
+      "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A78A1D17-C423-449F-BCEC-7E8A9B97C4E0"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-01T08:55:26-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Mozilla Corporation (43AQ936H96)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "org.mozilla.plugincontainer",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "142.250.82.221",
+      "endpointHost": "142.250.82.221",
+      "endpointPort": "19305",
+      "isEndpointAddrRegex": "0",
+      "key": "org.mozilla.plugincontainer:Developer ID Application: Mozilla Corporation (43AQ936H96)",
+      "name": "plugin-container.app",
+      "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "812F7564-C674-4021-91FF-FA753EB564BF"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-01T08:55:32-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Mozilla Corporation (43AQ936H96)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "org.mozilla.plugincontainer",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10.13.192.11",
+      "endpointHost": "10.13.192.11",
+      "endpointPort": "4356",
+      "isEndpointAddrRegex": "0",
+      "key": "org.mozilla.plugincontainer:Developer ID Application: Mozilla Corporation (43AQ936H96)",
+      "name": "plugin-container.app",
+      "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "66DDC693-D578-4749-BF18-4E6434B27FF4"
+    }
+  ],
+  "org.videolan.vlc:Developer ID Application: VideoLAN (75GAHG3SZQ)": [
+    {
+      "action": "1",
+      "creation": "2025-03-28T11:38:51-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: VideoLAN (75GAHG3SZQ)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "org.videolan.vlc",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "update.videolan.org",
+      "endpointHost": "update.videolan.org",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "org.videolan.vlc:Developer ID Application: VideoLAN (75GAHG3SZQ)",
+      "name": "VLC",
+      "path": "/Applications/VLC.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "CF5E38A8-5550-4788-8096-D11899E7720F"
     }
   ],
   "pingsender:Developer ID Application: Mozilla Corporation (43AQ936H96)": [
