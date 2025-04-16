@@ -1,4 +1,4 @@
-// See https://github.com/johnste/finicky/wiki/Configuration
+// See https://github.com/johnste/finicky/wiki/Configuration-(v3)
 
 function openInFirefoxContainer(containerName, urlString) {
   return `ext+container:name=${containerName}&url=${encodeURIComponent(
