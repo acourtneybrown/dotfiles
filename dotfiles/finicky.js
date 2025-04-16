@@ -78,7 +78,7 @@ module.exports = {
         {%@@ endfor @@%}
       ],
       url: ({ urlString }) => {
-        return openInFirefoxContainer("Carter", urlString);
+        return openInFirefoxContainer("CB", urlString);
       },
       browser: "Firefox",
     },
