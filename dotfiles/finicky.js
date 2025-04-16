@@ -1,4 +1,4 @@
-// See https://github.com/johnste/finicky/wiki/Configuration
+// See https://github.com/johnste/finicky/wiki/Configuration-(v3)
 
 function openInFirefoxContainer(containerName, urlString) {
   return `ext+container:name=${containerName}&url=${encodeURIComponent(
@@ -18,7 +18,6 @@ module.exports = {
     },
   ],
   handlers: [
-    {%@@ if personal @@%}
     {
       match: [
         finicky.matchHostnames([
@@ -48,18 +47,6 @@ module.exports = {
       },
       browser: "Firefox",
     },
-    {%@@ endif @@%}
-    {
-      // Confluent-related sites
-      match: [
-        /^https:\/\/.*\.myworkday\.com\/confluent/,
-      ],
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("CFLT", urlString);
-      },
-      browser: "Firefox",
-    },
-    {%@@ if personal @@%}
     {
       match: [
         {%@@ for id in firefox_cara_ids.split() @@%}
@@ -78,7 +65,7 @@ module.exports = {
         {%@@ endfor @@%}
       ],
       url: ({ urlString }) => {
-        return openInFirefoxContainer("Carter", urlString);
+        return openInFirefoxContainer("CB", urlString);
       },
       browser: "Firefox",
     },
@@ -137,7 +124,7 @@ module.exports = {
       },
       browser: "Firefox",
     },
-    {%@@ endif @@%}
+    // TODO: consider https://github.com/johnste/finicky/wiki/Configuration-ideas#open-zoom-links-in-zoom-app-with-or-without-password
     {
       match: [
         /zoom\.us/
