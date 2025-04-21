@@ -8656,6 +8656,78 @@
       "scope": "0",
       "type": "3",
       "uuid": "41D6E7B2-57C4-4C63-9066-5AF206ED9160"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-21T15:30:29-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "52.22.4.197",
+      "endpointHost": "52.22.4.197",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "FCB0A03F-1505-44CB-BA9D-1D2B42A9DFCF"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-21T15:30:32-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.209.197.125",
+      "endpointHost": "3.209.197.125",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "402A9F46-054B-4F9A-9356-078BCB2E729C"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-21T15:41:19-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "44.217.52.31",
+      "endpointHost": "44.217.52.31",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "9489E498-1FB6-4C9F-8F59-AC7522DC0FEA"
     }
   ],
   "com.spotify.client.helper:Developer ID Application: Spotify (2FNC3A47ZF)": [
@@ -9611,6 +9683,30 @@
       "scope": "0",
       "type": "3",
       "uuid": "651017E7-F9D1-41D3-9C9F-3AC2792AED91"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-21T12:14:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Mozilla Corporation (43AQ936H96)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "org.mozilla.plugincontainer",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "5.57.21.215",
+      "endpointHost": "5.57.21.215",
+      "endpointPort": "3478",
+      "isEndpointAddrRegex": "0",
+      "key": "org.mozilla.plugincontainer:Developer ID Application: Mozilla Corporation (43AQ936H96)",
+      "name": "plugin-container.app",
+      "path": "/Applications/Firefox.app/Contents/MacOS/plugin-container.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A2104B06-DD78-4402-9F7C-88E7B284B6F7"
     }
   ],
   "org.videolan.vlc:Developer ID Application: VideoLAN (75GAHG3SZQ)": [
