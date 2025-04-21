@@ -27,6 +27,7 @@ module.exports = {
           "l.klara.com",
           "login.docker.com",
           "meet.google.com",
+          "myactivity.google.com",
           "notcharlie.slack.com",
           "pbj-dogs.slack.com",
           "xooglerco.slack.com",
