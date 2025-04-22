@@ -20,36 +20,6 @@ module.exports = {
   handlers: [
     {
       match: [
-        finicky.matchHostnames([
-          "bazelbuild.slack.com",
-          "gaming.amazon.com",
-          "i.cvs.com",
-          "l.klara.com",
-          "login.docker.com",
-          "meet.google.com",
-          "myactivity.google.com",
-          "notcharlie.slack.com",
-          "pbj-dogs.slack.com",
-          "xooglerco.slack.com",
-        ]),
-
-        /^https:\/\/calendly\.com\/omaras\//,
-        /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
-        /^https:\/\/github\.com\/NotCharlie(\/|$)/,
-
-        "https://www.amazon.com/alexa-privacy/apd/rvh",
-
-        ({ opener }) => {
-          return bundleIdsForHarmony.has(opener.bundleId)
-        },
-      ],
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("Me", urlString);
-      },
-      browser: "Firefox",
-    },
-    {
-      match: [
         {%@@ for id in firefox_cara_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
@@ -108,6 +78,29 @@ module.exports = {
     },
     {
       match: [
+        finicky.matchHostnames([
+          "bazelbuild.slack.com",
+          "gaming.amazon.com",
+          "i.cvs.com",
+          "l.klara.com",
+          "login.docker.com",
+          "meet.google.com",
+          "myactivity.google.com",
+          "notcharlie.slack.com",
+          "pbj-dogs.slack.com",
+          "xooglerco.slack.com",
+        ]),
+
+        /^https:\/\/calendly\.com\/omaras\//,
+        /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
+        /^https:\/\/github\.com\/NotCharlie(\/|$)/,
+
+        "https://www.amazon.com/alexa-privacy/apd/rvh",
+
+        ({ opener }) => {
+          return bundleIdsForHarmony.has(opener.bundleId)
+        },
+
         {%@@ for id in firefox_adam_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
