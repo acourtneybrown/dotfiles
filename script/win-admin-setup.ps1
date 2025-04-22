@@ -11,6 +11,7 @@ choco install -y heroic-games-launcher
 choco install -y moonlight
 choco install -y myharmony
 choco install -y obsidian
+choco install -y playnite
 choco install -y slack
 choco install -y steam
 choco install -y sublimetext4
