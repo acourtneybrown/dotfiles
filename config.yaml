@@ -23,7 +23,7 @@ actions:
   chmod_dirs: |
     find -L {{@@ _dotfile_abs_dst @@}} -type d -exec chmod {0} {{}} \;
 config:
-  backup: true
+  backup: false
   create: true
   force_chmod: true
   link_dotfile_default: link
@@ -169,6 +169,9 @@ dotfiles:
   f_p10k.zsh:
     src: p10k.zsh
     dst: ~/.p10k.zsh
+  f_profile-for-zsh:
+    src: bash_profile-for-zsh
+    dst: ~/.profile
   f_pypirc_home:
     src: pypirc_home
     dst: ~/.pypirc
@@ -254,6 +257,14 @@ profiles:
   beelink.notcharlie.com:
     include:
       - beelink
+  synology:
+    include:
+      - default
+      - synology_dsm
+    variables:
+      host_password: op://Adam/m77teghqv2ec7xttb47j3qchsa/password
+      host_ssh_key_name: synology key
+      ssh_agent_lifetime: 12h
   mac:
     dynvariables:
       kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
@@ -292,10 +303,16 @@ profiles:
       - f_pypirc_home
     variables:
       personal: true
+  synology_dsm:
+    include:
+      - linux
+    variables:
+      synology_dsm: true
   default:
     variables:
       linux: false
       mac: false
+      synology_dsm: false
       personal: false
       ssh_agent: ''
       ssh_agent_lifetime: 1h
@@ -334,6 +351,7 @@ profiles:
       - d_oh-my-zsh-custom
       - f_bash_profile-for-zsh
       - f_p10k.zsh
+      - f_profile-for-zsh
       - f_zshenv
       - f_zshrc
   shared:

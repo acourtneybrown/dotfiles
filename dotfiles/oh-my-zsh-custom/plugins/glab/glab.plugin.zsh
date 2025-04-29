@@ -11,7 +11,7 @@ if [[ ${commands[glab]} ]]; then
       return 1
     fi
 
-    "$LOCAL_GLAB" api "${1}" --paginate | jq '.[] | select(.archived == false) | .path_with_namespace' | xargs -n 1 -I % -P 6 -t "$LOCAL_GLAB" project clone %
+    "$LOCAL_GLAB" api "${1}" --paginate | jq '.[] | select(.archived == false) | .path_with_namespace' | xargs -n 1 -I % -P 6 "$LOCAL_GLAB" project clone %
   }
 
   # glclgroup clones all of the non-archived projects under a GitLab group

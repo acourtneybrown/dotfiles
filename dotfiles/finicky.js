@@ -1,4 +1,4 @@
-// See https://github.com/johnste/finicky/wiki/Configuration
+// See https://github.com/johnste/finicky/wiki/Configuration-(v3)
 
 function openInFirefoxContainer(containerName, urlString) {
   return `ext+container:name=${containerName}&url=${encodeURIComponent(
@@ -18,47 +18,6 @@ module.exports = {
     },
   ],
   handlers: [
-    {%@@ if personal @@%}
-    {
-      match: [
-        finicky.matchHostnames([
-          "bazelbuild.slack.com",
-          "gaming.amazon.com",
-          "i.cvs.com",
-          "login.docker.com",
-          "meet.google.com",
-          "notcharlie.slack.com",
-          "pbj-dogs.slack.com",
-          "xooglerco.slack.com",
-        ]),
-
-        /^https:\/\/calendly\.com\/omaras\//,
-        /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
-        /^https:\/\/github\.com\/NotCharlie(\/|$)/,
-
-        "https://www.amazon.com/alexa-privacy/apd/rvh",
-
-        ({ opener }) => {
-          return bundleIdsForHarmony.has(opener.bundleId)
-        },
-      ],
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("Me", urlString);
-      },
-      browser: "Firefox",
-    },
-    {%@@ endif @@%}
-    {
-      // Confluent-related sites
-      match: [
-        /^https:\/\/.*\.myworkday\.com\/confluent/,
-      ],
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("CFLT", urlString);
-      },
-      browser: "Firefox",
-    },
-    {%@@ if personal @@%}
     {
       match: [
         {%@@ for id in firefox_cara_ids.split() @@%}
@@ -77,7 +36,7 @@ module.exports = {
         {%@@ endfor @@%}
       ],
       url: ({ urlString }) => {
-        return openInFirefoxContainer("Carter", urlString);
+        return openInFirefoxContainer("CB", urlString);
       },
       browser: "Firefox",
     },
@@ -119,6 +78,29 @@ module.exports = {
     },
     {
       match: [
+        finicky.matchHostnames([
+          "bazelbuild.slack.com",
+          "gaming.amazon.com",
+          "i.cvs.com",
+          "l.klara.com",
+          "login.docker.com",
+          "meet.google.com",
+          "myactivity.google.com",
+          "notcharlie.slack.com",
+          "pbj-dogs.slack.com",
+          "xooglerco.slack.com",
+        ]),
+
+        /^https:\/\/calendly\.com\/omaras\//,
+        /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
+        /^https:\/\/github\.com\/NotCharlie(\/|$)/,
+
+        "https://www.amazon.com/alexa-privacy/apd/rvh",
+
+        ({ opener }) => {
+          return bundleIdsForHarmony.has(opener.bundleId)
+        },
+
         {%@@ for id in firefox_adam_ids.split() @@%}
           /{{@@ id @@}}={{@@ id @@}}/,
         {%@@ endfor @@%}
@@ -136,7 +118,7 @@ module.exports = {
       },
       browser: "Firefox",
     },
-    {%@@ endif @@%}
+    // TODO: consider https://github.com/johnste/finicky/wiki/Configuration-ideas#open-zoom-links-in-zoom-app-with-or-without-password
     {
       match: [
         /zoom\.us/

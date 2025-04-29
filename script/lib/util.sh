@@ -18,7 +18,11 @@ function util::is_arm() {
 }
 
 function util::is_linux() {
-  [[ "$(uname -s)" = "Linux" ]]
+  [[ "$(uname -s)" = "Linux" ]] && ! util::is_synology_dsm
+}
+
+function util::is_synology_dsm() {
+  [[ -f /etc/synoinfo.conf ]]
 }
 
 function util::sudo_keepalive() {
@@ -58,7 +62,7 @@ function util::download_and_verify() {
   url="${1}"
   sha256="${2}"
   output="${3}"
-  tempfile=$(mktemp /tmp/sha256.XXXXXX)
+  tempfile=$(mktemp "${TMPDIR:-/tmp}/sha256.XXXXXX")
   echo "${sha256}  $(basename "${output}")" >"${tempfile}"
 
   (

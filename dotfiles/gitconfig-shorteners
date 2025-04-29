@@ -31,3 +31,10 @@
 [url "ssh://git@gitlab.com/{{@@ gitlab_account @@}}/"]
 
 	insteadOf = "gla:"
+
+[url "ssh://git@gitea.notcharlie.com/"]
+
+	insteadOf = "gth:"
+	insteadOf = "giteahome:"
+	insteadOf = "git://gitea.notcharlie.com/"
+	insteadOf = https://gitea.notcharlie.com/
