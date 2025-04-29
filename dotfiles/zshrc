@@ -134,6 +134,11 @@ plugins=(
   ssh-agent
   {%@@ endif @@%}
 
+  {%@@ if synology_dsm @@%}
+  home-tmpdir
+  syno-ulimit
+  {%@@ endif @@%}
+
   path
 
   $plugins

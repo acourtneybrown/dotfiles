@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+# shellcheck disable=SC1071
+
 export OP_PLUGIN_ALIASES_SOURCED=1
 function twilio() {
 	op plugin run -- twilio "$@"

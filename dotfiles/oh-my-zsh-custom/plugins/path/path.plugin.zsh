@@ -11,6 +11,10 @@ paths=(
   "/Applications/PyCharm.app/Contents/MacOS/"
 )
 
+{%@@ if synology_dsm @@%}
+  paths+=({{@@ homebrew_prefix @@}}/opt/binutils/bin)
+{%@@ endif @@%}
+
 # ZSH "properly" handles the array (vs. bash)
 # shellcheck disable=SC2128
 for dir in ${paths}; do

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function update_lulu_rules() {
+	local EXPORTED_RULES
+
+	EXPORTED_RULES=${1:-~/Desktop/rules.json}
+	if [ -f "$EXPORTED_RULES" ]; then
+		jq -S . "$EXPORTED_RULES" > "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/lib/resources/lulu-rules.json
+		rm "$EXPORTED_RULES"
+	else
+		echo "$EXPORTED_RULES does not exist"
+		return 1
+	fi
+}
+
+update_lulu_rules "$@"

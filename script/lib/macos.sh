@@ -21,6 +21,7 @@ function macos::setup() {
   macos::setup_ui_ux
   macos::setup_security
   macos::setup_input_devices
+  macos::setup_apple_intelligence
 
   local apps
   apps=(
@@ -438,6 +439,18 @@ function macos::setup_input_devices() {
 # defaults write com.apple.dock wvous-bl-corner -int 5
 # defaults write com.apple.dock wvous-bl-modifier -int 0
 # }
+
+function macos::setup_apple_intelligence() {
+  local mobileMeAccountID
+
+  # disable Apple Intelligence
+  mobileMeAccountID=$(/usr/libexec/PlistBuddy -c "print Accounts:0:AccountDSID" "${HOME}/Library/Preferences/MobileMeAccounts.plist")
+  if [[ "${mobileMeAccountID}" == *"File Doesn't Exist"* ]]; then
+    defaults write com.apple.CloudSubscriptionFeatures.optIn device -bool "false"
+  else
+    defaults write com.apple.CloudSubscriptionFeatures.optIn "$mobileMeAccountID" -bool "false"
+  fi
+}
 
 function macos::config_Finder() {
   # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
@@ -895,7 +908,8 @@ function macos::kill_apps() {
     "SystemUIServer" \
     "iCal" \
     "Alfred" \
-    "BetterDisplay"; do
+    "BetterDisplay" \
+    ; do
     killall "${app}" &>/dev/null
   done
   echo "Done. Note that some of these changes require a logout/restart to take effect."

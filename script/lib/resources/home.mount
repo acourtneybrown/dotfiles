@@ -1,0 +1,13 @@
+[Unit]
+DefaultDependencies=no
+Requisite=local-fs.target pkg-volume.target
+After=local-fs.target pkg-volume.target
+
+[Mount]
+What=/var/services/homes
+Where=/home
+Type=none
+Options=bind
+
+[Install]
+WantedBy=pkg-volume.target

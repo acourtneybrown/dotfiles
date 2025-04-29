@@ -1,0 +1,7 @@
+brew "bazelisk"
+brew "buildifier"
+brew "buildozer"
+brew "gcc"
+brew "glibc"
+brew "make"
+brew "pkgconf"

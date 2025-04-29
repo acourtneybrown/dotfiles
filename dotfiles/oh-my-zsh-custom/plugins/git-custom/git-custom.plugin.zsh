@@ -170,6 +170,12 @@ function gall() {
     if [[ -d "${DIR}/.git" ]]; then
       echo "${BOLD}Entering ${DIR}${RESET}"
       (
+        # turn off direnv in this subshell
+        typeset -ag precmd_functions
+        typeset -ag chpwd_functions
+        precmd_functions=(${precmd_functions#_direnv_hook})
+        chpwd_functions=(${chpwd_functions#_direnv_hook})
+
         cd "${DIR}" || exit
 
         # shellcheck disable=SC2294
@@ -206,6 +212,12 @@ function gall_find() {
     DIR=$(dirname "${GIT_DIR}")
     echo "${BOLD}Entering ${DIR}${RESET}"
     (
+      # turn off direnv in this subshell
+      typeset -ag precmd_functions
+      typeset -ag chpwd_functions
+      precmd_functions=(${precmd_functions#_direnv_hook})
+      chpwd_functions=(${chpwd_functions#_direnv_hook})
+
       cd "${DIR}" || exit
 
       # shellcheck disable=SC2294
