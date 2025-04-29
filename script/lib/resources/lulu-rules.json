@@ -199,29 +199,10 @@
       "uuid": "B4A07231-558F-4C5F-92E2-3C76DF92566D"
     }
   ],
-  "/opt/homebrew/Cellar/gh/2.69.0/bin/gh": [
+  "/opt/homebrew/Cellar/gh/2.71.2/bin/gh": [
     {
       "action": "1",
-      "creation": "2025-03-25T14:45:37-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.112.5",
-      "endpointHost": "140.82.112.5",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "B6342E48-F77A-455B-99D8-8B6D082E7824"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-26T11:14:11-0700",
+      "creation": "2025-04-29T08:43:26-0700",
       "csInfo": {
         "signatureIdentifier": "a.out",
         "signatureSigner": "4",
@@ -231,163 +212,12 @@
       "endpointHost": "140.82.112.6",
       "endpointPort": "443",
       "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
       "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
+      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
       "scope": "0",
       "type": "3",
-      "uuid": "DCA09842-5EED-490E-B04F-997642C01092"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-26T11:14:20-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "20.209.227.65",
-      "endpointHost": "20.209.227.65",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "B67C6030-4C78-48D0-9FED-F186FE4A4038"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-26T11:14:22-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "34.117.62.14",
-      "endpointHost": "34.117.62.14",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "EB481065-AE8A-4FE9-BFBA-22B49C641E33"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-26T11:14:26-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "20.209.163.161",
-      "endpointHost": "20.209.163.161",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "1182DA36-9E9C-44B9-ACD7-66ED9C3CE379"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-26T13:29:56-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.114.6",
-      "endpointHost": "140.82.114.6",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "BD65E195-38AC-4B94-AF20-49B05B5AE4BE"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-29T17:09:44-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.113.5",
-      "endpointHost": "140.82.113.5",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "C1238A29-2681-4530-9E0E-3813CAD636B1"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-29T17:11:07-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.113.6",
-      "endpointHost": "140.82.113.6",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "6B099305-A2AD-4FC0-8F55-A94F626D61C0"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-30T15:07:39-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.114.5",
-      "endpointHost": "140.82.114.5",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "877E0268-325A-4586-B6A5-350020C82D98"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-25T09:22:25-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "*",
-      "endpointPort": "*",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.69.0/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "2934EB2B-8A91-43BC-99F6-C83C4806C695"
+      "uuid": "BB9AB8BD-ED9A-428D-964E-614DD5605FEC"
     }
   ],
   "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http": [
@@ -9181,29 +9011,6 @@
       "scope": "0",
       "type": "3",
       "uuid": "955E9D61-4F28-4F60-909E-E31A255891F1"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-25T07:02:50-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Sublime HQ Pty Ltd (Z6D26JE4Y4)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.sublimetext.4",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "*",
-      "endpointPort": "*",
-      "isEndpointAddrRegex": "0",
-      "key": "com.sublimetext.4:Developer ID Application: Sublime HQ Pty Ltd (Z6D26JE4Y4)",
-      "name": "Sublime Text",
-      "path": "/Applications/Sublime Text.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "FCF341D0-628A-42C9-8FA9-1F2832683F3C"
     }
   ],
   "com.surteesstudios.Bartender:Developer ID Application: Bartender App LLC (24J875RH8J)": [
