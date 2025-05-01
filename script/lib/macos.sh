@@ -402,6 +402,19 @@ function macos::setup_input_devices() {
       </dict>
     </dict>
   "
+
+  # Disable "Search With ..." from the Services menu
+  defaults write pbs NSServicesStatus -dict-add "com.apple.Safari - Search With %WebSearchProvider@ - searchWithWebSearchProvider" "
+    <dict>
+      <key>enabled_context_menu</key><false/>
+      <key>enabled_services_menu</key><false/>
+      <key>presentation_modes</key><dict>
+        <key>ContextMenu</key><false/>
+        <key>ServicesMenu</key><false/>
+      </dict>
+    </dict>
+  "
+  /System/Library/CoreServices/pbs -update
 }
 
 # function macos::setup_ssd_tweaks() {
@@ -704,6 +717,15 @@ function macos::config_Safari() {
 
   # Update extensions automatically
   defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
+  # Set default search to DuckDuckGo
+  defaults write com.apple.Safari SearchProviderShortName -string DuckDuckGo
+  defaults write com.apple.Safari WBSOfflineSearchSuggestionsModelGoogleWasDefaultSearchEngineKey -bool false
+  defaults write "Apple Global Domain" NSPreferredWebServices -dict NSWebServicesProviderWebSearch \
+    '{
+        "NSDefaultDisplayName" = "DuckDuckGo";
+        "NSProviderIdentifier" = "com.duckduckgo";
+    }';
 }
 
 function macos::config_iTerm() {
