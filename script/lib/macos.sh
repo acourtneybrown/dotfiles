@@ -402,6 +402,19 @@ function macos::setup_input_devices() {
       </dict>
     </dict>
   "
+
+  # Disable "Search With Google" from the Services menu
+  defaults write pbs NSServicesStatus -dict-add "com.apple.Safari - Search With %WebSearchProvider@ - searchWithWebSearchProvider" "
+    <dict>
+      <key>enabled_context_menu</key><false/>
+      <key>enabled_services_menu</key><false/>
+      <key>presentation_modes</key><dict>
+        <key>ContextMenu</key><false/>
+        <key>ServicesMenu</key><false/>
+      </dict>
+    </dict>
+  "
+  /System/Library/CoreServices/pbs -update
 }
 
 # function macos::setup_ssd_tweaks() {
