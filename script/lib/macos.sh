@@ -403,7 +403,7 @@ function macos::setup_input_devices() {
     </dict>
   "
 
-  # Disable "Search With Google" from the Services menu
+  # Disable "Search With ..." from the Services menu
   defaults write pbs NSServicesStatus -dict-add "com.apple.Safari - Search With %WebSearchProvider@ - searchWithWebSearchProvider" "
     <dict>
       <key>enabled_context_menu</key><false/>
