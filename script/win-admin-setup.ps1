@@ -13,7 +13,6 @@ choco install -y playnite
 choco install -y slack
 choco install -y steam
 choco install -y sublimetext4
-choco install -y sunshine
 choco install -y synologydrive
 choco install -y yubikey-manager
 
