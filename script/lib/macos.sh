@@ -704,15 +704,6 @@ function macos::config_Safari() {
 
   # Update extensions automatically
   defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
-
-  # Set default search to DuckDuckGo
-  defaults write com.apple.Safari SearchProviderShortName -string DuckDuckGo
-  defaults write com.apple.Safari WBSOfflineSearchSuggestionsModelGoogleWasDefaultSearchEngineKey -bool false
-  defaults write "Apple Global Domain" NSPreferredWebServices -dict NSWebServicesProviderWebSearch \
-    '{
-        "NSDefaultDisplayName" = "DuckDuckGo";
-        "NSProviderIdentifier" = "com.duckduckgo";
-    };'
 }
 
 function macos::config_iTerm() {
