@@ -34,6 +34,7 @@ function macos::setup() {
     "App Store"
     Photos
     Messages
+    Music
     "Google Chrome"
     Contacts
     Dashboard
@@ -830,6 +831,12 @@ function macos::config_Messages() {
   defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 }
 
+function macos::config_Music() {
+  # Disable Apple Music & iTunes Store
+  defaults write com.apple.Music showStoreInSidebar -int 1
+  defaults write com.apple.Music showAppleMusic -bool false
+}
+
 function macos::config_Google_Chrome() {
   # Disable the all too sensitive backswipe on trackpads
   defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
@@ -925,6 +932,7 @@ function macos::kill_apps() {
     "iTerm2" \
     "Mail" \
     "Messages" \
+    "Music" \
     "Photos" \
     "Safari" \
     "SystemUIServer" \
