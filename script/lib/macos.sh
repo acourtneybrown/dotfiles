@@ -458,7 +458,7 @@ function macos::setup_apple_intelligence() {
   local mobileMeAccountID
 
   # disable Apple Intelligence
-  mobileMeAccountID=$(/usr/libexec/PlistBuddy -c "print Accounts:0:AccountDSID" "${HOME}/Library/Preferences/MobileMeAccounts.plist")
+  mobileMeAccountID=$(set +e; /usr/libexec/PlistBuddy -c "print Accounts:0:AccountDSID" "${HOME}/Library/Preferences/MobileMeAccounts.plist")
   if [[ "${mobileMeAccountID}" == *"File Doesn't Exist"* ]]; then
     defaults write com.apple.CloudSubscriptionFeatures.optIn device -bool "false"
   else
