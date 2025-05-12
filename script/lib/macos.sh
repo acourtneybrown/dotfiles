@@ -454,11 +454,24 @@ function macos::setup_input_devices() {
 # defaults write com.apple.dock wvous-bl-modifier -int 0
 # }
 
+function macos::getMobileMeAccountID() {
+  /usr/libexec/PlistBuddy -c "print Accounts:0:AccountDSID" "${HOME}/Library/Preferences/MobileMeAccounts.plist"
+}
+
 function macos::setup_apple_intelligence() {
   local mobileMeAccountID
 
   # disable Apple Intelligence
-  mobileMeAccountID=$(set +e; /usr/libexec/PlistBuddy -c "print Accounts:0:AccountDSID" "${HOME}/Library/Preferences/MobileMeAccounts.plist")
+  case $- in
+    *e*)
+      set +e
+      mobileMeAccountID=$(macos::getMobileMeAccountID)
+      set -e
+      ;;
+    *)
+      mobileMeAccountID=$(macos::getMobileMeAccountID)
+  esac
+
   if [[ "${mobileMeAccountID}" == *"File Doesn't Exist"* ]]; then
     defaults write com.apple.CloudSubscriptionFeatures.optIn device -bool "false"
   else
