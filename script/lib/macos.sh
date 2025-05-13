@@ -34,6 +34,7 @@ function macos::setup() {
     "App Store"
     Photos
     Messages
+    Music
     "Google Chrome"
     Contacts
     Dashboard
@@ -453,11 +454,24 @@ function macos::setup_input_devices() {
 # defaults write com.apple.dock wvous-bl-modifier -int 0
 # }
 
+function macos::getMobileMeAccountID() {
+  /usr/libexec/PlistBuddy -c "print Accounts:0:AccountDSID" "${HOME}/Library/Preferences/MobileMeAccounts.plist"
+}
+
 function macos::setup_apple_intelligence() {
   local mobileMeAccountID
 
   # disable Apple Intelligence
-  mobileMeAccountID=$(/usr/libexec/PlistBuddy -c "print Accounts:0:AccountDSID" "${HOME}/Library/Preferences/MobileMeAccounts.plist")
+  case $- in
+    *e*)
+      set +e
+      mobileMeAccountID=$(macos::getMobileMeAccountID)
+      set -e
+      ;;
+    *)
+      mobileMeAccountID=$(macos::getMobileMeAccountID)
+  esac
+
   if [[ "${mobileMeAccountID}" == *"File Doesn't Exist"* ]]; then
     defaults write com.apple.CloudSubscriptionFeatures.optIn device -bool "false"
   else
@@ -830,6 +844,12 @@ function macos::config_Messages() {
   defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 }
 
+function macos::config_Music() {
+  # Disable Apple Music & iTunes Store
+  defaults write com.apple.Music showStoreInSidebar -int 1
+  defaults write com.apple.Music showAppleMusic -bool false
+}
+
 function macos::config_Google_Chrome() {
   # Disable the all too sensitive backswipe on trackpads
   defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
@@ -925,6 +945,7 @@ function macos::kill_apps() {
     "iTerm2" \
     "Mail" \
     "Messages" \
+    "Music" \
     "Photos" \
     "Safari" \
     "SystemUIServer" \
