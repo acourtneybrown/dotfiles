@@ -89,6 +89,53 @@ function install::install_rosetta2() {
   softwareupdate --install-rosetta --agree-to-license
 }
 
+function install::ensure_samba_no_mangles_names() {
+  local SMB_CONF="/etc/samba/smb.conf"
+  local TMP_CONF
+  TMP_CONF=$(mktemp "${TMPDIR:-/tmp}/smb.conf.tmp.XXXXXX")
+  local KEY="mangled names"
+  local VALUE="no"
+  local KEY_LINE="$KEY = $VALUE"
+
+  # Backup first
+  cp "$SMB_CONF" "${SMB_CONF}.bak"
+
+  awk -v key="$KEY" -v value="$VALUE" -v line="$KEY_LINE" '
+    BEGIN { in_global = 0; key_updated = 0 }
+
+    /^\[global\]/ {
+      in_global = 1
+      print
+      next
+    }
+
+    /^\[.*\]/ {
+      if (in_global && !key_updated) {
+        print line
+        key_updated = 1
+      }
+      in_global = 0
+      print
+      next
+    }
+
+    {
+      if (in_global && $0 ~ "^" key "[[:space:]]*=") {
+        print line
+        key_updated = 1
+      } else {
+        print
+      }
+    }
+
+    END {
+      if (in_global && !key_updated) {
+        print line
+      }
+    }
+  ' "$SMB_CONF" > "$TMP_CONF" && mv "$TMP_CONF" "$SMB_CONF"
+}
+
 function install::ensure_home_mount() {
   if [[ ! -f /etc/systemd/system/home.mount ]]; then
     sudo install -m 755 "${INSTALL_SH_DIR}/resources/home.mount" /etc/systemd/system/home.mount
