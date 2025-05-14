@@ -98,7 +98,7 @@ function install::ensure_samba_no_mangles_names() {
   local KEY_LINE="$KEY = $VALUE"
 
   # Backup first
-  cp "$SMB_CONF" "${SMB_CONF}.bak"
+  cp "$SMB_CONF" "${SMB_CONF}.$(date +"%Y-%m-%d_%H-%M-%S").bak"
 
   awk -v key="$KEY" -v value="$VALUE" -v line="$KEY_LINE" '
     BEGIN { in_global = 0; key_updated = 0 }
