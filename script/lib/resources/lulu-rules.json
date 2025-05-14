@@ -182,6 +182,25 @@
       "scope": "0",
       "type": "3",
       "uuid": "204AAB90-11C0-4527-8BA6-3283776375A0"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:45:19-0700",
+      "csInfo": {
+        "signatureIdentifier": "python.exe",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "151.101.64.223",
+      "endpointHost": "151.101.64.223",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/Users/adambrown/.pyenv/versions/3.11.9/bin/python3.11",
+      "name": "python3.11",
+      "path": "/Users/adambrown/.pyenv/versions/3.11.9/bin/python3.11",
+      "scope": "0",
+      "type": "3",
+      "uuid": "BE7D0B07-D18C-46A1-8F8D-865646DEE501"
     }
   ],
   "/Users/adambrown/Library/Application Support/heroic/tools/game-porting-toolkit/Game-Porting-Toolkit-latest/Contents/Resources/wine/bin/wineserver": [
@@ -237,6 +256,25 @@
       "scope": "0",
       "type": "3",
       "uuid": "118A1058-3C9E-47AA-BCC9-449595395225"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-02T15:56:10-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.114.6",
+      "endpointHost": "140.82.114.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "4B74DB3E-9620-44A3-949F-7DEAE28A0213"
     }
   ],
   "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http": [
@@ -315,24 +353,6 @@
       "scope": "0",
       "type": "3",
       "uuid": "DAAA2861-EA74-43CA-B768-9A005741DC5D"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-23T17:01:58-0700",
-      "csInfo": {
-        "signatureIdentifier": "git-remote-http-5555494407800426af6c3b6f81ce266d6ec2c67a",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "*",
-      "endpointPort": "*",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "name": "git-remote-http",
-      "path": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "scope": "0",
-      "type": "3",
-      "uuid": "B0D7710B-C206-4C88-9232-C4914C74AC2E"
     }
   ],
   "/opt/homebrew/Cellar/mosh/1.4.0_26/bin/mosh-client": [
@@ -488,6 +508,27 @@
       "scope": "0",
       "type": "3",
       "uuid": "3A7E8C9C-D5BF-4DFD-9EDE-FA2FF2480070"
+    }
+  ],
+  "/opt/homebrew/Cellar/node@18/18.20.8/bin/node": [
+    {
+      "action": "1",
+      "creation": "2025-05-12T16:38:54-0700",
+      "csInfo": {
+        "signatureIdentifier": "node-55554944caa65b81a1e9360bb757a0246ce9fe74",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "52.217.97.4",
+      "endpointHost": "52.217.97.4",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "name": "node",
+      "path": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "scope": "0",
+      "type": "3",
+      "uuid": "3AB35E6B-3107-407D-BE1D-73C6D2697997"
     }
   ],
   "/opt/homebrew/Cellar/python@3.12/3.12.10/Frameworks/Python.framework/Versions/3.12/Resources/Python.app": [
@@ -1156,33 +1197,33 @@
       "scope": "0",
       "type": "3",
       "uuid": "5CFB317F-5365-415E-9109-9824E4C5C5C1"
-    }
-  ],
-  "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)": [
+    },
     {
       "action": "1",
-      "creation": "2025-03-21T17:00:43-0700",
+      "creation": "2025-05-12T15:41:43-0700",
       "csInfo": {
         "signatureAuthorities": [
-          "Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
+          "Developer ID Application: Buddy Software LTDA (8C7439RJLG)",
           "Developer ID Certification Authority",
           "Apple Root CA"
         ],
-        "signatureIdentifier": "com.0804Team.KeyClu",
+        "signatureIdentifier": "codes.rambo.VirtualBuddy",
         "signatureSigner": "3",
         "signatureStatus": "0"
       },
-      "endpointAddr": "sergii.tatarenkov.name",
-      "endpointHost": "sergii.tatarenkov.name",
+      "endpointAddr": "updates.cdn-apple.com",
+      "endpointHost": "updates.cdn-apple.com",
       "endpointPort": "443",
       "isEndpointAddrRegex": "0",
-      "key": "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
-      "name": "KeyClu",
-      "path": "/Applications/KeyClu.app",
+      "key": "codes.rambo.VirtualBuddy:Developer ID Application: Buddy Software LTDA (8C7439RJLG)",
+      "name": "VirtualBuddy",
+      "path": "/Applications/VirtualBuddy.app",
       "scope": "0",
       "type": "3",
-      "uuid": "C8300F1B-1468-4ECF-9E86-4D531F50F4FB"
-    },
+      "uuid": "D6436A73-31BF-4C83-839B-36F8E7DD4623"
+    }
+  ],
+  "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)": [
     {
       "action": "1",
       "creation": "2025-04-23T15:46:34-0700",
@@ -1205,6 +1246,30 @@
       "scope": "0",
       "type": "3",
       "uuid": "FA99776A-76E7-4522-AB2D-241B7429B817"
+    },
+    {
+      "action": "0",
+      "creation": "2025-05-14T12:26:58-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.0804Team.KeyClu",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "sergii.tatarenkov.name",
+      "endpointHost": "sergii.tatarenkov.name",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
+      "name": "KeyClu",
+      "path": "/Applications/KeyClu.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "14248407-4B47-4C41-B8DD-DDB116461438"
     }
   ],
   "com.1password.1password:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)": [
@@ -2031,6 +2096,288 @@
       "scope": "0",
       "type": "3",
       "uuid": "2D4B198F-3857-475F-AEDD-2C76E6F9AE21"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T09:05:36-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "44.207.48.119",
+      "endpointHost": "44.207.48.119",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D46EB284-22B7-4FDA-98A5-A702A89538E6"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T09:05:39-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a01:ba1a:4104:d2dd:b32c",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "70611A0D-80B7-41A7-A7D8-AD340E7C7EAE"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T09:05:40-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a00:c101:ced1:5ded:8fd1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "367AABCC-0367-40F8-A97E-E865B9247167"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T09:05:41-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a02:bcef:4aed:a84a:ef84",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "45761CDB-1E2B-4A2A-9989-B266841FA778"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T17:23:40-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "54.164.103.106",
+      "endpointHost": "54.164.103.106",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A8A4E48A-2F06-44BC-9EEA-11E1BFEA5ABE"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T17:23:44-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.205.4.206",
+      "endpointHost": "18.205.4.206",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "5E1B48D8-5DDB-4A0C-91C4-A8BD059700B1"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T09:27:25-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "54.236.195.104",
+      "endpointHost": "54.236.195.104",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "10F1F2BE-84B1-4E88-BDCA-47C66B976D5E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T09:27:31-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a01:512d:fb2a:9793:e121",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "9AD990B7-AD2A-41AA-9700-CE920245654C"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T09:27:37-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a00:8059:cb2e:1c9c:f1de",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "9DFEC696-CD4F-4956-9FB4-B5C45B5679BF"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T09:27:42-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "52.202.21.117",
+      "endpointHost": "52.202.21.117",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "F05EDB70-D602-4E0B-A154-760CD17B4D23"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T09:27:48-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a02:8692:1c4e:4b03:1de",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "EAFDC441-0ADD-46C5-B84C-6C395B600C32"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T09:27:53-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.235.93.114",
+      "endpointHost": "34.235.93.114",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.30.3/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "22A498B5-2AE1-4B98-B476-4A9D91F3F90C"
     }
   ],
   "com.apple.AMPArtworkAgent": [
@@ -2258,6 +2605,31 @@
       "uuid": "E3B702C3-04EB-4967-9A3E-BB7BE5F22713"
     }
   ],
+  "com.apple.AuthenticationServicesCore.AuthenticationServicesAgent": [
+    {
+      "action": "1",
+      "creation": "2025-05-11T05:11:29-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.AuthenticationServicesCore.AuthenticationServicesAgent",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.AuthenticationServicesCore.AuthenticationServicesAgent",
+      "name": "AuthenticationServicesAgent",
+      "path": "/System/Volumes/Preboot/Cryptexes/App/usr/libexec/AuthenticationServicesAgent",
+      "scope": "0",
+      "type": "1",
+      "uuid": "51689E06-B1CD-4FC7-ABD3-890380586A76"
+    }
+  ],
   "com.apple.CalendarWeatherKitService": [
     {
       "action": "1",
@@ -2381,6 +2753,31 @@
       "scope": "0",
       "type": "1",
       "uuid": "EF0CAFFE-E247-4C29-B307-28D1598B04E2"
+    }
+  ],
+  "com.apple.Dictionary": [
+    {
+      "action": "1",
+      "creation": "2025-05-13T07:57:06-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.Dictionary",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.Dictionary",
+      "name": "Dictionary",
+      "path": "/System/Applications/Dictionary.app",
+      "scope": "0",
+      "type": "1",
+      "uuid": "6523D149-216D-426C-93F9-0A8CA4473918"
     }
   ],
   "com.apple.FaceTime": [
@@ -5156,6 +5553,54 @@
       "scope": "0",
       "type": "3",
       "uuid": "D8A902A2-827E-4F6F-A51C-7A6C8083F1C3"
+    },
+    {
+      "action": "1",
+      "creation": "2025-04-30T15:44:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.osascript",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "open.er-api.com",
+      "endpointHost": "open.er-api.com",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.osascript",
+      "name": "osascript",
+      "path": "/usr/bin/osascript",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6ED9B967-7B38-4B69-9922-3A200F648101"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-03T09:59:20-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.osascript",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "formulae.brew.sh",
+      "endpointHost": "formulae.brew.sh",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.osascript",
+      "name": "osascript",
+      "path": "/usr/bin/osascript",
+      "scope": "0",
+      "type": "3",
+      "uuid": "E259E78E-9E6D-4856-A525-AAF7F2458707"
     }
   ],
   "com.apple.parsec-fbf": [
@@ -5583,6 +6028,31 @@
       "uuid": "3BE4154A-4A09-4DDF-8C20-E7D793E60C9F"
     }
   ],
+  "com.apple.rtadvd": [
+    {
+      "action": "1",
+      "creation": "2025-05-12T16:07:19-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.rtadvd",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.rtadvd",
+      "name": "rtadvd",
+      "path": "/usr/sbin/rtadvd",
+      "scope": "0",
+      "type": "1",
+      "uuid": "8760D5AF-2293-4242-8E0E-02E4E3524F7D"
+    }
+  ],
   "com.apple.rtcreportingd": [
     {
       "action": "1",
@@ -5731,6 +6201,31 @@
       "scope": "0",
       "type": "0",
       "uuid": "EE027E85-F664-4FEF-9CEA-20404D42C1A3"
+    }
+  ],
+  "com.apple.socket": [
+    {
+      "action": "1",
+      "creation": "2025-04-30T13:19:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.socket",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.socket",
+      "name": "socket",
+      "path": "/usr/libexec/cups/backend/socket",
+      "scope": "0",
+      "type": "1",
+      "uuid": "C69BFF6D-7420-46B6-B2B1-4E4C5AB173F0"
     }
   ],
   "com.apple.softwareupdate": [
@@ -7098,6 +7593,370 @@
       "uuid": "2A40E730-2E23-4556-BC4E-1953A18065C9"
     }
   ],
+  "com.jetbrains.cefserver.helper:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)": [
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:22:31-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.cefserver.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.173.67",
+      "endpointHost": "18.155.173.67",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.cefserver.helper:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "cef_server Helper",
+      "path": "/Applications/PyCharm.app/Contents/jbr/Contents/Frameworks/cef_server.app/Contents/Frameworks/cef_server Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "0126BD81-0D1D-4D4F-9968-F6A262EBBD09"
+    }
+  ],
+  "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)": [
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:21:43-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.109.42",
+      "endpointHost": "18.238.109.42",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "2A8FE060-532F-4936-8284-E9318BA7C15D"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:21:46-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.96.30",
+      "endpointHost": "18.238.96.30",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "DB416074-F46C-47D4-847D-1CFD9FFC97B5"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:22:02-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.173.12",
+      "endpointHost": "18.155.173.12",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "0EFBC9EF-EF9A-465A-AA09-642EB8B9FE10"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:22:03-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.96.106",
+      "endpointHost": "18.238.96.106",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "F43D6C60-7A99-4232-9822-CBD781B2667C"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:22:30-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "76.223.63.197",
+      "endpointHost": "76.223.63.197",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D7AF1E5B-7CC1-4BEC-BF56-26EB39B4D787"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:22:32-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.96.36",
+      "endpointHost": "18.238.96.36",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A6EF5D2F-7C09-4038-AC38-EC6D1215A88B"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:22:34-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "151.101.192.223",
+      "endpointHost": "151.101.192.223",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D4CAEC38-7FF7-4BE1-9E58-5B385FB25637"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:22:39-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.120.104.143",
+      "endpointHost": "34.120.104.143",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "FF75E591-53EC-4575-AB39-0EACB1924453"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:23:41-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.238.96.16",
+      "endpointHost": "18.238.96.16",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "4E31E19F-5516-4303-8FAB-7AF517139B29"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:27:40-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "10.98.76.30",
+      "endpointHost": "10.98.76.30",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "9D65687D-E6C2-4B76-AB6A-E8A3A6AD31AA"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T16:52:05-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.173.59",
+      "endpointHost": "18.155.173.59",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A1F8B6B2-6588-4A8E-8BBB-36F0D4D4AEBE"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T19:30:48-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.173.75",
+      "endpointHost": "18.155.173.75",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "2347D6C5-4082-4E85-BDFE-1B99F4C9C336"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-13T21:22:05-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.173.57",
+      "endpointHost": "18.155.173.57",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B4A416D3-A0B4-487A-B9C6-54520645EF24"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-14T07:10:07-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.pycharm",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "13.248.188.196",
+      "endpointHost": "13.248.188.196",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "PyCharm",
+      "path": "/Applications/PyCharm.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "34F34161-67E6-4EF1-9A4C-659879D723C5"
+    }
+  ],
   "com.larian.bg3:Developer ID Application: Larian Studios Games Ltd. (VMNEFGE8SY)": [
     {
       "action": "1",
@@ -7921,30 +8780,6 @@
     },
     {
       "action": "1",
-      "creation": "2025-04-02T19:23:37-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Open Media OOO (GHQ37VJF83)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.openmedia.4kvideodownloaderplus",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "34.213.215.111",
-      "endpointHost": "34.213.215.111",
-      "endpointPort": "8018",
-      "isEndpointAddrRegex": "0",
-      "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
-      "name": "4K Video Downloader+",
-      "path": "/Applications/4K Video Downloader+.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "246516AA-27FF-4EB8-9D8C-699316844CA5"
-    },
-    {
-      "action": "1",
       "creation": "2025-04-02T19:24:08-0700",
       "csInfo": {
         "signatureAuthorities": [
@@ -7990,30 +8825,6 @@
       "scope": "0",
       "type": "3",
       "uuid": "0E0FD07B-A413-42D6-9D8C-344747691AC4"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-02T19:27:12-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Open Media OOO (GHQ37VJF83)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.openmedia.4kvideodownloaderplus",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "34.217.73.118",
-      "endpointHost": "34.217.73.118",
-      "endpointPort": "8018",
-      "isEndpointAddrRegex": "0",
-      "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
-      "name": "4K Video Downloader+",
-      "path": "/Applications/4K Video Downloader+.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "E5BDC6C5-7CFB-4C19-8C13-79E9DD4E75A9"
     },
     {
       "action": "1",
@@ -8137,7 +8948,7 @@
     },
     {
       "action": "1",
-      "creation": "2025-04-27T14:26:48-0700",
+      "creation": "2025-05-12T06:58:50-0700",
       "csInfo": {
         "signatureAuthorities": [
           "Developer ID Application: Open Media OOO (GHQ37VJF83)",
@@ -8148,20 +8959,20 @@
         "signatureSigner": "3",
         "signatureStatus": "0"
       },
-      "endpointAddr": "68.70.205.1",
-      "endpointHost": "68.70.205.1",
-      "endpointPort": "80",
+      "endpointAddr": "142.250.141.84",
+      "endpointHost": "142.250.141.84",
+      "endpointPort": "443",
       "isEndpointAddrRegex": "0",
       "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
       "name": "4K Video Downloader+",
       "path": "/Applications/4K Video Downloader+.app",
       "scope": "0",
       "type": "3",
-      "uuid": "F78C4D4C-C84F-49F6-BA6F-2F9337FA22BF"
+      "uuid": "95DCE862-BB3A-4408-B628-F4C5197624CB"
     },
     {
       "action": "1",
-      "creation": "2025-04-27T14:27:28-0700",
+      "creation": "2025-05-12T06:58:53-0700",
       "csInfo": {
         "signatureAuthorities": [
           "Developer ID Application: Open Media OOO (GHQ37VJF83)",
@@ -8172,20 +8983,20 @@
         "signatureSigner": "3",
         "signatureStatus": "0"
       },
-      "endpointAddr": "68.70.205.4",
-      "endpointHost": "68.70.205.4",
-      "endpointPort": "80",
+      "endpointAddr": "192.178.49.195",
+      "endpointHost": "192.178.49.195",
+      "endpointPort": "443",
       "isEndpointAddrRegex": "0",
       "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
       "name": "4K Video Downloader+",
       "path": "/Applications/4K Video Downloader+.app",
       "scope": "0",
       "type": "3",
-      "uuid": "0C043CAB-200B-45B1-903C-B9C697FF6A6F"
+      "uuid": "A9AF3695-991C-4B7B-BE71-54E051EBFD6F"
     },
     {
       "action": "1",
-      "creation": "2025-04-27T14:28:14-0700",
+      "creation": "2025-05-12T06:59:02-0700",
       "csInfo": {
         "signatureAuthorities": [
           "Developer ID Application: Open Media OOO (GHQ37VJF83)",
@@ -8196,8 +9007,55 @@
         "signatureSigner": "3",
         "signatureStatus": "0"
       },
-      "endpointAddr": "68.70.205.2",
-      "endpointHost": "68.70.205.2",
+      "endpointAddr": "142.250.68.246",
+      "endpointHost": "142.250.68.246",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
+      "name": "4K Video Downloader+",
+      "path": "/Applications/4K Video Downloader+.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "1AB3E909-7C20-4965-B8CD-1998AA332034"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T06:59:10-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Open Media OOO (GHQ37VJF83)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.openmedia.4kvideodownloaderplus",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "74.125.170.106",
+      "endpointHost": "74.125.170.106",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
+      "name": "4K Video Downloader+",
+      "path": "/Applications/4K Video Downloader+.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B7FADBCE-82C9-4C44-A848-1776E14AD0E8"
+    },
+    {
+      "action": "0",
+      "creation": "2025-05-14T12:24:09-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Open Media OOO (GHQ37VJF83)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.openmedia.4kvideodownloaderplus",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
       "endpointPort": "80",
       "isEndpointAddrRegex": "0",
       "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
@@ -8205,7 +9063,7 @@
       "path": "/Applications/4K Video Downloader+.app",
       "scope": "0",
       "type": "3",
-      "uuid": "BE9DFC32-0CED-40F5-95AB-97EFBF69363D"
+      "uuid": "4B7996AB-4555-4322-A3EC-04DCA7FB90E7"
     }
   ],
   "com.runningwithcrayons.Alfred-Preferences:Developer ID Application: Running with Crayons Ltd (XZZXE9SED4)": [
@@ -9001,6 +9859,318 @@
       "scope": "0",
       "type": "3",
       "uuid": "9489E498-1FB6-4C9F-8F59-AC7522DC0FEA"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-02T09:43:09-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "44.216.54.49",
+      "endpointHost": "44.216.54.49",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "96A3BB27-1A61-48D5-B6BE-F4E89478561F"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-02T09:44:23-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "44.210.47.125",
+      "endpointHost": "44.210.47.125",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "9A8DD608-E2C0-4A44-BB23-CEFB4C0F3C6E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-02T10:27:57-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.233.76.22",
+      "endpointHost": "3.233.76.22",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "BC179C07-D678-4BCE-A21B-E0B43FD0216A"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-02T11:24:03-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "100.27.133.156",
+      "endpointHost": "100.27.133.156",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "36CA60C0-5261-47BF-A73F-8E28BF6AF38E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-02T12:22:08-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "44.210.10.253",
+      "endpointHost": "44.210.10.253",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "923EB90D-4097-4E8F-AE53-9762EB957F7E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T06:19:01-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.193.9.80",
+      "endpointHost": "34.193.9.80",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6A1189DF-3EFE-4A50-BE05-6BA0695FC7AB"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T06:19:27-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.216.188.193",
+      "endpointHost": "3.216.188.193",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "1A861976-9038-4574-9EE5-A34214DBD9AA"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T06:19:46-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "44.221.235.84",
+      "endpointHost": "44.221.235.84",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "7CB79F2D-A800-45AD-B3CA-C142F218E5A4"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T06:20:05-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "52.55.196.0",
+      "endpointHost": "52.55.196.0",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "DB577521-5226-4930-811A-D8BA47AE3762"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T06:20:19-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "52.204.149.250",
+      "endpointHost": "52.204.149.250",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B56A7BBE-C8A9-4B1C-AAE8-9230690CEFE4"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T06:20:37-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.239.27.172",
+      "endpointHost": "34.239.27.172",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "291C14A6-951C-4DD5-A5BB-1793F78AD58D"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T06:20:49-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "50.16.193.162",
+      "endpointHost": "50.16.193.162",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "DE88A18B-683C-418A-BEC4-34D22A053565"
+    },
+    {
+      "action": "1",
+      "creation": "2025-05-12T06:20:57-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.225.112.51",
+      "endpointHost": "34.225.112.51",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "C83EFDCB-1B52-4D4C-9480-4978443F8B0C"
     }
   ],
   "com.spotify.client.helper:Developer ID Application: Spotify (2FNC3A47ZF)": [
