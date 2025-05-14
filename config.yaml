@@ -84,6 +84,12 @@ dotfiles:
       - themes/powerlevel10k/*.zwc
     cmpignore:
       - themes/powerlevel10k/*.zwc
+  d_Library_Scripts:
+    src: Library/Scripts
+    dst: ~/Library/Scripts
+    chmod: 700
+    actions:
+      - chmod_files 644
   d_smbcredentials:
     src: smbcredentials
     dst: ~/.smbcredentials
@@ -275,6 +281,7 @@ profiles:
       xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
       - d_config_op_plugins
+      - d_Library_Scripts
       - d_user
       - f_Alfred_prefs.json
       - f_com.googlecode.iterm2.plist

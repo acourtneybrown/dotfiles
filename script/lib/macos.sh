@@ -246,6 +246,9 @@ EOF
 
   # Disable Universal Control
   defaults -currentHost write com.apple.universalcontrol Disable -bool true
+
+  # Display Script menu in menu bar
+  defaults write com.apple.scriptmenu ScriptMenuEnabled -bool true
 }
 
 function macos::setup_security() {
