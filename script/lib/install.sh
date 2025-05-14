@@ -89,7 +89,7 @@ function install::install_rosetta2() {
   softwareupdate --install-rosetta --agree-to-license
 }
 
-function install::ensure_samba_no_mangles_names() {
+function install::ensure_samba_no_mangled_names() {
   local SMB_CONF="/etc/samba/smb.conf"
   local TMP_CONF
   TMP_CONF=$(mktemp "${TMPDIR:-/tmp}/smb.conf.tmp.XXXXXX")

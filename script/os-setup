@@ -57,7 +57,7 @@ elif util::is_linux; then
     sudo bash -c "echo '* - nofile 10240' >> /etc/security/limits.conf"
   fi
 elif util::is_synology_dsm; then
-  install::ensure_samba_no_mangles_names
+  install::ensure_samba_no_mangled_names
   install::ensure_home_mount
   install::ensure_linuxbrew_home
   install::ensure_ldd
