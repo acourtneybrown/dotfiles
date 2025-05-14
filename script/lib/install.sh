@@ -95,7 +95,7 @@ function install::ensure_samba_no_mangles_names() {
   TMP_CONF=$(mktemp "${TMPDIR:-/tmp}/smb.conf.tmp.XXXXXX")
   local KEY="mangled names"
   local VALUE="no"
-  local KEY_LINE="$KEY = $VALUE"
+  local KEY_LINE="$KEY=$VALUE"
 
   # Backup first
   cp "$SMB_CONF" "${SMB_CONF}.$(date +"%Y-%m-%d_%H-%M-%S").bak"
