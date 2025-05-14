@@ -133,7 +133,7 @@ function install::ensure_samba_no_mangles_names() {
         print line
       }
     }
-  ' "$SMB_CONF" | sudo tee "$TMP_CONF" && sudo mv "$TMP_CONF" "$SMB_CONF" && sudo rm "$TMP_CONF"
+  ' "$SMB_CONF" | sudo tee "$TMP_CONF" && sudo mv "$TMP_CONF" "$SMB_CONF"
 }
 
 function install::ensure_home_mount() {
