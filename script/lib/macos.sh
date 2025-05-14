@@ -249,6 +249,7 @@ EOF
 
   # Display Script menu in menu bar
   defaults write com.apple.scriptmenu ScriptMenuEnabled -bool true
+  open '/System/Library/CoreServices/Script Menu.app'
 }
 
 function macos::setup_security() {
