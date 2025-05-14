@@ -353,24 +353,6 @@
       "scope": "0",
       "type": "3",
       "uuid": "DAAA2861-EA74-43CA-B768-9A005741DC5D"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-23T17:01:58-0700",
-      "csInfo": {
-        "signatureIdentifier": "git-remote-http-5555494407800426af6c3b6f81ce266d6ec2c67a",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "*",
-      "endpointPort": "*",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "name": "git-remote-http",
-      "path": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "scope": "0",
-      "type": "3",
-      "uuid": "B0D7710B-C206-4C88-9232-C4914C74AC2E"
     }
   ],
   "/opt/homebrew/Cellar/mosh/1.4.0_26/bin/mosh-client": [
@@ -1244,30 +1226,6 @@
   "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)": [
     {
       "action": "1",
-      "creation": "2025-03-21T17:00:43-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.0804Team.KeyClu",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "sergii.tatarenkov.name",
-      "endpointHost": "sergii.tatarenkov.name",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
-      "name": "KeyClu",
-      "path": "/Applications/KeyClu.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "C8300F1B-1468-4ECF-9E86-4D531F50F4FB"
-    },
-    {
-      "action": "1",
       "creation": "2025-04-23T15:46:34-0700",
       "csInfo": {
         "signatureAuthorities": [
@@ -1288,6 +1246,30 @@
       "scope": "0",
       "type": "3",
       "uuid": "FA99776A-76E7-4522-AB2D-241B7429B817"
+    },
+    {
+      "action": "0",
+      "creation": "2025-05-14T12:26:58-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.0804Team.KeyClu",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "sergii.tatarenkov.name",
+      "endpointHost": "sergii.tatarenkov.name",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
+      "name": "KeyClu",
+      "path": "/Applications/KeyClu.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "14248407-4B47-4C41-B8DD-DDB116461438"
     }
   ],
   "com.1password.1password:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)": [
@@ -7436,176 +7418,6 @@
       "uuid": "52B438D2-C9A1-4A28-A641-228FDE038A0A"
     }
   ],
-  "com.gingerlabs.Notability": [
-    {
-      "action": "1",
-      "creation": "2025-05-02T11:29:36-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Apple Mac OS Application Signing",
-          "Apple Worldwide Developer Relations Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.gingerlabs.Notability",
-        "signatureSigner": "2",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "notability.com",
-      "endpointHost": "notability.com",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.gingerlabs.Notability",
-      "name": "Notability",
-      "path": "/Applications/Notability.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "50F1CFAA-2641-4766-8644-9F1C3CFD59E0"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-02T11:29:39-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Apple Mac OS Application Signing",
-          "Apple Worldwide Developer Relations Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.gingerlabs.Notability",
-        "signatureSigner": "2",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "api.mixpanel.com",
-      "endpointHost": "api.mixpanel.com",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.gingerlabs.Notability",
-      "name": "Notability",
-      "path": "/Applications/Notability.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "AFA9FFD3-80D6-40E3-9B89-6C7372B6A86A"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-02T11:29:40-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Apple Mac OS Application Signing",
-          "Apple Worldwide Developer Relations Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.gingerlabs.Notability",
-        "signatureSigner": "2",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "firebase-settings.crashlytics.com",
-      "endpointHost": "firebase-settings.crashlytics.com",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.gingerlabs.Notability",
-      "name": "Notability",
-      "path": "/Applications/Notability.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "18D4C4E3-A13E-43DD-81B5-FAD861DD40AA"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-02T12:37:01-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Apple Mac OS Application Signing",
-          "Apple Worldwide Developer Relations Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.gingerlabs.Notability",
-        "signatureSigner": "2",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "firebaselogging-pa.googleapis.com",
-      "endpointHost": "firebaselogging-pa.googleapis.com",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.gingerlabs.Notability",
-      "name": "Notability",
-      "path": "/Applications/Notability.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "7A1C1DDA-2E4A-4B4E-98D6-713F32491A2A"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-02T12:37:02-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Apple Mac OS Application Signing",
-          "Apple Worldwide Developer Relations Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.gingerlabs.Notability",
-        "signatureSigner": "2",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "firebaseinstallations.googleapis.com",
-      "endpointHost": "firebaseinstallations.googleapis.com",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.gingerlabs.Notability",
-      "name": "Notability",
-      "path": "/Applications/Notability.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "9F0BB338-C2E6-4458-AAC9-47427D1AD330"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-02T12:37:06-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Apple Mac OS Application Signing",
-          "Apple Worldwide Developer Relations Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.gingerlabs.Notability",
-        "signatureSigner": "2",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "firebaseremoteconfig.googleapis.com",
-      "endpointHost": "firebaseremoteconfig.googleapis.com",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.gingerlabs.Notability",
-      "name": "Notability",
-      "path": "/Applications/Notability.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "84EDB709-23E9-4815-BF35-705EEC710338"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-02T12:37:09-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Apple Mac OS Application Signing",
-          "Apple Worldwide Developer Relations Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.gingerlabs.Notability",
-        "signatureSigner": "2",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "crashlyticsreports-pa.googleapis.com",
-      "endpointHost": "crashlyticsreports-pa.googleapis.com",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.gingerlabs.Notability",
-      "name": "Notability",
-      "path": "/Applications/Notability.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "87B6745B-D56F-4E77-ABB0-27C9975C14ED"
-    }
-  ],
   "com.gog.galaxy:Developer ID Application: GOG Sp. z o.o. (9WS36Q8886)": [
     {
       "action": "1",
@@ -8968,30 +8780,6 @@
     },
     {
       "action": "1",
-      "creation": "2025-04-02T19:23:37-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Open Media OOO (GHQ37VJF83)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.openmedia.4kvideodownloaderplus",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "34.213.215.111",
-      "endpointHost": "34.213.215.111",
-      "endpointPort": "8018",
-      "isEndpointAddrRegex": "0",
-      "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
-      "name": "4K Video Downloader+",
-      "path": "/Applications/4K Video Downloader+.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "246516AA-27FF-4EB8-9D8C-699316844CA5"
-    },
-    {
-      "action": "1",
       "creation": "2025-04-02T19:24:08-0700",
       "csInfo": {
         "signatureAuthorities": [
@@ -9037,30 +8825,6 @@
       "scope": "0",
       "type": "3",
       "uuid": "0E0FD07B-A413-42D6-9D8C-344747691AC4"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-02T19:27:12-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Open Media OOO (GHQ37VJF83)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.openmedia.4kvideodownloaderplus",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "34.217.73.118",
-      "endpointHost": "34.217.73.118",
-      "endpointPort": "8018",
-      "isEndpointAddrRegex": "0",
-      "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
-      "name": "4K Video Downloader+",
-      "path": "/Applications/4K Video Downloader+.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "E5BDC6C5-7CFB-4C19-8C13-79E9DD4E75A9"
     },
     {
       "action": "1",
@@ -9184,78 +8948,6 @@
     },
     {
       "action": "1",
-      "creation": "2025-04-27T14:26:48-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Open Media OOO (GHQ37VJF83)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.openmedia.4kvideodownloaderplus",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "68.70.205.1",
-      "endpointHost": "68.70.205.1",
-      "endpointPort": "80",
-      "isEndpointAddrRegex": "0",
-      "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
-      "name": "4K Video Downloader+",
-      "path": "/Applications/4K Video Downloader+.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "F78C4D4C-C84F-49F6-BA6F-2F9337FA22BF"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-27T14:27:28-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Open Media OOO (GHQ37VJF83)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.openmedia.4kvideodownloaderplus",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "68.70.205.4",
-      "endpointHost": "68.70.205.4",
-      "endpointPort": "80",
-      "isEndpointAddrRegex": "0",
-      "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
-      "name": "4K Video Downloader+",
-      "path": "/Applications/4K Video Downloader+.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "0C043CAB-200B-45B1-903C-B9C697FF6A6F"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-27T14:28:14-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Open Media OOO (GHQ37VJF83)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.openmedia.4kvideodownloaderplus",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "68.70.205.2",
-      "endpointHost": "68.70.205.2",
-      "endpointPort": "80",
-      "isEndpointAddrRegex": "0",
-      "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
-      "name": "4K Video Downloader+",
-      "path": "/Applications/4K Video Downloader+.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "BE9DFC32-0CED-40F5-95AB-97EFBF69363D"
-    },
-    {
-      "action": "1",
       "creation": "2025-05-12T06:58:50-0700",
       "csInfo": {
         "signatureAuthorities": [
@@ -9352,7 +9044,7 @@
     },
     {
       "action": "0",
-      "creation": "2025-05-12T06:59:37-0700",
+      "creation": "2025-05-14T12:24:09-0700",
       "csInfo": {
         "signatureAuthorities": [
           "Developer ID Application: Open Media OOO (GHQ37VJF83)",
@@ -9363,8 +9055,7 @@
         "signatureSigner": "3",
         "signatureStatus": "0"
       },
-      "endpointAddr": "68.70.205.3",
-      "endpointHost": "68.70.205.3",
+      "endpointAddr": "*",
       "endpointPort": "80",
       "isEndpointAddrRegex": "0",
       "key": "com.openmedia.4kvideodownloaderplus:Developer ID Application: Open Media OOO (GHQ37VJF83)",
@@ -9372,7 +9063,7 @@
       "path": "/Applications/4K Video Downloader+.app",
       "scope": "0",
       "type": "3",
-      "uuid": "44E48EC6-3411-4FCA-864F-449CA72CC719"
+      "uuid": "4B7996AB-4555-4322-A3EC-04DCA7FB90E7"
     }
   ],
   "com.runningwithcrayons.Alfred-Preferences:Developer ID Application: Running with Crayons Ltd (XZZXE9SED4)": [
