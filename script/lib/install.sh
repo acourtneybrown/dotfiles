@@ -98,7 +98,7 @@ function install::ensure_samba_no_mangled_names() {
   local KEY_LINE="$KEY=$VALUE"
 
   # Backup first
-  cp "$SMB_CONF" "${SMB_CONF}.$(date +"%Y-%m-%d_%H-%M-%S").bak"
+  sudo cp "$SMB_CONF" "${SMB_CONF}.$(date +"%Y-%m-%d_%H-%M-%S").bak"
 
   awk -v key="$KEY" -v value="$VALUE" -v line="$KEY_LINE" '
     BEGIN { in_global = 0; key_updated = 0 }
@@ -133,7 +133,10 @@ function install::ensure_samba_no_mangled_names() {
         print line
       }
     }
-  ' "$SMB_CONF" | sudo tee "$TMP_CONF" && sudo mv "$TMP_CONF" "$SMB_CONF"
+  ' "$SMB_CONF" | sudo tee "$TMP_CONF"
+  sudo chmod 755 "$TMP_CONF"
+  sudo chown root.root "$TMP_CONF"
+  sudo mv "$TMP_CONF" "$SMB_CONF"
 }
 
 function install::ensure_home_mount() {
