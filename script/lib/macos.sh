@@ -5,6 +5,17 @@ MACOS_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 # shellcheck disable=SC1090,SC1091
 . "${MACOS_SH_DIR}/util.sh"
 
+function macos::add_to_array_if_not_present() {
+  local domain
+  local key
+  local value
+
+  domain=$1
+  key=$2
+  value=$3
+  (defaults read "$domain" "$key" | grep -q "$value") || defaults write "$domain" "$key" -array-add "$value"
+}
+
 function macos::setup() {
   [[ "${USER}" = "root" ]] && util::abort "Run macos as yourself, not root."
   groups | grep -q admin || util::abort "Add ${USER} to the admin group."
@@ -44,6 +55,7 @@ function macos::setup() {
     "QuickTime Player"
     Alfred
     BetterDisplay
+    Rocket
   )
   local fn
   for app in "${apps[@]}"; do
@@ -211,17 +223,17 @@ EOF
 
   # Sound: show volume in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
-  (defaults read com.apple.systemuiserver menuExtras | grep -q Volume.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
+  macos::add_to_array_if_not_present com.apple.systemuiserver menuExtras "/System/Library/CoreServices/Menu Extras/Volume.menu"
   defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true
   defaults -currentHost write com.apple.controlcenter Sound -int 18
 
   # TimeMachine: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -bool true
-  (defaults read com.apple.systemuiserver menuExtras | grep -q TimeMachine.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
+  macos::add_to_array_if_not_present com.apple.systemuiserver menuExtras "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
 
   # Bluetooth: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
-  (defaults read com.apple.systemuiserver menuExtras | grep -q Bluetooth.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+  macos::add_to_array_if_not_present com.apple.systemuiserver menuExtras "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
   defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
   defaults write com.apple.controlcenter "NSStatusItem Visible Item-2" -bool false
   defaults write com.apple.controlcenter "NSStatusItem Preferred Position Bluetooth" -int 160
@@ -229,7 +241,7 @@ EOF
 
   # VPN: show icon in menu bar
   defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.vpn" -bool true
-  (defaults read com.apple.systemuiserver menuExtras | grep -q VPN.menu) || defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/VPN.menu"
+  macos::add_to_array_if_not_present com.apple.systemuiserver menuExtras "/System/Library/CoreServices/Menu Extras/VPN.menu"
 
   # Time & Clock: Show date in menu bar
   defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d  h:mm a"
@@ -935,6 +947,15 @@ function macos::config_BetterDisplay() {
   fi
 }
 
+function macos::config_Rocket() {
+  # Launch Rocket at login
+  defaults write net.matthewpalmer.Rocket launch-at-login -bool true
+
+  # Add additional apps to deactivated app list
+  macos::add_to_array_if_not_present net.matthewpalmer.Rocket deactivated-apps Alfred
+  macos::add_to_array_if_not_present net.matthewpalmer.Rocket deactivated-apps Gnucash
+}
+
 function macos::kill_apps() {
   set +e
   for app in "Activity Monitor" \
@@ -956,6 +977,7 @@ function macos::kill_apps() {
     "iCal" \
     "Alfred" \
     "BetterDisplay" \
+    "Rocket" \
     ; do
     killall "${app}" &>/dev/null
   done
