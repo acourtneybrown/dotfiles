@@ -87,6 +87,7 @@ dotfiles:
   d_Library_Scripts:
     src: Library/Scripts
     dst: ~/Library/Scripts
+    link: nolink
     chmod: 700
     actions:
       - chmod_files 644
