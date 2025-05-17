@@ -47,7 +47,7 @@ function macos::setup() {
     Messages
     Music
     "Google Chrome"
-    Contacts
+    # Contacts # TODO: figure out "Could not write domain com.apple.addressbook" error happening
     Dashboard
     iCal
     TextEdit
@@ -954,6 +954,7 @@ function macos::config_Rocket() {
   # Add additional apps to deactivated app list
   macos::add_to_array_if_not_present net.matthewpalmer.Rocket deactivated-apps Alfred
   macos::add_to_array_if_not_present net.matthewpalmer.Rocket deactivated-apps Gnucash
+  macos::add_to_array_if_not_present net.matthewpalmer.Rocket deactivated-apps VirtualBuddy
 }
 
 function macos::kill_apps() {
