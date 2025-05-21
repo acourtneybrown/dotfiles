@@ -886,7 +886,8 @@ function macos::config_Google_Chrome() {
 
 function macos::config_Contacts() {
   # Enable the debug menu in Address Book
-  defaults write -app Contacts ABShowDebugMenu -bool true
+  /usr/libexec/PlistBuddy -c "print" ~/Library/Preferences/com.apple.AddressBook.plist
+  defaults write com.apple.AddressBook ABShowDebugMenu -bool true
 }
 
 function macos::config_Dashboard() {
