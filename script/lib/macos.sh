@@ -47,7 +47,7 @@ function macos::setup() {
     Messages
     Music
     "Google Chrome"
-    # Contacts # TODO: figure out "Could not write domain com.apple.addressbook" error happening
+    Contacts
     Dashboard
     iCal
     TextEdit
@@ -886,7 +886,7 @@ function macos::config_Google_Chrome() {
 
 function macos::config_Contacts() {
   # Enable the debug menu in Address Book
-  defaults write com.apple.addressbook ABShowDebugMenu -bool true
+  defaults write -app Contacts ABShowDebugMenu -bool true
 }
 
 function macos::config_Dashboard() {
