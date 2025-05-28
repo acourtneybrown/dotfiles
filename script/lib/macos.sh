@@ -953,7 +953,7 @@ function macos::config_Rocket() {
   defaults write net.matthewpalmer.Rocket launch-at-login -bool true
 
   # Add additional apps to deactivated app list
-  local apps=(Slack Xcode Terminal iTerm2 "Sublime Text" Alfred Gnucash VirtualBuddy datagrip goland "IntelliJ IDEA" pycharm)
+  local apps=(Slack Xcode Terminal iTerm2 "Sublime Text" Alfred Gnucash VirtualBuddy datagrip goland "IntelliJ IDEA" pycharm Firefox)
   for app in "${apps[@]}"; do
     macos::add_to_array_if_not_present net.matthewpalmer.Rocket deactivated-apps "$app"
   done
