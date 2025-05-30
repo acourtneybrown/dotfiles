@@ -3,5 +3,5 @@
 
 alias lsa='ls -laa'
 alias l='ls -laa'
-alias ll='ls -l'
-alias la='ls -la'
+# ls alias already present in eza oh-my-zsh plugin
+# la alias already present in eza oh-my-zsh plugin
