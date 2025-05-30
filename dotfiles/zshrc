@@ -93,6 +93,8 @@ plugins=(
   docker
   dotdrop
   dotfiles-envvars
+  eza
+  eza-custom
   functions
   fzf
   gh
@@ -155,6 +157,9 @@ zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent lifetime {{@@ ssh_agent_lifetime @@}}
 {%@@ endif @@%}
+
+zstyle ':omz:plugins:eza' 'git-status' yes
+zstyle ':omz:plugins:eza' 'hyperlink' yes
 
 typeset -U path PATH
 if [[ -d "${ZSH}" ]]; then
