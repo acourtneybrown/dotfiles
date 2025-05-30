@@ -20,9 +20,7 @@ module.exports = {
   handlers: [
     {
       match: [
-        {%@@ for id in firefox_cara_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        /op_vault=Cara/,
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Cara", urlString);
@@ -31,9 +29,7 @@ module.exports = {
     },
     {
       match: [
-        {%@@ for id in firefox_cb_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        /op_vault=CB/,
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("CB", urlString);
@@ -46,13 +42,8 @@ module.exports = {
           "govzw.com",
         ]),
 
-        {%@@ for id in firefox_joint_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
-
-        {%@@ for id in firefox_kids_ro_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        /op_vault=Joint/,
+        /op_vault=Kids RO/,
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Joint", urlString);
@@ -67,9 +58,7 @@ module.exports = {
           "my.asu.edu",
         ]),
 
-        {%@@ for id in firefox_jenny_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        /op_vault=Jenny/,
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Jenny", urlString);
@@ -101,20 +90,12 @@ module.exports = {
           return bundleIdsForHarmony.has(opener.bundleId)
         },
 
-        {%@@ for id in firefox_adam_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
-
-        {%@@ for id in firefox_adam_work_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
-
-        {%@@ for id in firefox_private_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        /op_vault=Adam/,
+        /op_vault=Adam @ Work/,
+        /op_vault=Private/,
       ],
       url: ({ urlString }) => {
-        return openInFirefoxContainer("Me", urlString);
+        return openInFirefoxContainer("Adam", urlString);
       },
       browser: "Firefox",
     },
