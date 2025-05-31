@@ -91,7 +91,7 @@ module.exports = {
         },
 
         /op_vault=Adam/,
-        /op_vault=Adam @ Work/,
+        /op_vault=Adam%20@%20Work/,
         /op_vault=Private/,
       ],
       url: ({ urlString }) => {
