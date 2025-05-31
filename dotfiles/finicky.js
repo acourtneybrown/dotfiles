@@ -6,6 +6,12 @@ function openInFirefoxContainer(containerName, urlString) {
   )}`;
 }
 
+function containsQueryParam(search, param) {
+  const params = search.split('&')
+  finicky.log(params)
+  return params.includes(param)
+}
+
 const bundleIdsForHarmony = new Set(["com.logitech.myharmony"])
 
 module.exports = {
@@ -16,11 +22,18 @@ module.exports = {
       match: ({ url }) => url.protocol === "http",
       url: { protocol: "https" },
     },
+    // {
+    //   match(all) {
+    //     finicky.log(JSON.stringify(all, null, 2));
+    //     return false;
+    //   },
+    //   url: ({ url }) => url,
+    // },
   ],
   handlers: [
     {
       match: [
-        /op_vault=Cara/,
+        ({url}) => containsQueryParam(url.search, "op_vault=Cara"),
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Cara", urlString);
@@ -29,7 +42,7 @@ module.exports = {
     },
     {
       match: [
-        /op_vault=CB/,
+        ({url}) => containsQueryParam(url.search, "op_vault=CB"),
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("CB", urlString);
@@ -42,8 +55,8 @@ module.exports = {
           "govzw.com",
         ]),
 
-        /op_vault=Joint/,
-        /op_vault=Kids%20RO/,
+        ({url}) => containsQueryParam(url.search, "op_vault=Joint"),
+        ({url}) => containsQueryParam(url.search, "op_vault=Kids%20RO"),
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Joint", urlString);
@@ -58,7 +71,7 @@ module.exports = {
           "my.asu.edu",
         ]),
 
-        /op_vault=Jenny/,
+        ({url}) => containsQueryParam(url.search, "op_vault=Jenny"),
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Jenny", urlString);
@@ -90,9 +103,9 @@ module.exports = {
           return bundleIdsForHarmony.has(opener.bundleId)
         },
 
-        /op_vault=Adam/,
-        /op_vault=Adam%20@%20Work/,
-        /op_vault=Private/,
+        ({url}) => containsQueryParam(url.search, "op_vault=Adam"),
+        ({url}) => containsQueryParam(url.search, "op_vault=Adam%20@%20Work"),
+        ({url}) => containsQueryParam(url.search, "op_vault=Private"),
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Adam", urlString);
