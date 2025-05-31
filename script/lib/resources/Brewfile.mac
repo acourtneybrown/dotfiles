@@ -77,7 +77,7 @@ cask "rocket"
 cask "send-to-kindle"
 cask "slack"
 cask "spotify"
-cask "sublime-text"
+cask "sublime-text@4192"
 cask "yubico-yubikey-manager"
 cask "zoom"
 
