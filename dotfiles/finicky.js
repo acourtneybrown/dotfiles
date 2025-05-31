@@ -43,7 +43,7 @@ module.exports = {
         ]),
 
         /op_vault=Joint/,
-        /op_vault=Kids RO/,
+        /op_vault=Kids%20RO/,
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Joint", urlString);
