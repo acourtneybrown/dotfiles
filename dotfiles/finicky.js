@@ -8,7 +8,7 @@ function openInFirefoxContainer(containerName, urlString) {
 
 function containsQueryParam(search, param) {
   const params = search.split('&')
-  finicky.log(params)
+  // finicky.log(params)
   return params.includes(param)
 }
 
