@@ -59,7 +59,7 @@ function alfred-build-and-release() {
 		git commit -m "release: $next_version" &&
 		git pull --no-progress &&
 		git push --no-progress &&
-		git tag "$next_version" && # pushing a tag triggers the github release action
+		git tag -a "$next_version" -m "release: $next_version" && # pushing a tag triggers the github release action
 		git push --no-progress origin --tags
 }
 
