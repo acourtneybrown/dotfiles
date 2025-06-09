@@ -658,6 +658,10 @@ function macos::config_Dock() {
 
   # Make Dock position on right
   defaults write com.apple.dock orientation -string right
+
+  # Make Dock show 10 recent apps
+  defaults write com.apple.dock show-recents -bool true
+  defaults write com.apple.dock show-recent-count -int 10
 }
 
 function macos::config_Safari() {
