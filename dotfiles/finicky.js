@@ -6,6 +6,12 @@ function openInFirefoxContainer(containerName, urlString) {
   )}`;
 }
 
+function containsQueryParam(search, param) {
+  const params = search.split('&')
+  // finicky.log(params)
+  return params.includes(param)
+}
+
 const bundleIdsForHarmony = new Set(["com.logitech.myharmony"])
 
 module.exports = {
@@ -16,13 +22,18 @@ module.exports = {
       match: ({ url }) => url.protocol === "http",
       url: { protocol: "https" },
     },
+    // {
+    //   match(all) {
+    //     finicky.log(JSON.stringify(all, null, 2));
+    //     return false;
+    //   },
+    //   url: ({ url }) => url,
+    // },
   ],
   handlers: [
     {
       match: [
-        {%@@ for id in firefox_cara_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        ({url}) => containsQueryParam(url.search, "op_vault=Cara"),
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Cara", urlString);
@@ -31,9 +42,7 @@ module.exports = {
     },
     {
       match: [
-        {%@@ for id in firefox_cb_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        ({url}) => containsQueryParam(url.search, "op_vault=CB"),
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("CB", urlString);
@@ -46,13 +55,8 @@ module.exports = {
           "govzw.com",
         ]),
 
-        {%@@ for id in firefox_joint_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
-
-        {%@@ for id in firefox_kids_ro_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        ({url}) => containsQueryParam(url.search, "op_vault=Joint"),
+        ({url}) => containsQueryParam(url.search, "op_vault=Kids%20RO"),
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Joint", urlString);
@@ -67,9 +71,7 @@ module.exports = {
           "my.asu.edu",
         ]),
 
-        {%@@ for id in firefox_jenny_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        ({url}) => containsQueryParam(url.search, "op_vault=Jenny"),
       ],
       url: ({ urlString }) => {
         return openInFirefoxContainer("Jenny", urlString);
@@ -101,20 +103,12 @@ module.exports = {
           return bundleIdsForHarmony.has(opener.bundleId)
         },
 
-        {%@@ for id in firefox_adam_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
-
-        {%@@ for id in firefox_adam_work_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
-
-        {%@@ for id in firefox_private_ids.split() @@%}
-          /{{@@ id @@}}={{@@ id @@}}/,
-        {%@@ endfor @@%}
+        ({url}) => containsQueryParam(url.search, "op_vault=Adam"),
+        ({url}) => containsQueryParam(url.search, "op_vault=Adam%20@%20Work"),
+        ({url}) => containsQueryParam(url.search, "op_vault=Private"),
       ],
       url: ({ urlString }) => {
-        return openInFirefoxContainer("Me", urlString);
+        return openInFirefoxContainer("Adam", urlString);
       },
       browser: "Firefox",
     },
