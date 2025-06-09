@@ -86,6 +86,7 @@ ZSH_CUSTOM="${HOME}/.oh-my-zsh-custom"
 plugins=(
   1password
   1password-custom
+  alfred-workflow-dev
   aliases
   bazel
   bazel-custom
