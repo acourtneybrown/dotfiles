@@ -63,6 +63,7 @@ function alfred-build-and-release() {
 		git push --no-progress origin --tags
 }
 
+# transfer-changes-FROM-local in Justfile
 function alfred-get-changes() {
 	local git_root
 	git_root="$(git rev-parse --show-toplevel)"
@@ -73,6 +74,7 @@ function alfred-get-changes() {
     # TODO: ignore fields/files taht Alfred workflow packaging would
 }
 
+# transfer-changes-TO-local in Justfile
 function alfred-install-changes() {
 	local git_root
 	git_root="$(git rev-parse --show-toplevel)"
