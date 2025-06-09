@@ -61,7 +61,6 @@ function alfred-build-and-release() {
 		git push --no-progress &&
 		git tag "$next_version" && # pushing a tag triggers the github release action
 		git push --no-progress origin --tags
-
 }
 
 function alfred-get-changes() {
@@ -71,6 +70,7 @@ function alfred-get-changes() {
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
     rsync --archive --delete "$local_workflow/" "$git_root/Workflow"
+    # TODO: ignore fields/files taht Alfred workflow packaging would
 }
 
 function alfred-install-changes() {
@@ -80,6 +80,7 @@ function alfred-install-changes() {
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
     rsync --archive --delete "$git_root/Workflow/" "$local_workflow"
+    # TODO: ignore fields/files taht Alfred workflow packaging would
 }
 
 function alfred-diff-changes() {
@@ -89,4 +90,5 @@ function alfred-diff-changes() {
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
     diff -urN "$local_workflow/" "$git_root/Workflow"
+    # TODO: ignore fields/files taht Alfred workflow packaging would
 }
