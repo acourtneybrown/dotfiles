@@ -338,6 +338,7 @@ profiles:
       github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
       gitlab_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/username"
       homebrew_prefix: brew --prefix
+      joint_google_account: op read "op://Joint/hqlcejuk5jil2e6hmmklzahub4/Email"
       personal_email: op read "op://Adam/6jjizlkc5bstuors76ickhd7fa/Internet Details/email"
       sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
       synology_api_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/username"

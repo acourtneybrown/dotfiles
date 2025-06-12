@@ -28,7 +28,7 @@ function op-check-vault() {
   [ $# -ge 1 ] || return 1
 
   vault=$1
-  username=${2:-adamjennybrown}
+  username=${2:-{{@@ joint_google_account @@}}}
 
   op item list --categories Login --vault "$vault" --format json |
     op item get - --format json |
