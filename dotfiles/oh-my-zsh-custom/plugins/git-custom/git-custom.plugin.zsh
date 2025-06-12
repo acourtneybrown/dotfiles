@@ -228,24 +228,14 @@ function gall_find() {
 
 # gpsup pushes the current branch to the specified remote (origin by default) & sets the upstream branch
 function gpsup() {
-  local remote
-  if [[ "${#}" -lt 1 ]]; then
-    remote=origin
-  else
-    remote="${1}"
-  fi
+  local remote=${1:-origin}
 
   git push --set-upstream "${remote}" "$(git_current_branch)"
 }
 
 # ggpush pushes the current branch to the specified remote (origin by default)
 function ggpush() {
-  local remote
-  if [[ "${#}" -lt 1 ]]; then
-    remote=origin
-  else
-    remote="${1}"
-  fi
+  local remote=${1:-origin}
 
   git push "${remote}" "$(git_current_branch)"
 }
