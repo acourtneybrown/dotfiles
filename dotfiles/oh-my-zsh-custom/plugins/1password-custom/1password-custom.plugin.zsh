@@ -37,3 +37,16 @@ function op-check-vault() {
               (.fields.[] | select(.id == \"username\") | .value | contains(\"$username\"))) and
              (.tags | contains([\"WrongVaultOk\"]) | not)) | .id"
 }
+
+# op-ssh-keygen-sign signs the specified string, using an SSH key obtained from
+# the ssh-agent (default: the `host_ssh_key_name` from config.yaml for this host)
+function op-ssh-keygen-sign() {
+  [[ $# -gt 0 ]] || {
+    echo "Usage: $0 <to_sign> [ <ssh key name> ]"
+    return 1
+  }
+  local to_sign=$1
+  local key=${2:-{{@@ host_ssh_key_name @@}}}
+
+  echo -n "$to_sign" | ssh-keygen -Y sign -n gitea -f <(op read "op://Private/$key/public key")
+}
