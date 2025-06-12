@@ -1,1 +1,8 @@
+# shellcheck disable=SC1083,SC2148
 [[ -z "$PS1" ]] && PATH=$PATH:/usr/local/bin:{{@@ homebrew_prefix @@}}/bin
+
+# shellcheck disable=SC2154
+if [[ "$alfred_workflow_name" == "GitFred" || "$alfred_workflow_name" == "GitHubFred" ]] ; then
+	GITHUB_TOKEN=$(op plugin run -- gh auth token)
+	export GITHUB_TOKEN
+fi
