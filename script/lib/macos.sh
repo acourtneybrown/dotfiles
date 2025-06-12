@@ -56,6 +56,7 @@ function macos::setup() {
     Alfred
     BetterDisplay
     Rocket
+    KeyClu
   )
   local fn
   for app in "${apps[@]}"; do
@@ -952,6 +953,11 @@ function macos::config_BetterDisplay() {
   fi
 }
 
+function macos::config_KeyClu() {
+  # Set the activation key to Option
+  defaults write com.0804Team.KeyClu activationKeyId -int 1
+}
+
 function macos::config_Rocket() {
   # Launch Rocket at login
   defaults write net.matthewpalmer.Rocket launch-at-login -bool true
@@ -1000,6 +1006,7 @@ function macos::kill_apps() {
     "Alfred" \
     "BetterDisplay" \
     "Rocket" \
+    "KeyClu" \
     ; do
     killall "${app}" &>/dev/null
   done
