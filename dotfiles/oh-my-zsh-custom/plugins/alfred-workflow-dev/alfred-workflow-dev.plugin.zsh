@@ -12,7 +12,10 @@ function _alfred-installed-workflow() {
 	echo "$prefs_location/Alfred.alfredpreferences/workflows/$workflow_uid"
 }
 
-# .build-and-release.sh
+# alfred-build-and-release updates the local git repo to set the release
+# version & then pushes the changes to the origin remote (github), assuming
+# that this will trigger the actual release process.
+# see: .build-and-release.sh
 function alfred-build-and-release() {
 	local next_version
 	local git_root
@@ -63,7 +66,9 @@ function alfred-build-and-release() {
 		git push --no-progress origin --tags
 }
 
-# transfer-changes-FROM-local in Justfile
+# alfred-get-changes copies changes to the installed workflow of the same name
+# into the current directory
+# see: transfer-changes-FROM-local in Justfile
 function alfred-get-changes() {
 	local git_root
 	git_root="$(git rev-parse --show-toplevel)"
@@ -74,7 +79,9 @@ function alfred-get-changes() {
     # TODO: ignore fields/files taht Alfred workflow packaging would
 }
 
-# transfer-changes-TO-local in Justfile
+# alfred-install-changes installs the local directory changes to the workflow
+# to the installed workflow of the same name
+# see: transfer-changes-TO-local in Justfile
 function alfred-install-changes() {
 	local git_root
 	git_root="$(git rev-parse --show-toplevel)"
@@ -85,6 +92,8 @@ function alfred-install-changes() {
     # TODO: ignore fields/files taht Alfred workflow packaging would
 }
 
+# alfred-diff-changes compares the contents of the local workflow directory
+# to the currently installed one of the same name
 function alfred-diff-changes() {
 	local git_root
 	git_root="$(git rev-parse --show-toplevel)"
