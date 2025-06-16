@@ -103,3 +103,12 @@ function alfred-diff-changes() {
     diff -urN --exclude prefs.plist "$local_workflow/" "$git_root/Workflow"
     # TODO: ignore fields/files taht Alfred workflow packaging would
 }
+
+# alfred-cd-installed changes the current directory to the installed
+# workflow directory of the same name
+function alfred-cd-installed() {
+	local git_root
+	git_root="$(git rev-parse --show-toplevel)"
+
+	builtin cd "$(_alfred-installed-workflow "$git_root")" || return 1
+}
