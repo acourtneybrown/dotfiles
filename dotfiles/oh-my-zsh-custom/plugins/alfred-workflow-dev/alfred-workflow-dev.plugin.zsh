@@ -75,7 +75,7 @@ function alfred-get-changes() {
 	local local_workflow
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
-    rsync --archive --delete "$local_workflow/" "$git_root/Workflow"
+    rsync --archive --delete --exclude prefs.plist "$local_workflow/" "$git_root/Workflow"
     # TODO: ignore fields/files taht Alfred workflow packaging would
 }
 
@@ -88,7 +88,7 @@ function alfred-install-changes() {
 	local local_workflow
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
-    rsync --archive --delete "$git_root/Workflow/" "$local_workflow"
+    rsync --archive --delete --exclude prefs.plist "$git_root/Workflow/" "$local_workflow"
     # TODO: ignore fields/files taht Alfred workflow packaging would
 }
 
@@ -100,6 +100,6 @@ function alfred-diff-changes() {
 	local local_workflow
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
-    diff -urN "$local_workflow/" "$git_root/Workflow"
+    diff -urN --exclude prefs.plist "$local_workflow/" "$git_root/Workflow"
     # TODO: ignore fields/files taht Alfred workflow packaging would
 }
