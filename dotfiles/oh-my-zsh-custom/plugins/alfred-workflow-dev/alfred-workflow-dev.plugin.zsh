@@ -112,3 +112,12 @@ function alfred-cd-installed() {
 
 	builtin cd "$(_alfred-installed-workflow "$git_root")" || return 1
 }
+
+# alfred-link-workflow creates a symlink from the installed Alfred workflow directory
+# to the `Workflow/` directory in this git repo
+function alfred-link-workflow() {
+  	local git_root
+	git_root="$(git rev-parse --show-toplevel)"
+
+    ln -s "$(pwd)/Workflow" "$(_alfred-installed-workflow "$git_root")"
+}
