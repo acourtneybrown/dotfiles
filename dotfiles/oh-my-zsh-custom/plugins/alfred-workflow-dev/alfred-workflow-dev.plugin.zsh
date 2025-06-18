@@ -122,7 +122,10 @@ function alfred-link-workflow() {
     ln -s "$(pwd)/Workflow" "$(_alfred-installed-workflow "$git_root")"
 }
 
+# alfred-package-workflow zips up the installed workflow directory while
+# omitting files & variables that Alfred's `export` functionality would.
 # see: https://www.alfredforum.com/topic/9873-how-to-package-workflows-via-the-command-line/
+# shellcheck disable=SC2155
 function alfred-package-workflow() {
 	readonly workflow_dir="${1}"
 	readonly info_plist="${workflow_dir}/info.plist"
