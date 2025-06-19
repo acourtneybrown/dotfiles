@@ -99,7 +99,10 @@ export default {
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
-        (opener) => bundleIdsForHarmony.has(opener.bundleId),
+        (url, { opener }) => {
+          console.log(opener.bundleId)
+          return bundleIdsForHarmony.has(opener.bundleId)
+        },
 
         (url) => containsQueryParam(url.search, "op_vault=Adam"),
         (url) => containsQueryParam(url.search, "op_vault=Adam%20@%20Work"),
