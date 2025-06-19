@@ -47,17 +47,13 @@ export default {
       match: [
         (url) => containsQueryParam(url.search, "op_vault=Cara"),
       ],
-      url: (url) => {
-        return openInFirefoxContainer("Cara", url);
-      },
+      url: (url) => openInFirefoxContainer("Cara", url),
     },
     {
       match: [
         (url) => containsQueryParam(url.search, "op_vault=CB"),
       ],
-      url: (url) => {
-        return openInFirefoxContainer("CB", url);
-      },
+      url: (url) => openInFirefoxContainer("CB", url),
     },
     {
       match: [
@@ -68,9 +64,7 @@ export default {
         (url) => containsQueryParam(url.search, "op_vault=Joint"),
         (url) => containsQueryParam(url.search, "op_vault=Kids%20RO"),
       ],
-      url: (url) => {
-        return openInFirefoxContainer("Joint", url);
-      },
+      url: (url) => openInFirefoxContainer("Joint", url),
     },
     {
       match: [
@@ -82,9 +76,7 @@ export default {
 
         (url) => containsQueryParam(url.search, "op_vault=Jenny"),
       ],
-      url: (url) => {
-        return openInFirefoxContainer("Jenny", url);
-      },
+      url: (url) => openInFirefoxContainer("Jenny", url),
     },
     {
       match: [
@@ -107,17 +99,13 @@ export default {
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
-        (opener) => {
-          return bundleIdsForHarmony.has(opener.bundleId)
-        },
+        (opener) => bundleIdsForHarmony.has(opener.bundleId),
 
         (url) => containsQueryParam(url.search, "op_vault=Adam"),
         (url) => containsQueryParam(url.search, "op_vault=Adam%20@%20Work"),
         (url) => containsQueryParam(url.search, "op_vault=Private"),
       ],
-      url: (url) => {
-        return openInFirefoxContainer("Adam", url);
-      },
+      url: (url) => openInFirefoxContainer("Adam", url),
     },
     // TODO: consider https://github.com/johnste/finicky/wiki/Configuration-ideas#open-zoom-links-in-zoom-app-with-or-without-password
   ],
