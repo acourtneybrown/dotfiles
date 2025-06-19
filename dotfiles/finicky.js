@@ -1,7 +1,7 @@
 // See https://github.com/johnste/finicky/wiki/Configuration-(v3)
 
 function openInFirefoxContainer(containerName, url) {
-  console.log('opening in ' + containerName);
+  // console.log('opening in ' + containerName);
   return `ext+container:name=${containerName}&url=${encodeURIComponent(
     url.toString()
   )}`;
@@ -10,9 +10,9 @@ function openInFirefoxContainer(containerName, url) {
 function containsQueryParam(search, param) {
   if (search) {
     search = search.slice(1) // trim the leading ?
-    console.log(search)
+    // console.log(search)
     const params = search.split('&')
-    console.log(params)
+    // console.log(params)
     return params.includes(param)
   }
   return false
@@ -26,23 +26,23 @@ export default {
     {
       // Redirect all urls to use https
       match: (url) => {
-        console.log('checking for http')
+        // console.log('checking for http')
         return url.protocol === "http:"
       },
       url: (url) => {
-        console.log('switch to https');
+        // console.log('switch to https');
         url.protocol = "https:";
         return url;
       }
     },
-    {
-      match: (url) => {
-        console.log('logging url')
-        console.log(JSON.stringify(url, null, 2));
-        return false;
-      },
-      url: (url) => url,
-    },
+    // {
+    //   match: (url) => {
+    //     console.log('logging url')
+    //     console.log(JSON.stringify(url, null, 2));
+    //     return false;
+    //   },
+    //   url: (url) => url,
+    // },
     {
       match: [
         (url) => containsQueryParam(url.search, "op_vault=Cara"),
@@ -100,7 +100,7 @@ export default {
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
         (url, { opener }) => {
-          console.log(opener.bundleId)
+          // console.log(opener.bundleId)
           return bundleIdsForHarmony.has(opener.bundleId)
         },
 
