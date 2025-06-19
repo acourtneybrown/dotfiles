@@ -6,3 +6,8 @@ if [[ "$alfred_workflow_name" == "GitFred" || "$alfred_workflow_name" == "GitHub
 	GITHUB_TOKEN=$(op plugin run -- gh auth token)
 	export GITHUB_TOKEN
 fi
+
+if [[ "$alfred_workflow_name" == "GiteaFred" ]]; then
+	GITEA_SERVER_TOKEN=$({{@@ gitea_tea_token @@}})
+	export GITEA_SERVER_TOKEN
+fi
