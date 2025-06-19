@@ -1,53 +1,59 @@
 // See https://github.com/johnste/finicky/wiki/Configuration-(v3)
 
-function openInFirefoxContainer(containerName, urlString) {
+function openInFirefoxContainer(containerName, url) {
+  // console.log('opening in ' + containerName);
   return `ext+container:name=${containerName}&url=${encodeURIComponent(
-    urlString
+    url.toString()
   )}`;
 }
 
 function containsQueryParam(search, param) {
-  const params = search.split('&')
-  // finicky.log(params)
-  return params.includes(param)
+  if (search) {
+    search = search.slice(1) // trim the leading ?
+    // console.log(search)
+    const params = search.split('&')
+    // console.log(params)
+    return params.includes(param)
+  }
+  return false
 }
 
 const bundleIdsForHarmony = new Set(["com.logitech.myharmony"])
 
-module.exports = {
+export default {
   defaultBrowser: "Firefox",
   rewrite: [
     {
       // Redirect all urls to use https
-      match: ({ url }) => url.protocol === "http",
-      url: { protocol: "https" },
+      match: (url) => {
+        // console.log('checking for http')
+        return url.protocol === "http:"
+      },
+      url: (url) => {
+        // console.log('switch to https');
+        url.protocol = "https:";
+        return url;
+      }
     },
     // {
-    //   match(all) {
-    //     finicky.log(JSON.stringify(all, null, 2));
+    //   match: (url) => {
+    //     console.log('logging url')
+    //     console.log(JSON.stringify(url, null, 2));
     //     return false;
     //   },
-    //   url: ({ url }) => url,
+    //   url: (url) => url,
     // },
-  ],
-  handlers: [
     {
       match: [
-        ({url}) => containsQueryParam(url.search, "op_vault=Cara"),
+        (url) => containsQueryParam(url.search, "op_vault=Cara"),
       ],
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("Cara", urlString);
-      },
-      browser: "Firefox",
+      url: (url) => openInFirefoxContainer("Cara", url),
     },
     {
       match: [
-        ({url}) => containsQueryParam(url.search, "op_vault=CB"),
+        (url) => containsQueryParam(url.search, "op_vault=CB"),
       ],
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("CB", urlString);
-      },
-      browser: "Firefox",
+      url: (url) => openInFirefoxContainer("CB", url),
     },
     {
       match: [
@@ -55,13 +61,10 @@ module.exports = {
           "govzw.com",
         ]),
 
-        ({url}) => containsQueryParam(url.search, "op_vault=Joint"),
-        ({url}) => containsQueryParam(url.search, "op_vault=Kids%20RO"),
+        (url) => containsQueryParam(url.search, "op_vault=Joint"),
+        (url) => containsQueryParam(url.search, "op_vault=Kids%20RO"),
       ],
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("Joint", urlString);
-      },
-      browser: "Firefox",
+      url: (url) => openInFirefoxContainer("Joint", url),
     },
     {
       match: [
@@ -71,12 +74,9 @@ module.exports = {
           "my.asu.edu",
         ]),
 
-        ({url}) => containsQueryParam(url.search, "op_vault=Jenny"),
+        (url) => containsQueryParam(url.search, "op_vault=Jenny"),
       ],
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("Jenny", urlString);
-      },
-      browser: "Firefox",
+      url: (url) => openInFirefoxContainer("Jenny", url),
     },
     {
       match: [
@@ -99,20 +99,20 @@ module.exports = {
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
-        ({ opener }) => {
+        (url, { opener }) => {
+          // console.log(opener.bundleId)
           return bundleIdsForHarmony.has(opener.bundleId)
         },
 
-        ({url}) => containsQueryParam(url.search, "op_vault=Adam"),
-        ({url}) => containsQueryParam(url.search, "op_vault=Adam%20@%20Work"),
-        ({url}) => containsQueryParam(url.search, "op_vault=Private"),
+        (url) => containsQueryParam(url.search, "op_vault=Adam"),
+        (url) => containsQueryParam(url.search, "op_vault=Adam%20@%20Work"),
+        (url) => containsQueryParam(url.search, "op_vault=Private"),
       ],
-      url: ({ urlString }) => {
-        return openInFirefoxContainer("Adam", urlString);
-      },
-      browser: "Firefox",
+      url: (url) => openInFirefoxContainer("Adam", url),
     },
     // TODO: consider https://github.com/johnste/finicky/wiki/Configuration-ideas#open-zoom-links-in-zoom-app-with-or-without-password
+  ],
+  handlers: [
     {
       match: [
         /zoom\.us/
