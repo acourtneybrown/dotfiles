@@ -9,6 +9,7 @@ brew "bash"
 if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
   brew "betterdisplaycli"
 end
+brew "black", restart_service: :changed
 brew "coreutils"
 brew "dark-mode"
 brew "findutils"
