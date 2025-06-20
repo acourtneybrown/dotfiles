@@ -6,3 +6,8 @@ if [[ "$alfred_workflow_name" == "GitFred" || "$alfred_workflow_name" == "GitHub
 	GITHUB_TOKEN=$(op plugin run -- gh auth token)
 	export GITHUB_TOKEN
 fi
+
+if [[ "$alfred_workflow_name" == "GitLabFred" ]]; then
+	GITLAB_TOKEN=$(op plugin run -- glab config get token)
+	export GITLAB_TOKEN
+fi
