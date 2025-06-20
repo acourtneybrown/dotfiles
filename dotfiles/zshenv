@@ -7,6 +7,11 @@ if [[ "$alfred_workflow_name" == "GitFred" || "$alfred_workflow_name" == "GitHub
 	export GITHUB_TOKEN
 fi
 
+if [[ "$alfred_workflow_name" == "GitLabFred" ]]; then
+	GITLAB_TOKEN=$(op plugin run -- glab config get token)
+	export GITLAB_TOKEN
+fi
+
 if [[ "$alfred_workflow_name" == "GiteaFred" ]]; then
 	GITEA_SERVER_TOKEN=$({{@@ gitea_tea_token @@}})
 	export GITEA_SERVER_TOKEN

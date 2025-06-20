@@ -12,7 +12,10 @@ function _alfred-installed-workflow() {
 	echo "$prefs_location/Alfred.alfredpreferences/workflows/$workflow_uid"
 }
 
-# .build-and-release.sh
+# alfred-build-and-release updates the local git repo to set the release
+# version & then pushes the changes to the origin remote (github), assuming
+# that this will trigger the actual release process.
+# see: .build-and-release.sh
 function alfred-build-and-release() {
 	local next_version
 	local git_root
@@ -63,34 +66,90 @@ function alfred-build-and-release() {
 		git push --no-progress origin --tags
 }
 
-# transfer-changes-FROM-local in Justfile
+# alfred-get-changes copies changes to the installed workflow of the same name
+# into the current directory
+# see: transfer-changes-FROM-local in Justfile
 function alfred-get-changes() {
 	local git_root
 	git_root="$(git rev-parse --show-toplevel)"
 	local local_workflow
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
-    rsync --archive --delete "$local_workflow/" "$git_root/Workflow"
+    rsync --archive --delete --exclude prefs.plist "$local_workflow/" "$git_root/Workflow"
     # TODO: ignore fields/files taht Alfred workflow packaging would
 }
 
-# transfer-changes-TO-local in Justfile
+# alfred-install-changes installs the local directory changes to the workflow
+# to the installed workflow of the same name
+# see: transfer-changes-TO-local in Justfile
 function alfred-install-changes() {
 	local git_root
 	git_root="$(git rev-parse --show-toplevel)"
 	local local_workflow
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
-    rsync --archive --delete "$git_root/Workflow/" "$local_workflow"
+    rsync --archive --delete --exclude prefs.plist "$git_root/Workflow/" "$local_workflow"
     # TODO: ignore fields/files taht Alfred workflow packaging would
 }
 
+# alfred-diff-changes compares the contents of the local workflow directory
+# to the currently installed one of the same name
 function alfred-diff-changes() {
 	local git_root
 	git_root="$(git rev-parse --show-toplevel)"
 	local local_workflow
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
-    diff -urN "$local_workflow/" "$git_root/Workflow"
+    diff -urN --exclude prefs.plist "$local_workflow/" "$git_root/Workflow"
     # TODO: ignore fields/files taht Alfred workflow packaging would
+}
+
+# alfred-cd-installed changes the current directory to the installed
+# workflow directory of the same name
+function alfred-cd-installed() {
+	local git_root
+	git_root="$(git rev-parse --show-toplevel)"
+
+	builtin cd "$(_alfred-installed-workflow "$git_root")" || return 1
+}
+
+# alfred-link-workflow creates a symlink from the installed Alfred workflow directory
+# to the `Workflow/` directory in this git repo
+function alfred-link-workflow() {
+  	local git_root
+	git_root="$(git rev-parse --show-toplevel)"
+
+    ln -s "$(pwd)/Workflow" "$(_alfred-installed-workflow "$git_root")"
+}
+
+# alfred-package-workflow zips up the installed workflow directory while
+# omitting files & variables that Alfred's `export` functionality would.
+# see: https://www.alfredforum.com/topic/9873-how-to-package-workflows-via-the-command-line/
+# shellcheck disable=SC2155
+function alfred-package-workflow() {
+	readonly workflow_dir="${1}"
+	readonly info_plist="${workflow_dir}/info.plist"
+
+	if [[ "$#" -ne 1 ]] || [[ ! -f "${info_plist}" ]]; then
+	  echo 'You need to give this script a single argument: the path to a valid workflow directory.'
+	  echo 'The workflow will be saved to the Desktop.'
+	  exit 1
+	fi
+
+	readonly workflow_name="$(/usr/libexec/PlistBuddy -c 'print name' "${info_plist}")"
+	readonly workflow_file="${HOME}/Desktop/${workflow_name}.alfredworkflow"
+
+	if /usr/libexec/PlistBuddy -c 'print variablesdontexport' "${info_plist}" &> /dev/null; then
+	  readonly workflow_dir_to_package="$(mktemp -d)"
+	  /bin/cp -R "${workflow_dir}/"* "${workflow_dir_to_package}"
+
+	  readonly tmp_info_plist="${workflow_dir_to_package}/info.plist"
+	  /usr/libexec/PlistBuddy -c 'Print variablesdontexport' "${tmp_info_plist}" | grep '    ' | sed -E 's/ {4}//' | xargs -I {} /usr/libexec/PlistBuddy -c "Set variables:'{}' ''" "${tmp_info_plist}"
+	else
+	  readonly workflow_dir_to_package="${workflow_dir}"
+	fi
+
+	DITTONORSRC=1 /usr/bin/ditto -ck "${workflow_dir_to_package}" "${workflow_file}"
+	/usr/bin/zip "${workflow_file}" --delete 'prefs.plist' > /dev/null
+	echo "Exported worflow to ${workflow_file}"
 }
