@@ -153,3 +153,13 @@ function alfred-package-workflow() {
 	/usr/bin/zip "${workflow_file}" --delete 'prefs.plist' > /dev/null
 	echo "Exported worflow to ${workflow_file}"
 }
+
+# alfred-workflow-name displays the name of an Alfred workflow directory or `info.plist`
+# given as a argument.  The default is to look at the `info.plist` in the current
+# directory.
+function alfred-workflow-name() {
+	local info_file=${1:-.}
+
+	[[ -d "$info_file" ]] && info_file="${info_file}/info.plist"
+	plutil -extract name raw "$info_file"
+}
