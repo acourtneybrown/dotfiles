@@ -76,7 +76,7 @@ function alfred-get-changes() {
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
     rsync --archive --delete --exclude prefs.plist "$local_workflow/" "$git_root/Workflow"
-    # TODO: ignore fields/files taht Alfred workflow packaging would
+    # TODO: ignore fields/files that Alfred workflow packaging would
 }
 
 # alfred-install-changes installs the local directory changes to the workflow
@@ -89,7 +89,7 @@ function alfred-install-changes() {
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
     rsync --archive --delete --exclude prefs.plist "$git_root/Workflow/" "$local_workflow"
-    # TODO: ignore fields/files taht Alfred workflow packaging would
+    # TODO: ignore fields/files that Alfred workflow packaging would
 }
 
 # alfred-diff-changes compares the contents of the local workflow directory
@@ -101,7 +101,7 @@ function alfred-diff-changes() {
 	local_workflow=$(_alfred-installed-workflow "$git_root")
 
     diff -urN --exclude prefs.plist "$local_workflow/" "$git_root/Workflow"
-    # TODO: ignore fields/files taht Alfred workflow packaging would
+    # TODO: ignore fields/files that Alfred workflow packaging would
 }
 
 # alfred-cd-installed changes the current directory to the installed
@@ -152,4 +152,14 @@ function alfred-package-workflow() {
 	DITTONORSRC=1 /usr/bin/ditto -ck "${workflow_dir_to_package}" "${workflow_file}"
 	/usr/bin/zip "${workflow_file}" --delete 'prefs.plist' > /dev/null
 	echo "Exported worflow to ${workflow_file}"
+}
+
+# alfred-workflow-version displays the version of an Alfred workflow directory or `info.plist`
+# given as a argument.  The default is to look at the `info.plist` in the current
+# directory.
+function alfred-workflow-version() {
+        local info_file=${1:-.}
+
+        [[ -d "$info_file" ]] && info_file="${info_file}/info.plist"
+        plutil -extract version raw "$info_file"
 }
