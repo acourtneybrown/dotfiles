@@ -96,6 +96,7 @@ export default {
         /^https:\/\/calendly\.com\/omaras\//,
         /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/github\.com\/NotCharlie(\/|$)/,
+        /^https:\/\/gitlab\.com\/{{@@ gitlab_account @@}}(\/|$)/,
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
