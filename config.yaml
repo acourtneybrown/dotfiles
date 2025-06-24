@@ -67,7 +67,7 @@ dotfiles:
     src: config/pip
     dst: ~/.config/pip
     link: link_children
-  d_git_template:
+  d_git-template:
     src: git-template
     dst: ~/.git-template
     link: nolink
@@ -362,7 +362,7 @@ profiles:
       - d_config_1Password
       - d_config_gh
       - d_config_glab_cli
-      - d_git_template
+      - d_git-template
       - d_gradle_init_d
       - f_bash_sessions_disable
       - f_curlrc
