@@ -1,0 +1,15 @@
+{
+	"account_id": "3OEQP7K6IVGS7NDF437AKNKISE",
+	"entrypoint": [
+		"tea"
+	],
+	"credentials": [
+		{
+			"plugin": "gitea",
+			"credential_type": "personal_access_token",
+			"usage_id": "personal_access_token",
+			"vault_id": "jrew5nqtk5aqdgupcoxqjuevwu",
+			"item_id": "3evxc47vgvyz4w65n6krlpq25u"
+		}
+	]
+}
