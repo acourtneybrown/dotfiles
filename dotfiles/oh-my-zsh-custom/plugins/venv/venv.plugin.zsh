@@ -14,7 +14,8 @@ function ve2() {
   virtualenv "${env}"
 }
 
-# va activates a virtualenv for the given name, or .venv/ if present, or ${HOME}/.virtualenvs/<dir name>
+# va activates a virtualenv for the given name, or the first of the following:
+# .venv/, venv/ or ${HOME}/.virtualenvs/<dir name>
 function va() {
   local env
   if [[ ${#} -eq 0 ]]; then
