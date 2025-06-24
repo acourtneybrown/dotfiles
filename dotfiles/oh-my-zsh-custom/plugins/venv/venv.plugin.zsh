@@ -20,6 +20,8 @@ function va() {
   if [[ ${#} -eq 0 ]]; then
     if [[ -d .venv ]]; then
       env=.venv
+    elif [[ -d venv ]]; then
+      env=venv
     elif [[ -d ${HOME}/.virtualenvs/$(basename "${PWD}") ]]; then
       env=${HOME}/.virtualenvs/$(basename "${PWD}")
     fi
