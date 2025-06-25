@@ -335,9 +335,6 @@ profiles:
       ssh_agent_lifetime: 1h
       host_password: unset
       host_ssh_key_name: Default key
-      gitea.com_tea_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/3evxc47vgvyz4w65n6krlpq25u/token"
-      gitea.notcharlie.com_tea_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/token"
-      gitea_hosts: "gitea.com gitea.notcharlie.com"
     dynvariables:
       authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
       full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
