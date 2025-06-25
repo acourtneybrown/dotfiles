@@ -49,3 +49,7 @@
 	insteadOf = "gitea:"
 	insteadOf = "git://gitea.com/"
 	insteadOf = https://gitea.com/
+
+[url "ssh://git@gitea.com/{{@@ public_gitea_username @@}}/"]
+
+	insteadOf = "gta:"
