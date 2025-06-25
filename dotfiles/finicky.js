@@ -94,7 +94,7 @@ export default {
         ]),
 
         /^https:\/\/calendly\.com\/omaras\//,
-        /^https:\/\/gitea\.com\/{{@@ gitea_username @@}}(\/|$)/,
+        /^https:\/\/gitea\.com\/{{@@ _vars['gitea.com_username'] @@}}(\/|$)/,
         /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/github\.com\/NotCharlie(\/|$)/,
         /^https:\/\/gitlab\.com\/{{@@ gitlab_account @@}}(\/|$)/,

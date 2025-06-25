@@ -13,6 +13,16 @@ if [[ "$alfred_workflow_name" == "GitLabFred" ]]; then
 fi
 
 if [[ "$alfred_workflow_name" == "GiteaFred" ]]; then
-	GITEA_SERVER_TOKEN=$({{@@ gitea_tea_token @@}})
+	# declare -A gitea_token_for
+	# {%@@ for host in gitea_hosts.split() @@%}
+	# gitea_token_for[{{@@ host @@}}]=$({{@@ _vars[host ~ "_tea_token"] @@}})
+	# {%@@ endfor @@%}
+	# GITEA_SERVER_TOKEN=$gitea_token_for[$gitea_host]
+	# export GITEA_SERVER_TOKEN
+
+	{%@@ for host in gitea_hosts.split() @@%}
+	gitea_token_for_{{@@ host @@}}=$({{@@ _vars[host ~ "_tea_token"] @@}})
+	{%@@ endfor @@%}
+	GITEA_SERVER_TOKEN=$(eval \$gitea_token_for_$gitea_host)
 	export GITEA_SERVER_TOKEN
 fi
