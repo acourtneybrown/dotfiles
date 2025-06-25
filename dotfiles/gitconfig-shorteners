@@ -38,3 +38,14 @@
 	insteadOf = "giteahome:"
 	insteadOf = "git://{{@@ personal_gitea_hostname @@}}/"
 	insteadOf = {{@@ personal_gitea_website @@}}/
+
+[url "ssh://git@{{@@ personal_gitea_hostname @@}}/{{@@ personal_gitea_username @@}}/"]
+
+	insteadOf = "gtha:"
+
+[url "ssh://git@gitea.com/"]
+
+	insteadOf = "gt:"
+	insteadOf = "gitea:"
+	insteadOf = "git://gitea.com/"
+	insteadOf = https://gitea.com/
