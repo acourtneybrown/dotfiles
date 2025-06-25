@@ -1,4 +1,4 @@
-// See https://github.com/johnste/finicky/wiki/Configuration-(v3)
+// See https://github.com/johnste/finicky/wiki/Configuration-(v4)
 
 function openInFirefoxContainer(containerName, url) {
   // console.log('opening in ' + containerName);
@@ -91,10 +91,11 @@ export default {
           "notcharlie.slack.com",
           "pbj-dogs.slack.com",
           "xooglerco.slack.com",
+          "{{@@ personal_gitea_hostname @@}}",
         ]),
 
         /^https:\/\/calendly\.com\/omaras\//,
-        /^https:\/\/gitea\.com\/{{@@ _vars['gitea.com_username'] @@}}(\/|$)/,
+        /^https:\/\/gitea\.com\/{{@@ public_gitea_username @@}}(\/|$)/,
         /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/github\.com\/NotCharlie(\/|$)/,
         /^https:\/\/gitlab\.com\/{{@@ gitlab_account @@}}(\/|$)/,

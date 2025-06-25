@@ -32,9 +32,9 @@
 
 	insteadOf = "gla:"
 
-[url "ssh://git@gitea.notcharlie.com/"]
+[url "ssh://git@{{@@ personal_gitea_hostname @@}}/"]
 
 	insteadOf = "gth:"
 	insteadOf = "giteahome:"
-	insteadOf = "git://gitea.notcharlie.com/"
-	insteadOf = https://gitea.notcharlie.com/
+	insteadOf = "git://{{@@ personal_gitea_hostname @@}}/"
+	insteadOf = {{@@ personal_gitea_website @@}}/

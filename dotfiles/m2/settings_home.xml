@@ -9,7 +9,7 @@
         <httpHeaders>
           <property>
             <name>Authorization</name>
-            <value>token {{@@ _vars['gitea.notcharlie.com_maven_token'] @@}}</value>
+            <value>token {{@@ personal_gitea_maven_token @@}}</value>
           </property>
         </httpHeaders>
       </configuration>
@@ -25,7 +25,7 @@
       <repositories>
         <repository>
           <id>gitea</id>
-          <url>{{@@ _vars['gitea.notcharlie.com_website'] @@}}/api/packages/{{@@ _vars['gitea.notcharlie.com_username'] @@}}/maven</url>
+          <url>{{@@ personal_gitea_website @@}}/api/packages/{{@@ personal_gitea_username @@}}/maven</url>
           <releases>
             <enabled>true</enabled>
           </releases>
