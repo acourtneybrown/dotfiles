@@ -1,7 +1,7 @@
 [distutils]
-index-servers = gitea
+index-servers = personal_gitea
 
-[gitea]
-repository = {{@@ gitea_website @@}}/api/packages/{{@@ gitea_username @@}}/pypi
-username = {{@@ gitea_username @@}}
-password = {{@@ gitea_pypi_token @@}}
+[personal_gitea]
+repository = {{@@ personal_gitea_website @@}}/api/packages/{{@@ personal_gitea_username @@}}/pypi
+username = {{@@ personal_gitea_username @@}}
+password = {{@@ personal_gitea_pypi_token @@}}

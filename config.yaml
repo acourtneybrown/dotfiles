@@ -335,14 +335,9 @@ profiles:
       ssh_agent_lifetime: 1h
       host_password: unset
       host_ssh_key_name: Default key
-      gitea_tea_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/token"
     dynvariables:
       authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
       full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
-      gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
-      gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
-      gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
-      gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
       github_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login"
       github_netrc_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/netrc"
       github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
@@ -350,6 +345,12 @@ profiles:
       homebrew_prefix: brew --prefix
       joint_google_account: op read "op://Joint/hqlcejuk5jil2e6hmmklzahub4/Email"
       personal_email: op read "op://Adam/6jjizlkc5bstuors76ickhd7fa/Internet Details/email"
+      personal_gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
+      personal_gitea_hostname: "{{@@ personal_gitea_website @@}} | sed 's|https://||'"
+      personal_gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
+      personal_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
+      personal_gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
+      public_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/3evxc47vgvyz4w65n6krlpq25u/user_name"
       sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
       synology_api_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/username"
       synology_api_password: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/password"

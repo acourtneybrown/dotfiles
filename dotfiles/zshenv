@@ -13,6 +13,9 @@ if [[ "$alfred_workflow_name" == "GitLabFred" ]]; then
 fi
 
 if [[ "$alfred_workflow_name" == "GiteaFred" ]]; then
-	GITEA_SERVER_TOKEN=$({{@@ gitea_tea_token @@}})
+    # shellcheck disable=SC2154
+    GITEA_SERVER_TOKEN=$(op item list --tags gitea-token --format=json | op item get - --format=json |
+      jq -r "select(.fields.[] | select(.label == \"host address\") | .value | contains(\"$gitea_host\"))
+             | .fields.[] | select(.label == \"token\") | .value")
 	export GITEA_SERVER_TOKEN
 fi
