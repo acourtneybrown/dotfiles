@@ -8,7 +8,6 @@
 		"{{@@ personal_gitea_hostname @@}}": "1password",
 		"index.docker.io": "1password"
 	},
-	"currentContext": "desktop-linux",
 	"plugins": {
 		"-x-cli-hints": {
 			"enabled": "true"
