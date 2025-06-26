@@ -123,7 +123,6 @@ plugins=(
   evalcache
 
   {%@@ if mac @@%}
-  alfred-workflow-dev
   homebrew
   iterm2
   iterm2-custom
