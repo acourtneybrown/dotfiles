@@ -11,3 +11,11 @@ if [[ "$alfred_workflow_name" == "GitLabFred" ]]; then
 	GITLAB_TOKEN=$(op plugin run -- glab config get token)
 	export GITLAB_TOKEN
 fi
+
+if [[ "$alfred_workflow_name" == "GiteaFred" ]]; then
+    # shellcheck disable=SC2154
+    GITEA_SERVER_TOKEN=$(op item list --tags gitea-token --format=json | op item get - --format=json |
+      jq -r "select(.fields.[] | select(.label == \"host address\") | .value | contains(\"$gitea_host\"))
+             | .fields.[] | select(.label == \"token\") | .value")
+	export GITEA_SERVER_TOKEN
+fi
