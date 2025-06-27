@@ -37,7 +37,6 @@ function profile::default_after() {
   profile::ensure_pyenv_version 3.13
   pyenv global "$(profile::ensure_pyenv_version 3.11)"
   goenv global "$(profile::ensure_goenv_version 1.19)"
-  tea autocomplete zsh
 }
 
 function profile::personal() {
