@@ -74,7 +74,6 @@ dotfiles:
   d_gitea.com_op:
     src: gitea.com/op
     dst: ~/gitea.com/.op
-    link: nolink
     chmod: 700
     actions:
       - chmod_files 600
