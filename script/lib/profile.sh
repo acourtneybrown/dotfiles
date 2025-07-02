@@ -143,7 +143,7 @@ function profile::mac() {
   brew tap --force homebrew/cask
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
 
-  profile::pipx_install 3.11 pyfred-cli
+  profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
 }
 
 function profile::mac_after() {
