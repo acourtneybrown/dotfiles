@@ -55,7 +55,6 @@ function macos::setup() {
     "QuickTime Player"
     Alfred
     BetterDisplay
-    Rocket
     KeyClu
   )
   local fn
@@ -958,32 +957,6 @@ function macos::config_KeyClu() {
   defaults write com.0804Team.KeyClu activationKeyId -int 1
 }
 
-function macos::config_Rocket() {
-  # Launch Rocket at login
-  defaults write net.matthewpalmer.Rocket launch-at-login -bool true
-
-  # Add additional apps to deactivated app list
-  local apps=(
-    "IntelliJ IDEA"
-    "Sublime Text"
-    Alfred
-    com.runningwithcrayons.Alfred
-    datagrip
-    Firefox
-    Gnucash
-    goland
-    iTerm2
-    pycharm
-    Slack
-    Terminal
-    VirtualBuddy
-    Xcode
-  )
-  for app in "${apps[@]}"; do
-    macos::add_to_array_if_not_present net.matthewpalmer.Rocket deactivated-apps "$app"
-  done
-}
-
 function macos::kill_apps() {
   set +e
   for app in "Activity Monitor" \
@@ -1005,7 +978,6 @@ function macos::kill_apps() {
     "iCal" \
     "Alfred" \
     "BetterDisplay" \
-    "Rocket" \
     "KeyClu" \
     ; do
     killall "${app}" &>/dev/null
