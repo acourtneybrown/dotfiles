@@ -520,6 +520,27 @@
       "uuid": "67365329-5131-4A9C-A8AA-7B4F5D5E8880"
     }
   ],
+  "/opt/homebrew/Cellar/gh/2.74.2/bin/gh": [
+    {
+      "action": "1",
+      "creation": "2025-07-04T20:20:59-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.112.5",
+      "endpointHost": "140.82.112.5",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.74.2/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.74.2/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A5C8EAB3-3E91-4568-842D-F7D8BC9BD1E4"
+    }
+  ],
   "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http": [
     {
       "action": "1",
@@ -2755,6 +2776,99 @@
       "scope": "0",
       "type": "3",
       "uuid": "22A498B5-2AE1-4B98-B476-4A9D91F3F90C"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T20:20:56-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "54.227.237.12",
+      "endpointHost": "54.227.237.12",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.31.1/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "F81A7DF0-8306-4283-BDB0-145EAB37EFC8"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T20:20:57-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a01:cb73:41ca:3894:cc05",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.31.1/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "24173DD9-CC77-477E-B2E5-009A30A7CA44"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T20:20:58-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a00:3c3c:ec0a:2674:bfee",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.31.1/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "F90944FF-B2D6-4E88-B586-F483107EC2C8"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T20:20:58-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f10:4fa9:a02:f78d:e07b:1fb5:dace",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.31.1/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B803711A-FF6D-4DF5-9BE5-4189838750F9"
     }
   ],
   "com.apple.AMPArtworkAgent": [
