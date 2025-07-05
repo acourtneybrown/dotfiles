@@ -6,6 +6,7 @@ brew "buildozer"
 brew "ffmpeg"
 brew "libdvdcss"
 brew "twilio"
+brew "yt-dlp"
 
 cask "avidemux"
 cask "balenaetcher"

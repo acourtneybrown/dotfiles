@@ -25,7 +25,6 @@ brew "wget"
 
 cask "1password"
 cask "1password-cli"
-cask "4k-video-downloader+"
 cask "alfred"
 cask "betterdisplay"
 cask "brother-printerdrivers-colorlaser"
