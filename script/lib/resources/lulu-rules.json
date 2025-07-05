@@ -558,6 +558,24 @@
       "scope": "0",
       "type": "3",
       "uuid": "EC230D1B-4331-4BB9-997A-DD96C36B4DFC"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T21:18:51-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.74.2/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.74.2/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "10419E13-5ED1-4BE0-8DE6-17740DDD5D6D"
     }
   ],
   "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http": [
@@ -910,6 +928,84 @@
       "scope": "0",
       "type": "3",
       "uuid": "4CD6511D-274E-4B16-A324-3EABAC29AB3D"
+    }
+  ],
+  "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app": [
+    {
+      "action": "1",
+      "creation": "2025-07-04T20:58:56-0700",
+      "csInfo": {
+        "signatureIdentifier": "org.python.python",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.217.253.146",
+      "endpointHost": "34.217.253.146",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "name": "Python",
+      "path": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "EAD25C89-7FCB-4746-8F8D-FA1CE1606348"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T21:02:00-0700",
+      "csInfo": {
+        "signatureIdentifier": "org.python.python",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.113.5",
+      "endpointHost": "140.82.113.5",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "name": "Python",
+      "path": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "947E41AA-1780-402D-981D-D6FE1A83409E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T21:03:31-0700",
+      "csInfo": {
+        "signatureIdentifier": "org.python.python",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.114.6",
+      "endpointHost": "140.82.114.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "name": "Python",
+      "path": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B1AA0CB2-4211-48B2-A16D-082C047EA020"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T21:03:46-0700",
+      "csInfo": {
+        "signatureIdentifier": "org.python.python",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "172.65.251.78",
+      "endpointHost": "172.65.251.78",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "name": "Python",
+      "path": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "ECFF0A58-F3F9-439B-B0AD-9A20506F20E6"
     }
   ],
   "/opt/homebrew/Cellar/tea/0.9.2/bin/tea": [
@@ -2888,6 +2984,30 @@
       "scope": "0",
       "type": "3",
       "uuid": "B803711A-FF6D-4DF5-9BE5-4189838750F9"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T20:58:48-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "54.90.99.220",
+      "endpointHost": "54.90.99.220",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.31.1/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6B059B42-F9E7-4F7B-8B94-C7D7B832EFCF"
     }
   ],
   "com.apple.AMPArtworkAgent": [
@@ -7101,6 +7221,30 @@
       "scope": "0",
       "type": "3",
       "uuid": "68F89717-6D31-4979-890B-C0686EE8E8FA"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T21:05:03-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.ssh",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.217.253.146",
+      "endpointHost": "34.217.253.146",
+      "endpointPort": "22",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.ssh",
+      "name": "ssh",
+      "path": "/usr/bin/ssh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A2DE1CA0-8242-42DF-A36B-886D25701FA8"
     }
   ],
   "com.apple.stocks": [
@@ -8156,7 +8300,7 @@
   "com.jetbrains.cefserver.helper:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)": [
     {
       "action": "1",
-      "creation": "2025-05-13T16:22:31-0700",
+      "creation": "2025-07-04T21:15:48-0700",
       "csInfo": {
         "signatureAuthorities": [
           "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
@@ -8167,22 +8311,21 @@
         "signatureSigner": "3",
         "signatureStatus": "0"
       },
-      "endpointAddr": "18.155.173.67",
-      "endpointHost": "18.155.173.67",
-      "endpointPort": "443",
+      "endpointAddr": "*",
+      "endpointPort": "*",
       "isEndpointAddrRegex": "0",
       "key": "com.jetbrains.cefserver.helper:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
       "name": "cef_server Helper",
       "path": "/Applications/PyCharm.app/Contents/jbr/Contents/Frameworks/cef_server.app/Contents/Frameworks/cef_server Helper.app",
       "scope": "0",
       "type": "3",
-      "uuid": "0126BD81-0D1D-4D4F-9968-F6A262EBBD09"
+      "uuid": "9A9561B5-D5B1-4DF9-AEE4-92A59DB94933"
     }
   ],
   "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)": [
     {
       "action": "1",
-      "creation": "2025-05-13T16:21:43-0700",
+      "creation": "2025-07-04T21:14:34-0700",
       "csInfo": {
         "signatureAuthorities": [
           "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
@@ -8193,328 +8336,15 @@
         "signatureSigner": "3",
         "signatureStatus": "0"
       },
-      "endpointAddr": "18.238.109.42",
-      "endpointHost": "18.238.109.42",
-      "endpointPort": "443",
+      "endpointAddr": "*",
+      "endpointPort": "*",
       "isEndpointAddrRegex": "0",
       "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
       "name": "PyCharm",
       "path": "/Applications/PyCharm.app",
       "scope": "0",
       "type": "3",
-      "uuid": "2A8FE060-532F-4936-8284-E9318BA7C15D"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:21:46-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "18.238.96.30",
-      "endpointHost": "18.238.96.30",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "DB416074-F46C-47D4-847D-1CFD9FFC97B5"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:22:02-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "18.155.173.12",
-      "endpointHost": "18.155.173.12",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "0EFBC9EF-EF9A-465A-AA09-642EB8B9FE10"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:22:03-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "18.238.96.106",
-      "endpointHost": "18.238.96.106",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "F43D6C60-7A99-4232-9822-CBD781B2667C"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:22:30-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "76.223.63.197",
-      "endpointHost": "76.223.63.197",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "D7AF1E5B-7CC1-4BEC-BF56-26EB39B4D787"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:22:32-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "18.238.96.36",
-      "endpointHost": "18.238.96.36",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "A6EF5D2F-7C09-4038-AC38-EC6D1215A88B"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:22:34-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "151.101.192.223",
-      "endpointHost": "151.101.192.223",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "D4CAEC38-7FF7-4BE1-9E58-5B385FB25637"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:22:39-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "34.120.104.143",
-      "endpointHost": "34.120.104.143",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "FF75E591-53EC-4575-AB39-0EACB1924453"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:23:41-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "18.238.96.16",
-      "endpointHost": "18.238.96.16",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "4E31E19F-5516-4303-8FAB-7AF517139B29"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:27:40-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "10.98.76.30",
-      "endpointHost": "10.98.76.30",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "9D65687D-E6C2-4B76-AB6A-E8A3A6AD31AA"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T16:52:05-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "18.155.173.59",
-      "endpointHost": "18.155.173.59",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "A1F8B6B2-6588-4A8E-8BBB-36F0D4D4AEBE"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T19:30:48-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "18.155.173.75",
-      "endpointHost": "18.155.173.75",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "2347D6C5-4082-4E85-BDFE-1B99F4C9C336"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-13T21:22:05-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "18.155.173.57",
-      "endpointHost": "18.155.173.57",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "B4A416D3-A0B4-487A-B9C6-54520645EF24"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T07:10:07-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jetbrains.pycharm",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "13.248.188.196",
-      "endpointHost": "13.248.188.196",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
-      "name": "PyCharm",
-      "path": "/Applications/PyCharm.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "34F34161-67E6-4EF1-9A4C-659879D723C5"
+      "uuid": "8B98F537-D3DA-4E46-BCDB-5BD2C314B121"
     }
   ],
   "com.jordanbaird.Ice:Developer ID Application: Jordan Baird (K2ATHQPJDP)": [
