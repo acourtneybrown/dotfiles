@@ -539,6 +539,25 @@
       "scope": "0",
       "type": "3",
       "uuid": "A5C8EAB3-3E91-4568-842D-F7D8BC9BD1E4"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-04T20:22:16-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.113.6",
+      "endpointHost": "140.82.113.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/gh/2.74.2/bin/gh",
+      "name": "gh",
+      "path": "/opt/homebrew/Cellar/gh/2.74.2/bin/gh",
+      "scope": "0",
+      "type": "3",
+      "uuid": "EC230D1B-4331-4BB9-997A-DD96C36B4DFC"
     }
   ],
   "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http": [
