@@ -1,5 +1,5 @@
 # shellcheck disable=SC1083,SC2148
-[[ -z "$PS1" ]] && PATH=$PATH:/usr/local/bin:{{@@ homebrew_prefix @@}}/bin
+[[ -z "$PS1" ]] && PATH=$PATH:/usr/local/bin:{{@@ homebrew_prefix @@}}/bin:$HOME/bin
 
 {%@@ if mac @@%}
 # shellcheck disable=SC2154
