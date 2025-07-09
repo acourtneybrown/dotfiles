@@ -1,20 +1,4 @@
 {
-  "/Applications/Marked 2.app/Contents/MacOS/Marked 2": [
-    {
-      "action": "1",
-      "creation": "2025-04-04T20:22:24-0700",
-      "endpointAddr": "updates.marked2app.com",
-      "endpointHost": "updates.marked2app.com",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/Applications/Marked 2.app/Contents/MacOS/Marked 2",
-      "name": "Marked 2",
-      "path": "/Applications/Marked 2.app/Contents/MacOS/Marked 2",
-      "scope": "0",
-      "type": "3",
-      "uuid": "4B504824-394C-4B48-9A44-29A2F78F11AB"
-    }
-  ],
   "/Applications/Obsidian.app/Contents/Frameworks/Obsidian Helper.app": [
     {
       "action": "1",
@@ -203,323 +187,6 @@
       "uuid": "BE7D0B07-D18C-46A1-8F8D-865646DEE501"
     }
   ],
-  "/Users/adambrown/Library/Application Support/heroic/tools/game-porting-toolkit/Game-Porting-Toolkit-latest/Contents/Resources/wine/bin/wineserver": [
-    {
-      "action": "1",
-      "creation": "2025-04-24T16:30:31-0700",
-      "endpointAddr": "*",
-      "endpointPort": "*",
-      "isEndpointAddrRegex": "0",
-      "key": "/Users/adambrown/Library/Application Support/heroic/tools/game-porting-toolkit/Game-Porting-Toolkit-latest/Contents/Resources/wine/bin/wineserver",
-      "name": "wineserver",
-      "path": "/Users/adambrown/Library/Application Support/heroic/tools/game-porting-toolkit/Game-Porting-Toolkit-latest/Contents/Resources/wine/bin/wineserver",
-      "scope": "0",
-      "type": "3",
-      "uuid": "B4A07231-558F-4C5F-92E2-3C76DF92566D"
-    }
-  ],
-  "/opt/homebrew/Cellar/gh/2.71.2/bin/gh": [
-    {
-      "action": "1",
-      "creation": "2025-04-29T08:43:26-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.112.6",
-      "endpointHost": "140.82.112.6",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "BB9AB8BD-ED9A-428D-964E-614DD5605FEC"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-29T08:58:07-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.113.6",
-      "endpointHost": "140.82.113.6",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "118A1058-3C9E-47AA-BCC9-449595395225"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-02T15:56:10-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.114.6",
-      "endpointHost": "140.82.114.6",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "4B74DB3E-9620-44A3-949F-7DEAE28A0213"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T14:36:16-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.113.5",
-      "endpointHost": "140.82.113.5",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "FC369086-C5F4-4746-9429-BC9BC52C5247"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T15:16:27-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.114.5",
-      "endpointHost": "140.82.114.5",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "B35BD83D-179E-4821-B4F8-69531E5245CD"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T17:46:26-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "34.117.62.14",
-      "endpointHost": "34.117.62.14",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "CD503F95-851B-481D-9747-DC4750FE37FB"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T17:46:28-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "185.199.109.153",
-      "endpointHost": "185.199.109.153",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "2EDD0DD5-0263-4140-AAD4-C34AAB9E4F80"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T17:46:29-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "2606:50c0:8003::153",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "A3AF26C5-5E79-411C-80B3-6A2B1960E743"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T17:46:30-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "2606:50c0:8002::153",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "E4DCA9C3-1B04-4CD4-8100-1F35557B48FE"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T17:47:04-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "185.199.111.153",
-      "endpointHost": "185.199.111.153",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "68064A1A-16F1-4053-857C-C46F0AB27F36"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T17:47:05-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "2606:50c0:8001::153",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "70794683-0B1A-4ABF-9528-6830011FCB74"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T17:47:06-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "2606:50c0:8000::153",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "B67FBB04-BD6B-41E4-A442-08C871FBB0EF"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-14T17:47:39-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "185.199.108.153",
-      "endpointHost": "185.199.108.153",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "FF5DC633-350B-45F1-A664-17A8CF16BECF"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-17T09:43:28-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.112.5",
-      "endpointHost": "140.82.112.5",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "3B77AA3E-EB5B-45E9-A359-548C8E74772F"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-17T15:08:23-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "185.199.110.153",
-      "endpointHost": "185.199.110.153",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "9BA86FD5-5ED7-4CA8-85BB-9A8302649BB5"
-    },
-    {
-      "action": "1",
-      "creation": "2025-05-17T15:08:25-0700",
-      "csInfo": {
-        "signatureIdentifier": "a.out",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "20.209.163.161",
-      "endpointHost": "20.209.163.161",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "name": "gh",
-      "path": "/opt/homebrew/Cellar/gh/2.71.2/bin/gh",
-      "scope": "0",
-      "type": "3",
-      "uuid": "67365329-5131-4A9C-A8AA-7B4F5D5E8880"
-    }
-  ],
   "/opt/homebrew/Cellar/gh/2.74.2/bin/gh": [
     {
       "action": "1",
@@ -578,69 +245,12 @@
       "uuid": "10419E13-5ED1-4BE0-8DE6-17740DDD5D6D"
     }
   ],
-  "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http": [
+  "/opt/homebrew/Cellar/git/2.50.0/libexec/git-core/git-remote-http": [
     {
       "action": "1",
-      "creation": "2025-03-25T09:42:32-0700",
+      "creation": "2025-07-07T13:16:49-0700",
       "csInfo": {
-        "signatureIdentifier": "git-remote-http-5555494407800426af6c3b6f81ce266d6ec2c67a",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.112.3",
-      "endpointHost": "140.82.112.3",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "name": "git-remote-http",
-      "path": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "scope": "0",
-      "type": "3",
-      "uuid": "2D403CE0-3F34-4B43-A70E-4D126F2571B0"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-26T11:14:02-0700",
-      "csInfo": {
-        "signatureIdentifier": "git-remote-http-5555494407800426af6c3b6f81ce266d6ec2c67a",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "140.82.112.4",
-      "endpointHost": "140.82.112.4",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "name": "git-remote-http",
-      "path": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "scope": "0",
-      "type": "3",
-      "uuid": "58503C36-B4DA-4DD4-A110-C522EBAA7E43"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-08T20:44:27-0700",
-      "csInfo": {
-        "signatureIdentifier": "git-remote-http-5555494407800426af6c3b6f81ce266d6ec2c67a",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "10.98.76.30",
-      "endpointHost": "10.98.76.30",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "name": "git-remote-http",
-      "path": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "scope": "0",
-      "type": "3",
-      "uuid": "0CD85A82-9BCB-4316-A472-FFD13D4DE4B2"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-22T16:10:04-0700",
-      "csInfo": {
-        "signatureIdentifier": "git-remote-http-5555494407800426af6c3b6f81ce266d6ec2c67a",
+        "signatureIdentifier": "git-remote-http-555549447820c9dedcb73cf9abbde5312073a29d",
         "signatureSigner": "4",
         "signatureStatus": "0"
       },
@@ -648,31 +258,88 @@
       "endpointHost": "140.82.114.4",
       "endpointPort": "443",
       "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
+      "key": "/opt/homebrew/Cellar/git/2.50.0/libexec/git-core/git-remote-http",
       "name": "git-remote-http",
-      "path": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
+      "path": "/opt/homebrew/Cellar/git/2.50.0/libexec/git-core/git-remote-http",
       "scope": "0",
       "type": "3",
-      "uuid": "DAAA2861-EA74-43CA-B768-9A005741DC5D"
-    },
+      "uuid": "28F7B4D3-E32C-4D81-9704-1DD2B8E09E5E"
+    }
+  ],
+  "/opt/homebrew/Cellar/go/1.24.4/libexec/bin/go": [
     {
       "action": "1",
-      "creation": "2025-05-15T14:42:46-0700",
+      "creation": "2025-07-07T15:44:42-0700",
       "csInfo": {
-        "signatureIdentifier": "git-remote-http-5555494407800426af6c3b6f81ce266d6ec2c67a",
+        "signatureIdentifier": "a.out",
         "signatureSigner": "4",
         "signatureStatus": "0"
       },
-      "endpointAddr": "140.82.114.3",
-      "endpointHost": "140.82.114.3",
+      "endpointAddr": "142.250.72.145",
+      "endpointHost": "142.250.72.145",
       "endpointPort": "443",
       "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
-      "name": "git-remote-http",
-      "path": "/opt/homebrew/Cellar/git/2.49.0/libexec/git-core/git-remote-http",
+      "key": "/opt/homebrew/Cellar/go/1.24.4/libexec/bin/go",
+      "name": "go",
+      "path": "/opt/homebrew/Cellar/go/1.24.4/libexec/bin/go",
       "scope": "0",
       "type": "3",
-      "uuid": "C410B074-4206-42E1-BDDA-31A45ADFC96F"
+      "uuid": "C099473A-402D-44F9-8015-95D73279DD97"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T15:44:44-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2607:f8b0:4007:814::2011",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/go/1.24.4/libexec/bin/go",
+      "name": "go",
+      "path": "/opt/homebrew/Cellar/go/1.24.4/libexec/bin/go",
+      "scope": "0",
+      "type": "3",
+      "uuid": "D88A3797-20CF-4210-8024-7E5782A2FE95"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T15:45:27-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "172.217.12.145",
+      "endpointHost": "172.217.12.145",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/go/1.24.4/libexec/bin/go",
+      "name": "go",
+      "path": "/opt/homebrew/Cellar/go/1.24.4/libexec/bin/go",
+      "scope": "0",
+      "type": "3",
+      "uuid": "3A2005ED-9007-41B5-B46A-4C8A94086E03"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T15:45:29-0700",
+      "csInfo": {
+        "signatureIdentifier": "a.out",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2607:f8b0:4007:801::2011",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/go/1.24.4/libexec/bin/go",
+      "name": "go",
+      "path": "/opt/homebrew/Cellar/go/1.24.4/libexec/bin/go",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6D3E2C47-566D-46FF-B906-616C39BE3346"
     }
   ],
   "/opt/homebrew/Cellar/mosh/1.4.0_26/bin/mosh-client": [
@@ -713,121 +380,6 @@
       "scope": "0",
       "type": "3",
       "uuid": "7A4E0BB7-BE52-4EA6-83BA-9C4E027C111B"
-    }
-  ],
-  "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node": [
-    {
-      "action": "1",
-      "creation": "2025-03-25T10:55:58-0700",
-      "csInfo": {
-        "signatureIdentifier": "node-555549448ea6a65cf5e93fd5be70cfae1439e4e3",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "54.231.196.9",
-      "endpointHost": "54.231.196.9",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "name": "node",
-      "path": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "scope": "0",
-      "type": "3",
-      "uuid": "6BD07871-3230-453D-BC0F-27916FEF284B"
-    },
-    {
-      "action": "1",
-      "creation": "2025-03-27T09:01:32-0700",
-      "csInfo": {
-        "signatureIdentifier": "node-555549448ea6a65cf5e93fd5be70cfae1439e4e3",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "18.155.167.83",
-      "endpointHost": "18.155.167.83",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "name": "node",
-      "path": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "scope": "0",
-      "type": "3",
-      "uuid": "A32C6554-F9A7-43B5-B4A8-20C4A68A47E9"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-10T12:30:58-0700",
-      "csInfo": {
-        "signatureIdentifier": "node-555549448ea6a65cf5e93fd5be70cfae1439e4e3",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "3.5.29.61",
-      "endpointHost": "3.5.29.61",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "name": "node",
-      "path": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "scope": "0",
-      "type": "3",
-      "uuid": "C6C30E8B-EE8F-4DBE-B22C-B6D71D36ED51"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-10T12:31:01-0700",
-      "csInfo": {
-        "signatureIdentifier": "node-555549448ea6a65cf5e93fd5be70cfae1439e4e3",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "52.217.168.225",
-      "endpointHost": "52.217.168.225",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "name": "node",
-      "path": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "scope": "0",
-      "type": "3",
-      "uuid": "6216DF9D-9D53-49CD-AFD4-3F63377ADB92"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-14T09:52:01-0700",
-      "csInfo": {
-        "signatureIdentifier": "node-555549448ea6a65cf5e93fd5be70cfae1439e4e3",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "104.16.31.34",
-      "endpointHost": "104.16.31.34",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "name": "node",
-      "path": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "scope": "0",
-      "type": "3",
-      "uuid": "06A2603A-06DE-4EEF-8C98-A702ED48CA95"
-    },
-    {
-      "action": "1",
-      "creation": "2025-04-25T09:19:36-0700",
-      "csInfo": {
-        "signatureIdentifier": "node-555549448ea6a65cf5e93fd5be70cfae1439e4e3",
-        "signatureSigner": "4",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "*",
-      "endpointPort": "*",
-      "isEndpointAddrRegex": "0",
-      "key": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "name": "node",
-      "path": "/opt/homebrew/Cellar/node@18/18.20.7_1/bin/node",
-      "scope": "0",
-      "type": "3",
-      "uuid": "3A7E8C9C-D5BF-4DFD-9EDE-FA2FF2480070"
     }
   ],
   "/opt/homebrew/Cellar/node@18/18.20.8/bin/node": [
@@ -1006,6 +558,63 @@
       "scope": "0",
       "type": "3",
       "uuid": "ECFF0A58-F3F9-439B-B0AD-9A20506F20E6"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-06T14:14:18-0700",
+      "csInfo": {
+        "signatureIdentifier": "org.python.python",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.21.48.1",
+      "endpointHost": "104.21.48.1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "name": "Python",
+      "path": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "CBE63EA8-9B3D-4994-82CE-AE59B46E9BE7"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T15:01:39-0700",
+      "csInfo": {
+        "signatureIdentifier": "org.python.python",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.113.6",
+      "endpointHost": "140.82.113.6",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "name": "Python",
+      "path": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "94AEA751-A563-4CEF-981D-4CED0BAC7B6D"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T15:55:41-0700",
+      "csInfo": {
+        "signatureIdentifier": "org.python.python",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "140.82.114.5",
+      "endpointHost": "140.82.114.5",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "name": "Python",
+      "path": "/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/Resources/Python.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "8165D0CF-36BC-4DCE-9382-2AAC9F4F5998"
     }
   ],
   "/opt/homebrew/Cellar/tea/0.9.2/bin/tea": [
@@ -1052,6 +661,56 @@
       "scope": "0",
       "type": "3",
       "uuid": "DA60D743-44E6-46B4-84F6-EE4647925F3A"
+    }
+  ],
+  "ai.elementlabs.lmstudio:Developer ID Application: Element Labs Inc (D65G88RHWN)": [
+    {
+      "action": "1",
+      "creation": "2025-07-07T13:18:06-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Element Labs Inc (D65G88RHWN)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "ai.elementlabs.lmstudio",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "172.67.149.127",
+      "endpointHost": "172.67.149.127",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "ai.elementlabs.lmstudio:Developer ID Application: Element Labs Inc (D65G88RHWN)",
+      "name": "LM Studio",
+      "path": "/Applications/LM Studio.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "DD8A631E-EAFA-4542-9CEC-331280E50A85"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T13:18:11-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Element Labs Inc (D65G88RHWN)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "ai.elementlabs.lmstudio",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.21.47.179",
+      "endpointHost": "104.21.47.179",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "ai.elementlabs.lmstudio:Developer ID Application: Element Labs Inc (D65G88RHWN)",
+      "name": "LM Studio",
+      "path": "/Applications/LM Studio.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "7DE38959-A4BA-446B-9751-2190E268F553"
     }
   ],
   "calibre-parallel:Developer ID Application: Kovid Goyal (NTY7FVCEKP)": [
@@ -1737,29 +1396,6 @@
     }
   ],
   "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)": [
-    {
-      "action": "1",
-      "creation": "2025-04-23T15:46:34-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.0804Team.KeyClu",
-        "signatureSigner": "3",
-        "signatureStatus": "0"
-      },
-      "endpointAddr": "*",
-      "endpointPort": "*",
-      "isEndpointAddrRegex": "0",
-      "key": "com.0804Team.KeyClu:Developer ID Application: Sergii Tatarenkov (5G3C37344R)",
-      "name": "KeyClu",
-      "path": "/Applications/KeyClu.app",
-      "scope": "0",
-      "type": "3",
-      "uuid": "FA99776A-76E7-4522-AB2D-241B7429B817"
-    },
     {
       "action": "0",
       "creation": "2025-05-14T12:26:58-0700",
@@ -3008,6 +2644,29 @@
       "scope": "0",
       "type": "3",
       "uuid": "6B059B42-F9E7-4F7B-8B94-C7D7B832EFCF"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-05T08:49:43-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.1password.op",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.1password.op:Developer ID Application: AgileBits Inc. (2BUA8C4S2C)",
+      "name": "op",
+      "path": "/opt/homebrew/Caskroom/1password-cli/2.31.1/op",
+      "scope": "0",
+      "type": "3",
+      "uuid": "205F08B0-46C0-4DBC-A9F1-96C0C98C9CCB"
     }
   ],
   "com.apple.AMPArtworkAgent": [
@@ -5108,6 +4767,31 @@
       "scope": "0",
       "type": "0",
       "uuid": "27A69BBB-F0D9-46C6-A485-10E2EEE4C1BD"
+    }
+  ],
+  "com.apple.helpviewer": [
+    {
+      "action": "1",
+      "creation": "2025-07-05T13:42:30-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Software Signing",
+          "Apple Code Signing Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.apple.helpviewer",
+        "signatureSigner": "1",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.apple.helpviewer",
+      "name": "Tips",
+      "path": "/System/Applications/Tips.app",
+      "scope": "0",
+      "type": "1",
+      "uuid": "8CE1FA49-74BF-47AF-82BE-DC9B9F814ABE"
     }
   ],
   "com.apple.homed": [
@@ -8094,6 +7778,150 @@
       "scope": "0",
       "type": "3",
       "uuid": "D8B491B0-3FB1-4188-86F3-9AA5C2623276"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T12:27:43-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.electron.dockerdesktop.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "185.199.110.133",
+      "endpointHost": "185.199.110.133",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.electron.dockerdesktop.helper:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Electron Helper",
+      "path": "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "0662F3A0-88E0-4DC8-A039-1A8E9294A92A"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T12:46:42-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.electron.dockerdesktop.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.232.6.94",
+      "endpointHost": "3.232.6.94",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.electron.dockerdesktop.helper:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Electron Helper",
+      "path": "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "DAE655BC-F69A-441F-BD97-65A17BA98475"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T12:46:45-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.electron.dockerdesktop.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "192.0.73.2",
+      "endpointHost": "192.0.73.2",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.electron.dockerdesktop.helper:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Electron Helper",
+      "path": "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "12CEDC0E-AB19-4879-993A-8391CE65E2A1"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T12:46:57-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.electron.dockerdesktop.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.174.79",
+      "endpointHost": "18.155.174.79",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.electron.dockerdesktop.helper:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Electron Helper",
+      "path": "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "A8C670DF-EFC7-4CFF-9A0F-6B1DD9434437"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T12:49:10-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.electron.dockerdesktop.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "34.199.234.173",
+      "endpointHost": "34.199.234.173",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.electron.dockerdesktop.helper:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Electron Helper",
+      "path": "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "382B1BB2-74B7-4125-A16A-3FD94CBE8D15"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T13:06:04-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.electron.dockerdesktop.helper",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "185.199.111.133",
+      "endpointHost": "185.199.111.133",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.electron.dockerdesktop.helper:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "Electron Helper",
+      "path": "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Frameworks/Docker Desktop Helper.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "7FFAE061-1888-4668-8927-36E859E80CF4"
     }
   ],
   "com.electron.dockerdesktop:Developer ID Application: Docker Inc (9BNSXJN65R)": [
@@ -8295,6 +8123,30 @@
       "scope": "0",
       "type": "3",
       "uuid": "2A40E730-2E23-4556-BC4E-1953A18065C9"
+    },
+    {
+      "action": "0",
+      "creation": "2025-07-06T08:14:00-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Apple Mac OS Application Signing",
+          "Apple Worldwide Developer Relations Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.hindsightlabs.paprika.mac.v3",
+        "signatureSigner": "2",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "in.appcenter.ms",
+      "endpointHost": "in.appcenter.ms",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.hindsightlabs.paprika.mac.v3",
+      "name": "Paprika Recipe Manager 3",
+      "path": "/Applications/Paprika Recipe Manager 3.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6D621A35-ED82-49E5-8932-64D9200F9803"
     }
   ],
   "com.jetbrains.cefserver.helper:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)": [
@@ -8320,6 +8172,31 @@
       "scope": "0",
       "type": "3",
       "uuid": "9A9561B5-D5B1-4DF9-AEE4-92A59DB94933"
+    }
+  ],
+  "com.jetbrains.goland:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)": [
+    {
+      "action": "1",
+      "creation": "2025-07-08T23:14:04-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.jetbrains.goland",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "com.jetbrains.goland:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)",
+      "name": "GoLand",
+      "path": "/Applications/GoLand.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "5F686BD4-5557-4127-8EBE-C6B3648AD33A"
     }
   ],
   "com.jetbrains.pycharm:Developer ID Application: JetBrains s.r.o. (2ZEFAR8TH3)": [
@@ -9998,6 +9875,244 @@
       "uuid": "AF9E068E-9712-40EE-81DB-B1C0D79E1926"
     }
   ],
+  "docker-buildx:Developer ID Application: Docker Inc (9BNSXJN65R)": [
+    {
+      "action": "1",
+      "creation": "2025-07-07T16:14:40-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-buildx",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.94.224.37",
+      "endpointHost": "3.94.224.37",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-buildx:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-buildx",
+      "path": "/Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx",
+      "scope": "0",
+      "type": "3",
+      "uuid": "4A47932D-88D2-465D-AC5E-7F5A3A9E50B4"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T16:14:42-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-buildx",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f18:2148:bc00:5cac:48a0:7f88:7266",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-buildx:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-buildx",
+      "path": "/Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx",
+      "scope": "0",
+      "type": "3",
+      "uuid": "2D92D407-B065-44AE-B9C0-AD08143EA4A4"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T16:14:43-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-buildx",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f18:2148:bc02:22:27bd:19a8:870c",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-buildx:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-buildx",
+      "path": "/Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx",
+      "scope": "0",
+      "type": "3",
+      "uuid": "31157013-9762-4F49-92B2-1001929E0E89"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T16:14:44-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-buildx",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:1f18:2148:bc01:f43d:e203:cafd:8307",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-buildx:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-buildx",
+      "path": "/Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx",
+      "scope": "0",
+      "type": "3",
+      "uuid": "E3CAD85F-562C-4B7D-91B8-03BADC737E2E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T16:14:51-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-buildx",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "44.208.254.194",
+      "endpointHost": "44.208.254.194",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-buildx:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-buildx",
+      "path": "/Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx",
+      "scope": "0",
+      "type": "3",
+      "uuid": "51CB26F4-8BDC-4F12-8E04-06115537BABE"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T16:29:15-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-buildx",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "98.85.153.80",
+      "endpointHost": "98.85.153.80",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-buildx:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-buildx",
+      "path": "/Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx",
+      "scope": "0",
+      "type": "3",
+      "uuid": "14F0395E-8CF5-4BFA-8B9F-2140DC876E03"
+    }
+  ],
+  "docker-mcp:Developer ID Application: Docker Inc (9BNSXJN65R)": [
+    {
+      "action": "1",
+      "creation": "2025-07-07T12:27:40-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-mcp",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.173.55",
+      "endpointHost": "18.155.173.55",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-mcp:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-mcp",
+      "path": "/Users/adambrown/.docker/modules/cli-plugins/docker-mcp",
+      "scope": "0",
+      "type": "3",
+      "uuid": "C6C5F5E1-7D67-419F-9DB0-62D8B5761237"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T12:27:44-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-mcp",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:9000:246b:3400:1c:aabc:1300:93a1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-mcp:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-mcp",
+      "path": "/Users/adambrown/.docker/modules/cli-plugins/docker-mcp",
+      "scope": "0",
+      "type": "3",
+      "uuid": "6D7F48B1-7A65-4E3E-A58D-B9FDC5514F8E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T12:27:45-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-mcp",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:9000:246b:cc00:1c:aabc:1300:93a1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-mcp:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-mcp",
+      "path": "/Users/adambrown/.docker/modules/cli-plugins/docker-mcp",
+      "scope": "0",
+      "type": "3",
+      "uuid": "B183AE99-AA37-48EE-B8A0-DC66451E0C7E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-07T12:27:49-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Docker Inc (9BNSXJN65R)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "docker-mcp",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "2600:9000:246b:2200:1c:aabc:1300:93a1",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "docker-mcp:Developer ID Application: Docker Inc (9BNSXJN65R)",
+      "name": "docker-mcp",
+      "path": "/Users/adambrown/.docker/modules/cli-plugins/docker-mcp",
+      "scope": "0",
+      "type": "3",
+      "uuid": "84B227BF-7020-4AD3-A4C9-9DB63017F747"
+    }
+  ],
   "ffmpeg:Developer ID Application: ACLAP (4YP9AW3WW3)": [
     {
       "action": "1",
@@ -10978,6 +11093,31 @@
       "uuid": "49761EC4-7428-4C56-93FC-0583B551185D"
     }
   ],
+  "se.johnste.finicky:Developer ID Application: John Sterling (C3XWNKDP3M)": [
+    {
+      "action": "0",
+      "creation": "2025-07-05T13:39:55-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: John Sterling (C3XWNKDP3M)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "se.johnste.finicky",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "se.johnste.finicky:Developer ID Application: John Sterling (C3XWNKDP3M)",
+      "name": "Finicky",
+      "path": "/Applications/Finicky.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "63275E49-DC86-4281-A40E-079FD8DC3471"
+    }
+  ],
   "tv.plex.plexamp.helper.Renderer:Developer ID Application: Plex, Inc (399DR5LB2A)": [
     {
       "action": "1",
@@ -11458,6 +11598,29 @@
       "scope": "0",
       "type": "3",
       "uuid": "F7AE41E4-525B-40A1-B6F5-F5EFB406545E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-07-05T08:40:02-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Plex, Inc (399DR5LB2A)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "tv.plex.plexamp.helper.Renderer",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "*",
+      "endpointPort": "*",
+      "isEndpointAddrRegex": "0",
+      "key": "tv.plex.plexamp.helper.Renderer:Developer ID Application: Plex, Inc (399DR5LB2A)",
+      "name": "Electron Helper (Renderer)",
+      "path": "/Applications/Plexamp.app/Contents/Frameworks/Plexamp Helper (Renderer).app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "3B9F04F0-3B53-4E1F-A54C-4CA03A7BB950"
     }
   ],
   "tv.plex.plexamp.helper:Developer ID Application: Plex, Inc (399DR5LB2A)": [
