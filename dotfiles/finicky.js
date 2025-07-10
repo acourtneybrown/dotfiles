@@ -59,6 +59,7 @@ export default {
       match: [
         finicky.matchHostnames([
           "govzw.com",
+          "m.vzw.com",
         ]),
 
         (url) => containsQueryParam(url.search, "op_vault=Joint"),
