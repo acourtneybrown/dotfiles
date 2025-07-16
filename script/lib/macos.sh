@@ -502,9 +502,10 @@ function macos::config_Finder() {
   # Finder: disable window animations and Get Info animations
   # defaults write com.apple.finder DisableAllAnimations -bool true
 
-  # Set Desktop as the default location for new Finder windows
+  # Set home folder as the default location for new Finder windows
   # For other paths, use `PfLo` and `file:///full/path/here/`
-  defaults write com.apple.finder NewWindowTarget -string "PfDe"
+  # For Desktop, use `PfDe` and `file://${HOME}/Desktop/`
+  defaults write com.apple.finder NewWindowTarget -string "PfHm"
   defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
   # Show icons for hard drives, servers, and removable media on the desktop
