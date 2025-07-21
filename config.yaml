@@ -283,7 +283,7 @@ profiles:
   mac:
     dynvariables:
       kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
-      alfred_workflow_service_account_token: op read "op://Private/hkhnfal7eudxtxxmnbwj4m7mvq/Service Accounts/Alfred Workflows"
+      alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
