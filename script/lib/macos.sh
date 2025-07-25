@@ -973,7 +973,6 @@ function macos::kill_apps() {
     "iCal" \
     "Alfred" \
     "BetterDisplay" \
-    "KeyClu" \
     ; do
     killall "${app}" &>/dev/null
   done
