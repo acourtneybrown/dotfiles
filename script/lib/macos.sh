@@ -55,7 +55,6 @@ function macos::setup() {
     "QuickTime Player"
     Alfred
     BetterDisplay
-    KeyClu
   )
   local fn
   for app in "${apps[@]}"; do
@@ -953,11 +952,6 @@ function macos::config_BetterDisplay() {
   fi
 }
 
-function macos::config_KeyClu() {
-  # Set the activation key to Option
-  defaults write com.0804Team.KeyClu activationKeyId -int 1
-}
-
 function macos::kill_apps() {
   set +e
   for app in "Activity Monitor" \
@@ -979,7 +973,6 @@ function macos::kill_apps() {
     "iCal" \
     "Alfred" \
     "BetterDisplay" \
-    "KeyClu" \
     ; do
     killall "${app}" &>/dev/null
   done
