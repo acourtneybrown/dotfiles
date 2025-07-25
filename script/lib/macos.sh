@@ -55,7 +55,6 @@ function macos::setup() {
     "QuickTime Player"
     Alfred
     BetterDisplay
-    KeyClu
   )
   local fn
   for app in "${apps[@]}"; do
@@ -951,11 +950,6 @@ function macos::config_BetterDisplay() {
     echo "BetterDisplay preferences already set.  Will not overwrite."
     echo "Run 'script/update-betterdisplay-plist' to compare via git"
   fi
-}
-
-function macos::config_KeyClu() {
-  # Set the activation key to Option
-  defaults write com.0804Team.KeyClu activationKeyId -int 1
 }
 
 function macos::kill_apps() {
