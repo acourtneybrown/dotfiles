@@ -145,6 +145,7 @@ function profile::mac() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
 
   profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
+  profile::pipx_install 3.13 git+https://github.com/acourtneybrown/songchro@main
 }
 
 function profile::mac_after() {

@@ -67,6 +67,13 @@ dotfiles:
     src: config/pip
     dst: ~/.config/pip
     link: link_children
+  d_config_songchro:
+    src: config/songchro
+    dst: ~/.config/songchro
+    chmod: 700
+    actions:
+      - chmod_files 600
+      - chmod_dirs 700
   d_git-template:
     src: git-template
     dst: ~/.git-template
@@ -351,6 +358,8 @@ profiles:
       personal_gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
       personal_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
       personal_gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
+      plex_baseurl: op read "op://Songchro/Plex/hostname"
+      plex_token: op read "op://Songchro/Plex/credential"
       public_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/3evxc47vgvyz4w65n6krlpq25u/user_name"
       sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
       synology_api_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/username"
@@ -373,6 +382,7 @@ profiles:
       - d_config_1Password
       - d_config_gh
       - d_config_glab_cli
+      - d_config_songchro
       - d_git-template
       - d_gradle_init_d
       - f_bash_sessions_disable
