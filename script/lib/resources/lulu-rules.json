@@ -592,6 +592,82 @@
       "scope": "0",
       "type": "3",
       "uuid": "107FCC70-81B2-4D2E-B8CC-161C90AE28EC"
+    },
+    {
+      "action": "1",
+      "creation": "2025-08-10T19:15:25-0700",
+      "csInfo": {
+        "signatureIdentifier": "node-55554944caa65b81a1e9360bb757a0246ce9fe74",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "18.155.167.83",
+      "endpointHost": "18.155.167.83",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "name": "node",
+      "path": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "scope": "0",
+      "type": "3",
+      "uuid": "7FDFB20F-F72F-40D5-AF98-F112A9A6CF0D"
+    },
+    {
+      "action": "1",
+      "creation": "2025-08-11T06:00:50-0700",
+      "csInfo": {
+        "signatureIdentifier": "node-55554944caa65b81a1e9360bb757a0246ce9fe74",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.16.2.35",
+      "endpointHost": "104.16.2.35",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "name": "node",
+      "path": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "scope": "0",
+      "type": "3",
+      "uuid": "2E91D702-19A4-49B6-B77B-29BA052D2069"
+    },
+    {
+      "action": "1",
+      "creation": "2025-08-11T06:01:23-0700",
+      "csInfo": {
+        "signatureIdentifier": "node-55554944caa65b81a1e9360bb757a0246ce9fe74",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "104.16.25.34",
+      "endpointHost": "104.16.25.34",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "name": "node",
+      "path": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "scope": "0",
+      "type": "3",
+      "uuid": "356BA93B-FBA5-4A4C-ACDB-97BD19AB8119"
+    },
+    {
+      "action": "1",
+      "creation": "2025-08-11T06:01:30-0700",
+      "csInfo": {
+        "signatureIdentifier": "node-55554944caa65b81a1e9360bb757a0246ce9fe74",
+        "signatureSigner": "4",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.5.29.109",
+      "endpointHost": "3.5.29.109",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "name": "node",
+      "path": "/opt/homebrew/Cellar/node@18/18.20.8/bin/node",
+      "scope": "0",
+      "type": "3",
+      "uuid": "28D8A34A-FDCE-42E0-BB5E-1B28D746B03C"
     }
   ],
   "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/Resources/Python.app": [
@@ -11622,6 +11698,102 @@
       "scope": "0",
       "type": "3",
       "uuid": "850FE112-6328-4CFB-8E01-393A45019B84"
+    },
+    {
+      "action": "1",
+      "creation": "2025-08-09T14:12:56-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.209.28.130",
+      "endpointHost": "3.209.28.130",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "F407FFC5-4BEE-4C6C-893B-10F76708C17E"
+    },
+    {
+      "action": "1",
+      "creation": "2025-08-09T14:29:58-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.87.84.110",
+      "endpointHost": "3.87.84.110",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "9D32DD99-27F7-4F10-A117-B9A48A245521"
+    },
+    {
+      "action": "1",
+      "creation": "2025-08-12T08:32:45-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.223.83.87",
+      "endpointHost": "3.223.83.87",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "23464FB8-5AE6-4695-8249-0254013EE980"
+    },
+    {
+      "action": "1",
+      "creation": "2025-08-12T08:36:08-0700",
+      "csInfo": {
+        "signatureAuthorities": [
+          "Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+          "Developer ID Certification Authority",
+          "Apple Root CA"
+        ],
+        "signatureIdentifier": "com.sonos.macController",
+        "signatureSigner": "3",
+        "signatureStatus": "0"
+      },
+      "endpointAddr": "3.232.180.39",
+      "endpointHost": "3.232.180.39",
+      "endpointPort": "443",
+      "isEndpointAddrRegex": "0",
+      "key": "com.sonos.macController:Developer ID Application: Sonos, Inc. (2G4LW83Q3E)",
+      "name": "Sonos",
+      "path": "/Applications/Sonos.app",
+      "scope": "0",
+      "type": "3",
+      "uuid": "049E80BC-7CC3-4DF2-9818-9194C382E7F0"
     }
   ],
   "com.spotify.client.helper:Developer ID Application: Spotify (2FNC3A47ZF)": [
