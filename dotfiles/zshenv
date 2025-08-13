@@ -1,21 +1,22 @@
 # shellcheck disable=SC1083,SC2148
-[[ -z "$PS1" ]] && PATH=$PATH:/usr/local/bin:{{@@ homebrew_prefix @@}}/bin
+[[ -z "$PS1" ]] && PATH=$PATH:/usr/local/bin:{{@@ homebrew_prefix @@}}/bin:$HOME/bin
 
+{%@@ if mac @@%}
 # shellcheck disable=SC2154
+[[ $alfred_workflow_name ]] && export OP_SERVICE_ACCOUNT_TOKEN={{@@ alfred_workflow_service_account_token @@}}
 if [[ "$alfred_workflow_name" == "GitFred" || "$alfred_workflow_name" == "GitHubFred" ]] ; then
-	GITHUB_TOKEN=$(op plugin run -- gh auth token)
+	GITHUB_TOKEN=$(op item get --vault "Alfred Workflows" "$github_host" --field credential --reveal)
 	export GITHUB_TOKEN
 fi
 
 if [[ "$alfred_workflow_name" == "GitLabFred" ]]; then
-	GITLAB_TOKEN=$(op plugin run -- glab config get token)
+	GITLAB_TOKEN=$(op item get --vault "Alfred Workflows" "$gitlab_host" --field credential --reveal)
 	export GITLAB_TOKEN
 fi
 
 if [[ "$alfred_workflow_name" == "GiteaFred" ]]; then
     # shellcheck disable=SC2154
-    GITEA_SERVER_TOKEN=$(op item list --tags gitea-token --format=json | op item get - --format=json |
-      jq -r "select(.fields.[] | select(.label == \"host address\") | .value | contains(\"$gitea_host\"))
-             | .fields.[] | select(.label == \"token\") | .value")
+    GITEA_SERVER_TOKEN=$(op item get --vault "Alfred Workflows" "$gitea_host" --field credential --reveal)
 	export GITEA_SERVER_TOKEN
 fi
+{%@@ endif @@%}

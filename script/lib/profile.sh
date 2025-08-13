@@ -35,6 +35,7 @@ function profile::default_after() {
   profile::enable_pyenv
   profile::enable_goenv
   profile::ensure_pyenv_version 3.13
+  profile::ensure_goenv_version 1.24
   pyenv global "$(profile::ensure_pyenv_version 3.11)"
   goenv global "$(profile::ensure_goenv_version 1.19)"
 }
@@ -143,7 +144,8 @@ function profile::mac() {
   brew tap --force homebrew/cask
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
 
-  profile::pipx_install 3.11 pyfred-cli
+  profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
+  profile::pipx_install 3.13 git+https://github.com/acourtneybrown/songchro@main
 }
 
 function profile::mac_after() {

@@ -59,6 +59,7 @@ export default {
       match: [
         finicky.matchHostnames([
           "govzw.com",
+          "m.vzw.com",
         ]),
 
         (url) => containsQueryParam(url.search, "op_vault=Joint"),
@@ -99,6 +100,7 @@ export default {
         /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/github\.com\/NotCharlie(\/|$)/,
         /^https:\/\/gitlab\.com\/{{@@ gitlab_account @@}}(\/|$)/,
+        /^https:\/\/[^/]*zoom\.us\/.*[?&]page_from=client(&|$)/,
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
@@ -113,12 +115,25 @@ export default {
       ],
       url: (url) => openInFirefoxContainer("Adam", url),
     },
-    // TODO: consider https://github.com/johnste/finicky/wiki/Configuration-ideas#open-zoom-links-in-zoom-app-with-or-without-password
+    {
+      match: [
+        (url) => url.hostname.includes("zoom.us") && url.pathname.includes("/j/"),
+      ],
+      url: (url) => {
+        try {
+          var pass = '&pwd=' + url.search.match(/pwd=(\w*)/)[1];
+        } catch {
+          var pass = ""
+        }
+        var conf = '?confno=' + url.pathname.match(/\/j\/(\d+)/)[1];
+        return new URL("zoommtg://" + url.hostname + "/join" + conf + pass)
+      }
+    },
   ],
   handlers: [
     {
       match: [
-        /zoom\.us/
+        /zoom\.us\/join/
       ],
       browser: "us.zoom.xos",
     }

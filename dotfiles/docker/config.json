@@ -3,7 +3,6 @@
 		"{{@@ personal_gitea_hostname @@}}": {},
 		"index.docker.io": {}
 	},
-	"credsStore": "1password",
 	"credHelpers": {
 		"{{@@ personal_gitea_hostname @@}}": "1password",
 		"index.docker.io": "1password"
