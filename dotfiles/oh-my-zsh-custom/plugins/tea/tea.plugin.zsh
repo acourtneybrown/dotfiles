@@ -2,9 +2,7 @@
 
 # shellcheck disable=SC2154
 if [[ ${commands[tea]} ]]; then
-  [[ -f "{{@@ xdg_config_home @@}}/tea/autocomplete.zsh" ]] || tea autocomplete zsh
-  # shellcheck disable=SC1091
-  PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source "{{@@ xdg_config_home @@}}/tea/autocomplete.zsh"
+  _evalcache tea completion zsh
 
   # shellcheck disable=SC2296
   LOCAL_TEA="$(dirname "${(%):-%N}")/tea"
