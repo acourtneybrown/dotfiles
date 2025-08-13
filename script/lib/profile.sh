@@ -34,8 +34,9 @@ function profile::default() {
 function profile::default_after() {
   profile::enable_pyenv
   profile::enable_goenv
-  pyenv global "$(profile::ensure_pyenv_version 3.11)"
-  goenv global "$(profile::ensure_goenv_version 1.19)"
+  profile::ensure_pyenv_version 3.11
+  pyenv global "$(profile::ensure_pyenv_version 3.13)"
+  goenv global "$(profile::ensure_goenv_version 1.25)"
 }
 
 function profile::personal() {
@@ -44,7 +45,7 @@ function profile::personal() {
   profile::enable_pyenv
   profile::enable_goenv
 
-  profile::pipx_install 3.11 python-kasa python-vipaccess tox twine pytest build
+  profile::pipx_install 3.13 python-kasa python-vipaccess
 }
 
 function profile::linux() {
@@ -141,6 +142,9 @@ function profile::linux_desktop_after() {
 function profile::mac() {
   brew tap --force homebrew/cask
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
+
+  profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
+  profile::pipx_install 3.13 git+https://github.com/acourtneybrown/songchro@main
 }
 
 function profile::mac_after() {

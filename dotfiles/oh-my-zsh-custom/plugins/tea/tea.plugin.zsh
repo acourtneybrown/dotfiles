@@ -2,6 +2,8 @@
 
 # shellcheck disable=SC2154
 if [[ ${commands[tea]} ]]; then
+  _evalcache tea completion zsh
+
   # shellcheck disable=SC2296
   LOCAL_TEA="$(dirname "${(%):-%N}")/tea"
 

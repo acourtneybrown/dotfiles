@@ -55,8 +55,6 @@ function macos::setup() {
     "QuickTime Player"
     Alfred
     BetterDisplay
-    Rocket
-    KeyClu
   )
   local fn
   for app in "${apps[@]}"; do
@@ -503,9 +501,10 @@ function macos::config_Finder() {
   # Finder: disable window animations and Get Info animations
   # defaults write com.apple.finder DisableAllAnimations -bool true
 
-  # Set Desktop as the default location for new Finder windows
+  # Set home folder as the default location for new Finder windows
   # For other paths, use `PfLo` and `file:///full/path/here/`
-  defaults write com.apple.finder NewWindowTarget -string "PfDe"
+  # For Desktop, use `PfDe` and `file://${HOME}/Desktop/`
+  defaults write com.apple.finder NewWindowTarget -string "PfHm"
   defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
   # Show icons for hard drives, servers, and removable media on the desktop
@@ -953,37 +952,6 @@ function macos::config_BetterDisplay() {
   fi
 }
 
-function macos::config_KeyClu() {
-  # Set the activation key to Option
-  defaults write com.0804Team.KeyClu activationKeyId -int 1
-}
-
-function macos::config_Rocket() {
-  # Launch Rocket at login
-  defaults write net.matthewpalmer.Rocket launch-at-login -bool true
-
-  # Add additional apps to deactivated app list
-  local apps=(
-    "IntelliJ IDEA"
-    "Sublime Text"
-    Alfred
-    com.runningwithcrayons.Alfred
-    datagrip
-    Firefox
-    Gnucash
-    goland
-    iTerm2
-    pycharm
-    Slack
-    Terminal
-    VirtualBuddy
-    Xcode
-  )
-  for app in "${apps[@]}"; do
-    macos::add_to_array_if_not_present net.matthewpalmer.Rocket deactivated-apps "$app"
-  done
-}
-
 function macos::kill_apps() {
   set +e
   for app in "Activity Monitor" \
@@ -1005,8 +973,6 @@ function macos::kill_apps() {
     "iCal" \
     "Alfred" \
     "BetterDisplay" \
-    "Rocket" \
-    "KeyClu" \
     ; do
     killall "${app}" &>/dev/null
   done

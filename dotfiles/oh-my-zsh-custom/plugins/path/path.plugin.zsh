@@ -9,6 +9,7 @@ paths=(
   "/Applications/GoLand.app/Contents/MacOS"
   "/Applications/IntelliJ IDEA.app/Contents/MacOS"
   "/Applications/PyCharm.app/Contents/MacOS/"
+  "${HOME}/.lmstudio/bin"
 )
 
 {%@@ if synology_dsm @@%}

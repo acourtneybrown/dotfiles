@@ -1,14 +1,12 @@
 {
 	"auths": {
-		"gitea.notcharlie.com": {},
+		"{{@@ personal_gitea_hostname @@}}": {},
 		"index.docker.io": {}
 	},
-	"credsStore": "1password",
 	"credHelpers": {
-		"gitea.notcharlie.com": "1password",
+		"{{@@ personal_gitea_hostname @@}}": "1password",
 		"index.docker.io": "1password"
 	},
-	"currentContext": "desktop-linux",
 	"plugins": {
 		"-x-cli-hints": {
 			"enabled": "true"

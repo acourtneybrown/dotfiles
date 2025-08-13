@@ -67,10 +67,24 @@ dotfiles:
     src: config/pip
     dst: ~/.config/pip
     link: link_children
-  d_git_template:
+  d_config_songchro:
+    src: config/songchro
+    dst: ~/.config/songchro
+    chmod: 700
+    actions:
+      - chmod_files 600
+      - chmod_dirs 700
+  d_git-template:
     src: git-template
     dst: ~/.git-template
     link: nolink
+  d_gitea.com_op:
+    src: gitea.com/op
+    dst: ~/gitea.com/.op
+    chmod: 700
+    actions:
+      - chmod_files 600
+      - chmod_dirs 700
   d_gradle_init_d:
     src: gradle/init.d
     dst: ~/.gradle/init.d
@@ -212,6 +226,7 @@ dotfiles:
   f_zshenv:
     src: zshenv
     dst: ~/.zshenv
+    chmod: 600
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
@@ -275,6 +290,7 @@ profiles:
   mac:
     dynvariables:
       kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
+      alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
@@ -282,6 +298,8 @@ profiles:
       xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
       - d_config_op_plugins
+      - d_config_songchro
+      - d_gitea.com_op
       - d_Library_Scripts
       - d_user
       - f_Alfred_prefs.json
@@ -301,7 +319,7 @@ profiles:
   linux:
     variables:
       linux: true
-      xdg_config_home: ~/.config
+      xdg_config_home: "{{@@ env['HOME'] @@}}/.config"
     dotfiles:
       - d_config_pip
   personal:
@@ -329,10 +347,6 @@ profiles:
     dynvariables:
       authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
       full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
-      gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
-      gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
-      gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
-      gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
       github_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login"
       github_netrc_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/netrc"
       github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
@@ -340,6 +354,14 @@ profiles:
       homebrew_prefix: brew --prefix
       joint_google_account: op read "op://Joint/hqlcejuk5jil2e6hmmklzahub4/Email"
       personal_email: op read "op://Adam/6jjizlkc5bstuors76ickhd7fa/Internet Details/email"
+      personal_gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
+      personal_gitea_hostname: "{{@@ personal_gitea_website @@}} | sed 's|https://||'"
+      personal_gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
+      personal_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
+      personal_gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
+      plex_baseurl: op read "op://Songchro/Plex/hostname"
+      plex_token: op read "op://Songchro/Plex/credential"
+      public_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/3evxc47vgvyz4w65n6krlpq25u/user_name"
       sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
       synology_api_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/username"
       synology_api_password: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/password"
@@ -361,7 +383,7 @@ profiles:
       - d_config_1Password
       - d_config_gh
       - d_config_glab_cli
-      - d_git_template
+      - d_git-template
       - d_gradle_init_d
       - f_bash_sessions_disable
       - f_curlrc

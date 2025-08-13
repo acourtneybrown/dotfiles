@@ -1,0 +1,15 @@
+logging: INFO
+
+file:
+  music_root: /music
+  root: ~/gitea.notcharlie.com/acourtneybrown/music-playlists/playlists
+
+itunes:
+  xml: ~/gitea.notcharlie.com/acourtneybrown/music-playlists/iTunes/Library.xml
+  music_root: /Volumes/music
+
+plex:
+  baseurl: {{@@ plex_baseurl @@}}
+  token: {{@@ plex_token @@}}
+  section: Music
+  music_root: /music
