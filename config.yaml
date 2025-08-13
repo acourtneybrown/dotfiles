@@ -298,6 +298,7 @@ profiles:
       xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
       - d_config_op_plugins
+      - d_config_songchro
       - d_gitea.com_op
       - d_Library_Scripts
       - d_user
@@ -382,7 +383,6 @@ profiles:
       - d_config_1Password
       - d_config_gh
       - d_config_glab_cli
-      - d_config_songchro
       - d_git-template
       - d_gradle_init_d
       - f_bash_sessions_disable
