@@ -34,10 +34,9 @@ function profile::default() {
 function profile::default_after() {
   profile::enable_pyenv
   profile::enable_goenv
-  profile::ensure_pyenv_version 3.13
-  profile::ensure_goenv_version 1.24
-  pyenv global "$(profile::ensure_pyenv_version 3.11)"
-  goenv global "$(profile::ensure_goenv_version 1.19)"
+  profile::ensure_pyenv_version 3.11
+  pyenv global "$(profile::ensure_pyenv_version 3.13)"
+  goenv global "$(profile::ensure_goenv_version 1.25)"
 }
 
 function profile::personal() {
@@ -46,7 +45,7 @@ function profile::personal() {
   profile::enable_pyenv
   profile::enable_goenv
 
-  profile::pipx_install 3.11 python-kasa python-vipaccess tox twine pytest build
+  profile::pipx_install 3.13 python-kasa python-vipaccess
 }
 
 function profile::linux() {
