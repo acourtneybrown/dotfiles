@@ -267,6 +267,7 @@ profiles:
     variables:
       host_password: op://jrew5nqtk5aqdgupcoxqjuevwu/beelink.notcharlie.com/password
       host_ssh_key_name: beelink key
+      songchro_file_music_root: ~/synology/music
       ssh_agent_lifetime: 12h
     dynvariables:
       synology_username: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/username"
@@ -286,6 +287,7 @@ profiles:
     variables:
       host_password: op://Adam/m77teghqv2ec7xttb47j3qchsa/password
       host_ssh_key_name: synology key
+      songchro_file_music_root: /volume13/music
       ssh_agent_lifetime: 12h
   mac:
     dynvariables:
@@ -294,11 +296,11 @@ profiles:
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
+      songchro_file_music_root: /Volumes/music
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
       - d_config_op_plugins
-      - d_config_songchro
       - d_gitea.com_op
       - d_Library_Scripts
       - d_user
@@ -340,6 +342,7 @@ profiles:
       mac: false
       synology_dsm: false
       personal: false
+      songchro_file_music_root: /music
       ssh_agent: ''
       ssh_agent_lifetime: 1h
       host_password: unset
@@ -383,6 +386,7 @@ profiles:
       - d_config_1Password
       - d_config_gh
       - d_config_glab_cli
+      - d_config_songchro
       - d_git-template
       - d_gradle_init_d
       - f_bash_sessions_disable
