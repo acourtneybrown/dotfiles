@@ -95,12 +95,13 @@ export default {
           "{{@@ personal_gitea_hostname @@}}",
         ]),
 
+        /^https:\/\/[^/]*zoom\.us\/.*[?&]page_from=client(&|$)/,
         /^https:\/\/calendly\.com\/omaras\//,
         /^https:\/\/gitea\.com\/{{@@ public_gitea_username @@}}(\/|$)/,
-        /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/github\.com\/NotCharlie(\/|$)/,
+        /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/gitlab\.com\/{{@@ gitlab_account @@}}(\/|$)/,
-        /^https:\/\/[^/]*zoom\.us\/.*[?&]page_from=client(&|$)/,
+        /^https:\/\/musicbrainz\.org\/recording\/.*?tport=8000/,
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
