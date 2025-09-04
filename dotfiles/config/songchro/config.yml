@@ -2,6 +2,7 @@ logging: INFO
 
 file:
   music_root: {{@@ songchro_file_music_root @@}}
+  tracks: ~/gitea.notcharlie.com/acourtneybrown/music-playlists/tracks.json
   root: ~/gitea.notcharlie.com/acourtneybrown/music-playlists/playlists
 
 itunes:
