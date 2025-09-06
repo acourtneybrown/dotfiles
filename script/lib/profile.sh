@@ -86,6 +86,7 @@ function profile::synology_dsm() {
     ln -s "$(basename "$(find "$(brew --prefix)/bin" -iregex ".*/gcc-[0-9]*" | tail)")" "$(brew --prefix)/bin/gcc"
   fi
 
+  profile::pipx_install 3.11 git+https://gitea.notcharlie.com/NotCharlie/update-default-cert@main
   command -v op >/dev/null || profile::install_op_cli_manual
 }
 
