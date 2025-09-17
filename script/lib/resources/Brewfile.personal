@@ -33,7 +33,6 @@ if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	mas "Bridge Constructor Portal", id: 1316061122
 	mas "GarageBand", id: 682658836
 	# mas "Kasa Smart", id: 1034035493 # https://github.com/mas-cli/mas/issues/321
-	mas "Kindle", id: 302584613
 	mas "iMovie", id: 408981434
 	# mas "NetSpot", id: 514951692
 	mas "Notability", id: 360593530
