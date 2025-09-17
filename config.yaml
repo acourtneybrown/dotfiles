@@ -150,9 +150,6 @@ dotfiles:
   f_curlrc:
     src: curlrc
     dst: ~/.curlrc
-  f_dedrm.json:
-    src: Library/Preferences/calibre/plugins/dedrm.json
-    dst: ~/Library/Preferences/calibre/plugins/dedrm.json
   f_docker_config.json:
     src: docker/config.json
     dst: ~/.docker/config.json
@@ -291,7 +288,6 @@ profiles:
       ssh_agent_lifetime: 12h
   mac:
     dynvariables:
-      kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
       alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
@@ -307,7 +303,6 @@ profiles:
       - f_Alfred_prefs.json
       - f_com.googlecode.iterm2.plist
       - f_config_op_plugins.sh
-      - f_dedrm.json
       - f_finicky.js
       - f_sublime_license
       - fake_iterm2_utils
