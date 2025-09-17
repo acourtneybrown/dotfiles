@@ -13,5 +13,6 @@
   "pids": [],
   "remove_watermarks": false,
   "serials": [
+    "{{@@ kindle_serial @@}}"
   ]
 }
