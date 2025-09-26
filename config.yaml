@@ -187,6 +187,9 @@ dotfiles:
     src: netrc
     dst: ~/.netrc
     chmod: 600
+  f_obok_dedrm_prefs.json:
+    src: Library/Preferences/calibre/plugins/obok_dedrm_prefs.json
+    dst: ~/Library/Preferences/calibre/plugins/obok_dedrm_prefs.json
   f_p10k.zsh:
     src: p10k.zsh
     dst: ~/.p10k.zsh
@@ -292,6 +295,7 @@ profiles:
   mac:
     dynvariables:
       kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
+      kobo_colour_libra_serial: op read "op://Adam/Kobo/Kobo Colour Libra serial"
       alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
@@ -309,6 +313,7 @@ profiles:
       - f_config_op_plugins.sh
       - f_dedrm.json
       - f_finicky.js
+      - f_obok_dedrm_prefs.json
       - f_sublime_license
       - fake_iterm2_utils
   linux_desktop:
