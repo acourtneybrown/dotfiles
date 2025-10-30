@@ -45,7 +45,7 @@ function profile::personal() {
   profile::enable_pyenv
   profile::enable_goenv
 
-  profile::pipx_install 3.13 python-kasa python-vipaccess tox twine pytest build poetry
+  profile::pipx_install 3.13 python-kasa tox twine pytest build poetry
 }
 
 function profile::linux() {
