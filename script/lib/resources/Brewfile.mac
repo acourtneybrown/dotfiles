@@ -72,7 +72,7 @@ cask "pycharm"
 cask "slack"
 cask "spotify"
 cask "sublime-text@4192"
-cask "yubico-yubikey-manager"
+cask "yubico-authenticator"
 cask "zoom"
 
 if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
