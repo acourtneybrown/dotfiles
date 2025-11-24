@@ -87,6 +87,7 @@ export default {
           "i.cvs.com",
           "l.klara.com",
           "login.docker.com",
+          "login.nvidia.com",
           "meet.google.com",
           "myactivity.google.com",
           "notcharlie.slack.com",
