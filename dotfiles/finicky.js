@@ -108,7 +108,7 @@ export default {
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
         (url, { opener }) => {
-          // console.log(opener.bundleId)
+          // console.log("opener: " + JSON.stringify(opener))
           return bundleIdsForHarmony.has(opener.bundleId)
         },
 
