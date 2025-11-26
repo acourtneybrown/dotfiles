@@ -96,6 +96,7 @@ export default {
           "{{@@ personal_gitea_hostname @@}}",
         ]),
 
+        /^https:\/\/[^/]*nvidia.com\/.*nvidia_account_management.*/,
         /^https:\/\/[^/]*zoom\.us\/.*[?&]page_from=client(&|$)/,
         /^https:\/\/calendly\.com\/omaras\//,
         /^https:\/\/gitea\.com\/{{@@ public_gitea_username @@}}(\/|$)/,
