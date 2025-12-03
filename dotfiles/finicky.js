@@ -104,6 +104,7 @@ export default {
         /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/gitlab\.com\/{{@@ gitlab_account @@}}(\/|$)/,
         /^https:\/\/musicbrainz\.org\/recording\/.*?tport=8000/,
+        /^https:\/\/musicbrainz\.org\/taglookup.*[?&]tport=8000/,
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
