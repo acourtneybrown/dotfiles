@@ -121,6 +121,10 @@ function macos::setup_screen() {
 
   # Enable HiDPI display modes (requires restart)
   sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+
+  # Disable drag to edge window tiling
+  defaults write com.apple.WindowManager EnableTilingByEdgeDrag -bool false
+  defaults write com.apple.WindowManager EnableTopTilingByEdgeDrag -bool false
 }
 
 function macos::setup_ui_ux() {
