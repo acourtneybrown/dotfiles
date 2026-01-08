@@ -78,6 +78,7 @@ cask "zoom"
 
 if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	mas "Amphetamine", id: 937984704
+	mas "Kagi for Safari", id: 1622835804
 	mas "Keynote", id: 409183694
 	mas "Magnet", id: 441258766
 	mas "Numbers", id: 409203825
