@@ -1,6 +1,6 @@
-CONFIG_FILE={$1:-config}
-OLD_PAT_REF={$2:-"op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/Gitea token"}
-NEW_PAT_REF={$3:-"op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/New Gitea token"}
+CONFIG_FILE=${1:-config}
+OLD_PAT_REF=${2:-"op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/Gitea token"}
+NEW_PAT_REF=${3:-"op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/New Gitea token"}
 
 OLD_PAT=$(op read "$OLD_PAT_REF")
 NEW_PAT=$(op read "$NEW_PAT_REF")
