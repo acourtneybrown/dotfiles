@@ -1,0 +1,9 @@
+OLD_PAT_REF=${1:-"op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/Gitea token"}
+NEW_PAT_REF=${2:-"op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/New Gitea token"}
+
+OLD_PAT=$(op read "$OLD_PAT_REF")
+NEW_PAT=$(op read "$NEW_PAT_REF")
+
+find . -name config | xargs grep -l gitlab | while read -r CONFIG_FILE; do
+	sudo sed -i.bak "s/${OLD_PAT}/${NEW_PAT}/g" "$CONFIG_FILE"
+done
