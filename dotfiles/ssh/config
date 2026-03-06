@@ -27,6 +27,9 @@ Host gitea gitea.notcharlie.com
   Hostname synology.notcharlie.com
   Port 2234
   User git
+Host homeassistant homeassistant.notcharlie.com
+  Hostname homeassistant.notcharlie.com
+  User root
 Host unifi-* unifi-*.notcharlie.com
   User unifi-admin
 Host *.notcharlie.com
