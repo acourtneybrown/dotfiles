@@ -55,6 +55,7 @@ function macos::setup() {
     "QuickTime Player"
     Alfred
     BetterDisplay
+    "Script Debugger"
   )
   local fn
   for app in "${apps[@]}"; do
@@ -956,6 +957,12 @@ function macos::config_BetterDisplay() {
   fi
 }
 
+function macos::config_Script_Debugger() {
+  defaults write com.latenightsw.ScriptDebugger8 kPrefSWReg80Registration -string "000B0-00TC0-00HB7-1VMJP1"
+  defaults write com.latenightsw.ScriptDebugger8 kPrefSWRegOrg -string "personal"
+  defaults write com.latenightsw.ScriptDebugger8 kPrefSWRegUser -string "Adam Brown"
+}
+
 function macos::kill_apps() {
   set +e
   for app in "Activity Monitor" \
@@ -977,6 +984,7 @@ function macos::kill_apps() {
     "iCal" \
     "Alfred" \
     "BetterDisplay" \
+    "Script Debugger" \
     ; do
     killall "${app}" &>/dev/null
   done
