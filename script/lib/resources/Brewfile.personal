@@ -8,6 +8,7 @@ brew "libdvdcss"
 brew "twilio"
 brew "yt-dlp"
 
+cask "8bitdo-ultimate-software-v2"
 cask "avidemux"
 cask "balenaetcher"
 cask "crossover"
