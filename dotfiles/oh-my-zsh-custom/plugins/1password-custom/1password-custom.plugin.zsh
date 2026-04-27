@@ -35,7 +35,7 @@ function op-check-vault() {
       jq "select(
              ((.fields.[] | select(.id == \"username\") | .value == null) or
               (.fields.[] | select(.id == \"username\") | .value | contains(\"$username\"))) and
-             (.tags | contains([\"WrongVaultOk\"]) | not)) | .id"
+             (.tags // [] | contains([\"WrongVaultOk\"]) | not)) | .id"
 }
 
 # op-ssh-keygen-sign signs the specified string, using an SSH key obtained from
