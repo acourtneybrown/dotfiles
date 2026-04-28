@@ -20,7 +20,7 @@ function profile::default() {
   if [[ ! -d ~/.oh-my-zsh ]]; then
     if [ "$(
       util::download_and_verify https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh \
-        fbfcd1c0bf99acfcf77f7f999d75bb8c833d3b58643b603b3971d8cd1991fc2e \
+        21043aec5b791ce4835479dc33ba2f92155946aeafd54604a8c83522627cc803 \
         "$tmpscript"
     )" != "ok" ]; then
       util::abort "oh-my-zsh install script changed"
@@ -211,7 +211,7 @@ function profile::configure_calibre() {
   calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
 
   if [ "$(util::download_and_verify https://plugins.calibre-ebook.com/291290.zip \
-    356a8bd5a04d8a7dd17957d60290f227c4675e3357cc94892cd4565c7f5e5bcf \
+    72bc998bc257a5edf3e72f12a4ccec18ebea06835ed67ef59c67992ff7913d15 \
     "${tmpdir}/KFX Input.zip")" != "ok" ]; then
     util::abort "KFX Input.zip file changed"
   fi
@@ -382,7 +382,7 @@ function profile::install_homebrew() {
 
   tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    24a5e8ba70e6010c911bc92b960fb7eff27590d1afb460926e3c05d20d47c69f \
+    dfd5145fe2aa5956a600e35848765273f5798ce6def01bd08ecec088a1268d91 \
     "$tmpscript")" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi
