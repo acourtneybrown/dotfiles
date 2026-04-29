@@ -4,7 +4,6 @@ brew "buildifier"
 brew "buildozer"
 brew "golangci-lint"
 brew "just"
-brew "python-argcomplete"
 
 cask "datagrip"
 cask "docker"
