@@ -1,0 +1,13 @@
+brew "bazelisk"
+brew "black", restart_service: :changed
+brew "buildifier"
+brew "buildozer"
+brew "golangci-lint"
+brew "just"
+
+cask "datagrip"
+cask "docker"
+cask "goland"
+cask "intellij-idea"
+cask "lm-studio"
+cask "pycharm"

@@ -41,10 +41,9 @@ function profile::default_after() {
 
 function profile::personal() {
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.personal"
+}
 
-  profile::enable_pyenv
-  profile::enable_goenv
-
+function profile::personal_after() {
   profile::pipx_install 3.13 python-kasa tox twine pytest build poetry
 }
 
@@ -89,11 +88,12 @@ function profile::synology_dsm() {
     ln -s "$(basename "$(find "$(brew --prefix)/bin" -iregex ".*/gcc-[0-9]*" | tail)")" "$(brew --prefix)/bin/gcc"
   fi
 
-  profile::pipx_install 3.11 git+https://gitea.notcharlie.com/NotCharlie/update-default-cert@main
   command -v op >/dev/null || profile::install_op_cli_manual
 }
 
 function profile::synology_dsm_after() {
+  profile::pipx_install 3.11 git+https://gitea.notcharlie.com/NotCharlie/update-default-cert@main
+
   _finalizers+=("profile::clean_tmpdir")
 }
 
@@ -146,12 +146,12 @@ function profile::linux_desktop_after() {
 function profile::mac() {
   brew tap --force homebrew/cask
   profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
-
-  profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
-  profile::pipx_install 3.13 git+https://github.com/acourtneybrown/songchro@main
 }
 
 function profile::mac_after() {
+  profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
+  profile::pipx_install 3.13 git+https://github.com/acourtneybrown/songchro@main
+
   profile::install_fix_mosh
   if [[ ! $(whoami) == virtualbuddy ]]; then
     # Avoid issues with exhausting device licenses during testing

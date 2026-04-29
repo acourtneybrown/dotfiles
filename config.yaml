@@ -257,6 +257,7 @@ profiles:
       - default
       - mac
       - personal
+      - dev
   adams-mbp.local:
     include:
       - adams-mbp
