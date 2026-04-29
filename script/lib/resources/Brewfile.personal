@@ -1,7 +1,9 @@
 tap "acourtneybrown/cask"
 tap "acourtneybrown/fonts"
+tap "acourtneybrown/tap"
 tap "twilio/brew"
 
+brew "acourtneybrown/tap/zapp"
 brew "ffmpeg"
 brew "libdvdcss"
 brew "twilio/brew/twilio"
