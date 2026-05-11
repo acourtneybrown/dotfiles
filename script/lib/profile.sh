@@ -144,6 +144,10 @@ function profile::linux_desktop_after() {
   _finalizers+=("profile::op_forget_cli_login")
 }
 
+function profile::mac() {
+  brew tap --force homebrew/cask
+}
+
 function profile::mac_after() {
   profile::install_fix_mosh
   if [[ ! $(whoami) == virtualbuddy ]]; then
