@@ -325,6 +325,9 @@ profiles:
       xdg_config_home: "{{@@ env['HOME'] @@}}/.config"
     dotfiles:
       - d_config_pip
+  linux_dev:
+    include:
+      - dev
   personal_mac:
     dynvariables:
       kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
@@ -345,14 +348,16 @@ profiles:
     dotfiles:
       - d_config_gh
       - d_config_glab_cli
-      - d_gradle_init_d
       - d_git-template
+      - d_gradle_init_d
       - f_docker_config.json
       - f_gitconfig
       - f_gitconfig-shorteners
       - f_gitignore
       - f_gradle_properties
       - f_hgrc
+      - f_netrc
+      - f_tigrc
       - fake_goenv
       - fake_pyenv
     dynvariables:
@@ -413,11 +418,9 @@ profiles:
       - f_bash_sessions_disable
       - f_curlrc
       - f_hushlogin
-      - f_netrc
       - f_ssh_authorized_keys
       - f_ssh_config
       - f_ssh_known_hosts
-      - f_tigrc
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc
