@@ -136,7 +136,12 @@ function profile::linux_desktop() {
 
     sudo apt-get update && sudo apt-get install sublime-text
   fi
-  sudo apt install -qy 1password
+
+  if util::is_arm; then
+    echo "View installation instructions at https://support.1password.com/install-linux/#arm-or-other-distributions-targz"
+  else
+    sudo apt install -qy 1password
+  fi
 }
 
 function profile::linux_desktop_after() {
