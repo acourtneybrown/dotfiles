@@ -338,6 +338,9 @@ profiles:
     variables:
       personal: true
       songchro_file_music_root: /Volumes/music
+  dev_mac:
+    include:
+      - dev
   dev:
     dotfiles:
       - d_config_gh
