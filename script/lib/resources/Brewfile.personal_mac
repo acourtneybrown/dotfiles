@@ -36,7 +36,7 @@ cask "virtualbuddy"
 cask "vlc"
 cask "yubico-authenticator"
 
-if ENV['DOTFILES_SKIP_MAS'] != 'y'
+if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	mas "Bridge Constructor Portal", id: 1316061122
 	mas "DaVinci Resolve", id: 571213070
 	mas "GarageBand", id: 682658836

@@ -57,7 +57,7 @@ cask "opera"
 cask "slack"
 cask "zoom"
 
-if ENV['DOTFILES_SKIP_MAS'] != 'y'
+if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
 	mas "Amphetamine", id: 937984704
 	mas "Apple Configurator 2", id: 1037126344
 	mas "Kagi for Safari", id: 1622835804
