@@ -1,13 +1,12 @@
 tap "acourtneybrown/cask"
 tap "acourtneybrown/fonts"
-tap "acourtneybrown/tap"
 tap "twilio/brew"
 
-brew "acourtneybrown/tap/zapp"
 brew "ffmpeg"
 brew "libdvdcss"
 brew "twilio/brew/twilio"
 brew "yt-dlp"
+brew "zapp"
 
 cask "8bitdo-ultimate-software-v2"
 cask "acourtneybrown/cask/logitech-camera-settings"
