@@ -14,7 +14,9 @@ function util::is_mac() {
 }
 
 function util::is_arm() {
-  [[ "$(uname -m)" = "arm64" ]]
+    local arch
+    arch=$(uname -m)
+    [[ "$arch" == "arm64" || "$arch" == "aarch64" ]]
 }
 
 function util::is_linux() {
