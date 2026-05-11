@@ -5,10 +5,10 @@ In addition, it relies on [`deadc0de6/dotdrop`](https://github.com/deadc0de6/dot
 
 ## Flags affecting run
 
-- `DOTFILES_SKIP_UPDATES`: if set, skip OS updates
+- `(DOTFILES_SKIP_UPDATES)`: if set, skip OS updates
 - `DOTFILES_SKIP_CONFIRMATION`: on macOS, if set, skip the manual confirmation of setup that cannot be handled by the script
 - `DOTFILES_SKIP_LOGIN_WINDOW`: on macOS, if set, skip the configuration of the login window message
-- `HOMEBREW_PROCESS_MAS`: on macOS, if set to `y`, `mas` lines in `Brewfile.*` will be handled & installed.  The `dotfiles-envvars` plugin will set this to `y` if the username is *not* `virtualbuddy` (to make testing under VirtualBuddy easier).
+- `DOTFILES_SKIP_MAS`: on macOS, if set to `y`, `mas` lines in `Brewfile.*` will be ignored.
 
 ## Setup
 
@@ -46,7 +46,7 @@ cd .dotfiles
 # enable SSH agent in 1Password
 # enable cli integration in 1Password
 
-./script/bootstrap # optional dotdrop profiles to add for machine, like "personal"
+./script/bootstrap # optional dotdrop profiles to add for machine, like "personal_mac"
 ```
 
 ### Windows
@@ -80,7 +80,7 @@ Items in *italics* require manual intervention currently.
 
 ### [`script/bootstrap`](script/bootstrap)
 
-Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `personal`).
+Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `personal_mac`).
 
 1. install homebrew/linuxbrew
 1. add profile & included profiles to dotdrop config

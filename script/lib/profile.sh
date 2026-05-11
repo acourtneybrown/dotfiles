@@ -14,7 +14,6 @@ function profile::run_dotdrop_action() {
 function profile::default() {
   local tmpscript
   tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
   # Install oh-my-zsh
   if [[ ! -d ~/.oh-my-zsh ]]; then
@@ -39,17 +38,15 @@ function profile::default_after() {
   goenv global "$(profile::ensure_goenv_version 1.25)"
 }
 
-function profile::personal() {
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.personal"
-}
+function profile::personal_mac_after() {
+  profile::configure_calibre
 
-function profile::personal_after() {
+  profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
+  profile::pipx_install 3.13 git+https://github.com/acourtneybrown/songchro@main
   profile::pipx_install 3.13 python-kasa tox twine pytest build poetry
 }
 
 function profile::linux() {
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.linux"
-
   if [[ -z "$(apt -qq list 1password-cli)" ]]; then
     # Install 1Password CLI (https://developer.1password.com/docs/cli/get-started#install)
     curl -sS https://downloads.1password.com/linux/keys/1password.asc |
@@ -78,12 +75,15 @@ function profile::linux() {
   sudo adduser "$(whoami)" docker
 }
 
+function profile::linux_after() {
+  chsh -s /usr/bin/zsh
+}
+
 function profile::synology_dsm() {
   mkdir -p "${HOME}/tmp"
   export TMPDIR="${HOME}/tmp"
   export HOMEBREW_TEMP="${HOME}/tmp"
 
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.synology"
   if [[ ! -e $(brew --prefix)/bin/gcc ]]; then
     ln -s "$(basename "$(find "$(brew --prefix)/bin" -iregex ".*/gcc-[0-9]*" | tail)")" "$(brew --prefix)/bin/gcc"
   fi
@@ -122,10 +122,6 @@ function profile::install_op_cli_manual() {
   sudo chmod g+s /usr/local/bin/op
 }
 
-function profile::linux_after() {
-  chsh -s /usr/bin/zsh
-}
-
 function profile::linux_desktop() {
   if [[ -z "$(apt -qq list sublime-text)" ]]; then
     # Install Sublime Text (https://www.sublimetext.com/docs/linux_repositories.html#apt)
@@ -148,21 +144,12 @@ function profile::linux_desktop_after() {
   _finalizers+=("profile::op_forget_cli_login")
 }
 
-function profile::mac() {
-  brew tap --force homebrew/cask
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
-}
-
 function profile::mac_after() {
-  profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
-  profile::pipx_install 3.13 git+https://github.com/acourtneybrown/songchro@main
-
   profile::install_fix_mosh
   if [[ ! $(whoami) == virtualbuddy ]]; then
     # Avoid issues with exhausting device licenses during testing
     profile::handle_betterdisplay_license
   fi
-  profile::configure_calibre
 
   _finalizers+=("profile::op_forget_cli_login")
 }

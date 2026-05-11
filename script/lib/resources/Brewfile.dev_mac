@@ -1,0 +1,6 @@
+cask "datagrip"
+cask "docker"
+cask "goland"
+cask "intellij-idea"
+cask "lm-studio"
+cask "pycharm"

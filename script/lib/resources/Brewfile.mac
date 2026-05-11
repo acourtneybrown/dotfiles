@@ -1,5 +1,6 @@
 tap "acourtneybrown/cask"
 tap "acourtneybrown/versions"
+tap "buo/cask-upgrade"
 tap "nrlquaker/createzap"
 
 brew "asciinema"
@@ -23,7 +24,6 @@ cask "acourtneybrown/cask/canon-ij-scan-utility-lite"
 cask "acourtneybrown/cask/sublime-text@4192"
 cask "acourtneybrown/versions/betterdisplay@3.5.6"
 cask "alfred"
-cask "calibre"
 cask "drawio"
 cask "finicky"
 cask "firefox"
@@ -57,8 +57,9 @@ cask "opera"
 cask "slack"
 cask "zoom"
 
-if ENV['HOMEBREW_PROCESS_MAS'] == 'y'
+if ENV['DOTFILES_SKIP_MAS'] != 'y'
 	mas "Amphetamine", id: 937984704
+	mas "Apple Configurator 2", id: 1037126344
 	mas "Kagi for Safari", id: 1622835804
 	mas "Keynote", id: 409183694
 	mas "Magnet", id: 441258766

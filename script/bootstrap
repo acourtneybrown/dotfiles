@@ -70,6 +70,7 @@ function main() {
   done
 
   for named in $(list_includes "${PROFILE}"); do
+    profile::ensure_brewfile_installed "./lib/resources/Brewfile.${named}"
     if command -v "profile::${named}"; then
       "profile::${named}"
     fi
