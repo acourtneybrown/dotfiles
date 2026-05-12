@@ -200,8 +200,12 @@ function profile::configure_calibre() {
   local dedrm_version
   tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/calibre-dedrm.XXXXXXXXXX)" || return
   dedrm_version="10.0.9"
+  if [ "$(util::download_and_verify "https://github.com/noDRM/DeDRM_tools/releases/download/v${dedrm_version}/DeDRM_tools_${dedrm_version}.zip" \
+    d46e7ff94a46dc871eb9b7e639e6da1883823cd5a9d705d53f51bd9c251aabda \
+    "${tmpdir}/DeDRM_tools_${dedrm_version}.zip")" != "ok" ]; then
+    util::abort "DeDRM tools file changed"
+  fi
 
-  op plugin run -- gh release -R noDRM/DeDRM_tools download --dir "$tmpdir" "v${dedrm_version}"
   unzip -x "$tmpdir/DeDRM_tools_${dedrm_version}.zip" -d "${tmpdir}/DeDRM_tools_${dedrm_version}"
   calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/DeDRM_Plugin.zip"
   calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
