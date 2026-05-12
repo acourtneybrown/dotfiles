@@ -9,7 +9,6 @@ brew "yt-dlp"
 brew "zapp"
 
 cask "8bitdo-ultimate-software-v2"
-cask "acourtneybrown/cask/logitech-camera-settings"
 cask "acourtneybrown/cask/pro-studio-masters"
 cask "acourtneybrown/fonts/font-gerry"
 cask "acourtneybrown/fonts/font-kernit"
