@@ -355,13 +355,11 @@ profiles:
       - f_gradle_properties
       - f_hgrc
       - f_m2_settings_home
-      - f_netrc
       - f_pypirc_home
       - f_tigrc
       - fake_goenv
       - fake_pyenv
     dynvariables:
-      github_netrc_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/netrc"
       github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
       personal_gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
       personal_gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
@@ -385,6 +383,7 @@ profiles:
       authorized_keys: op item list --tags allow-ssh --format=json | op item get - --field "public key" | sort | uniq
       full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
       github_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login"
+      github_netrc_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/netrc"
       gitlab_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/username"
       homebrew_prefix: brew --prefix
       joint_google_account: op read "op://Joint/hqlcejuk5jil2e6hmmklzahub4/Email"
@@ -398,29 +397,23 @@ profiles:
       sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
       synology_api_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/username"
       synology_api_password: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/password"
-    include:
-      - zsh
-  zsh:
-    include:
-      - shared
-    dotfiles:
-      - d_oh-my-zsh-custom
-      - f_bash_profile-for-zsh
-      - f_p10k.zsh
-      - f_profile-for-zsh
-      - f_zshenv
-      - f_zshrc
-  shared:
     dotfiles:
       - d_bin
       - d_config_1Password
       - d_config_songchro
+      - d_oh-my-zsh-custom
+      - f_bash_profile-for-zsh
       - f_bash_sessions_disable
       - f_curlrc
       - f_hushlogin
+      - f_p10k.zsh
+      - f_profile-for-zsh
+      - f_netrc
       - f_ssh_authorized_keys
       - f_ssh_config
       - f_ssh_known_hosts
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc
+      - f_zshenv
+      - f_zshrc
