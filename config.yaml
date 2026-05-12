@@ -335,9 +335,7 @@ profiles:
     dotfiles:
       - d_config_pip
       - f_dedrm.json
-      - f_m2_settings_home
       - f_obok_dedrm_prefs.json
-      - f_pypirc_home
     variables:
       personal: true
       songchro_file_music_root: /Volumes/music
@@ -356,7 +354,9 @@ profiles:
       - f_gitignore
       - f_gradle_properties
       - f_hgrc
+      - f_m2_settings_home
       - f_netrc
+      - f_pypirc_home
       - f_tigrc
       - fake_goenv
       - fake_pyenv
