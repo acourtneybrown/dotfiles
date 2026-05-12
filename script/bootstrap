@@ -56,20 +56,42 @@ function main() {
 
   # create a new profile (if necessary), including default & os-specific ones
   PROFILE=$(hostname)
-  included_profiles=(default)
+  explicit_profiles=(default)
   if util::is_mac; then
-    included_profiles+=(mac)
+    explicit_profiles+=(mac)
   elif util::is_linux; then
-    included_profiles+=(linux)
+    explicit_profiles+=(linux)
   elif util::is_synology_dsm; then
-    included_profiles+=(synology_dsm)
+    explicit_profiles+=(synology_dsm)
   fi
-  included_profiles+=("${@}")
-  for named in "${included_profiles[@]}"; do
+  explicit_profiles+=("${@}")
+  for named in "${explicit_profiles[@]}"; do
     ensure_profile_includes "${PROFILE}" "${named}"
   done
 
-  for named in $(list_includes "${PROFILE}"); do
+  declare -A seen=()
+  queue=($(list_includes "${PROFILE}"))
+  while (( ${#queue[@]} )); do
+    current="${queue[0]}"
+    queue=( "${queue[@]:1}" )
+
+    echo "current = $current"
+    echo "queue = ( ${queue[@]} )"
+
+    if [[ -z ${seen[$current]+x} ]]; then   # key not yet seen
+      seen[$current]=1
+      included_profiles=($(list_includes "${current}"))
+      queue=("${included_profiles[@]}" "${queue[@]}")
+      uniq_profiles=($current "${uniq_profiles[@]}")
+    fi
+
+    echo "end queue = ( ${queue[@]} )"
+  done
+  echo "uniq_profiles = ( ${uniq_profiles[@]} )"
+
+  read -r _
+
+  for named in "${uniq_profiles[@]}"; do
     profile::ensure_brewfile_installed "./lib/resources/Brewfile.${named}"
     if command -v "profile::${named}"; then
       "profile::${named}"
@@ -82,7 +104,7 @@ function main() {
   # Install all dotfiles into the home directory
   dotdrop install --force --profile="${PROFILE}" --cfg ../config.yaml
 
-  for named in $(list_includes "${PROFILE}"); do
+  for named in "${uniq_profiles[@]}"; do
     if command -v "profile::${named}_after"; then
       "profile::${named}_after"
     fi

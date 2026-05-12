@@ -312,6 +312,8 @@ profiles:
       - f_finicky.js
       - f_sublime_license
       - fake_iterm2_utils
+    include:
+      - default
   linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
@@ -319,15 +321,20 @@ profiles:
     dotfiles:
       - d_user
       - f_sublime_license
+    include:
+      - linux
   linux:
     variables:
       linux: true
       xdg_config_home: "{{@@ env['HOME'] @@}}/.config"
     dotfiles:
       - d_config_pip
+    include:
+      - default
   linux_dev:
     include:
       - dev
+      - linux
   personal_mac:
     dynvariables:
       kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
@@ -339,6 +346,8 @@ profiles:
     variables:
       personal: true
       songchro_file_music_root: /Volumes/music
+    include:
+      - mac
   dev_mac:
     include:
       - dev
