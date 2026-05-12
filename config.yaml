@@ -365,7 +365,6 @@ profiles:
       github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
       personal_gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
       personal_gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
-      personal_gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
   synology_dsm:
     include:
       - linux
@@ -392,6 +391,7 @@ profiles:
       personal_email: op read "op://Adam/6jjizlkc5bstuors76ickhd7fa/Internet Details/email"
       personal_gitea_hostname: "{{@@ personal_gitea_website @@}} | sed 's|https://||'"
       personal_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
+      personal_gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
       plex_baseurl: op read "op://Songchro/Plex/hostname"
       plex_token: op read "op://Songchro/Plex/credential"
       public_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/3evxc47vgvyz4w65n6krlpq25u/user_name"
