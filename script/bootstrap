@@ -85,9 +85,9 @@ function main() {
       if [[ -z ${seen[$item]+x} ]]; then   # key not yet seen
         item_stack=( "$item" "${item_stack[@]}" )
         seen[$item]=1
-        included_profiles=($(list_includes "${item}"))
-        if (( ${#included_profiles[@]} )); then
-          work_queue=( "${included_profiles[@]}" "${work_queue[@]}")
+        item_includes=($(list_includes "${item}"))
+        if (( ${#item_includes[@]} )); then
+          work_queue=( "${item_includes[@]}" "${work_queue[@]}")
         fi
       fi
     done
