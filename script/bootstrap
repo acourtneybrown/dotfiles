@@ -74,45 +74,30 @@ function main() {
   declare -A seen=()
   declare -a uniq_profiles=()
   profile_includes=($(list_includes "${PROFILE}"))
-  echo "start profile_includes = ( ${profile_includes[@]} )"
   while (( ${#profile_includes[@]} )); do
     current="${profile_includes[0]}"
     profile_includes=( "${profile_includes[@]:1}" )
-
-    echo "current = $current"
-    echo "profile_includes = ( ${profile_includes[@]} )"
-
     declare -a work_queue=($current)
     declare -a item_stack=()
     while (( ${#work_queue[@]} )); do
       item="${work_queue[0]}"
       work_queue=( "${work_queue[@]:1}" )
-
-      echo "item - $item"
-      echo "work_queue - #${#work_queue[@]} ( ${work_queue[@]} )"
-
       if [[ -z ${seen[$item]+x} ]]; then   # key not yet seen
         item_stack=( "$item" "${item_stack[@]}" )
         seen[$item]=1
         included_profiles=($(list_includes "${item}"))
-
-        echo "included_profiles - ( ${included_profiles[@]} )"
-
         if (( ${#included_profiles[@]} )); then
           work_queue=( "${included_profiles[@]}" "${work_queue[@]}")
         fi
-        echo "new work_queue - #${#work_queue[@]} ( ${work_queue[@]} )"
       fi
     done
 
     uniq_profiles+=("${item_stack[@]}")
-    echo "----uniq_profiles = ( ${uniq_profiles[@]} )"
   done
-  echo "final uniq_profiles = ( ${uniq_profiles[@]} )"
-
-  read -r _
+  echo "profiles to apply ( ${uniq_profiles[@]} )"
 
   for named in "${uniq_profiles[@]}"; do
+    echo "start of profile <$named>"
     profile::ensure_brewfile_installed "./lib/resources/Brewfile.${named}"
     if command -v "profile::${named}"; then
       "profile::${named}"
