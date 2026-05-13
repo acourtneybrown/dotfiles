@@ -351,6 +351,7 @@ profiles:
   dev_mac:
     include:
       - dev
+      - mac
   dev:
     dotfiles:
       - d_config_gh
