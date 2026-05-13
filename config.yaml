@@ -254,10 +254,9 @@ profiles:
       host_ssh_key_name: adams-mbp key
       alfred_preferences_localhash: "f10f132bffbde36d011dcf6644f262cf3d810ce7"
     include:
-      - default
       - mac
-      - personal
-      - dev
+      - personal_mac
+      - dev_mac
   adams-mbp.local:
     include:
       - adams-mbp
@@ -266,7 +265,6 @@ profiles:
       - adams-mbp
   beelink:
     include:
-      - default
       - linux
     variables:
       host_password: op://jrew5nqtk5aqdgupcoxqjuevwu/beelink.notcharlie.com/password
@@ -286,7 +284,6 @@ profiles:
       - beelink
   synology:
     include:
-      - default
       - synology_dsm
     variables:
       host_password: op://Adam/m77teghqv2ec7xttb47j3qchsa/password
@@ -295,13 +292,10 @@ profiles:
       ssh_agent_lifetime: 12h
   mac:
     dynvariables:
-      kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
-      kobo_colour_libra_serial: op read "op://Adam/Kobo/Kobo Colour Libra serial"
       alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
-      songchro_file_music_root: /Volumes/music
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
@@ -312,11 +306,11 @@ profiles:
       - f_Alfred_prefs.json
       - f_com.googlecode.iterm2.plist
       - f_config_op_plugins.sh
-      - f_dedrm.json
       - f_finicky.js
-      - f_obok_dedrm_prefs.json
       - f_sublime_license
       - fake_iterm2_utils
+    include:
+      - default
   linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
@@ -324,19 +318,58 @@ profiles:
     dotfiles:
       - d_user
       - f_sublime_license
+  # include:
+  #   - linux
   linux:
     variables:
       linux: true
       xdg_config_home: "{{@@ env['HOME'] @@}}/.config"
     dotfiles:
       - d_config_pip
-  personal:
+    include:
+      - default
+  linux_dev:
+    include:
+      - dev
+      # - linux
+  personal_mac:
+    dynvariables:
+      kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
+      kobo_colour_libra_serial: op read "op://Adam/Kobo/Kobo Colour Libra serial"
     dotfiles:
       - d_config_pip
-      - f_m2_settings_home
-      - f_pypirc_home
+      - f_dedrm.json
+      - f_obok_dedrm_prefs.json
     variables:
       personal: true
+      songchro_file_music_root: /Volumes/music
+  # include:
+  #   - mac
+  dev_mac:
+    include:
+      - dev
+      # - mac
+  dev:
+    dotfiles:
+      - d_config_gh
+      - d_config_glab_cli
+      - d_git-template
+      - d_gradle_init_d
+      - f_docker_config.json
+      - f_gitconfig
+      - f_gitconfig-shorteners
+      - f_gitignore
+      - f_gradle_properties
+      - f_hgrc
+      - f_m2_settings_home
+      - f_pypirc_home
+      - f_tigrc
+      - fake_goenv
+      - fake_pyenv
+    dynvariables:
+      github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
+      personal_gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
+      personal_gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
   synology_dsm:
     include:
       - linux
@@ -358,14 +391,11 @@ profiles:
       full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
       github_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login"
       github_netrc_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/netrc"
-      github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
       gitlab_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/username"
       homebrew_prefix: brew --prefix
       joint_google_account: op read "op://Joint/hqlcejuk5jil2e6hmmklzahub4/Email"
       personal_email: op read "op://Adam/6jjizlkc5bstuors76ickhd7fa/Internet Details/email"
-      personal_gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
       personal_gitea_hostname: "{{@@ personal_gitea_website @@}} | sed 's|https://||'"
-      personal_gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
       personal_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
       personal_gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
       plex_baseurl: op read "op://Songchro/Plex/hostname"
@@ -374,43 +404,23 @@ profiles:
       sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
       synology_api_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/username"
       synology_api_password: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/password"
-    include:
-      - zsh
-  zsh:
-    include:
-      - shared
-    dotfiles:
-      - d_oh-my-zsh-custom
-      - f_bash_profile-for-zsh
-      - f_p10k.zsh
-      - f_profile-for-zsh
-      - f_zshenv
-      - f_zshrc
-  shared:
     dotfiles:
       - d_bin
       - d_config_1Password
-      - d_config_gh
-      - d_config_glab_cli
       - d_config_songchro
-      - d_git-template
-      - d_gradle_init_d
+      - d_oh-my-zsh-custom
+      - f_bash_profile-for-zsh
       - f_bash_sessions_disable
       - f_curlrc
-      - f_docker_config.json
-      - f_gitconfig
-      - f_gitconfig-shorteners
-      - f_gitignore
-      - f_gradle_properties
-      - f_hgrc
       - f_hushlogin
+      - f_p10k.zsh
+      - f_profile-for-zsh
       - f_netrc
       - f_ssh_authorized_keys
       - f_ssh_config
       - f_ssh_known_hosts
-      - f_tigrc
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc
-      - fake_goenv
-      - fake_pyenv
+      - f_zshenv
+      - f_zshrc
