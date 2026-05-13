@@ -56,13 +56,15 @@ function main() {
 
   # create a new profile (if necessary), including default & os-specific ones
   PROFILE=$(hostname)
-  explicit_profiles=(default)
+  explicit_profiles=()
   if util::is_mac; then
     explicit_profiles+=(mac)
   elif util::is_linux; then
     explicit_profiles+=(linux)
   elif util::is_synology_dsm; then
     explicit_profiles+=(synology_dsm)
+  else
+    explicit_profiles+=(default)
   fi
   explicit_profiles+=("${@}")
   for named in "${explicit_profiles[@]}"; do
@@ -70,24 +72,43 @@ function main() {
   done
 
   declare -A seen=()
-  queue=($(list_includes "${PROFILE}"))
-  while (( ${#queue[@]} )); do
-    current="${queue[0]}"
-    queue=( "${queue[@]:1}" )
+  declare -a uniq_profiles=()
+  profile_includes=($(list_includes "${PROFILE}"))
+  echo "start profile_includes = ( ${profile_includes[@]} )"
+  while (( ${#profile_includes[@]} )); do
+    current="${profile_includes[0]}"
+    profile_includes=( "${profile_includes[@]:1}" )
 
     echo "current = $current"
-    echo "queue = ( ${queue[@]} )"
+    echo "profile_includes = ( ${profile_includes[@]} )"
 
-    if [[ -z ${seen[$current]+x} ]]; then   # key not yet seen
-      seen[$current]=1
-      included_profiles=($(list_includes "${current}"))
-      queue=("${included_profiles[@]}" "${queue[@]}")
-      uniq_profiles=($current "${uniq_profiles[@]}")
-    fi
+    declare -a work_queue=($current)
+    declare -a item_stack=()
+    while (( ${#work_queue[@]} )); do
+      item="${work_queue[0]}"
+      work_queue=( "${work_queue[@]:1}" )
 
-    echo "end queue = ( ${queue[@]} )"
+      echo "item - $item"
+      echo "work_queue - #${#work_queue[@]} ( ${work_queue[@]} )"
+
+      if [[ -z ${seen[$item]+x} ]]; then   # key not yet seen
+        item_stack=( "$item" "${item_stack[@]}" )
+        seen[$item]=1
+        included_profiles=($(list_includes "${item}"))
+
+        echo "included_profiles - ( ${included_profiles[@]} )"
+
+        if (( ${#included_profiles[@]} )); then
+          work_queue=( "${included_profiles[@]}" "${work_queue[@]}")
+        fi
+        echo "new work_queue - #${#work_queue[@]} ( ${work_queue[@]} )"
+      fi
+    done
+
+    uniq_profiles+=("${item_stack[@]}")
+    echo "----uniq_profiles = ( ${uniq_profiles[@]} )"
   done
-  echo "uniq_profiles = ( ${uniq_profiles[@]} )"
+  echo "final uniq_profiles = ( ${uniq_profiles[@]} )"
 
   read -r _
 

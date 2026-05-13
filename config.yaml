@@ -254,7 +254,6 @@ profiles:
       host_ssh_key_name: adams-mbp key
       alfred_preferences_localhash: "f10f132bffbde36d011dcf6644f262cf3d810ce7"
     include:
-      - default
       - mac
       - personal_mac
       - dev_mac
@@ -266,7 +265,6 @@ profiles:
       - adams-mbp
   beelink:
     include:
-      - default
       - linux
     variables:
       host_password: op://jrew5nqtk5aqdgupcoxqjuevwu/beelink.notcharlie.com/password
@@ -286,7 +284,6 @@ profiles:
       - beelink
   synology:
     include:
-      - default
       - synology_dsm
     variables:
       host_password: op://Adam/m77teghqv2ec7xttb47j3qchsa/password
