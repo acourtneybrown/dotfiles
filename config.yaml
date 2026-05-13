@@ -318,8 +318,8 @@ profiles:
     dotfiles:
       - d_user
       - f_sublime_license
-    include:
-      - linux
+    # include:
+    #   - linux
   linux:
     variables:
       linux: true
@@ -331,7 +331,7 @@ profiles:
   linux_dev:
     include:
       - dev
-      - linux
+      # - linux
   personal_mac:
     dynvariables:
       kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
@@ -343,12 +343,12 @@ profiles:
     variables:
       personal: true
       songchro_file_music_root: /Volumes/music
-    include:
-      - mac
+    # include:
+    #   - mac
   dev_mac:
     include:
       - dev
-      - mac
+      # - mac
   dev:
     dotfiles:
       - d_config_gh
