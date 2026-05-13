@@ -318,8 +318,8 @@ profiles:
     dotfiles:
       - d_user
       - f_sublime_license
-    # include:
-    #   - linux
+  # include:
+  #   - linux
   linux:
     variables:
       linux: true
@@ -343,8 +343,8 @@ profiles:
     variables:
       personal: true
       songchro_file_music_root: /Volumes/music
-    # include:
-    #   - mac
+  # include:
+  #   - mac
   dev_mac:
     include:
       - dev
