@@ -255,8 +255,8 @@ profiles:
       alfred_preferences_localhash: "f10f132bffbde36d011dcf6644f262cf3d810ce7"
     include:
       - mac
-      - personal_mac
       - dev_mac
+      - personal_mac
   adams-mbp.local:
     include:
       - adams-mbp
