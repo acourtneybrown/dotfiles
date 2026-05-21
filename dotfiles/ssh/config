@@ -19,6 +19,9 @@ Host picluster-* picluster-*.notcharlie.com
 Host synology synology.notcharlie.com
   Hostname synology.notcharlie.com
   Port 2222
+Host synology-family synology-family.notcharlie.com
+  Hostname synology-family.notcharlie.com
+  Port 2222
 Host synology-root
   Hostname synology.notcharlie.com
   Port 2222

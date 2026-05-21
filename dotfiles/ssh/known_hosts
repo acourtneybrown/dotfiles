@@ -1,3 +1,4 @@
+[synology-family]:2222,[synology-family.notcharlie.com]:2222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILFLfXYu1EpP1nCJQ/GJJiEHuGJ8jBF9Qz7qsEptG/3v
 [synology]:2222,[synology.notcharlie.com]:2222,[10.98.76.30]:2222 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDGsUTCpOq6SSoJlMKJZ4yOVitxpeJ7BspgbPB47kj6mXRxEwqRBlRymC2pZMmbaqWUsfMWZX0roIt/FLEMSzSM=
 [synology]:2222,[synology.notcharlie.com]:2234,[10.98.76.30]:2234 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJlvdeGnbHRLj0O3yFMzvtEzq1DnR0CrLm+MWqg0hN0XClvnhZXHvTwfS39sc61tZ5a/rwjzKu5THoQMT7+BjNk=
 adams-mbp,adams-mbp.notcharlie.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqdbSyhU6tepbr7AM0Xf4wS6U6VOITDN1tygXuZa79q
