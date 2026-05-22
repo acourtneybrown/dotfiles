@@ -368,7 +368,7 @@ profiles:
       github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
   synology_dsm:
     include:
-      - linux
+      - default
     variables:
       synology_dsm: true
     dotfiles:
