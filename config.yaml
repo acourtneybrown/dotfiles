@@ -266,6 +266,7 @@ profiles:
   beelink:
     include:
       - linux
+      - linux_dev
     variables:
       host_password: op://jrew5nqtk5aqdgupcoxqjuevwu/beelink.notcharlie.com/password
       host_ssh_key_name: beelink key
