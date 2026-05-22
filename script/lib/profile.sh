@@ -65,18 +65,43 @@ function profile::linux() {
     sudo apt update && sudo apt install -qy 1password-cli
   fi
   sudo apt install -qy zsh
+}
 
+function profile::linux_after() {
+  chsh -s /usr/bin/zsh
+}
+
+function profile::linux_dev() {
   # Install recommended dependencies for Python builds - https://github.com/pyenv/pyenv/wiki#troubleshooting--faq
   sudo apt install -qy make build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
-  sudo apt install -qy docker.io
+  profile::install_docker_ce
   sudo adduser "$(whoami)" docker
 }
 
-function profile::linux_after() {
-  chsh -s /usr/bin/zsh
+# from https://docs.docker.com/engine/install/ubuntu/
+function profile::install_docker_ce() {
+  # Add Docker's official GPG key:
+  sudo apt update
+  sudo apt install ca-certificates curl
+  sudo install -m 0755 -d /etc/apt/keyrings
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+  # Add the repository to Apt sources:
+  sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+  sudo apt update
+  sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 }
 
 function profile::synology_dsm() {
