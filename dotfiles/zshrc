@@ -128,7 +128,7 @@ plugins=(
   iterm2-custom
   {%@@ endif @@%}
 
-  {%@@ if linux @@%}
+  {%@@ if linux or synology_dsm @@%}
   linuxbrew
   {%@@ endif @@%}
 
