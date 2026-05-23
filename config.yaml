@@ -266,6 +266,7 @@ profiles:
   beelink:
     include:
       - linux
+      - linux_dev
     variables:
       host_password: op://jrew5nqtk5aqdgupcoxqjuevwu/beelink.notcharlie.com/password
       host_ssh_key_name: beelink key
@@ -368,7 +369,7 @@ profiles:
       github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
   synology_dsm:
     include:
-      - linux
+      - default
     variables:
       synology_dsm: true
     dotfiles:
