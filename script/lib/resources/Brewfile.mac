@@ -1,7 +1,7 @@
-tap "acourtneybrown/cask"
-tap "acourtneybrown/versions"
-tap "buo/cask-upgrade"
-tap "nrlquaker/createzap"
+tap "acourtneybrown/cask", trusted: true
+tap "acourtneybrown/versions", trusted: true
+tap "buo/cask-upgrade", trusted: true
+tap "nrlquaker/createzap", trusted: true
 
 brew "asciinema"
 brew "bash"

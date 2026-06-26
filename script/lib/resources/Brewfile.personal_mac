@@ -1,6 +1,6 @@
-tap "acourtneybrown/cask"
-tap "acourtneybrown/fonts"
-tap "twilio/brew"
+tap "acourtneybrown/cask", trusted: true
+tap "acourtneybrown/fonts", trusted: true
+tap "twilio/brew", trusted: true
 
 brew "ffmpeg"
 brew "libdvdcss"
