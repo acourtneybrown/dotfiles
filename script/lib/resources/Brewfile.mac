@@ -76,7 +76,7 @@ cask "pycharm"
 cask "send-to-kindle"
 cask "slack"
 cask "spotify"
-cask "sublime-text@4192"
+cask "sublime-text"
 cask "yubico-yubikey-manager"
 cask "zoom"
 
