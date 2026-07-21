@@ -425,3 +425,9 @@ profiles:
       - f_wgetrc
       - f_zshenv
       - f_zshrc
+  pve-docker:
+    include:
+      - linux
+      - linux_dev
+    variables:
+      host_ssh_key_name: pve-docker key
