@@ -19,7 +19,7 @@ function profile::default() {
   if [[ ! -d ~/.oh-my-zsh ]]; then
     if [ "$(
       util::download_and_verify https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh \
-        21043aec5b791ce4835479dc33ba2f92155946aeafd54604a8c83522627cc803 \
+        95118b50d062198597e2b73d3a57b609fd95ca68cdc86faf4460d955f0172b61 \
         "$tmpscript"
     )" != "ok" ]; then
       util::abort "oh-my-zsh install script changed"
@@ -62,7 +62,7 @@ function profile::linux() {
     curl -sS https://downloads.1password.com/linux/keys/1password.asc |
       sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 
-    sudo apt update && sudo apt install -qy 1password-cli
+    sudo apt update && sudo apt install -qy 1password-cli zlib1g-dev
   fi
   sudo apt install -qy zsh
 }
@@ -73,7 +73,7 @@ function profile::linux_after() {
 
 function profile::linux_dev() {
   # Install recommended dependencies for Python builds - https://github.com/pyenv/pyenv/wiki#troubleshooting--faq
-  sudo apt install -qy make build-essential libssl-dev zlib1g-dev \
+  sudo apt install -qy make build-essential libssl-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
@@ -407,7 +407,7 @@ function profile::install_homebrew() {
 
   tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    f3e91784ffeda32bc397de7acc1154724cc47522a459c9ac656cca176eeba457 \
+    99287f194a8b3c9e6b0203a11a5fa54518be57209343e6bb954dec4635796d9d \
     "$tmpscript")" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi
