@@ -291,6 +291,13 @@ profiles:
       host_ssh_key_name: synology key
       songchro_file_music_root: /volume13/music
       ssh_agent_lifetime: 12h
+  pve-docker:
+    include:
+      - linux
+      - linux_dev
+    variables:
+      host_ssh_key_name: pve-docker key
+      host_password: op://jrew5nqtk5aqdgupcoxqjuevwu/af3cwox6m6su5jkzo4xyt7n4ae/password
   mac:
     dynvariables:
       alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
@@ -425,9 +432,3 @@ profiles:
       - f_wgetrc
       - f_zshenv
       - f_zshrc
-  pve-docker:
-    include:
-      - linux
-      - linux_dev
-    variables:
-      host_ssh_key_name: pve-docker key
