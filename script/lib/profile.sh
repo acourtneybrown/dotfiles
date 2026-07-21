@@ -407,7 +407,7 @@ function profile::install_homebrew() {
 
   tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    f3e91784ffeda32bc397de7acc1154724cc47522a459c9ac656cca176eeba457 \
+    99287f194a8b3c9e6b0203a11a5fa54518be57209343e6bb954dec4635796d9d \
     "$tmpscript")" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi
