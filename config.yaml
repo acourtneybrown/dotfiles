@@ -143,6 +143,9 @@ dotfiles:
   f_com.googlecode.iterm2.plist:
     src: config/iterm2/com.googlecode.iterm2.plist
     dst: ~/.config/iterm2/com.googlecode.iterm2.plist
+  f_config_kanidm:
+    src: config/kanidm
+    dst: ~/.config/kanidm
   f_config_op_plugins.sh:
     src: config/op/plugins.sh
     dst: ~/.config/op/plugins.sh
@@ -313,6 +316,7 @@ profiles:
       - d_user
       - f_Alfred_prefs.json
       - f_com.googlecode.iterm2.plist
+      - f_config_kanidm
       - f_config_op_plugins.sh
       - f_finicky.js
       - f_sublime_license
