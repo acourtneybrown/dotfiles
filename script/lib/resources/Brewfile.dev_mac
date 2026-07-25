@@ -1,5 +1,5 @@
 cask "datagrip"
-cask "docker"
+cask "docker-desktop"
 cask "goland"
 cask "intellij-idea"
 cask "lm-studio"
