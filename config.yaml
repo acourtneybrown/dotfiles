@@ -271,7 +271,7 @@ profiles:
       - linux
       - linux_dev
     variables:
-      host_password: "op://Home network/beelink.notcharlie.com/password"
+      host_password: op://Home network/beelink.notcharlie.com/password
       host_ssh_key_name: beelink key
       songchro_file_music_root: ~/synology/music
       ssh_agent_lifetime: 12h
@@ -290,7 +290,7 @@ profiles:
     include:
       - synology_dsm
     variables:
-      host_password: "op://Home network/4fwv2ypyyuqba2mzxbtizwm7s4/password"
+      host_password: op://Home network/4fwv2ypyyuqba2mzxbtizwm7s4/password
       host_ssh_key_name: synology key
       songchro_file_music_root: /volume13/music
       ssh_agent_lifetime: 12h
@@ -300,7 +300,7 @@ profiles:
       - linux_dev
     variables:
       host_ssh_key_name: pve-docker key
-      host_password: "op://Home network/pun7qwv2tcg54nqlkeysiexnjy/password"
+      host_password: op://Home network/pun7qwv2tcg54nqlkeysiexnjy/password
   mac:
     dynvariables:
       alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
