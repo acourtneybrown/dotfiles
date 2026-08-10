@@ -4729,7 +4729,7 @@
 			<key>Columns</key>
 			<integer>120</integer>
 			<key>Command</key>
-			<string>ssh pve-fe-root</string>
+			<string>ssh root@pve-fe.notcharlie.com</string>
 			<key>Cursor Boost</key>
 			<real>0.0</real>
 			<key>Cursor Color</key>

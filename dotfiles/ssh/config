@@ -19,13 +19,6 @@ Host picluster-* picluster-*.notcharlie.com
 Host synology synology.notcharlie.com
   Hostname synology.notcharlie.com
   Port 2222
-Host synology-root
-  Hostname synology.notcharlie.com
-  Port 2222
-  User root
-Host pve-fe-root
-  Hostname pve-fe.notcharlie.com
-  User root
 Host gitea gitea.notcharlie.com
   Hostname synology.notcharlie.com
   Port 2234
