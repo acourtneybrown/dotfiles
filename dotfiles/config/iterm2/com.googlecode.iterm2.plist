@@ -26,6 +26,8 @@
 	<string>https://api.openai.com/v1/responses</string>
 	<key>AutoHideTmuxClientSession</key>
 	<true/>
+	<key>CloseBookmarksWindowAfterOpening</key>
+	<true/>
 	<key>Default Arrangement Name</key>
 	<string>Default</string>
 	<key>Default Bookmark Guid</key>
@@ -4727,7 +4729,7 @@
 			<key>Columns</key>
 			<integer>120</integer>
 			<key>Command</key>
-			<string>ssh -t pve-fe.notcharlie.com "/usr/local/bin/tmux -u -CC new -A -s main"</string>
+			<string>ssh pve-fe-root</string>
 			<key>Cursor Boost</key>
 			<real>0.0</real>
 			<key>Cursor Color</key>
@@ -6079,7 +6081,9 @@
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ToolbeltTools</key>
-	<array/>
+	<array>
+		<string>Profiles</string>
+	</array>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>VisualIndicatorForEsc</key>
