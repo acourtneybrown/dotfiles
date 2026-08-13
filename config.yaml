@@ -301,6 +301,13 @@ profiles:
     variables:
       host_ssh_key_name: pve-docker key
       host_password: op://Home network/pun7qwv2tcg54nqlkeysiexnjy/password
+  pve-plex:
+    include:
+      - linux
+      - linux_dev
+    variables:
+      host_ssh_key_name: pve-plex key
+      host_password: op://Home network/svsbj2u5qqtbvaztuyeuydfgt4/password
   mac:
     dynvariables:
       alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
@@ -434,9 +441,3 @@ profiles:
       - f_wgetrc
       - f_zshenv
       - f_zshrc
-  pve-plex:
-    include:
-      - linux
-      - linux_dev
-    variables:
-      host_ssh_key_name: pve-plex key
