@@ -126,12 +126,12 @@ function profile::synology_dsm_after() {
 function profile::install_op_cli_manual() {
   # install 1Password CLI tool
   local ARCH="amd64"
-  local OP_VERSION="2.30.3"
+  local OP_VERSION="2.35.0"
   local tmpdir
 
   tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/op-cli.XXXXXXXXXX)" || return
   if [ "$(util::download_and_verify "https://cache.agilebits.com/dist/1P/op2/pkg/v${OP_VERSION}/op_linux_${ARCH}_v${OP_VERSION}.zip" \
-    a16307ebcecb40fd091d7a6ff4f0c380c3c0897c4f4616de2c5d285e57d5ee28 \
+    4457ade59850b852c64c77164235b34dd0b984ef7826eb0ccd32f1fd78a2ceb7 \
     "${tmpdir}/op.zip")" != "ok" ]; then
     util::abort "1password-cli zipfile changed"
   fi
@@ -407,7 +407,7 @@ function profile::install_homebrew() {
 
   tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    99287f194a8b3c9e6b0203a11a5fa54518be57209343e6bb954dec4635796d9d \
+    12479a24be3f5307eecac7cde670fad7118640f031229e964f544b1367b52a41 \
     "$tmpscript")" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi
