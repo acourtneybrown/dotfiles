@@ -395,8 +395,8 @@ function profile::clean_tmpdir() {
 
 function profile::install_homebrew() {
   if util::is_linux; then
-    case $(lsb_release --id --short) in
-    Raspbian | Debian | Ubuntu)
+    case $(util::linux_id) in
+    Raspbian | Debian | Ubuntu | raspbian | debian | ubuntu)
       sudo apt install -qy build-essential procps curl file git
       ;;
     *)
