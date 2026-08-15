@@ -441,3 +441,9 @@ profiles:
       - f_wgetrc
       - f_zshenv
       - f_zshrc
+  pve-docker-priv:
+    include:
+      - linux
+      - linux_dev
+    variables:
+      host_ssh_key_name: pve-docker-priv key
