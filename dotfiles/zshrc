@@ -160,6 +160,7 @@ zstyle :omz:plugins:ssh-agent lifetime {{@@ ssh_agent_lifetime @@}}
 
 zstyle ':omz:plugins:eza' 'git-status' yes
 # zstyle ':omz:plugins:eza' 'hyperlink' yes
+zstyle ':omz:plugins:eza' 'show-group' yes
 
 typeset -U path PATH
 if [[ -d "${ZSH}" ]]; then
