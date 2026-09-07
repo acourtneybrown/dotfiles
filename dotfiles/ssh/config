@@ -25,6 +25,9 @@ Host gitea.notcharlie.com
 Host homeassistant homeassistant.notcharlie.com
   Hostname homeassistant.notcharlie.com
   User root
+Host pve-nginx-proxy-manager pve-nginx-proxy-manager.notcharlie.com
+  Hostname pve-nginx-proxy-manager.notcharlie.com
+  User root
 Host unifi-* unifi-*.notcharlie.com
   User unifi-admin
 Host *.notcharlie.com
