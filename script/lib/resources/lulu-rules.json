@@ -13475,32 +13475,6 @@
       "uuid": "8B98F537-D3DA-4E46-BCDB-5BD2C314B121"
     }
   ],
-  "com.jordanbaird.Ice:Developer ID Application: Jordan Baird (K2ATHQPJDP)": [
-    {
-      "action": 1,
-      "creation": "2025-07-04T20:05:29-0700",
-      "csInfo": {
-        "signatureAuthorities": [
-          "Developer ID Application: Jordan Baird (K2ATHQPJDP)",
-          "Developer ID Certification Authority",
-          "Apple Root CA"
-        ],
-        "signatureIdentifier": "com.jordanbaird.Ice",
-        "signatureSigner": 3,
-        "signatureStatus": 0
-      },
-      "endpointAddr": "jordanbaird.github.io",
-      "endpointHost": "jordanbaird.github.io",
-      "endpointPort": "443",
-      "isEndpointAddrRegex": 0,
-      "key": "com.jordanbaird.Ice:Developer ID Application: Jordan Baird (K2ATHQPJDP)",
-      "name": "Ice",
-      "path": "/Applications/Ice.app",
-      "scope": 0,
-      "type": 3,
-      "uuid": "C5D2C177-B1A8-4737-9DED-10C7DC12BB93"
-    }
-  ],
   "com.larian.bg3:Developer ID Application: Larian Studios Games Ltd. (VMNEFGE8SY)": [
     {
       "action": 1,
