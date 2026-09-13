@@ -19,6 +19,10 @@ function op-ssh-add() {
 }
 {%@@ endif @@%}
 
+if [[ $(op accounts list --format=json | jq 'length') -gt 1 ]]; then
+  export OP_ACCOUNT=my.1password.com
+fi
+
 # op-check-vault looks for any logins which match a given username in the
 # specified vault, while ignoring any with the 'WrongVaultOk' tag
 function op-check-vault() {
