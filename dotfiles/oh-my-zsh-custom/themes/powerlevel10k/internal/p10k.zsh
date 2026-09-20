@@ -2265,7 +2265,7 @@ prompt_package() {
 
   P9K_PACKAGE_NAME=$_p9k__cache_val[2]
   P9K_PACKAGE_VERSION=$_p9k__cache_val[3]
-  _p9k_prompt_segment "$0" "cyan" "$_p9k_color1" PACKAGE_ICON 0 '' ${P9K_PACKAGE_VERSION//\%/%%}
+  _p9k_prompt_segment "$0" "cyan" "$_p9k_color1" PACKAGE_ICON 0 '' ${(V)P9K_PACKAGE_VERSION//\%/%%}
 }
 
 ################################################################
@@ -9527,7 +9527,7 @@ if [[ $__p9k_dump_file != $__p9k_instant_prompt_dump_file && -n $__p9k_instant_p
   zf_rm -f -- $__p9k_instant_prompt_dump_file{,.zwc} 2>/dev/null
 fi
 
-typeset -g P9K_VERSION=1.20.17
+typeset -g P9K_VERSION=1.20.18
 
 if [[ ${VSCODE_SHELL_INTEGRATION-} == <1-> && ${+__p9k_force_term_shell_integration} == 0 ]]; then
   typeset -gri __p9k_force_term_shell_integration=1

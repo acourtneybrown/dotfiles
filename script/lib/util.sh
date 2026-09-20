@@ -23,6 +23,16 @@ function util::is_linux() {
   [[ "$(uname -s)" = "Linux" ]] && ! util::is_synology_dsm
 }
 
+function util::linux_id() {
+  if command -v lsb_release >/dev/null; then
+    lsb_release --id --short
+  elif [[ -f /etc/os-release ]]; then
+    grep ^ID= /etc/os-release | cut -d= -f2
+  else
+    echo "Unknown"
+  fi
+}
+
 function util::is_synology_dsm() {
   [[ -f /etc/synoinfo.conf ]]
 }
