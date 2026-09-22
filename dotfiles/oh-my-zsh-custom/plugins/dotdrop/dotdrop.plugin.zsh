@@ -3,3 +3,4 @@
 # Include dotdrop zsh completion configuration
 fpath+=$(pwd)
 export DOTDROP_CONFIG="{{@@ _dotdrop_dotpath @@}}/../config.yaml"
+export DOTDROP_MIME_TEXT=text/plain,application/x-wine-extension-ini

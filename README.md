@@ -46,7 +46,7 @@ cd .dotfiles
 # enable SSH agent in 1Password
 # enable cli integration in 1Password
 
-./script/bootstrap # optional dotdrop profiles to add for machine, like "personal"
+./script/bootstrap # optional dotdrop profiles to add for machine, like "personal_mac"
 ```
 
 ### Windows
@@ -80,7 +80,7 @@ Items in *italics* require manual intervention currently.
 
 ### [`script/bootstrap`](script/bootstrap)
 
-Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `personal`).
+Optionally takes any additional dotdrop profiles to add to the newly created machine profile (eg: `personal_mac`).
 
 1. install homebrew/linuxbrew
 1. add profile & included profiles to dotdrop config

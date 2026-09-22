@@ -1,0 +1,7 @@
+{
+  "finding_homes_for_formats": "Ask",
+  "kobo_directory": "",
+  "kobo_serials": [
+    "{{@@ kobo_colour_libra_serial @@}}"
+  ]
+}

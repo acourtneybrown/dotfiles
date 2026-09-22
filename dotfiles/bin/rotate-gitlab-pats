@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+function rotate() {
+	declare -A pats=( \
+		["glab cli token"]="op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/token" \
+		["Gitea token"]="op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/Gitea token" \
+		["Alfred Workflow token"]="op://Alfred Workflows/gitlab.com/credential" \
+	)
+	for name in ${(k)pats}; do
+		local op_ref=${pats[$name]}
+		local parts=(${(@s:/:)op_ref})
+		local vault=${parts[2]}
+		local item=${parts[3]}
+		local field=${(@j:.:)parts[4,5]}
+		local new_token
+
+		# echo $name
+		# echo $op_ref
+		new_token="$(op plugin run -- glab token rotate --user @me "$name" --duration 365d)"
+
+		# echo ${#parts[@]} $parts
+		# echo $vault $item \"$field\"
+		op item edit --vault "$vault" "$item" "$field=$new_token"
+	done
+}
+
+rotate

@@ -87,6 +87,7 @@ export default {
           "i.cvs.com",
           "l.klara.com",
           "login.docker.com",
+          "login.nvidia.com",
           "meet.google.com",
           "myactivity.google.com",
           "notcharlie.slack.com",
@@ -95,22 +96,26 @@ export default {
           "{{@@ personal_gitea_hostname @@}}",
         ]),
 
+        /^https:\/\/[^/]*nvidia.com\/.*nvidia_account_management.*/,
+        /^https:\/\/[^/]*zoom\.us\/.*[?&]page_from=client(&|$)/,
         /^https:\/\/calendly\.com\/omaras\//,
         /^https:\/\/gitea\.com\/{{@@ public_gitea_username @@}}(\/|$)/,
-        /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/github\.com\/NotCharlie(\/|$)/,
+        /^https:\/\/github\.com\/{{@@ github_account @@}}(\/|$)/,
         /^https:\/\/gitlab\.com\/{{@@ gitlab_account @@}}(\/|$)/,
-        /^https:\/\/[^/]*zoom\.us\/.*[?&]page_from=client(&|$)/,
+        /^https:\/\/musicbrainz\.org\/recording\/.*?tport=8000/,
+        /^https:\/\/musicbrainz\.org\/taglookup.*[?&]tport=8000/,
 
         "https://www.amazon.com/alexa-privacy/apd/rvh",
 
         (url, { opener }) => {
-          // console.log(opener.bundleId)
+          // console.log("opener: " + JSON.stringify(opener))
           return bundleIdsForHarmony.has(opener.bundleId)
         },
 
         (url) => containsQueryParam(url.search, "op_vault=Adam"),
         (url) => containsQueryParam(url.search, "op_vault=Adam%20@%20Work"),
+        (url) => containsQueryParam(url.search, "op_vault=Home%20network"),
         (url) => containsQueryParam(url.search, "op_vault=Private"),
       ],
       url: (url) => openInFirefoxContainer("Adam", url),

@@ -19,6 +19,10 @@ function op-ssh-add() {
 }
 {%@@ endif @@%}
 
+if [[ $(op accounts list --format=json | jq 'length') -gt 1 ]]; then
+  export OP_ACCOUNT=my.1password.com
+fi
+
 # op-check-vault looks for any logins which match a given username in the
 # specified vault, while ignoring any with the 'WrongVaultOk' tag
 function op-check-vault() {
@@ -35,7 +39,7 @@ function op-check-vault() {
       jq "select(
              ((.fields.[] | select(.id == \"username\") | .value == null) or
               (.fields.[] | select(.id == \"username\") | .value | contains(\"$username\"))) and
-             (.tags | contains([\"WrongVaultOk\"]) | not)) | .id"
+             (.tags // [] | contains([\"WrongVaultOk\"]) | not)) | .id"
 }
 
 # op-ssh-keygen-sign signs the specified string, using an SSH key obtained from

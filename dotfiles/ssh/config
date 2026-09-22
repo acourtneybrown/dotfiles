@@ -19,14 +19,18 @@ Host picluster-* picluster-*.notcharlie.com
 Host synology synology.notcharlie.com
   Hostname synology.notcharlie.com
   Port 2222
-Host synology-root
-  Hostname synology.notcharlie.com
-  Port 2222
-  User root
-Host gitea gitea.notcharlie.com
-  Hostname synology.notcharlie.com
+Host gitea.notcharlie.com
   Port 2234
   User git
+Host homeassistant homeassistant.notcharlie.com
+  Hostname homeassistant.notcharlie.com
+  User root
+Host pve-fe pve-fe.notcharlie.com
+  Hostname pve-fe.notcharlie.com
+  User root
+Host pve-nginx-proxy-manager pve-nginx-proxy-manager.notcharlie.com
+  Hostname pve-nginx-proxy-manager.notcharlie.com
+  User root
 Host unifi-* unifi-*.notcharlie.com
   User unifi-admin
 Host *.notcharlie.com

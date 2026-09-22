@@ -14,13 +14,12 @@ function profile::run_dotdrop_action() {
 function profile::default() {
   local tmpscript
   tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile"
 
   # Install oh-my-zsh
   if [[ ! -d ~/.oh-my-zsh ]]; then
     if [ "$(
       util::download_and_verify https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh \
-        fbfcd1c0bf99acfcf77f7f999d75bb8c833d3b58643b603b3971d8cd1991fc2e \
+        95118b50d062198597e2b73d3a57b609fd95ca68cdc86faf4460d955f0172b61 \
         "$tmpscript"
     )" != "ok" ]; then
       util::abort "oh-my-zsh install script changed"
@@ -39,18 +38,15 @@ function profile::default_after() {
   goenv global "$(profile::ensure_goenv_version 1.25)"
 }
 
-function profile::personal() {
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.personal"
+function profile::personal_mac_after() {
+  profile::configure_calibre
 
-  profile::enable_pyenv
-  profile::enable_goenv
-
-  profile::pipx_install 3.13 python-kasa python-vipaccess
+  profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
+  profile::pipx_install 3.13 git+https://github.com/acourtneybrown/songchro@main
+  profile::pipx_install 3.13 python-kasa tox twine pytest build poetry
 }
 
 function profile::linux() {
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.linux"
-
   if [[ -z "$(apt -qq list 1password-cli)" ]]; then
     # Install 1Password CLI (https://developer.1password.com/docs/cli/get-started#install)
     curl -sS https://downloads.1password.com/linux/keys/1password.asc |
@@ -66,14 +62,46 @@ function profile::linux() {
     curl -sS https://downloads.1password.com/linux/keys/1password.asc |
       sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 
-    sudo apt update && sudo apt install -qy 1password-cli
+    sudo apt update && sudo apt install -qy 1password-cli zlib1g-dev
   fi
   sudo apt install -qy zsh
+}
 
+function profile::linux_after() {
+  chsh -s /usr/bin/zsh
+}
+
+function profile::linux_dev() {
   # Install recommended dependencies for Python builds - https://github.com/pyenv/pyenv/wiki#troubleshooting--faq
-  sudo apt install -qy make build-essential libssl-dev zlib1g-dev \
+  sudo apt install -qy make build-essential libssl-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+  command -v docker >/dev/null || profile::install_docker_ce
+  sudo adduser "$(whoami)" docker
+}
+
+# from https://docs.docker.com/engine/install/ubuntu/
+function profile::install_docker_ce() {
+  # Add Docker's official GPG key:
+  sudo apt update
+  sudo apt install ca-certificates curl
+  sudo install -m 0755 -d /etc/apt/keyrings
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+  # Add the repository to Apt sources:
+  sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+  sudo apt update
+  sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 }
 
 function profile::synology_dsm() {
@@ -81,7 +109,6 @@ function profile::synology_dsm() {
   export TMPDIR="${HOME}/tmp"
   export HOMEBREW_TEMP="${HOME}/tmp"
 
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.synology"
   if [[ ! -e $(brew --prefix)/bin/gcc ]]; then
     ln -s "$(basename "$(find "$(brew --prefix)/bin" -iregex ".*/gcc-[0-9]*" | tail)")" "$(brew --prefix)/bin/gcc"
   fi
@@ -90,6 +117,8 @@ function profile::synology_dsm() {
 }
 
 function profile::synology_dsm_after() {
+  profile::pipx_install 3.11 git+https://gitea.notcharlie.com/NotCharlie/update-default-cert@main
+
   _finalizers+=("profile::clean_tmpdir")
 }
 
@@ -97,12 +126,12 @@ function profile::synology_dsm_after() {
 function profile::install_op_cli_manual() {
   # install 1Password CLI tool
   local ARCH="amd64"
-  local OP_VERSION="2.30.3"
+  local OP_VERSION="2.35.0"
   local tmpdir
 
   tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/op-cli.XXXXXXXXXX)" || return
   if [ "$(util::download_and_verify "https://cache.agilebits.com/dist/1P/op2/pkg/v${OP_VERSION}/op_linux_${ARCH}_v${OP_VERSION}.zip" \
-    a16307ebcecb40fd091d7a6ff4f0c380c3c0897c4f4616de2c5d285e57d5ee28 \
+    4457ade59850b852c64c77164235b34dd0b984ef7826eb0ccd32f1fd78a2ceb7 \
     "${tmpdir}/op.zip")" != "ok" ]; then
     util::abort "1password-cli zipfile changed"
   fi
@@ -118,10 +147,6 @@ function profile::install_op_cli_manual() {
   sudo chmod g+s /usr/local/bin/op
 }
 
-function profile::linux_after() {
-  chsh -s /usr/bin/zsh
-}
-
 function profile::linux_desktop() {
   if [[ -z "$(apt -qq list sublime-text)" ]]; then
     # Install Sublime Text (https://www.sublimetext.com/docs/linux_repositories.html#apt)
@@ -132,7 +157,12 @@ function profile::linux_desktop() {
 
     sudo apt-get update && sudo apt-get install sublime-text
   fi
-  sudo apt install -qy 1password
+
+  if util::is_arm; then
+    echo "View installation instructions at https://support.1password.com/install-linux/#arm-or-other-distributions-targz"
+  else
+    sudo apt install -qy 1password
+  fi
 }
 
 function profile::linux_desktop_after() {
@@ -141,10 +171,6 @@ function profile::linux_desktop_after() {
 
 function profile::mac() {
   brew tap --force homebrew/cask
-  profile::ensure_brewfile_installed "${PROFILE_SH_DIR}/resources/Brewfile.mac"
-
-  profile::pipx_install 3.11 git+https://github.com/acourtneybrown/pyfred-cli@main
-  profile::pipx_install 3.13 git+https://github.com/acourtneybrown/songchro@main
 }
 
 function profile::mac_after() {
@@ -153,7 +179,6 @@ function profile::mac_after() {
     # Avoid issues with exhausting device licenses during testing
     profile::handle_betterdisplay_license
   fi
-  profile::configure_calibre
 
   _finalizers+=("profile::op_forget_cli_login")
 }
@@ -200,14 +225,18 @@ function profile::configure_calibre() {
   local dedrm_version
   tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/calibre-dedrm.XXXXXXXXXX)" || return
   dedrm_version="10.0.9"
+  if [ "$(util::download_and_verify "https://github.com/noDRM/DeDRM_tools/releases/download/v${dedrm_version}/DeDRM_tools_${dedrm_version}.zip" \
+    d46e7ff94a46dc871eb9b7e639e6da1883823cd5a9d705d53f51bd9c251aabda \
+    "${tmpdir}/DeDRM_tools_${dedrm_version}.zip")" != "ok" ]; then
+    util::abort "DeDRM tools file changed"
+  fi
 
-  op plugin run -- gh release -R noDRM/DeDRM_tools download --dir "$tmpdir" "v${dedrm_version}"
   unzip -x "$tmpdir/DeDRM_tools_${dedrm_version}.zip" -d "${tmpdir}/DeDRM_tools_${dedrm_version}"
   calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/DeDRM_Plugin.zip"
   calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
 
   if [ "$(util::download_and_verify https://plugins.calibre-ebook.com/291290.zip \
-    356a8bd5a04d8a7dd17957d60290f227c4675e3357cc94892cd4565c7f5e5bcf \
+    6919e8cec65a92f922a14f616eedcb1b9dbb2a79dd4a261f9548e17ca208072f \
     "${tmpdir}/KFX Input.zip")" != "ok" ]; then
     util::abort "KFX Input.zip file changed"
   fi
@@ -366,8 +395,8 @@ function profile::clean_tmpdir() {
 
 function profile::install_homebrew() {
   if util::is_linux; then
-    case $(lsb_release --id --short) in
-    Raspbian | Debian | Ubuntu)
+    case $(util::linux_id) in
+    Raspbian | Debian | Ubuntu | raspbian | debian | ubuntu)
       sudo apt install -qy build-essential procps curl file git
       ;;
     *)
@@ -378,7 +407,7 @@ function profile::install_homebrew() {
 
   tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    24a5e8ba70e6010c911bc92b960fb7eff27590d1afb460926e3c05d20d47c69f \
+    12479a24be3f5307eecac7cde670fad7118640f031229e964f544b1367b52a41 \
     "$tmpscript")" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi

@@ -14,11 +14,23 @@ function util::is_mac() {
 }
 
 function util::is_arm() {
-  [[ "$(uname -m)" = "arm64" ]]
+    local arch
+    arch=$(uname -m)
+    [[ "$arch" == "arm64" || "$arch" == "aarch64" ]]
 }
 
 function util::is_linux() {
   [[ "$(uname -s)" = "Linux" ]] && ! util::is_synology_dsm
+}
+
+function util::linux_id() {
+  if command -v lsb_release >/dev/null; then
+    lsb_release --id --short
+  elif [[ -f /etc/os-release ]]; then
+    grep ^ID= /etc/os-release | cut -d= -f2
+  else
+    echo "Unknown"
+  fi
 }
 
 function util::is_synology_dsm() {

@@ -1,4 +1,0 @@
-brew "bazelisk"
-brew "buildifier"
-brew "buildozer"
-brew "docker"

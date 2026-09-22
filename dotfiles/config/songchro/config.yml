@@ -1,15 +1,20 @@
 logging: INFO
 
 file:
-  music_root: /music
-  root: ~/gitea.notcharlie.com/acourtneybrown/music-playlists/playlists
+  music_root: {{@@ songchro_file_music_root @@}}
+  tracks: ~/{{@@ personal_gitea_hostname @@}}/{{@@ personal_gitea_username @@}}/music-playlists/tracks.json
+  root: ~/{{@@ personal_gitea_hostname @@}}/{{@@ personal_gitea_username @@}}/music-playlists/playlists
 
 itunes:
-  xml: ~/gitea.notcharlie.com/acourtneybrown/music-playlists/iTunes/Library.xml
   music_root: /Volumes/music
+  xml: ~/{{@@ personal_gitea_hostname @@}}/{{@@ personal_gitea_username @@}}/music-playlists/iTunes/Library.xml
+
+apple_music:
+  music_root: /Volumes/music
+  music_mount: "smb://synology.notcharlie.com/music"
 
 plex:
+  music_root: /music
   baseurl: {{@@ plex_baseurl @@}}
   token: {{@@ plex_token @@}}
   section: Music
-  music_root: /music
