@@ -171,6 +171,9 @@ dotfiles:
   f_gitignore:
     src: gitignore
     dst: ~/.gitignore
+  f_goenvrc:
+    src: goenvrc
+    dst: ~/.goenvrc
   f_gradle_properties:
     src: gradle/gradle.properties
     dst: ~/.gradle/gradle.properties
@@ -383,6 +386,7 @@ profiles:
       - f_gitconfig
       - f_gitconfig-shorteners
       - f_gitignore
+      - f_goenvrc
       - f_gradle_properties
       - f_hgrc
       - f_m2_settings_home
