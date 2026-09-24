@@ -183,6 +183,12 @@ function profile::mac_after() {
   _finalizers+=("profile::op_forget_cli_login")
 }
 
+function profile::dev_mac_after() {
+  brew services start container
+  sudo container system dns create dev.internal
+  container system kernel set --recommended
+}
+
 # install LaunchDaemon to ensure mosh is added to fw allow list
 function profile::install_fix_mosh() {
   local RESOURCES
