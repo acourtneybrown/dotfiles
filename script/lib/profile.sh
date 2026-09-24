@@ -236,7 +236,7 @@ function profile::configure_calibre() {
   calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
 
   if [ "$(util::download_and_verify https://plugins.calibre-ebook.com/291290.zip \
-    6919e8cec65a92f922a14f616eedcb1b9dbb2a79dd4a261f9548e17ca208072f \
+    338809c18e5f9bb721dc3570a64cf6f7add4a1711c8183e6179e90fcbadf3c1d \
     "${tmpdir}/KFX Input.zip")" != "ok" ]; then
     util::abort "KFX Input.zip file changed"
   fi
