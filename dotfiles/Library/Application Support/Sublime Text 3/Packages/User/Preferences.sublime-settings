@@ -9,6 +9,6 @@
 	"show_full_path": true,
 	"trim_trailing_white_space_on_save": true,
 	"color_scheme": "Breakers.sublime-color-scheme",
-	"update_check": false,
+	"update_check": true,
 	"index_files": false,
 }
