@@ -184,8 +184,8 @@ function profile::mac_after() {
 }
 
 function profile::dev_mac_after() {
-  brew services start container
   sudo container system dns create dev.internal
+  brew services start container
   container system kernel set --recommended
 }
 
