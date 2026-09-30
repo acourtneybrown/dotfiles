@@ -126,6 +126,7 @@ plugins=(
   homebrew
   iterm2
   iterm2-custom
+  opencode
   {%@@ endif @@%}
 
   {%@@ if linux or synology_dsm @@%}

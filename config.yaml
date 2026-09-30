@@ -44,6 +44,11 @@ dotfiles:
     dst: ~/.config/1Password
     chmod: 700
     link: link_children
+  d_config_container:
+    src: config/container
+    dst: ~/.config/container
+    chmod: 700
+    link: link_children
   d_config_gh:
     src: config/gh
     dst: ~/.config/gh
@@ -56,6 +61,10 @@ dotfiles:
     actions:
       - chmod_files 600
       - chmod_dirs 700
+  d_config_opencode:
+    src: config/opencode
+    dst: ~/.config/opencode
+    chmod: 700
   d_config_op_plugins:
     src: config/op/plugins
     dst: ~/.config/op/plugins
@@ -376,6 +385,9 @@ profiles:
     include:
       - dev
       - mac
+    dotfiles:
+      - d_config_container
+      - d_config_opencode
   dev:
     dotfiles:
       - d_config_gh

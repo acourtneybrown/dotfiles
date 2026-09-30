@@ -1,3 +1,5 @@
+brew "container"
+
 cask "datagrip"
 cask "docker-desktop"
 cask "goland"
