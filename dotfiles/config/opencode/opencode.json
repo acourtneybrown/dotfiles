@@ -13,9 +13,9 @@
         "qwen/qwen3.6-27b": {
           "name": "Qwen3.6 27B"
         },
-        "qwen/qwen3.8-27b": {
-          "name": "Qwen3.8 27B"
-        },
+        // "qwen/qwen3.8-27b": {
+        //   "name": "Qwen3.8 27B"
+        // },
         "openai/gpt-oss-20b": {
           "name": "GPT-OSS 20B"
         },
