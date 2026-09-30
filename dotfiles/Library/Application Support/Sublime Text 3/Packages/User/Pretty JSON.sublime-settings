@@ -1,4 +1,5 @@
 {
 	"indent": 2,
 	"bracket_newline": false,
+	"brace_newline": false,
 }
