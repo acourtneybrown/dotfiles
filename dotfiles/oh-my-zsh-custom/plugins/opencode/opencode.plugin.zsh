@@ -1,11 +1,8 @@
 # shellcheck disable=SC2148
 
-function git_slug() {
-	local DIR
+export LMSTUDIO_API_KEY=$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/rbbgcx424dsim3tblf2s3kca34/credential")
 
-	DIR=${1:-.}
-	git -C "$DIR" remote get-url origin 2>/dev/null | sed -E 's#.*[:/]([^/]+/[^/]+)(\.git)?#\1#; s#\.git$##'
-}
+# requires `git-custom` plugin has also been loaded for `git_slug` function
 
 function opencode() {
 	local IMAGE
@@ -20,7 +17,7 @@ function opencode() {
 	fi
 
 	container run -it --rm \
-	    -e "LMSTUDIO_API_KEY=$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/rbbgcx424dsim3tblf2s3kca34/credential")" \
+	    -e "LMSTUDIO_API_KEY=${LMSTUDIO_API_KEY}" \
 	    -v .:/workspace \
 	    -v ${HOME}/.config/opencode/opencode.json:/root/.config/opencode/opencode.json:ro \
 	    -v ${HOME}/.config/opencode/tui.json:/root/.config/opencode/tui.json:ro \
