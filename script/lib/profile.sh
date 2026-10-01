@@ -192,6 +192,19 @@ function profile::dev_mac_after() {
       container registry login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login")" --password-stdin ghcr.io
   op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/Personal Access Tokens/Apple container" | \
       container registry login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username")" --password-stdin docker.io
+
+  # configure Docker `sbx`
+  op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/Personal Access Tokens/SBX token" | \
+      sbx login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username")" --password-stdin
+  sbx policy init balanced
+  sbx policy allow network localhost:1234
+  sbx settings set platform.allowExperimentalFeatures true
+  sbx settings set feature.model true
+  sbx settings set model.providers \
+      '{
+        "lms-openai":{"url":"http://localhost:1234/v1","wire":"openai","apiKeyEnv":"LMSTUDIO_API_KEY"},
+        "lms-anthropic":{"url":"http://localhost:1234/v1","wire":"anthropic","apiKeyEnv":"LMSTUDIO_API_KEY"}
+      }'
 }
 
 # install LaunchDaemon to ensure mosh is added to fw allow list
