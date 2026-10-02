@@ -184,9 +184,10 @@ function profile::mac_after() {
 }
 
 function profile::dev_mac_after() {
-  sudo container system dns create dev.internal
-  brew services start container
-  container system kernel set --recommended
+  # Configure Apple `container``
+  container system dns list | grep -q dev.internal 2>/dev/null || sudo container system dns create dev.internal
+  brew services restart container
+  container system kernel set --recommended --force
   op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/Apple container" | \
       container registry login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login")" --password-stdin ghcr.io
   op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/Personal Access Tokens/Apple container" | \

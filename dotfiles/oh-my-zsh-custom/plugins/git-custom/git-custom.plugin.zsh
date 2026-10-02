@@ -239,3 +239,11 @@ function ggpush() {
 
   git push "${remote}" "$(git_current_branch)"
 }
+
+# git_slug outputs the "nameWithOwner" for a git repo from GitHub, GitLab, Gitea, etc
+function git_slug() {
+  local DIR
+
+  DIR=${1:-.}
+  git -C "$DIR" remote get-url origin 2>/dev/null | sed -E 's#.*[:/]([^/]+/[^/]+)(\.git)?#\1#; s#\.git$##'
+}
