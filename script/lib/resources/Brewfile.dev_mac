@@ -1,7 +1,10 @@
+tap "docker/tap", trusted: true
+
 brew "container"
 
 cask "datagrip"
 cask "docker-desktop"
+cask "docker/tap/sbx"
 cask "goland"
 cask "intellij-idea"
 cask "lm-studio"
