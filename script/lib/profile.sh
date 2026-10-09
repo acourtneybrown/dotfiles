@@ -91,6 +91,7 @@ function profile::install_docker_ce() {
   sudo chmod a+r /etc/apt/keyrings/docker.asc
 
   # Add the repository to Apt sources:
+  # shellcheck disable=SC1091
   sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
 Types: deb
 URIs: https://download.docker.com/linux/ubuntu

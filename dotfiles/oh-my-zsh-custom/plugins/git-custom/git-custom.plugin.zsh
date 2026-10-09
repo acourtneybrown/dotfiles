@@ -173,8 +173,10 @@ function gall() {
         # turn off direnv in this subshell
         typeset -ag precmd_functions
         typeset -ag chpwd_functions
-        precmd_functions=(${precmd_functions#_direnv_hook})
-        chpwd_functions=(${chpwd_functions#_direnv_hook})
+        # shellcheck disable=SC2030,SC2206
+        precmd_functions=(${precmd_functions[@]#_direnv_hook})
+        # shellcheck disable=SC2030,SC2206
+        chpwd_functions=(${chpwd_functions[@]#_direnv_hook})
 
         cd "${DIR}" || exit
 
@@ -215,8 +217,10 @@ function gall_find() {
       # turn off direnv in this subshell
       typeset -ag precmd_functions
       typeset -ag chpwd_functions
-      precmd_functions=(${precmd_functions#_direnv_hook})
-      chpwd_functions=(${chpwd_functions#_direnv_hook})
+      # shellcheck disable=SC2031,SC2206
+      precmd_functions=(${precmd_functions[@]#_direnv_hook})
+      # shellcheck disable=SC2031,SC2206
+      chpwd_functions=(${chpwd_functions[@]#_direnv_hook})
 
       cd "${DIR}" || exit
 

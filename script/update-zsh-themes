@@ -4,3 +4,5 @@ set -e
 cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/..
 
 git subtree pull --prefix dotfiles/oh-my-zsh-custom/themes/powerlevel10k https://github.com/romkatv/powerlevel10k.git master --squash
+
+# NOTE: Any additions or removals of git subtree prefixes require updating .pre-commit-config.yaml & shellcheck.yaml

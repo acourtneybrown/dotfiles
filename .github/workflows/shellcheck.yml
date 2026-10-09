@@ -1,7 +1,9 @@
 on:
-  pull_request
+  pull_request:
+    branches:
+      - main
 
-name: 'Trigger: Push action'
+name: 'Shellcheck'
 
 jobs:
   shellcheck:
@@ -9,91 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Display shellcheck version
-      shell: bash
-      run: |
-        shellcheck --version
-    - name: Gather excluded paths
-      shell: bash
-      id: exclude
-      run: |
-        declare -a excludes
-        excludes+=("! -path \"*./.git/*\"")
-        excludes+=("! -path \"*.go\"")
-        excludes+=("! -path \"*/mvnw\"")
-        for dir in 1password dotdrop vault dotfiles/git-template; do
-          echo "::debug:: Adding directory '${dir}' to excludes"
-          excludes+=("! -path \"*./${dir}/*\"")
-          excludes+=("! -path \"*/${dir}/*\"")
-        done
-        for file in zshrc; do
-          echo "::debug:: Adding file '${file}' to excludes"
-          excludes+=("! -name \"${file}\"")
-        done
-        echo "echo name=excludes::${excludes[@]}" >> $GITHUB_OUTPUT
-    - name: Find files
-      shell: bash
-      id: filepaths
-      run: |
-        declare -a filepaths
-        shebangregex="^#! */[^ ]*/(env *)?[abkz]*sh"
-
-        for path in $(find "${GITHUB_WORKSPACE}" \
-            -type f ${{ steps.exclude.outputs.excludes }} \
-            '(' \
-            -name '*.bash' \
-            -o -name '.bashrc' \
-            -o -name 'bashrc' \
-            -o -name '.bash_aliases' \
-            -o -name '.bash_completion' \
-            -o -name '.bash_login' \
-            -o -name '.bash_logout' \
-            -o -name '.bash_profile' \
-            -o -name 'bash_profile' \
-            -o -name '*.ksh' \
-            -o -name 'suid_profile' \
-            -o -name '*.zsh' \
-            -o -name '.zlogin' \
-            -o -name 'zlogin' \
-            -o -name '.zlogout' \
-            -o -name 'zlogout' \
-            -o -name '.zprofile' \
-            -o -name 'zprofile' \
-            -o -name '.zsenv' \
-            -o -name 'zsenv' \
-            -o -name '.zshrc' \
-            -o -name 'zshrc' \
-            -o -name '*.sh' \
-            -o -path '*/.profile' \
-            -o -path '*/profile' \
-            -o -name '*.shlib' \
-              ')'\
-            -print); do
-          filepaths+=("$path");
-        done
-        for file in $(find "${GITHUB_WORKSPACE}" ${{ steps.exclude.outputs.excludes }} -type f ! -name '*.*' -perm /111  -print); do
-          head -n1 "$file" | grep -Eqs "$shebangregex" || continue
-          filepaths+=("$file");
-        done
-        echo "echo name=filepaths::${filepaths[@]}" >> $GITHUB_OUTPUT
     - name: Run ShellCheck
-      id: check
-      shell: bash
-      run: |
-        statuscode=0
-
-        for file in ${{ steps.filepaths.outputs.filepaths }}; do
-          echo "::debug::Checking ${file}"
-          shellcheck --exclude=SC2148 "${file}" || statuscode=$?;
-        done
-
-        echo "echo name=statuscode::$statuscode" >> $GITHUB_OUTPUT
-
-    - name: Print information
-      shell: bash
-      run: |
-        echo "Files: ${{steps.filepaths.outputs.filepaths}}"
-        echo "Excluded: ${{ steps.exclude.outputs.excludes }}"
-        echo "Status code: ${{steps.check.outputs.statuscode}}"
-
-        exit ${{steps.check.outputs.statuscode}}
+      uses: ludeeus/action-shellcheck@2.0.0
+      env:
+        SHELLCHECK_OPTS: --exclude=SC2128,SC2148
+      with:
+        ignore_paths: |
+          ./dotfiles/git-template/hooks/pre-commit
+          ./dotfiles/oh-my-zsh-custom/plugins/1password-custom/**
+          ./dotfiles/oh-my-zsh-custom/plugins/evalcache/**
+          ./dotfiles/oh-my-zsh-custom/plugins/jenv-custom/**
+          ./dotfiles/oh-my-zsh-custom/plugins/mariadb-dev/**
+          ./dotfiles/oh-my-zsh-custom/plugins/path/**
+          ./dotfiles/oh-my-zsh-custom/plugins/zsh-completions/**
+          ./dotfiles/oh-my-zsh-custom/themes/powerlevel10k/**
+          ./dotfiles/p10k.zsh
+          ./dotfiles/scripts/docker-credential-1password/**
+          ./dotfiles/zshrc

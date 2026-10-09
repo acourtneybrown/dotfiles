@@ -73,10 +73,12 @@ function main() {
 
   declare -A seen=()
   declare -a uniq_profiles=()
+  # shellcheck disable=SC2207
   profile_includes=($(list_includes "${PROFILE}"))
   while (( ${#profile_includes[@]} )); do
     current="${profile_includes[0]}"
     profile_includes=( "${profile_includes[@]:1}" )
+    # shellcheck disable=SC2206
     declare -a work_queue=($current)
     declare -a item_stack=()
     while (( ${#work_queue[@]} )); do
@@ -85,6 +87,7 @@ function main() {
       if [[ -z ${seen[$item]+x} ]]; then   # key not yet seen
         item_stack=( "$item" "${item_stack[@]}" )
         seen[$item]=1
+        # shellcheck disable=SC2207
         item_includes=($(list_includes "${item}"))
         if (( ${#item_includes[@]} )); then
           work_queue=( "${item_includes[@]}" "${work_queue[@]}")
@@ -94,7 +97,7 @@ function main() {
 
     uniq_profiles+=("${item_stack[@]}")
   done
-  echo "profiles to apply ( ${uniq_profiles[@]} )"
+  echo "profiles to apply: ${uniq_profiles[*]}"
 
   for named in "${uniq_profiles[@]}"; do
     echo "start of profile <$named>"
