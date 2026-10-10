@@ -19,7 +19,6 @@ function profile::default() {
   if [[ ! -d ~/.oh-my-zsh ]]; then
     if [ "$(
       util::download_and_verify https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh \
-        95118b50d062198597e2b73d3a57b609fd95ca68cdc86faf4460d955f0172b61 \
         "$tmpscript"
     )" != "ok" ]; then
       util::abort "oh-my-zsh install script changed"
@@ -132,7 +131,6 @@ function profile::install_op_cli_manual() {
 
   tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/op-cli.XXXXXXXXXX)" || return
   if [ "$(util::download_and_verify "https://cache.agilebits.com/dist/1P/op2/pkg/v${OP_VERSION}/op_linux_${ARCH}_v${OP_VERSION}.zip" \
-    4457ade59850b852c64c77164235b34dd0b984ef7826eb0ccd32f1fd78a2ceb7 \
     "${tmpdir}/op.zip")" != "ok" ]; then
     util::abort "1password-cli zipfile changed"
   fi
@@ -195,17 +193,19 @@ function profile::dev_mac_after() {
       container registry login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username")" --password-stdin docker.io
 
   # configure Docker `sbx`
-  op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/Personal Access Tokens/SBX token" | \
-      sbx login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username")" --password-stdin
-  sbx policy init balanced
-  sbx policy allow network localhost:1234
-  sbx settings set platform.allowExperimentalFeatures true
-  sbx settings set feature.model true
-  sbx settings set model.providers \
-      '{
-        "lms-openai":{"url":"http://localhost:1234/v1","wire":"openai","apiKeyEnv":"LMSTUDIO_API_KEY"},
-        "lms-anthropic":{"url":"http://localhost:1234/v1","wire":"anthropic","apiKeyEnv":"LMSTUDIO_API_KEY"}
-      }'
+  if ! sbx settings get model.providers 2>/dev/null | grep -q lms-openai; then
+    op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/Personal Access Tokens/SBX token" | \
+        sbx login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username")" --password-stdin
+    sbx policy init balanced
+    sbx policy allow network localhost:1234
+    sbx settings set platform.allowExperimentalFeatures true
+    sbx settings set feature.model true
+    sbx settings set model.providers \
+        '{
+          "lms-openai":{"url":"http://localhost:1234/v1","wire":"openai","apiKeyEnv":"LMSTUDIO_API_KEY"},
+          "lms-anthropic":{"url":"http://localhost:1234/v1","wire":"anthropic","apiKeyEnv":"LMSTUDIO_API_KEY"}
+        }'
+  fi
 }
 
 # install LaunchDaemon to ensure mosh is added to fw allow list
@@ -251,7 +251,6 @@ function profile::configure_calibre() {
   tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/calibre-dedrm.XXXXXXXXXX)" || return
   dedrm_version="10.0.9"
   if [ "$(util::download_and_verify "https://github.com/noDRM/DeDRM_tools/releases/download/v${dedrm_version}/DeDRM_tools_${dedrm_version}.zip" \
-    d46e7ff94a46dc871eb9b7e639e6da1883823cd5a9d705d53f51bd9c251aabda \
     "${tmpdir}/DeDRM_tools_${dedrm_version}.zip")" != "ok" ]; then
     util::abort "DeDRM tools file changed"
   fi
@@ -261,7 +260,6 @@ function profile::configure_calibre() {
   calibre-customize --add-plugin "${tmpdir}/DeDRM_tools_${dedrm_version}/Obok_Plugin.zip"
 
   if [ "$(util::download_and_verify https://plugins.calibre-ebook.com/291290.zip \
-    338809c18e5f9bb721dc3570a64cf6f7add4a1711c8183e6179e90fcbadf3c1d \
     "${tmpdir}/KFX Input.zip")" != "ok" ]; then
     util::abort "KFX Input.zip file changed"
   fi
@@ -432,7 +430,6 @@ function profile::install_homebrew() {
 
   tmpscript=$(mktemp "${TMPDIR:-/tmp}/install.sh.XXXXXX")
   if [ "$(util::download_and_verify https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
-    12479a24be3f5307eecac7cde670fad7118640f031229e964f544b1367b52a41 \
     "$tmpscript")" != "ok" ]; then
     util::abort "Homebrew install script changed"
   fi

@@ -1,0 +1,29 @@
+name: "Update SHA256 hashes for downloads"
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  update-sha256:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: builtin:checkout
+
+      - name: Update SHA256 hashes
+        run: |
+          mapfile="script/lib/resources/sha256.map"
+          while IFS=$'\t' read -r url _hash; do
+            ./script/update-sha256map "$url"
+          done < "$mapfile"
+
+      - name: Create pull request
+        uses: infinilabs/gitea-pr@v1
+        with:
+          token: ${{ secrets.GITEA_TOKEN }}
+          commit-message: "chore: update SHA256 hashes"
+          title: "chore: update SHA256 hashes"
+          body: "Automated daily update of SHA256 hashes for downloaded files."
+          files: script/lib/resources/sha256.map
+          branch: update-sha256

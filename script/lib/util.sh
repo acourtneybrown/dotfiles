@@ -1,5 +1,7 @@
 # shellcheck shell=bash
 
+UTIL_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
 function util::escape() {
   printf '%s' "${1//\'/\'}"
 }
@@ -72,8 +74,14 @@ function util::download_and_verify() {
   local tempfile
 
   url="${1}"
-  sha256="${2}"
-  output="${3}"
+  output="${2}"
+
+  sha256=$(grep -F "${url}" "${UTIL_SH_DIR}/resources/sha256.map" | cut -f2)
+  if [[ -z "${sha256}" ]]; then
+    echo "No SHA256 found for ${url}"
+    return
+  fi
+
   tempfile=$(mktemp "${TMPDIR:-/tmp}/sha256.XXXXXX")
   echo "${sha256}  $(basename "${output}")" >"${tempfile}"
 
