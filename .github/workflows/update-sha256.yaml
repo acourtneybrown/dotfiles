@@ -11,20 +11,61 @@ jobs:
     steps:
       - name: Checkout repository
         uses: builtin:checkout
+        with:
+            ref: ${{ gitea.ref_name }}
 
       - name: Update SHA256 hashes
+        run: ./script/update-sha256map
+
+      - name: Commit and push changes
+        id: push
+        env:
+          GITEA_TOKEN: ${{ secrets.CREATE_PR_TOKEN }}
         run: |
           mapfile="script/lib/resources/sha256.map"
-          while IFS=$'\t' read -r url _hash; do
-            ./script/update-sha256map "$url"
-          done < "$mapfile"
+          if ! git diff --quiet "$mapfile"; then
+            # Embed token in remote URL so git push authenticates without prompting
+            server_host=$(echo "${{ gitea.server_url }}" | sed 's|https://||')
+            remote_url="https://workflow-updates:${GITEA_TOKEN}@${server_host}/${{ gitea.repository }}"
+            git remote set-url origin "$remote_url"
+
+            git checkout -B update-sha256
+            git config user.name "workflow-updates[bot]"
+            git config user.email "acourtneybrown+workflow@gmail.com"
+            git add "$mapfile"
+            git commit -m "chore: update SHA256 hashes"
+            git push origin update-sha256 --force
+            git checkout ${GITHUB_REF_NAME}
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install tea CLI
+        if: steps.push.outputs.has_changes == 'true'
+        uses: LiquidLogicLabs/git-action-install-gitea-tea@v2.0.6
+        with:
+          repo: ${{ gitea.server_url }}
+          token: ${{ secrets.CREATE_PR_TOKEN }}
+          username: workflow-updates
 
       - name: Create pull request
-        uses: infinilabs/gitea-pr@v1
-        with:
-          token: ${{ secrets.GITEA_TOKEN }}
-          commit-message: "chore: update SHA256 hashes"
-          title: "chore: update SHA256 hashes"
-          body: "Automated daily update of SHA256 hashes for downloaded files."
-          files: script/lib/resources/sha256.map
-          branch: update-sha256
+        if: steps.push.outputs.has_changes == 'true'
+        env:
+          GITEA_TOKEN: ${{ secrets.CREATE_PR_TOKEN }}
+        run: |
+          base_branch=$(git symbolic-ref HEAD | sed 's/refs\/heads\///')
+          existing=$(tea pr list --fields base,head --output json 2>/dev/null || echo "[]")
+          pr_count=$(echo "$existing" | jq "[.[] | select(.head == \"update-sha256\" and .base == \"$base_branch\")] | length // 0")
+          if [ "$pr_count" -gt 0 ]; then
+            pr_id=$(echo "$existing" | jq -r '[.[] | select(.head == "update-sha256" and .base == "$base_branch")][0].index')
+            echo "Existing PR #${pr_id}"
+          else
+            tea pr create \
+              --repo $GITHUB_REPOSITORY\
+              --head update-sha256 \
+              --base "$base_branch" \
+              --title "chore: update SHA256 hashes" \
+              --description "Automated daily update of SHA256 hashes for downloaded files."
+            echo "Created new PR"
+          fi
