@@ -126,7 +126,7 @@ function profile::synology_dsm_after() {
 function profile::install_op_cli_manual() {
   # install 1Password CLI tool
   local ARCH="amd64"
-  local OP_VERSION="2.35.0"
+  local OP_VERSION="2.40.0"
   local tmpdir
 
   tmpdir="$(mktemp -d "${TMPDIR:-/tmp}"/op-cli.XXXXXXXXXX)" || return
