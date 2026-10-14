@@ -15,8 +15,8 @@ if [[ "$alfred_workflow_name" == "GitLabFred" ]]; then
 fi
 
 if [[ "$alfred_workflow_name" == "GiteaFred" ]]; then
-    # shellcheck disable=SC2154
-    GITEA_SERVER_TOKEN=$(op item get --vault "Alfred Workflows" "$gitea_host" --field credential --reveal)
+	# shellcheck disable=SC2154
+	GITEA_SERVER_TOKEN=$(op item get --vault "Alfred Workflows" "$gitea_host" --field credential --reveal)
 	export GITEA_SERVER_TOKEN
 fi
 {%@@ endif @@%}
