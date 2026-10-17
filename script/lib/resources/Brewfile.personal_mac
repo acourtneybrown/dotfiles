@@ -1,9 +1,11 @@
 tap "acourtneybrown/cask", trusted: true
 tap "acourtneybrown/fonts", trusted: true
+tap "omlahore/tap", trusted: true
 tap "twilio/brew", trusted: true
 
 brew "ffmpeg"
 brew "libdvdcss"
+brew "omlahore/tap/removemacai"
 brew "twilio/brew/twilio"
 brew "yt-dlp"
 

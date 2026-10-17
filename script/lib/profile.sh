@@ -38,6 +38,9 @@ function profile::default_after() {
 }
 
 function profile::personal_mac_after() {
+  removemacai off
+  removemacai clean
+
   profile::configure_calibre
 
   profile::pipx_install 3.11 git+https://gitea.notcharlie.com/acourtneybrown/pyfred-cli@main
