@@ -39,9 +39,15 @@ dotfiles:
   d_bin:
     src: bin
     dst: ~/bin
+    ignore_missing_in_dotdrop: true
   d_config_1Password:
     src: config/1Password
     dst: ~/.config/1Password
+    chmod: 700
+    link: link_children
+  d_config_container:
+    src: config/container
+    dst: ~/.config/container
     chmod: 700
     link: link_children
   d_config_gh:
@@ -56,6 +62,10 @@ dotfiles:
     actions:
       - chmod_files 600
       - chmod_dirs 700
+  d_config_opencode:
+    src: config/opencode
+    dst: ~/.config/opencode
+    chmod: 700
   d_config_op_plugins:
     src: config/op/plugins
     dst: ~/.config/op/plugins
@@ -143,6 +153,9 @@ dotfiles:
   f_com.googlecode.iterm2.plist:
     src: config/iterm2/com.googlecode.iterm2.plist
     dst: ~/.config/iterm2/com.googlecode.iterm2.plist
+  f_config_kanidm:
+    src: config/kanidm
+    dst: ~/.config/kanidm
   f_config_op_plugins.sh:
     src: config/op/plugins.sh
     dst: ~/.config/op/plugins.sh
@@ -168,6 +181,9 @@ dotfiles:
   f_gitignore:
     src: gitignore
     dst: ~/.gitignore
+  f_goenvrc:
+    src: goenvrc
+    dst: ~/.goenvrc
   f_gradle_properties:
     src: gradle/gradle.properties
     dst: ~/.gradle/gradle.properties
@@ -254,9 +270,9 @@ profiles:
       host_ssh_key_name: adams-mbp key
       alfred_preferences_localhash: "f10f132bffbde36d011dcf6644f262cf3d810ce7"
     include:
-      - default
-      - mac
-      - personal
+      - _mac
+      - _dev_mac
+      - _personal_mac
   adams-mbp.local:
     include:
       - adams-mbp
@@ -265,16 +281,16 @@ profiles:
       - adams-mbp
   beelink:
     include:
-      - default
-      - linux
+      - _linux
+      - _linux_dev
     variables:
-      host_password: op://jrew5nqtk5aqdgupcoxqjuevwu/beelink.notcharlie.com/password
+      host_password: op://Home network/beelink.notcharlie.com/password
       host_ssh_key_name: beelink key
       songchro_file_music_root: ~/synology/music
       ssh_agent_lifetime: 12h
     dynvariables:
-      synology_username: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/username"
-      synology_password: op read "op://Adam/m77teghqv2ec7xttb47j3qchsa/password"
+      synology_username: op read "op://Home network/4fwv2ypyyuqba2mzxbtizwm7s4/username"
+      synology_password: op read "op://Home network/4fwv2ypyyuqba2mzxbtizwm7s4/password"
     dotfiles:
       - d_smbcredentials
   beelink.local:
@@ -285,22 +301,43 @@ profiles:
       - beelink
   synology:
     include:
-      - default
-      - synology_dsm
+      - _synology_dsm
     variables:
-      host_password: op://Adam/m77teghqv2ec7xttb47j3qchsa/password
+      host_password: op://Home network/4fwv2ypyyuqba2mzxbtizwm7s4/password
       host_ssh_key_name: synology key
       songchro_file_music_root: /volume13/music
       ssh_agent_lifetime: 12h
-  mac:
+    dotfiles:
+      - f_goenvrc
+      - fake_goenv
+      - fake_pyenv
+  pve-docker:
+    include:
+      - _linux
+      - _linux_dev
+    variables:
+      host_ssh_key_name: pve-docker key
+      host_password: op://Home network/pun7qwv2tcg54nqlkeysiexnjy/password
+  pve-plex:
+    include:
+      - _linux
+      - _linux_dev
+    variables:
+      host_ssh_key_name: pve-plex key
+      host_password: op://Home network/svsbj2u5qqtbvaztuyeuydfgt4/password
+  pve-docker-priv:
+    include:
+      - _linux
+      - _linux_dev
+    variables:
+      host_ssh_key_name: pve-docker-priv key
+      host_password: op://Home network/pyy4iypg6epgszklcyhvsawh5q/password
+  _mac:
     dynvariables:
-      kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
-      kobo_colour_libra_serial: op read "op://Adam/Kobo/Kobo Colour Libra serial"
       alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
     variables:
       sublime_home: Library/Application Support/Sublime Text 3
       mac: true
-      songchro_file_music_root: /Volumes/music
       ssh_agent: "{{@@ env['HOME'] @@}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
       xdg_config_home: "{{@@ env['HOME'] @@}}/Library/Application Support"
     dotfiles:
@@ -310,38 +347,80 @@ profiles:
       - d_user
       - f_Alfred_prefs.json
       - f_com.googlecode.iterm2.plist
+      - f_config_kanidm
       - f_config_op_plugins.sh
-      - f_dedrm.json
       - f_finicky.js
-      - f_obok_dedrm_prefs.json
       - f_sublime_license
       - fake_iterm2_utils
-  linux_desktop:
+    include:
+      - _default
+  _linux_desktop:
     variables:
       sublime_home: .config/sublime-text-3
       ssh_agent: "{{@@ env['HOME'] @@}}/.1password/agent.sock"
     dotfiles:
       - d_user
       - f_sublime_license
-  linux:
+    include:
+      - _linux
+  _linux:
     variables:
       linux: true
       xdg_config_home: "{{@@ env['HOME'] @@}}/.config"
+    include:
+      - _default
+  _linux_dev:
+    include:
+      - _dev
+      - _linux
+  _personal_mac:
+    dynvariables:
+      kindle_serial: op read "op://Adam/7ulsf6t7v7egpdpu27w5wngxhm/Kindle Devices/u3t4nozwlcer5rd4bdpyltzcpq"
+      kobo_colour_libra_serial: op read "op://Adam/Kobo/Kobo Colour Libra serial"
     dotfiles:
       - d_config_pip
-  personal:
-    dotfiles:
-      - d_config_pip
-      - f_m2_settings_home
-      - f_pypirc_home
+      - f_dedrm.json
+      - f_obok_dedrm_prefs.json
     variables:
       personal: true
-  synology_dsm:
+      songchro_file_music_root: /Volumes/music
     include:
-      - linux
+      - _mac
+  _dev_mac:
+    include:
+      - _dev
+      - _mac
+    dotfiles:
+      - d_config_container
+      - d_config_opencode
+  _dev:
+    dotfiles:
+      - d_config_gh
+      - d_config_glab_cli
+      - d_git-template
+      - d_gradle_init_d
+      - f_docker_config.json
+      - f_gitconfig
+      - f_gitconfig-shorteners
+      - f_gitignore
+      - f_goenvrc
+      - f_gradle_properties
+      - f_hgrc
+      - f_m2_settings_home
+      - f_pypirc_home
+      - f_tigrc
+      - fake_goenv
+      - fake_pyenv
+    dynvariables:
+      github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
+  _synology_dsm:
+    include:
+      - _default
     variables:
       synology_dsm: true
-  default:
+    dotfiles:
+      - d_config_pip
+  _default:
     variables:
       linux: false
       mac: false
@@ -357,59 +436,36 @@ profiles:
       full_name: op item get 6jjizlkc5bstuors76ickhd7fa --fields "first name,last name" | tr ',' ' '
       github_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/login"
       github_netrc_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitHub/Section_E346B352A4E54313BBD97E6B371DF8FF/netrc"
-      github_signing_key: op read "op://Private/{{@@ host_ssh_key_name @@}}/public key"
       gitlab_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/username"
       homebrew_prefix: brew --prefix
       joint_google_account: op read "op://Joint/hqlcejuk5jil2e6hmmklzahub4/Email"
       personal_email: op read "op://Adam/6jjizlkc5bstuors76ickhd7fa/Internet Details/email"
-      personal_gitea_maven_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/Maven token"
       personal_gitea_hostname: "{{@@ personal_gitea_website @@}} | sed 's|https://||'"
-      personal_gitea_pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/Tokens/PyPI token"
-      personal_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/email"
-      personal_gitea_website: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/44cpfo43uza4dguc5l52zcl6ku/host address"
+      personal_gitea_maven_token: op read "op://Home network/xyzrcfuukvvg35dyyawz55d7j4/Tokens/Maven token"
+      personal_gitea_pypi_token: op read "op://Home network/xyzrcfuukvvg35dyyawz55d7j4/Tokens/PyPI token"
+      personal_gitea_username: op read "op://Home network/xyzrcfuukvvg35dyyawz55d7j4/email"
+      personal_gitea_website: op read "op://Home network/xyzrcfuukvvg35dyyawz55d7j4/host address"
       plex_baseurl: op read "op://Songchro/Plex/hostname"
       plex_token: op read "op://Songchro/Plex/credential"
       public_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/3evxc47vgvyz4w65n6krlpq25u/user_name"
       sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
-      synology_api_account: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/username"
-      synology_api_password: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/glpg6ggd6hstlznvzdxfwbgzfm/password"
-    include:
-      - zsh
-  zsh:
-    include:
-      - shared
-    dotfiles:
-      - d_oh-my-zsh-custom
-      - f_bash_profile-for-zsh
-      - f_p10k.zsh
-      - f_profile-for-zsh
-      - f_zshenv
-      - f_zshrc
-  shared:
     dotfiles:
       - d_bin
       - d_config_1Password
-      - d_config_gh
-      - d_config_glab_cli
       - d_config_songchro
-      - d_git-template
-      - d_gradle_init_d
+      - d_oh-my-zsh-custom
+      - f_bash_profile-for-zsh
       - f_bash_sessions_disable
       - f_curlrc
-      - f_docker_config.json
-      - f_gitconfig
-      - f_gitconfig-shorteners
-      - f_gitignore
-      - f_gradle_properties
-      - f_hgrc
       - f_hushlogin
+      - f_p10k.zsh
+      - f_profile-for-zsh
       - f_netrc
       - f_ssh_authorized_keys
       - f_ssh_config
       - f_ssh_known_hosts
-      - f_tigrc
       - f_tmux.conf
       - f_vimrc
       - f_wgetrc
-      - fake_goenv
-      - fake_pyenv
+      - f_zshenv
+      - f_zshrc

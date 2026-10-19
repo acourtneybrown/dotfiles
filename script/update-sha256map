@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/..
+
+mapfile="script/lib/resources/sha256.map"
+while IFS=$'\t' read -r url _hash; do
+  ./script/update-sha256 "$url"
+done < "$mapfile"

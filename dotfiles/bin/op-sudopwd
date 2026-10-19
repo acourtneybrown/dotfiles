@@ -4,4 +4,4 @@ if ! op whoami >/dev/null; then
   eval "$(op signin)"
 fi
 
-op read {{@@ host_password @@}}
+op read "{{@@ host_password @@}}"

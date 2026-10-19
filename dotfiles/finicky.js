@@ -115,6 +115,7 @@ export default {
 
         (url) => containsQueryParam(url.search, "op_vault=Adam"),
         (url) => containsQueryParam(url.search, "op_vault=Adam%20@%20Work"),
+        (url) => containsQueryParam(url.search, "op_vault=Home%20network"),
         (url) => containsQueryParam(url.search, "op_vault=Private"),
       ],
       url: (url) => openInFirefoxContainer("Adam", url),

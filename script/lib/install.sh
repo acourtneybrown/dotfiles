@@ -34,8 +34,8 @@ function install::mac_updates() {
 }
 
 function install::linux_updates() {
-  case $(lsb_release --id --short) in
-  Raspbian | Debian | Ubuntu)
+  case $(util::linux_id) in
+  Raspbian | Debian | Ubuntu | raspbian | debian | ubuntu)
     sudo apt autoremove -qy
     sudo apt update && sudo apt upgrade -qy
     ;;

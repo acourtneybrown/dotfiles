@@ -1,5 +1,7 @@
 # shellcheck shell=bash
 
+UTIL_SH_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
 function util::escape() {
   printf '%s' "${1//\'/\'}"
 }
@@ -14,11 +16,23 @@ function util::is_mac() {
 }
 
 function util::is_arm() {
-  [[ "$(uname -m)" = "arm64" ]]
+    local arch
+    arch=$(uname -m)
+    [[ "$arch" == "arm64" || "$arch" == "aarch64" ]]
 }
 
 function util::is_linux() {
   [[ "$(uname -s)" = "Linux" ]] && ! util::is_synology_dsm
+}
+
+function util::linux_id() {
+  if command -v lsb_release >/dev/null; then
+    lsb_release --id --short
+  elif [[ -f /etc/os-release ]]; then
+    grep ^ID= /etc/os-release | cut -d= -f2
+  else
+    echo "Unknown"
+  fi
 }
 
 function util::is_synology_dsm() {
@@ -60,8 +74,14 @@ function util::download_and_verify() {
   local tempfile
 
   url="${1}"
-  sha256="${2}"
-  output="${3}"
+  output="${2}"
+
+  sha256=$(grep -F "${url}" "${UTIL_SH_DIR}/resources/sha256.map" | cut -f2)
+  if [[ -z "${sha256}" ]]; then
+    echo "No SHA256 found for ${url}"
+    return
+  fi
+
   tempfile=$(mktemp "${TMPDIR:-/tmp}/sha256.XXXXXX")
   echo "${sha256}  $(basename "${output}")" >"${tempfile}"
 

@@ -4,6 +4,8 @@
 paths=(
   /usr/local/sbin
   /usr/local/bin
+  /usr/sbin
+  /sbin
   "${HOME}/go/bin"
   "${HOME}/bin"
   "/Applications/GoLand.app/Contents/MacOS"

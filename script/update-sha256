@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+set -e
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/..
+
+# shellcheck disable=SC1091
+. script/lib/util.sh
+
+function main() {
+  if [[ "${#}" -ne 1 ]]; then
+    util::abort "Must specify exactly one URL"
+  fi
+
+  local url="${1}"
+  local mapfile="script/lib/resources/sha256.map"
+
+  local tempfile
+  tempfile=$(mktemp "${TMPDIR:-/tmp}/sha256map.XXXXXX")
+  curl -fLsS --output "${tempfile}" "${url}"
+
+  local sha256
+  sha256=$(util::check_sha256 "${tempfile}" | cut -d' ' -f1)
+  rm -f "${tempfile}"
+
+  local tmpmap
+  tmpmap=$(mktemp "${TMPDIR:-/tmp}/sha256map.tmp.XXXXXX")
+  local found=false
+  while IFS=$'\t' read -r map_url map_hash; do
+    if [[ "${map_url}" == "${url}" ]]; then
+      printf '%s\t%s\n' "${url}" "${sha256}" >>"${tmpmap}"
+      found=true
+    else
+      printf '%s\t%s\n' "${map_url}" "${map_hash}" >>"${tmpmap}"
+    fi
+  done < "${mapfile}"
+
+  if [[ "${found}" == false ]]; then
+    printf '%s\t%s\n' "${url}" "${sha256}" >>"${tmpmap}"
+    echo "Added ${url}"
+  else
+    echo "Updated ${url}"
+  fi
+
+  mv "${tmpmap}" "${mapfile}"
+}
+
+main "${@}"

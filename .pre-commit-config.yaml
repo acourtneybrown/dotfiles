@@ -3,3 +3,18 @@ repos:
   rev: v0.9.0
   hooks:
   - id: shellcheck
+    args: [ "--exclude=SC2128,SC2148" ]
+    exclude: |
+      (?x)^(
+        dotfiles/git-template/hooks/pre-commit|
+        dotfiles/oh-my-zsh-custom/plugins/1password-custom/|
+        dotfiles/oh-my-zsh-custom/plugins/evalcache/|
+        dotfiles/oh-my-zsh-custom/plugins/jenv-custom/|
+        dotfiles/oh-my-zsh-custom/plugins/mariadb-dev/|
+        dotfiles/oh-my-zsh-custom/plugins/path/|
+        dotfiles/oh-my-zsh-custom/plugins/zsh-completions/|
+        dotfiles/oh-my-zsh-custom/themes/powerlevel10k/|
+        dotfiles/p10k.zsh|
+        dotfiles/scripts/docker-credential-1password/|
+        dotfiles/zshrc
+      )

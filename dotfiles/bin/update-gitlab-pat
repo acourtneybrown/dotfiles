@@ -1,0 +1,7 @@
+PAT_REF=${1:-"op://jrew5nqtk5aqdgupcoxqjuevwu/GitLab/Tokens/Gitea token"}
+
+PAT=$(op read "$PAT_REF")
+
+find . -name config | xargs grep -l gitlab | while read -r CONFIG_FILE; do
+	sudo sed -i.bak "s/glpat-[^@]*/${PAT}/g" "$CONFIG_FILE"
+done

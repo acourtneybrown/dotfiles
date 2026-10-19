@@ -6,5 +6,9 @@ if command -v brew &>/dev/null && [[ -d "$(brew --prefix)/share/zsh-completions"
   fpath=("$(brew --prefix)/share/zsh-completions" "$(brew --prefix)/share/zsh/site-functions" ${fpath})
 
   autoload -Uz compinit
+  {%@@ if synology_dsm @@%}
+  compinit -u
+  {%@@ else @@%}
   compinit
+  {%@@ endif @@%}
 fi
