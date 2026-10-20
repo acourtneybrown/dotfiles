@@ -1,1 +1,1 @@
-*.lock.json
+script/lib/resources/*.lock.json
