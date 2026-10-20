@@ -12,3 +12,4 @@ check_update: false
 display_hyperlinks: false
 # Default GitLab hostname to use
 host: gitlab.com
+last_seen_version: v1.123.0
