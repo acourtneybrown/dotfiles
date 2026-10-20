@@ -5,3 +5,11 @@ index-servers = personal_gitea
 repository = {{@@ personal_gitea_website @@}}/api/packages/{{@@ personal_gitea_username @@}}/pypi
 username = {{@@ personal_gitea_username @@}}
 password = {{@@ personal_gitea_pypi_token @@}}
+
+[testpypi]
+  username = __token__
+  password = {{@@ testpypi_token @@}}
+
+[pypi]
+  username = __token__
+  password = {{@@ pypi_token @@}}

@@ -448,7 +448,9 @@ profiles:
       plex_baseurl: op read "op://Songchro/Plex/hostname"
       plex_token: op read "op://Songchro/Plex/credential"
       public_gitea_username: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/3evxc47vgvyz4w65n6krlpq25u/user_name"
+      pypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/PyPI/Tokens/Upload packages token"
       sublime_text_license: op read "op://Adam/lewokobsx23vb6ncwce457sdvy/license key"
+      testpypi_token: op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Test PyPI/Tokens/Upload packages token"
     dotfiles:
       - d_bin
       - d_config_1Password
