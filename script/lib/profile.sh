@@ -117,8 +117,6 @@ function profile::synology_dsm() {
 }
 
 function profile::synology_dsm_after() {
-  profile::pipx_install 3.11 git+https://gitea.notcharlie.com/NotCharlie/update-default-cert@main
-
   _finalizers+=("profile::clean_tmpdir")
 }
 
