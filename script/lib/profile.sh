@@ -197,6 +197,8 @@ function profile::dev_mac_after() {
     sbx policy init balanced
     sbx policy allow network localhost:1234
     sbx policy allow network gitea.notcharlie.com
+    sbx policy allow network gitea.com
+    sbx policy allow network docs.gitea.com
     sbx settings set platform.allowExperimentalFeatures true
     sbx settings set feature.model true
     sbx settings set model.providers \
