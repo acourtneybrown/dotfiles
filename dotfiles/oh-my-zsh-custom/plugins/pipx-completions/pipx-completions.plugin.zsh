@@ -1,5 +1,7 @@
 # shellcheck disable=SC2148
 
-if [[ ${commands[alpyki]} ]]; then
-  _evalcache alpyki completion --shell zsh
-fi
+for cmd in alpyki songchro; do
+  if [[ ${commands[$cmd]} ]]; then
+    _evalcache $cmd completion --shell zsh
+  fi
+done
