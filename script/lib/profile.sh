@@ -41,7 +41,7 @@ function profile::personal_mac_after() {
   profile::configure_calibre
 
   profile::pipx_install 3.11 alpyki
-  profile::pipx_install 3.13 git+https://gitea.notcharlie.com/acourtneybrown/songchro@main
+  profile::pipx_install 3.13 songchro
   profile::pipx_install 3.13 python-kasa tox twine pytest build poetry
 }
 
