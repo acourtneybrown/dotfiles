@@ -32,17 +32,16 @@ function profile::default() {
 function profile::default_after() {
   profile::enable_pyenv
   profile::enable_goenv
-  profile::ensure_pyenv_version 3.11
-  pyenv global "$(profile::ensure_pyenv_version 3.13)"
-  goenv global "$(profile::ensure_goenv_version 1.25)"
+  pyenv global "$(profile::ensure_pyenv_version 3.15)"
+  goenv global "$(profile::ensure_goenv_version 1.27)"
 }
 
 function profile::personal_mac_after() {
   profile::configure_calibre
 
-  profile::pipx_install 3.11 alpyki
-  profile::pipx_install 3.13 songchro
-  profile::pipx_install 3.13 python-kasa tox twine pytest build poetry
+  profile::pipx_install 3.15 alpyki
+  profile::pipx_install 3.15 songchro
+  profile::pipx_install 3.15 python-kasa tox twine pytest build poetry
 }
 
 function profile::linux() {
