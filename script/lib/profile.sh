@@ -37,6 +37,11 @@ function profile::default_after() {
 }
 
 function profile::personal_mac_after() {
+  if [[ $(sw_vers -productVersion | cut -d. -f1) -ge 27 ]]; then
+    removemacai off
+    removemacai clean
+  fi
+
   profile::configure_calibre
 
   profile::pipx_install 3.15 alpyki
