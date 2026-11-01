@@ -3,6 +3,7 @@ name: "Update SHA256 hashes for downloads"
 on:
   schedule:
     - cron: "0 0 * * *"
+      timezone: "America/Phoenix"
   workflow_dispatch:
 
 jobs:
