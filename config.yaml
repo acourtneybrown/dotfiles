@@ -216,6 +216,10 @@ dotfiles:
     src: pypirc_home
     dst: ~/.pypirc
     chmod: 600
+  f_sbx-model:
+    src: sbx-model
+    dst: ~/.sbx-model
+    chmod: 644
   f_ssh_authorized_keys:
     src: ssh/authorized_keys
     dst: ~/.ssh/authorized_keys
@@ -393,6 +397,7 @@ profiles:
     dotfiles:
       - d_config_container
       - d_config_opencode
+      - f_sbx-model
   _dev:
     dotfiles:
       - d_config_gh
