@@ -1,7 +1,6 @@
 tap "acourtneybrown/cask", trusted: true
 tap "acourtneybrown/versions", trusted: true
 tap "buo/cask-upgrade", trusted: true
-tap "kanidm/kanidm", trusted: true
 tap "nrlquaker/createzap", trusted: true
 
 brew "asciinema"
@@ -11,7 +10,6 @@ brew "dark-mode"
 brew "findutils"
 brew "gnu-sed"
 brew "grep"
-brew "kanidm/kanidm/kanidm"
 brew "libmagic"
 brew "mas"
 brew "moreutils"
