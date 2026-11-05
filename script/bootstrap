@@ -101,9 +101,10 @@ function main() {
 
   for named in "${uniq_profiles[@]}"; do
     echo "start of profile <$named>"
-    profile::ensure_brewfile_installed "./lib/resources/Brewfile.${named}"
-    if command -v "profile::${named}"; then
-      "profile::${named}"
+    local impl="${named#_}"
+    profile::ensure_brewfile_installed "./lib/resources/Brewfile.${impl}"
+    if command -v "profile::${impl}"; then
+      "profile::${impl}"
     fi
   done
 
@@ -114,8 +115,9 @@ function main() {
   dotdrop install --force --profile="${PROFILE}" --cfg ../config.yaml
 
   for named in "${uniq_profiles[@]}"; do
-    if command -v "profile::${named}_after"; then
-      "profile::${named}_after"
+    local impl="${named#_}"
+    if command -v "profile::${impl}_after"; then
+      "profile::${impl}_after"
     fi
   done
 
