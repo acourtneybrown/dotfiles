@@ -1,6 +1,7 @@
 if [[ ${commands[sbx]} ]]; then
   # shellcheck disable=SC2206
   path=(${path} "$(dirname "$(readlink "$(which sbx)")")")
+  export LMSTUDIO_BASEURL="${LMSTUDIO_BASEURL:=http://localhost:1234/v1}"
 
   function _load_lms_api_key() {
     export LMSTUDIO_API_KEY="${LMSTUDIO_API_KEY:=$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/rbbgcx424dsim3tblf2s3kca34/credential")}"
@@ -8,7 +9,7 @@ if [[ ${commands[sbx]} ]]; then
 
   function _discover_lms_models() {
     local response
-    response=$(curl -sf -H "Authorization: Bearer $LMSTUDIO_API_KEY" http://localhost:1234/v1/models 2>/dev/null) || return 0
+    response=$(curl -sf -H "Authorization: Bearer $LMSTUDIO_API_KEY" LMSTUDIO_BASEURL/models 2>/dev/null) || return 0
     # shellcheck disable=SC2296
     LMSTUDIO_MODELS=("${(@f)$(echo "$response" | jq -r '.data[].id' 2>/dev/null)}")
   }
@@ -112,7 +113,7 @@ if [[ ${commands[sbx]} ]]; then
     _sbx_run lms-openai codex "$@"
   }
 
-  function sbx_models() {
+  function sbx-models() {
     _ensure_lms_discovered
     if (( ${#LMSTUDIO_MODELS} > 0 )); then
       print -l "${LMSTUDIO_MODELS[@]}"
@@ -121,7 +122,7 @@ if [[ ${commands[sbx]} ]]; then
     fi
   }
 
-  function sbx_global() {
+  function sbx-global() {
     _ensure_lms_discovered
     if (( $# == 0 )); then
       local model=""
@@ -142,7 +143,7 @@ if [[ ${commands[sbx]} ]]; then
     print -r -- "$model"
   }
 
-  function sbx_local() {
+  function sbx-local() {
     _ensure_lms_discovered
     if (( $# == 0 )); then
       local dir_model

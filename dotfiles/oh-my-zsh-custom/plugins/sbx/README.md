@@ -56,12 +56,12 @@ server, and use one of those IDs with `--model`.
 
 ### Model discovery & management
 
-- `sbx_models` — list the models discovered on the LM Studio server
+- `sbx-models` — list the models discovered on the LM Studio server
 
-- `sbx_global [model]` — set (or, with no arguments, read) the global default
+- `sbx-global [model]` — set (or, with no arguments, read) the global default
   model, stored in `~/.sbx-model`
 
-- `sbx_local [model]` — set (or, with no arguments, read) the model for the
+- `sbx-local [model]` — set (or, with no arguments, read) the model for the
   current directory, stored in `./.sbx-model`
 
 ## How the model is selected

@@ -199,10 +199,17 @@ function profile::dev_mac_after() {
     op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/Personal Access Tokens/SBX token" | \
         sbx login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username")" --password-stdin
     sbx policy init balanced
-    sbx policy allow network localhost:1234
-    sbx policy allow network gitea.notcharlie.com
-    sbx policy allow network gitea.com
-    sbx policy allow network docs.gitea.com
+
+    local network_allows
+    network_allows="$PROFILE_SH_DIR/resources/sbx_network_allows.txt"
+    while read -r network; do
+      # allow entries in network_allows.txt are host[:port] combos, one per line,
+      # with optional comments prefixed by `#`
+      if [[ -n "${network}" && "${network}" != \#* ]]; then
+        sbx policy allow network "${network}"
+      fi
+    done < "${network_allows}"
+
     sbx settings set platform.allowExperimentalFeatures true
     sbx settings set feature.model true
     sbx settings set model.providers \
@@ -216,7 +223,7 @@ function profile::dev_mac_after() {
 # install LaunchDaemon to ensure mosh is added to fw allow list
 function profile::install_fix_mosh() {
   local RESOURCES
-  RESOURCES="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/resources
+  RESOURCES="$PROFILE_SH_DIR/resources"
 
   # create target destination
   mkdir -p "/Users/Shared/.startup"
