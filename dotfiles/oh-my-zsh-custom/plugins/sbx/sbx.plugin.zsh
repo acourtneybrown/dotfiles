@@ -9,7 +9,7 @@ if [[ ${commands[sbx]} ]]; then
 
   function _discover_lms_models() {
     local response
-    response=$(curl -sf -H "Authorization: Bearer $LMSTUDIO_API_KEY" LMSTUDIO_BASEURL/models 2>/dev/null) || return 0
+    response=$(curl -sf -H "Authorization: Bearer $LMSTUDIO_API_KEY" "$LMSTUDIO_BASEURL/models" 2>/dev/null) || return 0
     # shellcheck disable=SC2296
     LMSTUDIO_MODELS=("${(@f)$(echo "$response" | jq -r '.data[].id' 2>/dev/null)}")
   }
