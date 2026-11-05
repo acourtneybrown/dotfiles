@@ -200,16 +200,6 @@ function profile::dev_mac_after() {
         sbx login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username")" --password-stdin
     sbx policy init balanced
 
-    local network_allows
-    network_allows="$PROFILE_SH_DIR/resources/sbx_network_allows.txt"
-    while read -r network; do
-      # allow entries in network_allows.txt are host[:port] combos, one per line,
-      # with optional comments prefixed by `#`
-      if [[ -n "${network}" && "${network}" != \#* ]]; then
-        sbx policy allow network "${network}"
-      fi
-    done < "${network_allows}"
-
     sbx settings set platform.allowExperimentalFeatures true
     sbx settings set feature.model true
     sbx settings set model.providers \
@@ -218,6 +208,9 @@ function profile::dev_mac_after() {
           "lms-anthropic":{"url":"http://localhost:1234/v1","wire":"anthropic","apiKeyEnv":"LMSTUDIO_API_KEY"}
         }'
   fi
+
+  # apply any additional network allow entries from the sbx allow list
+  "${PROFILE_SH_DIR}/apply-sbx-network-allows"
 }
 
 # install LaunchDaemon to ensure mosh is added to fw allow list
