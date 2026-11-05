@@ -274,12 +274,6 @@ profiles:
       - _mac
       - _dev_mac
       - _personal_mac
-  adams-mbp.local:
-    include:
-      - adams-mbp
-  adams-mbp.notcharlie.com:
-    include:
-      - adams-mbp
   beelink:
     include:
       - _linux
@@ -294,12 +288,6 @@ profiles:
       synology_password: op read "op://Home network/4fwv2ypyyuqba2mzxbtizwm7s4/password"
     dotfiles:
       - d_smbcredentials
-  beelink.local:
-    include:
-      - beelink
-  beelink.notcharlie.com:
-    include:
-      - beelink
   synology:
     include:
       - _synology_dsm

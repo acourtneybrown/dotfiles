@@ -58,13 +58,13 @@ function main() {
   PROFILE=$(hostname)
   explicit_profiles=()
   if util::is_mac; then
-    explicit_profiles+=(mac)
+    explicit_profiles+=(_mac)
   elif util::is_linux; then
-    explicit_profiles+=(linux)
+    explicit_profiles+=(_linux)
   elif util::is_synology_dsm; then
-    explicit_profiles+=(synology_dsm)
+    explicit_profiles+=(_synology_dsm)
   else
-    explicit_profiles+=(default)
+    explicit_profiles+=(_default)
   fi
   explicit_profiles+=("${@}")
   for named in "${explicit_profiles[@]}"; do
