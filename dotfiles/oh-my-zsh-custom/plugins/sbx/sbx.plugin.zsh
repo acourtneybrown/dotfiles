@@ -110,7 +110,7 @@ if [[ ${commands[sbx]} ]]; then
   }
 
   function sbxcodex() {
-    _sbx_run lms-openai codex "$@"
+    _sbx_run lms-openai sbx/codex-kit:latest "$@"
   }
 
   function sbx-models() {
