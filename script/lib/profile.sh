@@ -270,6 +270,12 @@ function profile::configure_calibre() {
   fi
   calibre-customize --add-plugin "${tmpdir}/KFX Input.zip"
 
+  if [ "$(util::download_and_verify https://plugins.calibre-ebook.com/366110.zip \
+    "${tmpdir}/Kobo Utilities.zip")" != "ok" ]; then
+    util::abort "Kobo Utilities.zip file changed"
+  fi
+  calibre-customize --add-plugin "${tmpdir}/Kobo Utilities.zip"
+
   rm -rf "$tmpdir"
 }
 
