@@ -8,6 +8,7 @@ repos:
       (?x)^(
         dotfiles/git-template/hooks/pre-commit|
         dotfiles/oh-my-zsh-custom/plugins/1password-custom/|
+        dotfiles/oh-my-zsh-custom/plugins/dotdrop/|
         dotfiles/oh-my-zsh-custom/plugins/evalcache/|
         dotfiles/oh-my-zsh-custom/plugins/jenv-custom/|
         dotfiles/oh-my-zsh-custom/plugins/mariadb-dev/|
