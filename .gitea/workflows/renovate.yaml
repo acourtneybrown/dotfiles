@@ -2,7 +2,7 @@ name: Renovate
 
 on:
   schedule:
-    - cron: "TZ=America/Phoenix 0 1 * * *"
+    - cron: "TZ=America/Phoenix 0 */3 * * *"
   workflow_dispatch: {}
 
 permissions:
