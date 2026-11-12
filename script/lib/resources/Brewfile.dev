@@ -1,3 +1,4 @@
+brew "act"
 brew "bazelisk"
 brew "black", restart_service: :changed
 brew "buildifier"
