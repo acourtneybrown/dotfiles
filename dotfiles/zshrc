@@ -114,7 +114,6 @@ plugins=(
   ripgrep-all
   setopts
   sublime
-  tea
   tig
   twilio
   venv
