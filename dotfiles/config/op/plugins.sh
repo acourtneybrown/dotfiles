@@ -11,3 +11,6 @@ gh() {
 glab() {
     op plugin run -- glab "$@"
 }
+gt() {
+    op plugin run -- gt "$@"
+}
