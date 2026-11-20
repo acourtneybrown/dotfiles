@@ -300,27 +300,6 @@ profiles:
       - f_goenvrc
       - fake_goenv
       - fake_pyenv
-  pve-docker:
-    include:
-      - _linux
-      - _linux_dev
-    variables:
-      host_ssh_key_name: pve-docker key
-      host_password: op://Home network/pun7qwv2tcg54nqlkeysiexnjy/password
-  pve-plex:
-    include:
-      - _linux
-      - _linux_dev
-    variables:
-      host_ssh_key_name: pve-plex key
-      host_password: op://Home network/svsbj2u5qqtbvaztuyeuydfgt4/password
-  pve-docker-priv:
-    include:
-      - _linux
-      - _linux_dev
-    variables:
-      host_ssh_key_name: pve-docker-priv key
-      host_password: op://Home network/pyy4iypg6epgszklcyhvsawh5q/password
   pve-fe:
     include:
       - _linux

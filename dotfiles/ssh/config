@@ -28,9 +28,6 @@ Host homeassistant homeassistant.notcharlie.com
 Host pve-fe pve-fe.notcharlie.com
   Hostname pve-fe.notcharlie.com
   User adam
-Host pve-nginx-proxy-manager pve-nginx-proxy-manager.notcharlie.com
-  Hostname pve-nginx-proxy-manager.notcharlie.com
-  User root
 Host unifi-* unifi-*.notcharlie.com
   User unifi-admin
 Host *.notcharlie.com
