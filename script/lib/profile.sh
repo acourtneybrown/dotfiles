@@ -76,9 +76,9 @@ function profile::linux_after() {
 
 function profile::linux_dev() {
   # Install recommended dependencies for Python builds - https://github.com/pyenv/pyenv/wiki#troubleshooting--faq
-  sudo apt install -qy make build-essential libssl-dev \
-    libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+  sudo apt install -qy make build-essential libssl-dev zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev curl git \
+    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libzstd-dev
 
   command -v docker >/dev/null || profile::install_docker_ce
   sudo adduser "$(whoami)" docker

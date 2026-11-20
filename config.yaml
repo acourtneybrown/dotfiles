@@ -321,6 +321,11 @@ profiles:
     variables:
       host_ssh_key_name: pve-docker-priv key
       host_password: op://Home network/pyy4iypg6epgszklcyhvsawh5q/password
+  pve-fe:
+    include:
+      - _linux
+    variables:
+      host_password: op://Home network/bgdgj7k444mgzvluwk6lcqtwdu/verifypassword
   _mac:
     dynvariables:
       alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
