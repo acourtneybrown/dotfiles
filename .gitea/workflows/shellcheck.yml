@@ -10,7 +10,7 @@ jobs:
     name: Shellcheck
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7.0.1
     - name: Run ShellCheck
       uses: ludeeus/action-shellcheck@2.0.0
       env:
@@ -19,6 +19,7 @@ jobs:
         ignore_paths: |
           ./dotfiles/git-template/hooks/pre-commit
           ./dotfiles/oh-my-zsh-custom/plugins/1password-custom/**
+          ./dotfiles/oh-my-zsh-custom/plugins/dotdrop/**
           ./dotfiles/oh-my-zsh-custom/plugins/evalcache/**
           ./dotfiles/oh-my-zsh-custom/plugins/jenv-custom/**
           ./dotfiles/oh-my-zsh-custom/plugins/mariadb-dev/**

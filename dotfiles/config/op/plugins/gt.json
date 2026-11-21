@@ -1,14 +1,14 @@
 {
 	"account_id": "3OEQP7K6IVGS7NDF437AKNKISE",
 	"entrypoint": [
-		"tea"
+		"gt"
 	],
 	"credentials": [
 		{
-			"plugin": "gitea",
+			"plugin": "gt",
 			"credential_type": "personal_access_token",
 			"usage_id": "personal_access_token",
-			"vault_id": "Home network",
+			"vault_id": "sy3vonbfi7ynaunxw4lco25xma",
 			"item_id": "xyzrcfuukvvg35dyyawz55d7j4"
 		}
 	]

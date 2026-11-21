@@ -1,11 +1,9 @@
 # shellcheck disable=SC2148
 
 # shellcheck disable=SC2154
-if [[ ${commands[tea]} ]]; then
-  _evalcache tea completion zsh
-
+if [[ ${commands[gt]} ]]; then
   # shellcheck disable=SC2296
-  LOCAL_TEA="$(dirname "${(%):-%N}")/tea"
+  LOCAL_GT="$(dirname "${(%):-%N}")/gt"
 
   # _gtclall is an internal function that clones all of the non-archived repos for a given user/org
   function _gtclall() {
@@ -13,7 +11,7 @@ if [[ ${commands[tea]} ]]; then
       return 1
     fi
 
-    "$LOCAL_TEA" repos list --limit 500 --output yaml | grep -v '^NOTE:' | yq ".[] | select(.owner == \"${1}\") | .ssh" | xargs -n 1 -I % "$LOCAL_TEA" clone %
+    "$LOCAL_GT" api --paginate "$1" --jq '.[] | select(.archived == false) | .ssh_url' | xargs -n 1 -I % "$LOCAL_GT" repo clone %
   }
 
   # gtclorg clones all of the non-archived projects under a Gitea org
@@ -22,7 +20,7 @@ if [[ ${commands[tea]} ]]; then
       echo "Usage: gtclorg <org>"
       return
     fi
-    _gtclall "${1}"
+    _gtclall "orgs/${1}/repos"
   }
 
   # glclorg clones all of the non-archived projects under a Gitea user
@@ -31,6 +29,6 @@ if [[ ${commands[tea]} ]]; then
       echo "Usage: gtcluser <user>"
       return
     fi
-    _gtclall "${1}"
+    _gtclall "users/${1}/repos"
   }
 fi

@@ -32,17 +32,21 @@ function profile::default() {
 function profile::default_after() {
   profile::enable_pyenv
   profile::enable_goenv
-  profile::ensure_pyenv_version 3.11
-  pyenv global "$(profile::ensure_pyenv_version 3.13)"
-  goenv global "$(profile::ensure_goenv_version 1.25)"
+  pyenv global "$(profile::ensure_pyenv_version 3.15)"
+  goenv global "$(profile::ensure_goenv_version 1.27)"
 }
 
 function profile::personal_mac_after() {
+  if [[ $(sw_vers -productVersion | cut -d. -f1) -ge 27 ]]; then
+    removemacai off
+    removemacai clean
+  fi
+
   profile::configure_calibre
 
-  profile::pipx_install 3.11 alpyki
-  profile::pipx_install 3.13 git+https://gitea.notcharlie.com/acourtneybrown/songchro@main
-  profile::pipx_install 3.13 python-kasa tox twine pytest build poetry
+  profile::pipx_install 3.15 alpyki
+  profile::pipx_install 3.15 songchro
+  profile::pipx_install 3.15 python-kasa tox twine pytest build poetry
 }
 
 function profile::linux() {
@@ -72,9 +76,9 @@ function profile::linux_after() {
 
 function profile::linux_dev() {
   # Install recommended dependencies for Python builds - https://github.com/pyenv/pyenv/wiki#troubleshooting--faq
-  sudo apt install -qy make build-essential libssl-dev \
-    libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+  sudo apt install -qy make build-essential libssl-dev zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev curl git \
+    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libzstd-dev
 
   command -v docker >/dev/null || profile::install_docker_ce
   sudo adduser "$(whoami)" docker
@@ -195,10 +199,7 @@ function profile::dev_mac_after() {
     op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/Personal Access Tokens/SBX token" | \
         sbx login --username "$(op read "op://jrew5nqtk5aqdgupcoxqjuevwu/Docker/username")" --password-stdin
     sbx policy init balanced
-    sbx policy allow network localhost:1234
-    sbx policy allow network gitea.notcharlie.com
-    sbx policy allow network gitea.com
-    sbx policy allow network docs.gitea.com
+
     sbx settings set platform.allowExperimentalFeatures true
     sbx settings set feature.model true
     sbx settings set model.providers \
@@ -207,12 +208,15 @@ function profile::dev_mac_after() {
           "lms-anthropic":{"url":"http://localhost:1234/v1","wire":"anthropic","apiKeyEnv":"LMSTUDIO_API_KEY"}
         }'
   fi
+
+  # apply any additional network allow entries from the sbx allow list
+  "${PROFILE_SH_DIR}/apply-sbx-network-allows"
 }
 
 # install LaunchDaemon to ensure mosh is added to fw allow list
 function profile::install_fix_mosh() {
   local RESOURCES
-  RESOURCES="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"/resources
+  RESOURCES="$PROFILE_SH_DIR/resources"
 
   # create target destination
   mkdir -p "/Users/Shared/.startup"

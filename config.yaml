@@ -153,9 +153,6 @@ dotfiles:
   f_com.googlecode.iterm2.plist:
     src: config/iterm2/com.googlecode.iterm2.plist
     dst: ~/.config/iterm2/com.googlecode.iterm2.plist
-  f_config_kanidm:
-    src: config/kanidm
-    dst: ~/.config/kanidm
   f_config_op_plugins.sh:
     src: config/op/plugins.sh
     dst: ~/.config/op/plugins.sh
@@ -216,6 +213,10 @@ dotfiles:
     src: pypirc_home
     dst: ~/.pypirc
     chmod: 600
+  f_sbx-model:
+    src: sbx-model
+    dst: ~/.sbx-model
+    chmod: 644
   f_ssh_authorized_keys:
     src: ssh/authorized_keys
     dst: ~/.ssh/authorized_keys
@@ -273,12 +274,6 @@ profiles:
       - _mac
       - _dev_mac
       - _personal_mac
-  adams-mbp.local:
-    include:
-      - adams-mbp
-  adams-mbp.notcharlie.com:
-    include:
-      - adams-mbp
   beelink:
     include:
       - _linux
@@ -293,12 +288,6 @@ profiles:
       synology_password: op read "op://Home network/4fwv2ypyyuqba2mzxbtizwm7s4/password"
     dotfiles:
       - d_smbcredentials
-  beelink.local:
-    include:
-      - beelink
-  beelink.notcharlie.com:
-    include:
-      - beelink
   synology:
     include:
       - _synology_dsm
@@ -311,27 +300,11 @@ profiles:
       - f_goenvrc
       - fake_goenv
       - fake_pyenv
-  pve-docker:
+  pve-fe:
     include:
       - _linux
-      - _linux_dev
     variables:
-      host_ssh_key_name: pve-docker key
-      host_password: op://Home network/pun7qwv2tcg54nqlkeysiexnjy/password
-  pve-plex:
-    include:
-      - _linux
-      - _linux_dev
-    variables:
-      host_ssh_key_name: pve-plex key
-      host_password: op://Home network/svsbj2u5qqtbvaztuyeuydfgt4/password
-  pve-docker-priv:
-    include:
-      - _linux
-      - _linux_dev
-    variables:
-      host_ssh_key_name: pve-docker-priv key
-      host_password: op://Home network/pyy4iypg6epgszklcyhvsawh5q/password
+      host_password: op://Home network/bgdgj7k444mgzvluwk6lcqtwdu/verifypassword
   _mac:
     dynvariables:
       alfred_workflow_service_account_token: op read "op://Service Account Tokens/Alfred Workflows/credential"
@@ -347,7 +320,6 @@ profiles:
       - d_user
       - f_Alfred_prefs.json
       - f_com.googlecode.iterm2.plist
-      - f_config_kanidm
       - f_config_op_plugins.sh
       - f_finicky.js
       - f_sublime_license
@@ -393,6 +365,7 @@ profiles:
     dotfiles:
       - d_config_container
       - d_config_opencode
+      - f_sbx-model
   _dev:
     dotfiles:
       - d_config_gh

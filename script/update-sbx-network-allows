@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+function update_sbx_network_allows() {
+	local NETWORK_ALLOWS
+
+	NETWORK_ALLOWS="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/lib/resources/sbx_network_allows.txt"
+
+	if ! command -v sbx >/dev/null 2>&1; then
+		echo "sbx is not installed!" >&2
+		return 1
+	fi
+
+	sbx policy ls --json |
+		jq -r '.rules[] | select(.resource_type == "network" and .decision == "allow") | select(.id | startswith("default-") | not) | .resources[]' |
+		sort -u >"${NETWORK_ALLOWS}"
+}
+
+update_sbx_network_allows "$@"
