@@ -14,3 +14,6 @@ glab() {
 gt() {
     op plugin run -- gt "$@"
 }
+twine() {
+    op plugin run -- twine "$@"
+}
