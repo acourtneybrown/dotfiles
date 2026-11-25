@@ -41,14 +41,6 @@ jobs:
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Install tea CLI
-        if: steps.push.outputs.has_changes == 'true'
-        uses: LiquidLogicLabs/git-action-install-gitea-tea@v2.0.6
-        with:
-          repo: ${{ gitea.server_url }}
-          token: ${{ secrets.CREATE_PR_TOKEN }}
-          username: workflow-updates
-
       - name: Create pull request
         if: steps.push.outputs.has_changes == 'true'
         env:
@@ -61,11 +53,11 @@ jobs:
             pr_id=$(echo "$existing" | jq -r '[.[] | select(.head == "update-sha256" and .base == "$base_branch")][0].index')
             echo "Existing PR #${pr_id}"
           else
-            tea pr create \
+            gt pr create \
               --repo $GITHUB_REPOSITORY\
               --head update-sha256 \
               --base "$base_branch" \
               --title "chore: update SHA256 hashes" \
-              --description "Automated daily update of SHA256 hashes for downloaded files."
+              --body "Automated daily update of SHA256 hashes for downloaded files."
             echo "Created new PR"
           fi
