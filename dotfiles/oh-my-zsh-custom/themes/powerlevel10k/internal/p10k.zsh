@@ -5083,8 +5083,9 @@ _p9k_prompt_terraform_init() {
 
 function prompt_terraform_version() {
   local v cfg terraform=${commands[terraform]}
+  local tenv_cfg="${TENV_ROOT:-$HOME/.tenv}/Terraform/version"
   _p9k_upglob .terraform-version -. || cfg=$_p9k__parent_dirs[$?]/.terraform-version
-  if _p9k_cache_stat_get $0.$TFENV_TERRAFORM_VERSION $terraform $cfg; then
+  if _p9k_cache_stat_get $0.$TFENV_TERRAFORM_VERSION $terraform $cfg $tenv_cfg; then
     v=$_p9k__cache_val[1]
   else
     v=${${"$(terraform --version 2>/dev/null)"#Terraform v}%%$'\n'*} || v=
@@ -6175,7 +6176,7 @@ _p9k_set_instant_prompt() {
   [[ -n $RPROMPT ]] || unset RPROMPT
 }
 
-typeset -gri __p9k_instant_prompt_version=47
+typeset -gri __p9k_instant_prompt_version=49
 
 _p9k_dump_instant_prompt() {
   local user=${(%):-%n}
@@ -6482,15 +6483,23 @@ _p9k_dump_instant_prompt() {
     local tmpdir=/tmp
   fi
   typeset -g __p9k_instant_prompt_output=$tmpdir/p10k-instant-prompt-output-${(%):-%n}-$$
-  { : > $__p9k_instant_prompt_output } || return
-  print -rn -- "${out}${esc}?2004h" || return
+  local fd_out fd_null
+  zmodload -F zsh/files b:zf_rm || return
+  # Remove a stale file of our own (killed shell, reused PID). In sticky /tmp this cannot
+  # unlink a symlink planted by another user, so O_EXCL below still refuses it.
+  zf_rm -f -- $__p9k_instant_prompt_output 2>/dev/null
+  sysopen -wo creat,excl -m 600 -u fd_out -- $__p9k_instant_prompt_output || return
+  if ! print -rn -- "${out}${esc}?2004h"; then
+    exec {fd_out}>&-
+    zf_rm -f -- $__p9k_instant_prompt_output 2>/dev/null
+    return 1
+  fi
   if (( $+commands[stty] )); then
     command stty -icanon 2>/dev/null
   fi
-  local fd_null
   sysopen -ru fd_null /dev/null || return
-  exec {__p9k_fd_0}<&0 {__p9k_fd_1}>&1 {__p9k_fd_2}>&2 0<&$fd_null 1>$__p9k_instant_prompt_output
-  exec 2>&1 {fd_null}>&-
+  exec {__p9k_fd_0}<&0 {__p9k_fd_1}>&1 {__p9k_fd_2}>&2 0<&$fd_null 1>&$fd_out
+  exec 2>&1 {fd_out}>&- {fd_null}>&-
   typeset -gi __p9k_instant_prompt_active=1
   if (( _z4h_can_save_restore_screen == 1 )); then
     typeset -g _z4h_saved_screen
@@ -9527,7 +9536,7 @@ if [[ $__p9k_dump_file != $__p9k_instant_prompt_dump_file && -n $__p9k_instant_p
   zf_rm -f -- $__p9k_instant_prompt_dump_file{,.zwc} 2>/dev/null
 fi
 
-typeset -g P9K_VERSION=1.20.18
+typeset -g P9K_VERSION=1.21.0
 
 if [[ ${VSCODE_SHELL_INTEGRATION-} == <1-> && ${+__p9k_force_term_shell_integration} == 0 ]]; then
   typeset -gri __p9k_force_term_shell_integration=1
